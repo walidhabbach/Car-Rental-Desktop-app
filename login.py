@@ -9,20 +9,43 @@ class Login(QtWidgets.QMainWindow):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
         self.ui.connectButton.clicked.connect(self.connect_to_database)
 
-    def getLoginPassword(self):
-        req = f"select * from utilisateur"
+    def getLoginPassword(self,login,password,admin_o_n):
+        req = f"select admin from super_utilisateur su join utilisateur u on su.idUser = u.idUser where login='{login}' and mdp='{password}' "
         self.connexion.cursor.execute(req)
         users = self.connexion.cursor.fetchall()
-        return users
-
+        message = QtWidgets.QMessageBox()
+        if(len(users) != 0):
+            print(admin_o_n)
+            if (admin_o_n == 'Admin' and users[0][0] == 0):
+                print("ceci est un compte d'un employé : ")
+                message.setIcon(QtWidgets.QMessageBox.Critical)
+                message.setText("ceci est un compte d'un employé : ")
+                message.setWindowTitle("Error!")
+                message.exec_()
+            elif(admin_o_n == 'Admin' and users[0][0] == 1):
+                message.setText("Connexion reussie")
+                message.setWindowTitle("Nice:)")
+                message.exec_()
+            if(admin_o_n == 'Employé' and users[0][0] == 1):
+                print("ceci est un compte d'un admin")
+                message.setIcon(QtWidgets.QMessageBox.Critical)
+                message.setText("ceci est un compte d'un admin")
+                message.setWindowTitle("Error!")
+                message.exec_()
+            elif(admin_o_n == 'Employé' and users[0][0] == 0):
+                message.setText("Connexion reussie")
+                message.setWindowTitle("nice!")
+                message.exec_()
+        else:
+            message.setText("Aucun compte enregistré")
+            message.exec_()
     def connect_to_database(self):
         if(self.connexion.connect()):
-            print("success")
-            users = self.getLoginPassword()
-            print(users)
-    def verifyCoordinates(self):
-        login = self.ui.login.text()
-        mdp = self.ui.mdp.text()
+            login = self.ui.login.text()
+            mdp = self.ui.mdp.text()
+            choix = self.ui.choix_admin.currentText()
+            self.getLoginPassword(login,mdp,choix)
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
