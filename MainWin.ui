@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1169</width>
-    <height>589</height>
+    <width>1246</width>
+    <height>859</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,14 +35,14 @@
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>-10</x>
        <y>0</y>
-       <width>911</width>
-       <height>431</height>
+       <width>981</width>
+       <height>451</height>
       </rect>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page_crud_cars">
       <widget class="QLabel" name="label">
@@ -108,7 +108,7 @@ font-size: 20px;</string>
      <rect>
       <x>250</x>
       <y>0</y>
-      <width>921</width>
+      <width>1001</width>
       <height>91</height>
      </rect>
     </property>
@@ -126,9 +126,9 @@ font-size: 20px;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>-10</y>
       <width>251</width>
-      <height>591</height>
+      <height>851</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -186,7 +186,7 @@ font-size: 20px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1169</width>
+     <width>1246</width>
      <height>26</height>
     </rect>
    </property>
