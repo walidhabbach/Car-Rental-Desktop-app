@@ -22,3 +22,6 @@ class Connexion:
 
     def affichage(self):
         print(self.cursor)
+
+
+
