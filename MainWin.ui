@@ -296,6 +296,9 @@ font-size: 20px;</string>
         <height>661</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;</string>
+      </property>
      </widget>
     </widget>
    </widget>

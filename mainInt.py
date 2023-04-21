@@ -21,24 +21,45 @@ class MainWindow(QtWidgets.QMainWindow):
         self.displayClients()
     def displayClients(self):
         self.ui.clients_data.clearContents()  # Clear the existing data in the table
-        self.ui.clients_data.setColumnCount(6)  # Set the number of columns in the table
-        self.ui.clients_data.setHorizontalHeaderLabels(['idUser', 'Nom', 'prenom', 'Adresse'])  # Set the column labels
+        self.ui.clients_data.setColumnCount(14)  # Set the number of columns in the table
+        self.ui.clients_data.setHorizontalHeaderLabels(['idUser', 'Adresse', 'nom', 'prenom','societe','cin','tel','ville','permis','passport','observation','liste_noire'])  # Set the column labels
+
         users = self.client.getClientsData(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ")
         self.ui.clients_data.setRowCount(len(users))  # Set the number of rows in the table
         tab = ["edit.png", "voir.png"]
+
+        #adding select check mark :
+
+
         for row_idx, user in enumerate(users):
             for col_idx, item in enumerate(user):
                 self.ui.clients_data.setItem(row_idx, col_idx,
                                              QTableWidgetItem(str(item)))  # Set the table item with the data
+
+
+
         icon = QtGui.QIcon("./icons/edit.png")
         icon_col = QTableWidgetItem("")
         icon_col.setIcon(icon)
-        self.ui.clients_data.setItem(0, 4, icon_col)
+        self.ui.clients_data.setItem(0, 12, icon_col)
+        self.ui.clients_data.resizeColumnsToContents()  # Resize the columns to fit the content
+
         icon = QtGui.QIcon("./icons/delete.png")
         icon_col = QTableWidgetItem("")
         icon_col.setIcon(icon)
-        self.ui.clients_data.setItem(0, 5, icon_col)
+        self.ui.clients_data.setItem(0, 13, icon_col)
         self.ui.clients_data.resizeColumnsToContents()  # Resize the columns to fit the content
+
+
+        for row in range(self.ui.clients_data.rowCount()):
+            for col in range(self.ui.clients_data.columnCount()-2):
+                item = self.ui.clients_data.item(row, col)
+                if(col == 11):
+                    if(int(item.text()) == 1):
+                        item.setBackground(QtGui.QColor("red"))
+                    else:
+                        item.setBackground(QtGui.QColor("green"))
+
     def dropMenu(self):
         if(self.visible == True):
             self.visible = False
@@ -50,7 +71,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def handlClick(self,index:QtCore.QModelIndex):
         row = index.row()
         column = index.column()
-        if(column == 4):
+        if(column == 12):
             model = self.ui.clients_data.model()
             # Get the idUser of the clicked cell
             data = model.data(model.index(0, 0))
