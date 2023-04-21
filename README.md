@@ -1,6 +1,5 @@
 # Location-voiture
 Run MainWin.py not with designer.exe !!!!!!!!!!!
-<h1>Desktop Application for Managing Clients, Employees, and Invoices</h1>
 
 <h2>Getting Started</h2>
 
