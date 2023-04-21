@@ -36,7 +36,7 @@ class MainWindow(QtWidgets.QMainWindow):
                                                      QtWidgets.QMessageBox.No)
             if(message == QtWidgets.QMessageBox.Yes):
                 print("yes")
-                edit_client = ec.EditClient()
+                edit_client = ec.EditClient(data)
                 edit_client.show()
             else:
                 print("NO")
