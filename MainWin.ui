@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1246</width>
-    <height>859</height>
+    <width>1640</width>
+    <height>949</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(35, 35, 35);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="panelContent">
@@ -35,14 +35,14 @@
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="geometry">
       <rect>
-       <x>-10</x>
+       <x>0</x>
        <y>0</y>
-       <width>981</width>
-       <height>451</height>
+       <width>1041</width>
+       <height>691</height>
       </rect>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page_crud_cars">
       <widget class="QLabel" name="label">
@@ -86,8 +86,8 @@ font-size: 20px;</string>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>294</x>
-         <y>170</y>
+         <x>500</x>
+         <y>20</y>
          <width>141</width>
          <height>81</height>
         </rect>
@@ -108,7 +108,7 @@ font-size: 20px;</string>
      <rect>
       <x>250</x>
       <y>0</y>
-      <width>1001</width>
+      <width>1391</width>
       <height>91</height>
      </rect>
     </property>
@@ -142,8 +142,8 @@ font-size: 20px;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-10</y>
-      <width>251</width>
+      <y>0</y>
+      <width>261</width>
       <height>851</height>
      </rect>
     </property>
@@ -159,10 +159,10 @@ font-size: 20px;</string>
     <widget class="QPushButton" name="btnCrud_cars">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>20</y>
+       <x>30</x>
+       <y>180</y>
        <width>221</width>
-       <height>71</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="text">
@@ -172,29 +172,161 @@ font-size: 20px;</string>
     <widget class="QPushButton" name="btnCrud_users">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>120</y>
+       <x>30</x>
+       <y>250</y>
        <width>221</width>
-       <height>71</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="text">
       <string>CRUD USERS</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnCrud_clients">
+    <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>230</y>
-       <width>221</width>
-       <height>71</height>
+       <x>80</x>
+       <y>70</y>
+       <width>121</width>
+       <height>111</height>
       </rect>
      </property>
      <property name="text">
-      <string>CRUD CLIENTS</string>
+      <string>TextLabel</string>
      </property>
     </widget>
+    <widget class="QFrame" name="drop_down_two">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>460</y>
+       <width>221</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">visibility: hidden;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>liste noire des clients</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>reservation des clients</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frame">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>370</y>
+       <width>251</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="btnCrud_clients">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>201</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CRUD CLIENTS</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="dropBtn">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>20</y>
+        <width>21</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>&gt;</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="exitBtn">
+    <property name="geometry">
+     <rect>
+      <x>1542</x>
+      <y>0</y>
+      <width>61</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: red;
+color: white;
+font-size: 20px;</string>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
+   </widget>
+   <widget class="QTableView" name="clients_data">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>90</y>
+      <width>1361</width>
+      <height>761</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1361</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;
+color: black;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -202,12 +334,78 @@ font-size: 20px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1246</width>
+     <width>1640</width>
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile_F">
+    <property name="title">
+     <string>File(&amp;F)</string>
+    </property>
+    <addaction name="actionQuitter"/>
+    <addaction name="actionQuitter_l_application"/>
+   </widget>
+   <widget class="QMenu" name="menuView_v">
+    <property name="title">
+     <string>Utilisateur</string>
+    </property>
+    <addaction name="actionRecherche_voiture"/>
+    <addaction name="actionRecherche_User"/>
+   </widget>
+   <widget class="QMenu" name="menuVoiture">
+    <property name="title">
+     <string>Voiture</string>
+    </property>
+    <addaction name="actionRecherche_une_voiture"/>
+    <addaction name="actionCRUD_voiture"/>
+   </widget>
+   <widget class="QMenu" name="menuClients">
+    <property name="title">
+     <string>Clients</string>
+    </property>
+    <addaction name="actionCRUD_client"/>
+   </widget>
+   <addaction name="menuFile_F"/>
+   <addaction name="menuView_v"/>
+   <addaction name="menuVoiture"/>
+   <addaction name="menuClients"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>paramètres</string>
+   </property>
+  </action>
+  <action name="actionQuitter_l_application">
+   <property name="text">
+    <string>Quitter l'application</string>
+   </property>
+  </action>
+  <action name="actionRecherche_voiture">
+   <property name="text">
+    <string>Recherche voiture</string>
+   </property>
+  </action>
+  <action name="actionRecherche_User">
+   <property name="text">
+    <string>manipulation des users</string>
+   </property>
+  </action>
+  <action name="actionRecherche_une_voiture">
+   <property name="text">
+    <string>Recherche une voiture</string>
+   </property>
+  </action>
+  <action name="actionCRUD_voiture">
+   <property name="text">
+    <string>CRUD voiture</string>
+   </property>
+  </action>
+  <action name="actionCRUD_client">
+   <property name="text">
+    <string>CRUD client</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

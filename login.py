@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import conn
-import main as m
+import mainInt as m
 class Login(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -42,18 +42,22 @@ class Login(QtWidgets.QMainWindow):
         else:
             message.setText("Au cun compte enregistré")
             message.exec_()
+            flag = False
         return flag
     def connect_to_database(self):
         if(self.connexion.connect()):
             login = self.ui.login.text()
             mdp = self.ui.mdp.text()
             choix = self.ui.choix_admin.currentText()
-            check = self.getLoginPassword(login,mdp,choix)
+            #check = self.getLoginPassword(login,mdp,choix)
             # giving access to the main :
-            if(check == True):
-                main_window = m.MainWindow(login)
-                main_window.show()
-                self.hide()
+            #if(check == True):
+            print("everything is good")
+            main_window = m.MainWindow(login,choix)
+            #main_window.showFullScreen()
+            main_window.show()
+            self.hide()
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
