@@ -7,8 +7,22 @@ from PyQt5.QtWidgets import QTableWidgetItem,QTabWidget
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix):
         super().__init__()
-        self.ui = uic.loadUi("MainWin.ui", self)
+        self.ui = uic.loadUi("sidebar.ui", self)
+        self.ui.full_menu_widget.setVisible(False)
         self.visible = False
+        pixmap = QtGui.QPixmap("./icon/Logo.png")
+        self.ui.main_logo.setPixmap(pixmap)
+        self.ui.home_Btn.setIcon(QtGui.QIcon("./icon/home-4-32.ico"))
+        self.ui.home_btn_2.setIcon(QtGui.QIcon("./icon/home-4-48.ico"))
+        self.ui.change_btn.setIcon(QtGui.QIcon("./icon/menu-4-32.ico"))
+        self.ui.search_btn.setIcon(QtGui.QIcon("./icon/search-13-48.ico"))
+        self.ui.dashborad_btn.setIcon(QtGui.QIcon("./icon/dashboard-5-32.ico"))
+        self.ui.dashborad_btn_2.setIcon(QtGui.QIcon("./icon/dashboard-5-48.ico"))
+        self.ui.exit_btn.setIcon(QtGui.QIcon("./icon/close-window-64.ico"))
+        self.ui.exit_btn_2.setIcon(QtGui.QIcon("./icon/close-window-64.ico"))
+        self.ui.client_btn.setIcon(QtGui.QIcon("./icon/group-32.ico"))
+        self.ui.client_btn_2.setIcon(QtGui.QIcon("./icon/group-48.ico"))
+        '''
         self.ui.drop_down_two.setVisible(self.visible)
         self.ui.btnCrud_clients.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.page_crud_clients))
         self.ui.btnCrud_users.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.page_crud_users))
@@ -18,7 +32,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.login_name.setText(self.login_name.text() + login)
         self.ui.clients_data.clicked.connect(self.handlClick)
         self.client = Client.Client()
-        self.displayClients()
+        self.displayClients()'''
+
     def displayClients(self):
         self.ui.clients_data.clearContents()  # Clear the existing data in the table
         self.ui.clients_data.setColumnCount(14)  # Set the number of columns in the table

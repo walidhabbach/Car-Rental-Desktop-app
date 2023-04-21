@@ -54,7 +54,7 @@ class Login(QtWidgets.QMainWindow):
             #if(check == True):
             print("everything is good")
             main_window = m.MainWindow(login,choix)
-            main_window.showFullScreen()
+            main_window.show()
             self.hide()
 
 
