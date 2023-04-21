@@ -14,95 +14,9 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(35,35,35)</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="panelContent">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>100</y>
-      <width>911</width>
-      <height>431</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QStackedWidget" name="stackedWidget">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>1041</width>
-       <height>691</height>
-      </rect>
-     </property>
-     <property name="currentIndex">
-      <number>2</number>
-     </property>
-     <widget class="QWidget" name="page_crud_cars">
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>160</y>
-         <width>161</width>
-         <height>71</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: white;
-font-size: 20px;</string>
-       </property>
-       <property name="text">
-        <string>CRUD CARS</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="page_crud_users">
-      <widget class="QLabel" name="label_2">
-       <property name="geometry">
-        <rect>
-         <x>254</x>
-         <y>150</y>
-         <width>141</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: white;
-font-size: 20px;</string>
-       </property>
-       <property name="text">
-        <string>crud users</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="page_crud_clients">
-      <widget class="QLabel" name="label_3">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>20</y>
-         <width>141</width>
-         <height>81</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: white;
-font-size: 20px;</string>
-       </property>
-       <property name="text">
-        <string>CRUD CLIENTS</string>
-       </property>
-      </widget>
-     </widget>
-    </widget>
-   </widget>
    <widget class="QFrame" name="panelTop">
     <property name="geometry">
      <rect>
@@ -305,28 +219,85 @@ font-size: 20px;</string>
      <string>Exit</string>
     </property>
    </widget>
-   <widget class="QTableView" name="clients_data">
+   <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
       <x>260</x>
       <y>90</y>
-      <width>1361</width>
+      <width>1381</width>
       <height>761</height>
      </rect>
     </property>
-    <property name="minimumSize">
-     <size>
-      <width>1361</width>
-      <height>0</height>
-     </size>
+    <property name="currentIndex">
+     <number>2</number>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: white;
-color: black;</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
+    <widget class="QWidget" name="page_crud_cars">
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>160</y>
+        <width>161</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;
+font-size: 20px;</string>
+      </property>
+      <property name="text">
+       <string>CRUD CARS</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_crud_users">
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>254</x>
+        <y>150</y>
+        <width>141</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;
+font-size: 20px;</string>
+      </property>
+      <property name="text">
+       <string>crud users</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_crud_clients">
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>20</y>
+        <width>141</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white;
+font-size: 20px;</string>
+      </property>
+      <property name="text">
+       <string>CRUD CLIENTS</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="clients_data">
+      <property name="geometry">
+       <rect>
+        <x>15</x>
+        <y>10</y>
+        <width>1351</width>
+        <height>661</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
