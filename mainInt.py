@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QTableWidgetItem,QTabWidget
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix):
         super().__init__()
-        self.ui = uic.loadUi("sidebar.ui", self)
+        self.ui = uic.loadUi("main_ui.ui", self)
         self.ui.full_menu_widget.setVisible(False)
         self.visible = False
         pixmap = QtGui.QPixmap("./icon/Logo.png")
@@ -22,17 +22,25 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.exit_btn_2.setIcon(QtGui.QIcon("./icon/close-window-64.ico"))
         self.ui.client_btn.setIcon(QtGui.QIcon("./icon/group-32.ico"))
         self.ui.client_btn_2.setIcon(QtGui.QIcon("./icon/group-48.ico"))
-        '''
-        self.ui.drop_down_two.setVisible(self.visible)
-        self.ui.btnCrud_clients.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.page_crud_clients))
-        self.ui.btnCrud_users.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.page_crud_users))
-        self.ui.btnCrud_cars.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.page_crud_cars))
-        self.ui.exitBtn.clicked.connect(self.exitApp)
-        self.ui.dropBtn.clicked.connect(self.dropMenu)
-        self.login_name.setText(self.login_name.text() + login)
+        self.ui.exit_btn_2.setIcon(QtGui.QIcon("./icon/close-window-64.ico"))
+        self.ui.cars_btn.setIcon(QtGui.QIcon("./icon/car.png"))
+        self.ui.cars_btn_2.setIcon(QtGui.QIcon("./icon/car.png"))
+
+        self.ui.client_btn_2.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.page_crud_clients))
+        self.ui.client_btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.page_crud_clients))
+
+        self.ui.cars_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.page_crud_cars))
+        self.ui.cars_btn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.page_crud_cars))
+
         self.ui.clients_data.clicked.connect(self.handlClick)
         self.client = Client.Client()
-        self.displayClients()'''
+        self.displayClients()
+
+        '''
+        self.ui.drop_down_two.setVisible(self.visible)
+        self.ui.dropBtn.clicked.connect(self.dropMenu)
+        self.login_name.setText(self.login_name.text() + login)
+       '''
 
     def displayClients(self):
         self.ui.clients_data.clearContents()  # Clear the existing data in the table
@@ -57,13 +65,11 @@ class MainWindow(QtWidgets.QMainWindow):
         icon_col = QTableWidgetItem("")
         icon_col.setIcon(icon)
         self.ui.clients_data.setItem(0, 12, icon_col)
-        self.ui.clients_data.resizeColumnsToContents()  # Resize the columns to fit the content
 
         icon = QtGui.QIcon("./icons/delete.png")
         icon_col = QTableWidgetItem("")
         icon_col.setIcon(icon)
         self.ui.clients_data.setItem(0, 13, icon_col)
-        self.ui.clients_data.resizeColumnsToContents()  # Resize the columns to fit the content
 
 
         for row in range(self.ui.clients_data.rowCount()):
@@ -74,7 +80,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         item.setBackground(QtGui.QColor("red"))
                     else:
                         item.setBackground(QtGui.QColor("green"))
-
+        self.ui.clients_data.resizeColumnsToContents()  # Resize the columns to fit the content
     def dropMenu(self):
         if(self.visible == True):
             self.visible = False

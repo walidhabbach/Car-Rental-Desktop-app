@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>950</width>
-    <height>600</height>
+    <width>1202</width>
+    <height>742</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -276,7 +276,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="products_btn_1">
+          <widget class="QPushButton" name="cars_btn_2">
            <property name="text">
             <string/>
            </property>
@@ -483,9 +483,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="products_btn_2">
+          <widget class="QPushButton" name="cars_btn">
            <property name="text">
-            <string>Products</string>
+            <string>Gestion voiture</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -509,7 +509,7 @@
          <item>
           <widget class="QPushButton" name="client_btn">
            <property name="text">
-            <string>Customers</string>
+            <string>Gestion client</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -695,9 +695,9 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>5</number>
+          <number>4</number>
          </property>
-         <widget class="QWidget" name="page">
+         <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="0">
             <widget class="QLabel" name="label_4">
@@ -716,7 +716,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_2">
+         <widget class="QWidget" name="dashboard">
           <layout class="QGridLayout" name="gridLayout_3">
            <item row="0" column="0">
             <widget class="QLabel" name="label_5">
@@ -754,7 +754,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_4">
+         <widget class="QWidget" name="page_crud_cars">
           <layout class="QGridLayout" name="gridLayout_5">
            <item row="0" column="0">
             <widget class="QLabel" name="label_7">
@@ -764,7 +764,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Product Page</string>
+              <string>CARS PAGE</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -773,7 +773,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_5">
+         <widget class="QWidget" name="page_crud_clients">
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="0" column="0">
             <widget class="QLabel" name="label_8">
@@ -783,12 +783,15 @@
               </font>
              </property>
              <property name="text">
-              <string>Customers Page</string>
+              <string>Clients Page</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QTableWidget" name="clients_data"/>
            </item>
           </layout>
          </widget>
@@ -924,9 +927,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>products_btn_1</sender>
+   <sender>cars_btn_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>products_btn_2</receiver>
+   <receiver>cars_btn</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1004,9 +1007,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>products_btn_2</sender>
+   <sender>cars_btn</sender>
    <signal>toggled(bool)</signal>
-   <receiver>products_btn_1</receiver>
+   <receiver>cars_btn_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
