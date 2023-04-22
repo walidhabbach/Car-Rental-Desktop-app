@@ -25,7 +25,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.exit_btn_2.setIcon(QtGui.QIcon("./icon/close-window-64.ico"))
         self.ui.cars_btn.setIcon(QtGui.QIcon("./icon/car.png"))
         self.ui.cars_btn_2.setIcon(QtGui.QIcon("./icon/car.png"))
-
+        self.ui.users_btn.setIcon(QtGui.QIcon("./icon/activity-feed-32.ico"))
+        self.ui.users_btn_2.setIcon(QtGui.QIcon("./icon/activity-feed-48.ico"))
+        self.ui.user_info_btn.setIcon(QtGui.QIcon("./icon/user-48.ico"))
+        
         self.ui.client_btn_2.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.page_crud_clients))
         self.ui.client_btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.page_crud_clients))
 

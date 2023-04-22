@@ -252,7 +252,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="orders_btn_1">
+          <widget class="QPushButton" name="users_btn_2">
            <property name="text">
             <string/>
            </property>
@@ -399,7 +399,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Sidebar</string>
+            <string>Location voiture</string>
            </property>
           </widget>
          </item>
@@ -459,9 +459,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="orders_btn_2">
+          <widget class="QPushButton" name="users_btn">
            <property name="text">
-            <string>Orders</string>
+            <string>Gestion users</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -679,7 +679,10 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="user_btn">
+           <widget class="QPushButton" name="user_info_btn">
+            <property name="styleSheet">
+             <string notr="true">background:transparent;</string>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -911,9 +914,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>orders_btn_1</sender>
+   <sender>users_btn_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>orders_btn_2</receiver>
+   <receiver>users_btn</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -991,9 +994,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>orders_btn_2</sender>
+   <sender>users_btn</sender>
    <signal>toggled(bool)</signal>
-   <receiver>orders_btn_1</receiver>
+   <receiver>users_btn_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
