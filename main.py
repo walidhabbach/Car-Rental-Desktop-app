@@ -21,34 +21,57 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.btnCrud_cars.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.page_crud_cars))
         self.connect_to_database()
 
-        #Add Car Section
+        # Add Car Section
         self.ui.AddButton.clicked.connect(self.addCarButton)
         self.displayCars()
         self.addImage.clicked.connect(self.image_dialog)
 
-        # Brand Section
+        # load combobox
         self.load_Brands()
+        self.load_Fuel()
 
         # Connect the combobox signal to a slot
-        self.comboBoxBrand.currentIndexChanged.connect(self.on_combobox_index_changed)
+        self.comboBoxBrand.currentIndexChanged.connect(self.id_Selected_Brand)
+        self.comboBoxFuel.currentIndexChanged.connect(self.id_Selected_Fuel)
 
     @pyqtSlot(int)
-    def on_combobox_index_changed(self):
+    def id_Selected_Brand(self):
 
         # Assuming self.comboBoxBrand is your QComboBox object
 
         # Get the selected index
         selected_index = self.comboBoxBrand.currentIndex()
 
-        # Get the item data using the selected index
-        item_data = self.comboBoxBrand.itemData(selected_index)
+        # Get the item key using the selected index
+        key = self.comboBoxBrand.itemData(selected_index,QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
 
-        # Get the text of the selected item
-        item_text = self.comboBoxBrand.itemText(selected_index)
+        # Get the value of the selected item
+        value = self.comboBoxBrand.itemText(selected_index)
 
-        # Print the retrieved text and data
-        print("Text: ", item_text)
-        print("Data: ", item_data)
+        # Print the retrieved text and data+
+        print("value: ", value)
+        print("key: ", key)
+
+        return key
+    def id_Selected_Fuel(self):
+
+        # Assuming self.comboBoxBrand is your QComboBox object
+
+        # Get the selected index
+        selected_index = self.comboBoxFuel.currentIndex()
+
+        # Get the item key using the selected index
+        key = self.comboBoxFuel.itemData(selected_index,QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
+
+        # Get the value of the selected item
+        value = self.comboBoxFuel.itemText(selected_index)
+
+        # Print the retrieved text and data+
+        print("value: ", value)
+        print("key: ", key)
+
+        return key
+
 
     def connect_to_database(self):
         self.connexion.connect()
@@ -81,13 +104,18 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             print(f"An error occurred: {e}")
     def addCarButton(self):
-        brand = self.ui.brand.text()
-        model = self.ui.model.text()
-        fuel = self.ui.fuel.text()
+        try:
 
-        img = self.convertToBinary(self.imagePath)
-        print(img)
-        self.car.addCar(brand, model, fuel,img)
+
+            brand = self.id_Selected_Brand()
+            model = self.ui.model.text()
+            fuel = self.id_Selected_Fuel()
+            img = self.convertToBinary(self.imagePath)
+            self.car.addCar(brand, model, fuel,img)
+
+            self.displayCars()
+        except Exception as e:
+            print(f"addCarButton : An error occurred: {e}")
 
     def displayCars(self):
         self.ui.tableWidget.clearContents()  # Clear the existing data in the table
@@ -95,7 +123,7 @@ class MainWindow(QtWidgets.QMainWindow):
         cars = self.car.getCar("SELECT * FROM voiture;")  # Retrieve data from the database
         self.ui.tableWidget.setColumnCount(6)  # Set the number of columns in the table, including the image column
         self.ui.tableWidget.setHorizontalHeaderLabels(
-            ["Image","idCar", "idMarque", "idCarburant", "Model", "Fuel"])  # Set the column labels
+            ["Image","idCar", "idMarque", "idCarburant", "Model"])  # Set the column labels
         self.ui.tableWidget.setRowCount(len(cars))  # Set the number of rows in the table
 
         for row_idx, car in enumerate(cars):
@@ -141,20 +169,28 @@ class MainWindow(QtWidgets.QMainWindow):
         self.comboBoxBrand.addItem('Select Brand')
         brands = self.brand.getBrands()
         print(brands)
-        i = 0
         if isinstance(brands, dict):
             for key, value in brands.items():
                 self.comboBoxBrand.addItem(value)
-                self.comboBoxBrand.setItemData(i, key)
-                i += 1
+                # Set the key as custom data for the item
+                self.comboBoxBrand.setItemData(self.comboBoxBrand.count() - 1, key)
+
         else:
             print("Error: Brands is not a dictionary.")
 
     def load_Fuel(self):
-        brands = self.car.getFuel()
-        brand_names = [brand[0] for brand in brands]
-        print(brand_names)
-        self.comboBoxFuel.addItems(brand_names)
+
+        self.comboBoxFuel.clear()
+        self.comboBoxFuel.addItem('Select Carburant')
+        fuel = self.car.getFuel()
+        print(fuel)
+        if isinstance(fuel, dict):
+            for key, value in fuel.items():
+                self.comboBoxFuel.addItem(str(value))
+                # Set the key as custom data for the item
+                self.comboBoxFuel.setItemData(self.comboBoxFuel.count() - 1, key)
+        else:
+            print("Error: fuel is not a dictionary.")
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
