@@ -7,9 +7,10 @@ class EditClient(QtWidgets.QMainWindow):
         self.client = Client.Client()
         self.ui = uic.loadUi("../main/editClient_ui.ui",self)
         self.ui.editBtn.clicked.connect(self.editClientBtn)
-        self.displayDataClient()
-    def displayDataClient(self):
-        users = self.client.getClientsData(f"select adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ")
+        self.displayDataClient(f"select adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ")
+
+    def displayDataClient(self,request):
+        users = self.client.getClientsData(request)
         for user in users:
             adresse, nom, prenom, societe, cin, tel, ville, permis, passport, observation, liste_noire = user
         self.ui.societe.setText(societe)

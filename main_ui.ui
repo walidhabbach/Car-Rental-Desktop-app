@@ -16,6 +16,9 @@
   <property name="styleSheet">
    <string notr="true">/*= Style for mainwindow START
   ==================================================== */
+	*{
+		font-size: 17px;
+	}
 	#MainWindow {
 		background-color: #fff;
 	}
@@ -53,7 +56,7 @@
 	#icon_only_widget QPushButton, QLabel {
 		height:50px;
 		border:none;
-		/* border-bottom: 1px solid #b0b0b0; */
+		 /*border-bottom: 1px solid #b0b0b0; */
 	}
 
 	#icon_only_widget QPushButton:hover {
@@ -153,6 +156,9 @@
     </property>
     <item row="0" column="0">
      <widget class="QWidget" name="icon_only_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(32,35,30)</string>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <property name="spacing">
         <number>0</number>
@@ -185,6 +191,9 @@
              <height>50</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(32,35,30)</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -202,6 +211,9 @@
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
           <number>0</number>
+         </property>
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMaximumSize</enum>
          </property>
          <item>
           <widget class="QPushButton" name="home_btn_2">
@@ -323,6 +335,13 @@
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QPushButton" name="reservation_btn2">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item>
@@ -360,6 +379,9 @@
     </item>
     <item row="0" column="1">
      <widget class="QWidget" name="full_menu_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(32,35,30)</string>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -395,8 +417,11 @@
           <widget class="QLabel" name="logo_label_3">
            <property name="font">
             <font>
-             <pointsize>15</pointsize>
+             <pointsize>-1</pointsize>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-size:14px</string>
            </property>
            <property name="text">
             <string>Location voiture</string>
@@ -530,6 +555,35 @@
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QPushButton" name="liste_noire_btn">
+           <property name="styleSheet">
+            <string notr="true">checked:#fff</string>
+           </property>
+           <property name="text">
+            <string>Liste noire</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="reserv">
+           <property name="text">
+            <string>Liste de reservation clients</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item>
@@ -539,8 +593,8 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>373</height>
+           <width>0</width>
+           <height>0</height>
           </size>
          </property>
         </spacer>
@@ -698,7 +752,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>4</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -706,7 +760,7 @@
             <widget class="QLabel" name="label_4">
              <property name="font">
               <font>
-               <pointsize>20</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="text">
@@ -725,7 +779,7 @@
             <widget class="QLabel" name="label_5">
              <property name="font">
               <font>
-               <pointsize>20</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="text">
@@ -744,7 +798,7 @@
             <widget class="QLabel" name="label_6">
              <property name="font">
               <font>
-               <pointsize>20</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="text">
@@ -763,7 +817,7 @@
             <widget class="QLabel" name="label_7">
              <property name="font">
               <font>
-               <pointsize>20</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="text">
@@ -778,11 +832,14 @@
          </widget>
          <widget class="QWidget" name="page_crud_clients">
           <layout class="QGridLayout" name="gridLayout_6">
+           <item row="1" column="0">
+            <widget class="QTableWidget" name="clients_data"/>
+           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_8">
              <property name="font">
               <font>
-               <pointsize>20</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="text">
@@ -793,41 +850,54 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QTableWidget" name="clients_data"/>
+           <item row="2" column="0">
+            <widget class="QFrame" name="frame">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_6">
+         <widget class="QWidget" name="page_noire_clients">
           <layout class="QGridLayout" name="gridLayout_7">
            <item row="0" column="0">
             <widget class="QLabel" name="label_9">
              <property name="font">
               <font>
-               <pointsize>20</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="text">
-              <string>Search Page</string>
+              <string>Page noire</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
+           <item row="1" column="0">
+            <widget class="QTableWidget" name="page_noire_data"/>
+           </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_7">
+         <widget class="QWidget" name="page_reserv">
           <layout class="QGridLayout" name="gridLayout_8">
+           <item row="1" column="0">
+            <widget class="QTableWidget" name="reservation_data"/>
+           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_10">
              <property name="font">
               <font>
-               <pointsize>20</pointsize>
+               <pointsize>-1</pointsize>
               </font>
              </property>
              <property name="text">
-              <string>User Page</string>
+              <string>Page reservation</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>

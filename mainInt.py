@@ -28,30 +28,38 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.users_btn.setIcon(QtGui.QIcon("./icon/activity-feed-32.ico"))
         self.ui.users_btn_2.setIcon(QtGui.QIcon("./icon/activity-feed-48.ico"))
         self.ui.user_info_btn.setIcon(QtGui.QIcon("./icon/user-48.ico"))
-        
-        self.ui.client_btn_2.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.page_crud_clients))
-        self.ui.client_btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.page_crud_clients))
+        self.ui.reservation_btn2.setIcon(QtGui.QIcon("./icon/user-48.ico"))
 
-        self.ui.cars_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.page_crud_cars))
-        self.ui.cars_btn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.page_crud_cars))
+        self.ui.client_btn_2.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_clients))
+        self.ui.client_btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_clients))
+
+        self.ui.cars_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_cars))
+        self.ui.cars_btn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_cars))
+
+        self.ui.liste_noire_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_noire_clients))
+
+        self.ui.reserv.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_reserv))
 
         self.ui.clients_data.clicked.connect(self.handlClick)
         self.client = Client.Client()
-        self.displayClients()
 
+        self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
+        self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",
+            self.ui.page_noire_data)
         '''
         self.ui.drop_down_two.setVisible(self.visible)
         self.ui.dropBtn.clicked.connect(self.dropMenu)
         self.login_name.setText(self.login_name.text() + login)
        '''
+        self.displayReservations()
+    def displayClients(self,request,table):
+        table.clearContents()  # Clear the existing data in the table
+        table.setColumnCount(14)  # Set the number of columns in the table
+        table.setHorizontalHeaderLabels(['idUser', 'Adresse', 'nom', 'prenom','societe','cin','tel','ville','permis','passport','observation','liste_noire'])  # Set the column labels
 
-    def displayClients(self):
-        self.ui.clients_data.clearContents()  # Clear the existing data in the table
-        self.ui.clients_data.setColumnCount(14)  # Set the number of columns in the table
-        self.ui.clients_data.setHorizontalHeaderLabels(['idUser', 'Adresse', 'nom', 'prenom','societe','cin','tel','ville','permis','passport','observation','liste_noire'])  # Set the column labels
-
-        users = self.client.getClientsData(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ")
-        self.ui.clients_data.setRowCount(len(users))  # Set the number of rows in the table
+        users = self.client.getClientsData(request)
+        print(users)
+        table.setRowCount(len(users))  # Set the number of rows in the table
         tab = ["edit.png", "voir.png"]
 
         #adding select check mark :
@@ -59,7 +67,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         for row_idx, user in enumerate(users):
             for col_idx, item in enumerate(user):
-                self.ui.clients_data.setItem(row_idx, col_idx,
+                table.setItem(row_idx, col_idx,
                                              QTableWidgetItem(str(item)))  # Set the table item with the data
 
 
@@ -67,23 +75,23 @@ class MainWindow(QtWidgets.QMainWindow):
         icon = QtGui.QIcon("./icons/edit.png")
         icon_col = QTableWidgetItem("")
         icon_col.setIcon(icon)
-        self.ui.clients_data.setItem(0, 12, icon_col)
+        table.setItem(0, 12, icon_col)
 
         icon = QtGui.QIcon("./icons/delete.png")
         icon_col = QTableWidgetItem("")
         icon_col.setIcon(icon)
-        self.ui.clients_data.setItem(0, 13, icon_col)
+        table.setItem(0, 13, icon_col)
 
 
-        for row in range(self.ui.clients_data.rowCount()):
-            for col in range(self.ui.clients_data.columnCount()-2):
-                item = self.ui.clients_data.item(row, col)
+        for row in range(table.rowCount()):
+            for col in range(table.columnCount()-2):
+                item = table.item(row, col)
                 if(col == 11):
                     if(int(item.text()) == 1):
                         item.setBackground(QtGui.QColor("red"))
                     else:
                         item.setBackground(QtGui.QColor("green"))
-        self.ui.clients_data.resizeColumnsToContents()  # Resize the columns to fit the content
+        table.resizeColumnsToContents()  # Resize the columns to fit the content
     def dropMenu(self):
         if(self.visible == True):
             self.visible = False
@@ -95,6 +103,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def handlClick(self,index:QtCore.QModelIndex):
         row = index.row()
         column = index.column()
+        print("hna")
         if(column == 12):
             model = self.ui.clients_data.model()
             # Get the idUser of the clicked cell
@@ -110,3 +119,20 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 print("NO")
 
+    def displayReservations(self):
+        self.ui.reservation_data.clearContents()  # Clear the existing data in the table
+        self.ui.reservation_data.setColumnCount(3)  # Set the number of columns in the table
+        self.ui.reservation_data.setHorizontalHeaderLabels(
+            ['idUser', 'idCar', 'date'])  # Set the column labels
+
+        users = self.client.getClientsData("SELECT * FROM RESERVATION")
+        print(users)
+        self.ui.reservation_data.setRowCount(len(users))  # Set the number of rows in the table
+        tab = ["edit.png", "voir.png"]
+
+        # adding select check mark :
+
+        for row_idx, user in enumerate(users):
+            for col_idx, item in enumerate(user):
+                self.ui.reservation_data.setItem(row_idx, col_idx,
+                              QTableWidgetItem(str(item)))  # Set the table item with the data
