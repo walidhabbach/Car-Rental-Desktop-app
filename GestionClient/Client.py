@@ -8,9 +8,12 @@ class Client:
             self.connexion.cursor.execute(req)
             users = self.connexion.cursor.fetchall()
             return users
-    def updateClient(self,tel,radioOui,permis,observation,idUser):
+    def updateClient(self,client_dict):
         print("edit button triggered")
-        req = f"UPDATE client SET tel='{tel}', liste_noire = '{radioOui}', " \
-              f" permis = '{permis}',observation='{observation}' WHERE idUser='{idUser}'"
+        print(client_dict)
+
+        print("updated successfully")
+    def supprimerClient(self,id):
+        req = f"DELETE FROM CLIENT WHERE IDUSER = '{id}'"
         self.connexion.cursor.execute(req)
         self.connexion.conn.commit()

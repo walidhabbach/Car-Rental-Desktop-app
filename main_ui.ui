@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1202</width>
-    <height>742</height>
+    <width>1394</width>
+    <height>715</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -752,7 +752,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>6</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -832,25 +832,7 @@
          </widget>
          <widget class="QWidget" name="page_crud_clients">
           <layout class="QGridLayout" name="gridLayout_6">
-           <item row="1" column="0">
-            <widget class="QTableWidget" name="clients_data"/>
-           </item>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_8">
-             <property name="font">
-              <font>
-               <pointsize>-1</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Clients Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
             <widget class="QFrame" name="frame">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -858,6 +840,66 @@
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>20</y>
+                <width>151</width>
+                <height>28</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: red;
+color: white;
+border: 0;</string>
+              </property>
+              <property name="text">
+               <string>Supprimer client</string>
+              </property>
+             </widget>
+             <widget class="QComboBox" name="comboClients">
+              <property name="geometry">
+               <rect>
+                <x>350</x>
+                <y>20</y>
+                <width>161</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="modifier_btn">
+              <property name="geometry">
+               <rect>
+                <x>180</x>
+                <y>20</y>
+                <width>151</width>
+                <height>28</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: orange;
+color: white;
+border: 0;</string>
+              </property>
+              <property name="text">
+               <string>Modifier/Afficher</string>
+              </property>
+             </widget>
+             <widget class="QTableWidget" name="clients_data">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>90</y>
+                <width>1051</width>
+                <height>471</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: transparent;
+border: 0</string>
+              </property>
+             </widget>
             </widget>
            </item>
           </layout>
@@ -886,22 +928,24 @@
          </widget>
          <widget class="QWidget" name="page_reserv">
           <layout class="QGridLayout" name="gridLayout_8">
-           <item row="1" column="0">
-            <widget class="QTableWidget" name="reservation_data"/>
-           </item>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_10">
-             <property name="font">
-              <font>
-               <pointsize>-1</pointsize>
-              </font>
+            <widget class="QFrame" name="frame_2">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
-             <property name="text">
-              <string>Page reservation</string>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
+             <widget class="QTableWidget" name="reservation_data">
+              <property name="geometry">
+               <rect>
+                <x>100</x>
+                <y>120</y>
+                <width>731</width>
+                <height>371</height>
+               </rect>
+              </property>
+             </widget>
             </widget>
            </item>
           </layout>
