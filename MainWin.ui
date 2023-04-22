@@ -71,7 +71,7 @@ font-size: 20px;</string>
        <property name="geometry">
         <rect>
          <x>630</x>
-         <y>20</y>
+         <y>30</y>
          <width>341</width>
          <height>671</height>
         </rect>
@@ -108,7 +108,7 @@ font-size: 20px;</string>
          </rect>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>Brand</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="model">
@@ -124,49 +124,23 @@ font-size: 20px;</string>
          <string notr="true">background-color:red;</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="brand">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>160</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color:red;</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="fuel">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>230</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color:red;</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_6">
         <property name="geometry">
          <rect>
-          <x>60</x>
+          <x>50</x>
           <y>210</y>
-          <width>47</width>
-          <height>13</height>
+          <width>51</width>
+          <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>Fuel</string>
         </property>
        </widget>
        <widget class="QPushButton" name="AddButton">
         <property name="geometry">
          <rect>
-          <x>140</x>
+          <x>130</x>
           <y>430</y>
           <width>75</width>
           <height>23</height>
@@ -192,7 +166,7 @@ font-size: 20px;</string>
        <widget class="QLabel" name="image_label">
         <property name="geometry">
          <rect>
-          <x>60</x>
+          <x>50</x>
           <y>290</y>
           <width>141</width>
           <height>91</height>
@@ -200,6 +174,26 @@ font-size: 20px;</string>
         </property>
         <property name="text">
          <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBoxBrand">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>160</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBoxFuel">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>240</y>
+          <width>181</width>
+          <height>31</height>
+         </rect>
         </property>
        </widget>
       </widget>

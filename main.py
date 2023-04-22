@@ -2,6 +2,8 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5 import uic
 from car import Car
+from brand import Brand
+from PyQt5.QtCore import pyqtSlot
 import conn
 from PyQt5.QtWidgets import QTableWidgetItem,QFileDialog,QLabel
 from PyQt5.QtGui import QPixmap
@@ -9,6 +11,7 @@ import base64
 
 class MainWindow(QtWidgets.QMainWindow):
     car = Car()
+    brand = Brand()
     def __init__(self):
         super().__init__()
         self.ui = uic.loadUi("MainWin.ui", self)
@@ -22,6 +25,30 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.AddButton.clicked.connect(self.addCarButton)
         self.displayCars()
         self.addImage.clicked.connect(self.image_dialog)
+
+        # Brand Section
+        self.load_Brands()
+
+        # Connect the combobox signal to a slot
+        self.comboBoxBrand.currentIndexChanged.connect(self.on_combobox_index_changed)
+
+    @pyqtSlot(int)
+    def on_combobox_index_changed(self):
+
+        # Assuming self.comboBoxBrand is your QComboBox object
+
+        # Get the selected index
+        selected_index = self.comboBoxBrand.currentIndex()
+
+        # Get the item data using the selected index
+        item_data = self.comboBoxBrand.itemData(selected_index)
+
+        # Get the text of the selected item
+        item_text = self.comboBoxBrand.itemText(selected_index)
+
+        # Print the retrieved text and data
+        print("Text: ", item_text)
+        print("Data: ", item_data)
 
     def connect_to_database(self):
         self.connexion.connect()
@@ -85,7 +112,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.tableWidget.setItem(row_idx, 3, QTableWidgetItem(str(car[2])))
             self.ui.tableWidget.setItem(row_idx, 4, QTableWidgetItem(str(car[4])))
 
-
         self.ui.tableWidget.verticalHeader().setDefaultSectionSize(80)  # Set default row height
 
     def image_dialog(self):
@@ -108,6 +134,27 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.image_label.adjustSize()
         except Exception as e:
             print(f"An error occurred: {e}")
+
+    #load combobox
+    def load_Brands(self):
+        self.comboBoxBrand.clear()
+        self.comboBoxBrand.addItem('Select Brand')
+        brands = self.brand.getBrands()
+        print(brands)
+        i = 0
+        if isinstance(brands, dict):
+            for key, value in brands.items():
+                self.comboBoxBrand.addItem(value)
+                self.comboBoxBrand.setItemData(i, key)
+                i += 1
+        else:
+            print("Error: Brands is not a dictionary.")
+
+    def load_Fuel(self):
+        brands = self.car.getFuel()
+        brand_names = [brand[0] for brand in brands]
+        print(brand_names)
+        self.comboBoxFuel.addItems(brand_names)
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
