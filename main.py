@@ -30,7 +30,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             QtWidgets.QMessageBox.critical(self, "Error", "Failed to connect to database")
 
-    # Add Car Section
+    #Car Section
     def convertToBinary(self,path):
         try:
             with open(path, "rb") as File:
@@ -40,6 +40,17 @@ class MainWindow(QtWidgets.QMainWindow):
             print(f"Error: File not found at path '{path}'")
         except PermissionError:
             print(f"Error: Permission denied to read file at path '{path}'")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+    def getImageLabel(self, binary_data):
+        try:
+            # Convert binary data to base64-encoded string
+            base64_data = base64.b64encode(binary_data).decode()
+            # Create QPixmap from base64-encoded string
+            pixmap = QPixmap()
+            pixmap.loadFromData(base64.b64decode(base64_data))
+            return pixmap
         except Exception as e:
             print(f"An error occurred: {e}")
     def addCarButton(self):
@@ -53,18 +64,29 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def displayCars(self):
         self.ui.tableWidget.clearContents()  # Clear the existing data in the table
-        cars = self.car.getCar("SELECT * FROM voiture;")
-        self.ui.tableWidget.setColumnCount(4)  # Set the number of columns in the table
-        self.ui.tableWidget.setHorizontalHeaderLabels(['idCar', 'Brand', 'Model', 'Fuel'])  # Set the column labels
+
+        cars = self.car.getCar("SELECT * FROM voiture;")  # Retrieve data from the database
+        self.ui.tableWidget.setColumnCount(6)  # Set the number of columns in the table, including the image column
+        self.ui.tableWidget.setHorizontalHeaderLabels(
+            ["Image","idCar", "idMarque", "idCarburant", "Model", "Fuel"])  # Set the column labels
         self.ui.tableWidget.setRowCount(len(cars))  # Set the number of rows in the table
 
         for row_idx, car in enumerate(cars):
-            for col_idx, item in enumerate(car):
-                self.ui.tableWidget.setItem(row_idx, col_idx,
-                                            QTableWidgetItem(str(item)))  # Set the table item with the data
+            label = QLabel()  # Create a QLabel to display the image
+            label.setScaledContents(True)  # Set the label to scale its contents
+            label.setMaximumSize(80, 80)
+            pixmap = self.getImageLabel(car[3])  # Get QPixmap from binary data
+            label.setPixmap(pixmap)
 
-        self.ui.tableWidget.resizeColumnsToContents()  # Resize the columns to fit the content
+            self.ui.tableWidget.setCellWidget(row_idx, 0, label)  # Set the label as the cell widget for the image column
 
+            self.ui.tableWidget.setItem(row_idx, 1, QTableWidgetItem(str(car[0])))
+            self.ui.tableWidget.setItem(row_idx, 2, QTableWidgetItem(str(car[1])))
+            self.ui.tableWidget.setItem(row_idx, 3, QTableWidgetItem(str(car[2])))
+            self.ui.tableWidget.setItem(row_idx, 4, QTableWidgetItem(str(car[4])))
+
+
+        self.ui.tableWidget.verticalHeader().setDefaultSectionSize(80)  # Set default row height
 
     def image_dialog(self):
         try:
