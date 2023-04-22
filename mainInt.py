@@ -85,12 +85,13 @@ class MainWindow(QtWidgets.QMainWindow):
                                              QTableWidgetItem(str(item)))  # Set the table item with the data
 
         for row in range(table.rowCount()):
-            for col in range(table.columnCount()-2):
-                item = table.item(row, col)
-                if(col == 11):
-                    if(int(item.text()) == 1):
+            for column in range(self.ui.clients_data.columnCount()):
+                item = self.ui.clients_data.item(row, column)
+                if item is not None:
+                    column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
+                    if(column_name == "liste_noire" and int(item.text()) == 1):
                         item.setBackground(QtGui.QColor("red"))
-                    else:
+                    elif (column_name == "liste_noire" and int(item.text()) == 0):
                         item.setBackground(QtGui.QColor("green"))
         table.resizeColumnsToContents()  # Resize the columns to fit the content
     def dropMenu(self):
