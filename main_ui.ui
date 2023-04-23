@@ -762,7 +762,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>4</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -823,6 +823,135 @@
          </widget>
          <widget class="QWidget" name="page_crud_cars">
           <layout class="QGridLayout" name="gridLayout_5">
+           <item row="1" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QFrame" name="frame_4">
+               <property name="minimumSize">
+                <size>
+                 <width>519</width>
+                 <height>628</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(30,30,30)</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="QTableWidget" name="tableWidgetCar">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>661</width>
+                  <height>628</height>
+                 </rect>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>256</width>
+                  <height>628</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(32,35,40)</string>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="model">
+                <property name="geometry">
+                 <rect>
+                  <x>770</x>
+                  <y>190</y>
+                  <width>141</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(0, 85, 255)</string>
+                </property>
+               </widget>
+               <widget class="QComboBox" name="comboBoxBrand">
+                <property name="geometry">
+                 <rect>
+                  <x>760</x>
+                  <y>260</y>
+                  <width>141</width>
+                  <height>22</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(170, 170, 255)</string>
+                </property>
+               </widget>
+               <widget class="QComboBox" name="comboBoxFuel">
+                <property name="geometry">
+                 <rect>
+                  <x>760</x>
+                  <y>340</y>
+                  <width>141</width>
+                  <height>22</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(170, 170, 255)</string>
+                </property>
+               </widget>
+               <widget class="QLabel" name="image_label">
+                <property name="geometry">
+                 <rect>
+                  <x>670</x>
+                  <y>10</y>
+                  <width>141</width>
+                  <height>141</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>MS Gothic</family>
+                  <pointsize>-1</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white</string>
+                </property>
+                <property name="text">
+                 <string>image</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="AddButton">
+                <property name="geometry">
+                 <rect>
+                  <x>790</x>
+                  <y>420</y>
+                  <width>75</width>
+                  <height>23</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>addCar</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="addImage">
+                <property name="geometry">
+                 <rect>
+                  <x>890</x>
+                  <y>50</y>
+                  <width>111</width>
+                  <height>23</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>addImage</string>
+                </property>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_7">
              <property name="font">
@@ -871,7 +1000,7 @@ border: 0;</string>
              <widget class="QComboBox" name="comboClients">
               <property name="geometry">
                <rect>
-                <x>740</x>
+                <x>550</x>
                 <y>20</y>
                 <width>181</width>
                 <height>31</height>
@@ -926,25 +1055,6 @@ border: 0;</string>
               </property>
               <property name="text">
                <string>Liste de reservation</string>
-              </property>
-             </widget>
-             <widget class="QPushButton" name="reservation_client_btn_2">
-              <property name="geometry">
-               <rect>
-                <x>550</x>
-                <y>20</y>
-                <width>161</width>
-                <height>28</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(24, 209, 24);
-color: black;
-border: 0;
-cursor:pointer;</string>
-              </property>
-              <property name="text">
-               <string>Ajouter client</string>
               </property>
              </widget>
             </widget>

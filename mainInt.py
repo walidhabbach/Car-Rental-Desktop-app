@@ -4,6 +4,21 @@ sys.path.append("./GestionClient/")
 from GestionClient import Client
 from GestionClient import editClient as ec
 from PyQt5.QtWidgets import QTableWidgetItem,QTabWidget
+from PyQt5.QtGui import QPixmap
+
+sys.path.append("./GestionClient/")
+from GestionClient import Client
+from GestionClient import editClient as ec
+
+sys.path.append("./GestionVoiture/")
+from GestionVoiture import car
+from GestionVoiture import brand
+
+sys.path.append("./Tools/")
+from Tools import Convertion
+
+
+from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
 from GestionClient import ReservationClient as rc
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix,admin_o_n):
@@ -62,6 +77,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",
             self.ui.page_noire_data)
+        self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
         '''
         self.ui.drop_down_two.setVisible(self.visible)
         self.ui.dropBtn.clicked.connect(self.dropMenu)
@@ -72,6 +88,36 @@ class MainWindow(QtWidgets.QMainWindow):
                              "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
         self.fillComboClient(self.ui.comboClients_2,
                              f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
+        self.fillComboClient(self.ui.comboClients, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
+        self.fillComboClient(self.ui.comboClients_2, f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
+
+     ########################################### Car Section ##########################################################
+
+        self.car = car.Car()
+        self.brand = brand.Brand()
+        self.convert = Convertion.convert()
+
+        # Add Car Section
+        self.ui.AddButton.clicked.connect(self.addCarButton)
+        self.ui.tableWidgetCar.clearContents()
+        print("2")
+        # Retrieve data from the database
+        car_data = self.car.getCar("SELECT * FROM voiture;")
+        self.displayCars(car_data)
+        print("3")
+        self.addImage.clicked.connect(self.image_dialog)
+        self.ui.search_input.textChanged.connect(self.sync_SearchLine)
+        print("4")
+        # load combobox
+        self.load_Brand_Fuel()
+        print("5")
+        # Connect the combobox signal to a slot
+        self.comboBoxBrand.currentIndexChanged.connect(self.id_SelectedBrand)
+        self.comboBoxFuel.currentIndexChanged.connect(self.id_SelectedFuel )
+        print("6")
+
+     ###############################################################################################################
+
     def selectReservationClient(self):
         if(bool(self.client_dict) == True):
             reservations = self.client.getValuePairDataClient(
@@ -80,12 +126,9 @@ class MainWindow(QtWidgets.QMainWindow):
             reservation_client_ui.show()
         else:
             print("Try to click on a client")
-        self.client_dict.clear()
-    def messageBox(self,field):
-        message = QtWidgets.QMessageBox.question(None, "Confirmation",
-                                                 f"{field} : {self.client_dict['idUser']}",
-                                                 QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
-                                                 QtWidgets.QMessageBox.No)
+            self.client_dict.clear()
+    def messageBox(self, field):
+        message = QtWidgets.QMessageBox.question(None, "Confirmation",f"{field} : {self.client_dict['idUser']}", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
         return message
     def updateTable(self):
         if(bool(self.client_dict)) == True:
@@ -183,4 +226,122 @@ class MainWindow(QtWidgets.QMainWindow):
             self.displayClients(
                 f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",
                 self.ui.clients_data)
+
+    ############################################## Car Section ########################################################
+    def sync_SearchLine(self, text):
+        # Retrieve data from the database
+        car_data = self.car.searchByModel(text)
+        self.displayCars(car_data)
+    def addCarButton(self):
+        try:
+            brand = self.id_SelectedBrand()
+            model = self.ui.model.text()
+            fuel = self.id_SelectedFuel()
+            img = self.convert.convertToBinary(self.imagePath)
+            self.car.addCar(brand, model, fuel,img)
+            # Retrieve data from the database
+            car_data = self.car.getCar("SELECT * FROM voiture;")
+            self.displayCars(car_data)
+        except Exception as e:
+            print(f"addCarButton : An error occurred: {e}")
+    def displayCars(self,data):
+        self.ui.tableWidgetCar.clearContents()  # Clear the existing data in the table
+        self.ui.tableWidgetCar.setColumnCount(5)  # Set the number of columns in the table, including the image column
+        self.ui.tableWidgetCar.setHorizontalHeaderLabels(["Image","idCar", "idMarque", "idCarburant", "Model"])  # Set the column labels
+        self.ui.tableWidgetCar.setRowCount(len(data))  # Set the number of rows in the table
+
+        for row_idx, car in enumerate(data):
+            label = QLabel()  # Create a QLabel to display the image
+            label.setScaledContents(True)  # Set the label to scale its contents
+            label.setMaximumSize(80, 80)
+            pixmap = self.convert.getImageLabel(car[3])  # Get QPixmap from binary data
+            label.setPixmap(pixmap)
+
+            self.ui.tableWidgetCar.setCellWidget(row_idx, 0, label)  # Set the label as the cell widget for the image column
+
+            self.ui.tableWidgetCar.setItem(row_idx, 1, QTableWidgetItem(str(car[0])))
+            self.ui.tableWidgetCar.setItem(row_idx, 2, QTableWidgetItem(str(car[1])))
+            self.ui.tableWidgetCar.setItem(row_idx, 3, QTableWidgetItem(str(car[2])))
+            self.ui.tableWidgetCar.setItem(row_idx, 4, QTableWidgetItem(str(car[4])))
+
+        self.ui.tableWidgetCar.verticalHeader().setDefaultSectionSize(80)  # Set default row height
+
+    def id_SelectedBrand(self):
+        selected_index = self.comboBoxBrand.currentIndex()
+        # Get the item key using the selected index
+        key = self.comboBoxBrand.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
+        # Get the value of the selected item
+        value = self.comboBoxBrand.itemText(selected_index)
+        # Print the retrieved text and data
+        print("value: ", value)
+        print("key: ", key)
+
+        if key is not None:
+            # Retrieve data from the database based on the selected item
+            car_data = self.car.searchByIdBrand(key)
+            self.displayCars(car_data)
+            return key
+    def id_SelectedFuel(self):
+        selected_index = self.comboBoxFuel.currentIndex()
+        # Get the item key using the selected index
+        key = self.comboBoxFuel.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
+        # Get the value of the selected item
+        value = self.comboBoxFuel.itemText(selected_index)
+        # Print the retrieved text and data
+        print("value: ", value)
+        print("key: ", key)
+
+        if key is not None:
+            # Retrieve data from the database based on the selected item
+            car_data = self.car.searchByIdFuel(key)
+            self.displayCars(car_data)
+            return key
+    def image_dialog(self):
+        try:
+            file_dialog = QFileDialog()
+            file_dialog.setFileMode(QFileDialog.ExistingFile)
+            file_dialog.setNameFilter("Image files (*.jpg *.jpeg *.png *.bmp)")
+            if file_dialog.exec_():
+                file_path = file_dialog.selectedFiles()[0]
+
+                self.imagePath = file_path
+                pixmap = QPixmap(file_path)
+                # Set the desired size
+                desired_size = QtCore.QSize(200, 200)  # Width, Height
+                # Scale the pixmap to the desired size
+                pixmap = pixmap.scaled(desired_size, aspectRatioMode=QtCore.Qt.KeepAspectRatio)
+                self.image_label.setPixmap(pixmap)
+                self.image_label.adjustSize()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+    def load_Brand_Fuel(self):
+        try:
+            self.comboBoxBrand.clear()
+            self.comboBoxBrand.addItem('Select Brand')
+
+            self.comboBoxFuel.clear()
+            self.comboBoxFuel.addItem('Select Carburant')
+
+            brands = self.brand.getBrands()
+            fuel = self.car.getFuel()
+
+            if isinstance(brands, dict):
+                for key, value in brands.items():
+                    self.comboBoxBrand.addItem(value)
+                    # Set the key as custom data for the item
+                    self.comboBoxBrand.setItemData(self.comboBoxBrand.count() - 1, key)
+            else:
+                print("Error: Brands is not a dictionary.")
+
+            if isinstance(fuel, dict):
+                for key, value in fuel.items():
+                    self.comboBoxFuel.addItem(str(value))
+                    # Set the key as custom data for the item
+                    self.comboBoxFuel.setItemData(self.comboBoxFuel.count() - 1, key)
+            else:
+                print("Error: fuel is not a dictionary.")
+
+        except Exception as e:
+            print(f"Error: {e}")
 

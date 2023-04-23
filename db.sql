@@ -21,11 +21,11 @@ drop table if exists voiture;
 /*==============================================================*/
 /* Table : carburant                                            */
 /*==============================================================*/
-create table carburant
-(
-   idCarburant          int not null AUTO_INCREMENT,
-   nom                  int,
-   primary key (idCarburant)
+
+CREATE TABLE carburant (
+  i  idCarburant   int not null AUTO_INCREMENT,
+  nom VARCHAR(254)
+    primary key (idCarburant)
 );
 
 /*==============================================================*/
@@ -43,11 +43,10 @@ create table client
 /*==============================================================*/
 /* Table : marque                                               */
 /*==============================================================*/
-create table marque
-(
-   idMarque             int not null AUTO_INCREMENT,
-   logo                 int,
-   primary key (idMarque)
+CREATE TABLE marque (
+    idMarque int PRIMARY KEY,
+    logo LONGBLOB,
+    nom VARCHAR(254)
 );
 
 /*==============================================================*/
@@ -84,14 +83,14 @@ create table utilisateur
 /*==============================================================*/
 /* Table : voiture                                              */
 /*==============================================================*/
-create table voiture
-(
-   idCar                int not null AUTO_INCREMENT,
-   idMarque             int,
-   idCarburant          int,
-   image                int,
-   primary key (idCar)
+CREATE TABLE voiture (
+  idCar INT(11) PRIMARY KEY AUTO_INCREMENT,
+  idMarque INT(11),
+  idCarburant INT(11),
+  image LONGBLOB,
+  model VARCHAR(255)
 );
+
 
 alter table client add constraint FK_client_utilisateur foreign key (idUser)
       references utilisateur (idUser) on delete restrict on update restrict;
