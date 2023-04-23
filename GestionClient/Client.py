@@ -30,3 +30,10 @@ class Client:
         self.connexion.cursor.execute(req)
         self.connexion.conn.commit()
         print("deleted succesfully")
+    def addClient(self,client_dict):
+        req = f"INSERT INTO `client`( `adresse`, `cin`, `photo`, `liste_noire`, `permis`, `passport`, `email`, `observation`," \
+              f" `societe`, `ville`, `tel`) VALUES ('{client_dict['adresse']}','{client_dict['cin']}','{client_dict['photo']}'," \
+              f"'{client_dict['liste_noire']}','{client_dict['permis']}','{client_dict['passport']}','{client_dict['email']}','{client_dict['observation']}','{client_dict['societe']}','{client_dict['ville']}','{client_dict['tel']}')"
+        self.connexion.cursor.execute(req)
+        self.connexion.conn.commit()
+        print("deleted succesfully")

@@ -1,15 +1,11 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
-sys.path.append("./GestionClient/")
-from GestionClient import Client
-from GestionClient import editClient as ec
-from PyQt5.QtWidgets import QTableWidgetItem,QTabWidget
 from PyQt5.QtGui import QPixmap
 
 sys.path.append("./GestionClient/")
 from GestionClient import Client
 from GestionClient import editClient as ec
-
+from GestionClient import AjoutClientForm as af
 sys.path.append("./GestionVoiture/")
 from GestionVoiture import car
 from GestionVoiture import brand
@@ -61,6 +57,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.clients_data.clicked.connect(self.handlClick)
         self.client = Client.Client()
 
+        self.ui.add_client_btn.clicked.connect(self.AjouterClient)
+
         #setting the CRUD user to disabled view to the privilege of the admin :
         self.ui.users_btn.setEnabled(admin_o_n)
         if(not admin_o_n):
@@ -75,8 +73,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
-        self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",
-            self.ui.page_noire_data)
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
         '''
         self.ui.drop_down_two.setVisible(self.visible)
@@ -84,10 +80,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.login_name.setText(self.login_name.text() + login)
        '''
         self.displayReservations()
-        self.fillComboClient(self.ui.comboClients,
-                             "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
-        self.fillComboClient(self.ui.comboClients_2,
-                             f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
         self.fillComboClient(self.ui.comboClients, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
         self.fillComboClient(self.ui.comboClients_2, f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
 
@@ -117,7 +109,9 @@ class MainWindow(QtWidgets.QMainWindow):
         print("6")
 
      ###############################################################################################################
-
+    def AjouterClient(self):
+        ajout_client = af.AjoutClient()
+        ajout_client.show()
     def selectReservationClient(self):
         if(bool(self.client_dict) == True):
             reservations = self.client.getValuePairDataClient(
@@ -303,7 +297,6 @@ class MainWindow(QtWidgets.QMainWindow):
             file_dialog.setNameFilter("Image files (*.jpg *.jpeg *.png *.bmp)")
             if file_dialog.exec_():
                 file_path = file_dialog.selectedFiles()[0]
-
                 self.imagePath = file_path
                 pixmap = QPixmap(file_path)
                 # Set the desired size
