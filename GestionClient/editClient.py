@@ -7,7 +7,7 @@ class EditClient(QtWidgets.QMainWindow):
         self.user_dict = user_dict_
         self.client = Client.Client()
         self.ui = uic.loadUi("../main/editClient_ui.ui",self)
-        self.ui.editBtn.clicked.connect(self.editClientBtn)
+        self.ui.valider_btn.clicked.connect(self.editClientBtn)
         self.displayDataClient()
 
     def setDictionary(self,user_dict):

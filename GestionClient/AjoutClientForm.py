@@ -1,46 +1,52 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import Client
+import random
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
+import string
 class AjoutClient(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.client = Client.Client()
         self.ui = uic.loadUi("../main/editClient_ui.ui",self)
-        self.ui.editBtn.clicked.connect(self.editClientBtn)
-        self.setDictionary()
-    def setDictionary(self):
-        print("hna")
-        for widget in self.ui.findChildren(QtWidgets.QWidget):
-            if isinstance(widget, QtWidgets.QLineEdit):
-                print(f"widget:  {widget.text()}")
+        self.ui.image_btn.clicked.connect(self.image_dialog)
+        self.ui.valider_btn.clicked.connect(self.AddButtonClient)
+        self.ui.genererPass.clicked.connect(self.generateRandomPassword)
 
-    def displayDataClient(self):
-        self.ui.societe.setText(self.user_dict['societe'])
-        self.ui.nom.setText(self.user_dict['nom'])
-        self.ui.prenom.setText(self.user_dict['prenom'])
-        self.ui.ville.setText(self.user_dict['ville'])
-        self.ui.tel.setText(self.user_dict['tel'])
-        self.ui.passport.setText(self.user_dict['passport'])
-        self.ui.observation.setText(self.user_dict['observation'])
-        self.ui.cin.setText(self.user_dict['cin'])
-        self.ui.permis.setText(self.user_dict['permis'])
-        self.ui.adresse.setPlainText(self.user_dict['Adresse'])
-        if (int(self.user_dict['liste_noire']) == 0):
-            self.ui.radioNon.setChecked(True)
-        else:
-            self.ui.radioOui.setChecked(True)
-    def editClientBtn(self):
-        #problem with empty dictionary trying to resolve it :
-        print(self.ui.societe.text())
-        self.user_dict['idUser'] = self.idUser
-        self.user_dict['societe'] = self.ui.societe.text()
-        self.user_dict['nom'] = self.ui.nom.text()
-        self.user_dict['prenom'] = self.ui.prenom.text()
-        self.user_dict['ville'] = self.ui.prenom.text()
-        self.user_dict['tel'] = self.ui.tel.text()
-        self.user_dict['passport'] = self.ui.passport.text()
-        self.user_dict['liste_noire'] = 1 if self.ui.radioOui.isChecked() == True else 0
-        self.user_dict['cin'] = self.ui.cin.text()
-        self.user_dict['permis'] = self.ui.permis.text()
-        self.user_dict['observation'] = self.ui.observation.toPlainText()
-        #calling update function :
-        self.client.updateClient(self.user_dict)
+    def image_dialog(self):
+        try:
+            file_dialog = QFileDialog()
+            file_dialog.setFileMode(QFileDialog.ExistingFile)
+            file_dialog.setNameFilter("Image files (*.jpg *.jpeg *.png *.bmp)")
+            if file_dialog.exec_():
+
+                file_path = file_dialog.selectedFiles()[0]
+                print(file_path)
+                self.imagePath = file_path
+                pixmap = QPixmap(file_path)
+                # Set the desired size
+                desired_size = QtCore.QSize(200, 200)  # Width, Height
+                # Scale the pixmap to the desired size
+                pixmap = pixmap.scaled(desired_size, aspectRatioMode=QtCore.Qt.KeepAspectRatio)
+                self.ui.image_label_cli.setPixmap(pixmap)
+                self.ui.image_label_cli.adjustSize()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+
+    def AddButtonClient(self):
+        self.user_dict = dict()
+        for widget in self.ui.findChildren(QtWidgets.QWidget):
+            if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit":
+                self.user_dict[widget.objectName()] = widget.text()
+            elif (widget.objectName() == "observation" or widget.objectName() == "adresse"):
+                self.user_dict[widget.objectName()] = widget.toPlainText()
+        self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
+        self.client.addClient(self.user_dict)
+
+    def generateRandomPassword(self):
+        characters = string.ascii_letters + string.digits + string.punctuation
+        password = str()
+        for i in range(5):
+            password += random.choice(characters)
+        self.ui.mdp.setText(password)
