@@ -23,8 +23,13 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Add Car Section
         self.ui.AddButton.clicked.connect(self.addCarButton)
-        self.displayCars()
+        self.ui.tableWidget.clearContents()
+        # Retrieve data from the database
+        car_data = self.car.getCar("SELECT * FROM voiture;")
+        self.displayCars(car_data)
+
         self.addImage.clicked.connect(self.image_dialog)
+        self.ui.search.textChanged.connect(self.sync_SearchLine)
 
         # load combobox
         self.load_Brands()
@@ -34,7 +39,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.comboBoxBrand.currentIndexChanged.connect(self.id_Selected_Brand)
         self.comboBoxFuel.currentIndexChanged.connect(self.id_Selected_Fuel)
 
-    @pyqtSlot(int)
+
+    #@pyqtSlot(int)
+    def sync_SearchLine(self, text): 
+        # Retrieve data from the database
+        car_data = self.car.searchByModel(text)
+        self.displayCars(car_data)
+
     def id_Selected_Brand(self):
 
         # Assuming self.comboBoxBrand is your QComboBox object
@@ -51,6 +62,10 @@ class MainWindow(QtWidgets.QMainWindow):
         # Print the retrieved text and data+
         print("value: ", value)
         print("key: ", key)
+
+        # Retrieve data from the database
+        car_data = self.car.searchByIdBrand(key)
+        self.displayCars(car_data)
 
         return key
     def id_Selected_Fuel(self):
@@ -105,28 +120,25 @@ class MainWindow(QtWidgets.QMainWindow):
             print(f"An error occurred: {e}")
     def addCarButton(self):
         try:
-
-
             brand = self.id_Selected_Brand()
             model = self.ui.model.text()
             fuel = self.id_Selected_Fuel()
             img = self.convertToBinary(self.imagePath)
             self.car.addCar(brand, model, fuel,img)
-
-            self.displayCars()
+            # Retrieve data from the database
+            car_data = self.car.getCar("SELECT * FROM voiture;")
+            self.displayCars(car_data)
         except Exception as e:
             print(f"addCarButton : An error occurred: {e}")
 
-    def displayCars(self):
+    def displayCars(self,data):
         self.ui.tableWidget.clearContents()  # Clear the existing data in the table
 
-        cars = self.car.getCar("SELECT * FROM voiture;")  # Retrieve data from the database
-        self.ui.tableWidget.setColumnCount(6)  # Set the number of columns in the table, including the image column
-        self.ui.tableWidget.setHorizontalHeaderLabels(
-            ["Image","idCar", "idMarque", "idCarburant", "Model"])  # Set the column labels
-        self.ui.tableWidget.setRowCount(len(cars))  # Set the number of rows in the table
+        self.ui.tableWidget.setColumnCount(5)  # Set the number of columns in the table, including the image column
+        self.ui.tableWidget.setHorizontalHeaderLabels(["Image","idCar", "idMarque", "idCarburant", "Model"])  # Set the column labels
+        self.ui.tableWidget.setRowCount(len(data))  # Set the number of rows in the table
 
-        for row_idx, car in enumerate(cars):
+        for row_idx, car in enumerate(data):
             label = QLabel()  # Create a QLabel to display the image
             label.setScaledContents(True)  # Set the label to scale its contents
             label.setMaximumSize(80, 80)
@@ -155,7 +167,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 print( self.imagePath)
                 pixmap = QPixmap(file_path)
                 # Set the desired size
-                desired_size = QtCore.QSize(200, 150)  # Width, Height
+                desired_size = QtCore.QSize(200, 200)  # Width, Height
                 # Scale the pixmap to the desired size
                 pixmap = pixmap.scaled(desired_size, aspectRatioMode=QtCore.Qt.KeepAspectRatio)
                 self.image_label.setPixmap(pixmap)

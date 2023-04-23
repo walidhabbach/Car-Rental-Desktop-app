@@ -15,6 +15,7 @@ class Car:
                     return result
         except Exception as e:
             print(f"An error occurred: {e}")
+
     def addCar(self, brand, model, fuel, image):
         try:
             if self.connexion.connect():
@@ -67,3 +68,14 @@ class Car:
                 self.connexion.cursor.close()
             if self.connexion.conn:
                 self.connexion.conn.close()
+
+    # Search methods
+    def searchByModel(self,model):
+        req = f"SELECT * FROM voiture WHERE model like '{model}%'"
+        return self.getCar(req)
+    def searchByIdBrand(self,id_brand):
+        req = f"SELECT * FROM voiture WHERE idMarque = {id_brand}"
+        return self.getCar(req)
+    def searchByIdCar(self,id):
+        req = f"SELECT * FROM voiture WHERE idCar = {id}"
+        return self.getCar(req)
