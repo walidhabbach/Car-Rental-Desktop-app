@@ -13,14 +13,21 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(32,35,30);
+color: white;</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>120</x>
      <y>40</y>
-     <width>151</width>
-     <height>16</height>
+     <width>171</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 25px;</string>
    </property>
    <property name="text">
     <string>Page de Login</string>
@@ -30,10 +37,15 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>340</y>
+     <y>350</y>
      <width>181</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0;
+background-color: rgb(30,200,200);
+border-radius: 5px;</string>
    </property>
    <property name="text">
     <string>Login</string>
@@ -42,11 +54,14 @@
   <widget class="QComboBox" name="choix_admin">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>70</x>
      <y>270</y>
-     <width>141</width>
-     <height>22</height>
+     <width>281</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;</string>
    </property>
    <item>
     <property name="text">
@@ -74,27 +89,21 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>10</y>
-      <width>55</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Login</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="login">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>10</y>
-      <width>211</width>
-      <height>22</height>
+      <x>80</x>
+      <y>0</y>
+      <width>241</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:0;
+border-bottom: 1px solid rgb(30,200,200);</string>
+    </property>
+    <property name="placeholderText">
+     <string>Login</string>
     </property>
    </widget>
   </widget>
@@ -116,23 +125,20 @@
    <widget class="QLineEdit" name="mdp">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>10</y>
-      <width>211</width>
-      <height>22</height>
+      <x>70</x>
+      <y>0</y>
+      <width>241</width>
+      <height>31</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>10</y>
-      <width>91</width>
-      <height>16</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">border:0;
+border-bottom: 1px solid rgb(30,200,200);</string>
     </property>
-    <property name="text">
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
      <string>Mot de passe</string>
     </property>
    </widget>

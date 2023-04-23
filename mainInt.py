@@ -71,18 +71,15 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
-        self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",
-            self.ui.page_noire_data)
+        self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
         '''
         self.ui.drop_down_two.setVisible(self.visible)
         self.ui.dropBtn.clicked.connect(self.dropMenu)
         self.login_name.setText(self.login_name.text() + login)
        '''
         self.displayReservations()
-        self.fillComboClient(self.ui.comboClients,
-                             "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
-        self.fillComboClient(self.ui.comboClients_2,
-                             f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
+        self.fillComboClient(self.ui.comboClients, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
+        self.fillComboClient(self.ui.comboClients_2, f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
 
      ########################################### Car Section ##########################################################
 
@@ -105,8 +102,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.load_Brand_Fuel()
         print("5")
         # Connect the combobox signal to a slot
-        self.comboBoxBrand.currentIndexChanged.connect(self.id_Selected(self.comboBoxBrand))
-        self.comboBoxFuel.currentIndexChanged.connect(self.id_Selected.comboBoxFuel)
+        #self.comboBoxBrand.currentIndexChanged.connect(self.id_Selected(self.comboBoxBrand))
+        #self.comboBoxFuel.currentIndexChanged.connect(self.id_Selected(self.comboBoxFuel))
         print("6")
 
      ###############################################################################################################
@@ -234,6 +231,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.car.addCar(brand, model, fuel,img)
             # Retrieve data from the database
             car_data = self.car.getCar("SELECT * FROM voiture;")
+            print(car_data)
             self.displayCars(car_data)
         except Exception as e:
             print(f"addCarButton : An error occurred: {e}")
@@ -278,17 +276,10 @@ class MainWindow(QtWidgets.QMainWindow):
             # Retrieve data from the database based on the selected item
             if comboBox is self.comboBoxBrand:
                 car_data = self.car.searchByIdBrand(key)
-            elif comboBox is self.comboBoxFuel:
-                # Assuming self.car is an instance of a class that has a searchByIdFuel() method
-                car_data = self.car.searchByIdFuel(key)
-            else:
-                # Handle other cases if necessary
-                pass
+                self.displayCars(car_data)
 
-            self.displayCars(car_data)
+        return key
 
-            return key
-        return 0
 
     def image_dialog(self):
         try:

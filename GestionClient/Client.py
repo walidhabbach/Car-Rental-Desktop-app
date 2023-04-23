@@ -1,4 +1,4 @@
-import conn
+from main import conn
 class Client:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
