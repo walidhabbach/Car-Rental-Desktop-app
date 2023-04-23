@@ -729,6 +729,9 @@ border: 1px solid black;</string>
   font-style: italic;
 }</string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
     <property name="placeholderText">
      <string>password</string>
     </property>
