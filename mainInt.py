@@ -50,11 +50,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.users_btn.setEnabled(admin_o_n)
         if(not admin_o_n):
             self.users_btn.setStyleSheet('color: #788596')
-
+            self.ui.user_label.setText(self.ui.user_label.text() + " Employé")
+        else: self.ui.user_label.setText(self.ui.user_label.text() + " Admin")
         #linking the update button with the update method:
         self.ui.modifier_btn.clicked.connect(self.updateTable)
         self.ui.supprimer_btn.clicked.connect(self.deleteButtonClient)
         self.ui.comboClients.currentIndexChanged.connect(self.searchByComboClient)
+        self.ui.comboClients_2.currentIndexChanged.connect(self.searchByComboClient)
         self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
@@ -66,7 +68,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.login_name.setText(self.login_name.text() + login)
        '''
         self.displayReservations()
-        self.fillComboClient()
+        self.fillComboClient(self.ui.comboClients,
+                             "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
+        self.fillComboClient(self.ui.comboClients_2,
+                             f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
     def selectReservationClient(self):
         if(bool(self.client_dict) == True):
             reservations = self.client.getValuePairDataClient(
@@ -164,14 +169,14 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.reservation_data.setItem(row_idx, col_idx,
                               QTableWidgetItem(str(item)))  # Set the table item with the data
 
-    def fillComboClient(self):
-        diction_client = self.client.getValuePairDataClient("SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
-        self.ui.comboClients.addItem('Selectionner client')
+    def fillComboClient(self,combo,request):
+        diction_client = self.client.getValuePairDataClient(request)
+        combo.addItem('Selectionner client')
         for key, value in diction_client.items():
-            self.ui.comboClients.addItem(value)
+            combo.addItem(value)
             # Set the key as custom data for the item
-            self.ui.comboClients.setItemData(self.ui.comboClients.count() - 1, key)
-    def searchByComboClient(self):
+            combo.setItemData(combo.count() - 1, key)
+    def searchByComboClient(self,condition):
         if (self.ui.comboClients.currentData() is not None):
             self.displayClients(f"SELECT su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{self.ui.comboClients.currentData()}'",self.ui.clients_data)
         else:

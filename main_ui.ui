@@ -682,6 +682,16 @@
            </widget>
           </item>
           <item>
+           <widget class="QLabel" name="user_label">
+            <property name="styleSheet">
+             <string notr="true">color: red;</string>
+            </property>
+            <property name="text">
+             <string>Connecté en tant que : </string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
