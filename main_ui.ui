@@ -762,7 +762,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -871,7 +871,7 @@ border: 0;</string>
              <widget class="QComboBox" name="comboClients">
               <property name="geometry">
                <rect>
-                <x>550</x>
+                <x>740</x>
                 <y>20</y>
                 <width>181</width>
                 <height>31</height>
@@ -926,6 +926,25 @@ border: 0;</string>
               </property>
               <property name="text">
                <string>Liste de reservation</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="reservation_client_btn_2">
+              <property name="geometry">
+               <rect>
+                <x>550</x>
+                <y>20</y>
+                <width>161</width>
+                <height>28</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(24, 209, 24);
+color: black;
+border: 0;
+cursor:pointer;</string>
+              </property>
+              <property name="text">
+               <string>Ajouter client</string>
               </property>
              </widget>
             </widget>
