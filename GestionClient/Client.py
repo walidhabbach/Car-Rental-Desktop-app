@@ -55,8 +55,8 @@ class Client:
                        f"'{client_dict['email']}', '{client_dict['observation']}', '{client_dict['societe']}', " \
                        f"'{client_dict['ville']}', '{client_dict['tel']}')"
                 self.connexion.cursor.execute(req3)
-
-                # discard any unread result sets:
+                
+                
                 self.connexion.conn.commit()
                 print("Added successfully")
             except Exception as e:
