@@ -10,7 +10,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui = uic.loadUi("main_ui.ui", self)
         self.ui.full_menu_widget.setVisible(False)
         self.client_dict = dict()
-
         pixmap = QtGui.QPixmap("./icon/Logo.png")
         self.ui.main_logo.setPixmap(pixmap)
         self.ui.home_Btn.setIcon(QtGui.QIcon("./icon/home-4-32.ico"))
@@ -56,6 +55,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.login_name.setText(self.login_name.text() + login)
        '''
         self.displayReservations()
+        self.fillComboClient()
     def updateTable(self):
         if(bool(self.client_dict)) == True:
             message = QtWidgets.QMessageBox.question(None, "Confirmation",
@@ -130,3 +130,11 @@ class MainWindow(QtWidgets.QMainWindow):
             for col_idx, item in enumerate(user):
                 self.ui.reservation_data.setItem(row_idx, col_idx,
                               QTableWidgetItem(str(item)))  # Set the table item with the data
+
+    def fillComboClient(self):
+        diction_client = self.client.getValuePairDataClient()
+        self.ui.comboClients.addItem('Selectionner client')
+        for key, value in diction_client.items():
+            self.ui.comboClients.addItem(value)
+            # Set the key as custom data for the item
+            self.ui.comboClients.setItemData(self.ui.comboClients.count() - 1, key)
