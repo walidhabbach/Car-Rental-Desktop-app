@@ -27,6 +27,7 @@ class Client:
             self.connexion.conn.commit()
             print("updated successfully")
     def supprimerClient(self,id):
-        req = f"DELETE FROM CLIENT WHERE IDUSER = '{id}'"
+        req = f"DELETE FROM client WHERE IDUSER = '{id}'"
         self.connexion.cursor.execute(req)
         self.connexion.conn.commit()
+        print("deleted succesfully")

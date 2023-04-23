@@ -840,7 +840,7 @@
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <widget class="QPushButton" name="pushButton_2">
+             <widget class="QPushButton" name="supprimer_btn">
               <property name="geometry">
                <rect>
                 <x>10</x>

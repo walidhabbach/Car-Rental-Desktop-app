@@ -45,6 +45,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         #linking the update button with the update method:
         self.ui.modifier_btn.clicked.connect(self.updateTable)
+        self.ui.supprimer_btn.clicked.connect(self.deleteButtonClient)
+        self.ui.comboClients.currentIndexChanged.connect(self.searchByComboClient)
 
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",
@@ -65,6 +67,19 @@ class MainWindow(QtWidgets.QMainWindow):
             if (message == QtWidgets.QMessageBox.Yes):
                 edit_client = ec.EditClient(self.client_dict)
                 edit_client.show()
+            else:
+                print("NO")
+            self.client_dict.clear()
+        else:
+            print("try to click on a client")
+    def deleteButtonClient(self):
+        if (bool(self.client_dict)) == True:
+            message = QtWidgets.QMessageBox.question(None, "Confirmation",
+                                                     f"Etes vous sure de le supprimer idUser : {self.client_dict['idUser']}",
+                                                     QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                                                     QtWidgets.QMessageBox.No)
+            if (message == QtWidgets.QMessageBox.Yes):
+                self.client.supprimerClient(self.client_dict['idUser'])
             else:
                 print("NO")
             self.client_dict.clear()
@@ -138,3 +153,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.comboClients.addItem(value)
             # Set the key as custom data for the item
             self.ui.comboClients.setItemData(self.ui.comboClients.count() - 1, key)
+    def searchByComboClient(self):
+        if (self.ui.comboClients.currentData() is not None):
+            self.displayClients(f"SELECT su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{self.ui.comboClients.currentData()}'",self.ui.clients_data)
+        else:
+            self.displayClients(
+                f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",
+                self.ui.clients_data)
+
