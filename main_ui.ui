@@ -847,7 +847,7 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>631</width>
+                  <width>661</width>
                   <height>628</height>
                  </rect>
                 </property>
@@ -864,8 +864,8 @@
                <widget class="QLineEdit" name="model">
                 <property name="geometry">
                  <rect>
-                  <x>760</x>
-                  <y>120</y>
+                  <x>770</x>
+                  <y>190</y>
                   <width>141</width>
                   <height>31</height>
                  </rect>
@@ -878,7 +878,7 @@
                 <property name="geometry">
                  <rect>
                   <x>760</x>
-                  <y>190</y>
+                  <y>260</y>
                   <width>141</width>
                   <height>22</height>
                  </rect>
@@ -891,7 +891,7 @@
                 <property name="geometry">
                  <rect>
                   <x>760</x>
-                  <y>260</y>
+                  <y>340</y>
                   <width>141</width>
                   <height>22</height>
                  </rect>
@@ -903,10 +903,10 @@
                <widget class="QLabel" name="image_label">
                 <property name="geometry">
                  <rect>
-                  <x>680</x>
-                  <y>40</y>
-                  <width>121</width>
-                  <height>51</height>
+                  <x>670</x>
+                  <y>10</y>
+                  <width>141</width>
+                  <height>141</height>
                  </rect>
                 </property>
                 <property name="font">
@@ -925,8 +925,8 @@
                <widget class="QPushButton" name="AddButton">
                 <property name="geometry">
                  <rect>
-                  <x>780</x>
-                  <y>340</y>
+                  <x>790</x>
+                  <y>420</y>
                   <width>75</width>
                   <height>23</height>
                  </rect>

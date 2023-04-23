@@ -224,9 +224,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.displayCars(car_data)
     def addCarButton(self):
         try:
-            brand = self.id_Selected(self.comboBoxBrand)
+            brand = self.id_SelectedBrand()
             model = self.ui.model.text()
-            fuel = self.id_Selected(self.comboBoxFuel)
+            fuel = self.id_SelectedFuel()
             img = self.convert.convertToBinary(self.imagePath)
             self.car.addCar(brand, model, fuel,img)
             # Retrieve data from the database
@@ -256,8 +256,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.tableWidgetCar.verticalHeader().setDefaultSectionSize(80)  # Set default row height
 
-    def id_SelectedBrand(self, selected_index):
-
+    def id_SelectedBrand(self):
+        selected_index = self.comboBoxBrand.currentIndex()
         # Get the item key using the selected index
         key = self.comboBoxBrand.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
         # Get the value of the selected item
@@ -271,8 +271,8 @@ class MainWindow(QtWidgets.QMainWindow):
             car_data = self.car.searchByIdBrand(key)
             self.displayCars(car_data)
             return key
-    def id_SelectedFuel(self, selected_index):
-
+    def id_SelectedFuel(self):
+        selected_index = self.comboBoxFuel.currentIndex()
         # Get the item key using the selected index
         key = self.comboBoxFuel.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
         # Get the value of the selected item
