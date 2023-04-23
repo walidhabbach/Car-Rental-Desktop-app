@@ -76,6 +76,9 @@ class Car:
     def searchByIdBrand(self,id_brand):
         req = f"SELECT * FROM voiture WHERE idMarque = {id_brand}"
         return self.getCar(req)
+    def searchByIdFuel(self,id_Carburant):
+        req = f"SELECT * FROM voiture WHERE idCarburant = {id_Carburant}"
+        return self.getCar(req)
     def searchByIdFuel(self,id_Fuel):
         req = f"SELECT * FROM voiture WHERE idMarque = {id_Fuel}"
         return self.getCar(req)

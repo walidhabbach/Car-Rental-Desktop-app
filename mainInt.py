@@ -102,8 +102,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.load_Brand_Fuel()
         print("5")
         # Connect the combobox signal to a slot
-        #self.comboBoxBrand.currentIndexChanged.connect(self.id_Selected(self.comboBoxBrand))
-        #self.comboBoxFuel.currentIndexChanged.connect(self.id_Selected(self.comboBoxFuel))
+        self.comboBoxBrand.currentIndexChanged.connect(self.id_SelectedBrand)
+        self.comboBoxFuel.currentIndexChanged.connect(self.id_SelectedFuel )
         print("6")
 
      ###############################################################################################################
@@ -231,7 +231,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.car.addCar(brand, model, fuel,img)
             # Retrieve data from the database
             car_data = self.car.getCar("SELECT * FROM voiture;")
-            print(car_data)
             self.displayCars(car_data)
         except Exception as e:
             print(f"addCarButton : An error occurred: {e}")
@@ -257,30 +256,36 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.tableWidgetCar.verticalHeader().setDefaultSectionSize(80)  # Set default row height
 
-    def id_Selected(self, comboBox):
-
-        # Get the selected index
-        selected_index = comboBox.currentIndex()
+    def id_SelectedBrand(self, selected_index):
 
         # Get the item key using the selected index
-        key = comboBox.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
-
+        key = self.comboBoxBrand.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
         # Get the value of the selected item
-        value = comboBox.itemText(selected_index)
-
+        value = self.comboBoxBrand.itemText(selected_index)
         # Print the retrieved text and data
         print("value: ", value)
         print("key: ", key)
 
         if key is not None:
             # Retrieve data from the database based on the selected item
-            if comboBox is self.comboBoxBrand:
-                car_data = self.car.searchByIdBrand(key)
-                self.displayCars(car_data)
+            car_data = self.car.searchByIdBrand(key)
+            self.displayCars(car_data)
+            return key
+    def id_SelectedFuel(self, selected_index):
 
-        return key
+        # Get the item key using the selected index
+        key = self.comboBoxFuel.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
+        # Get the value of the selected item
+        value = self.comboBoxFuel.itemText(selected_index)
+        # Print the retrieved text and data
+        print("value: ", value)
+        print("key: ", key)
 
-
+        if key is not None:
+            # Retrieve data from the database based on the selected item
+            car_data = self.car.searchByIdFuel(key)
+            self.displayCars(car_data)
+            return key
     def image_dialog(self):
         try:
             file_dialog = QFileDialog()
@@ -290,8 +295,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 file_path = file_dialog.selectedFiles()[0]
 
                 self.imagePath = file_path
-
-                print(self.imagePath)
                 pixmap = QPixmap(file_path)
                 # Set the desired size
                 desired_size = QtCore.QSize(200, 200)  # Width, Height
@@ -312,9 +315,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
             brands = self.brand.getBrands()
             fuel = self.car.getFuel()
-
-            print(brands)
-            print(fuel)
 
             if isinstance(brands, dict):
                 for key, value in brands.items():
