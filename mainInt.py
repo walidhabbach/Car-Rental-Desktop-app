@@ -6,7 +6,7 @@ from GestionClient import editClient as ec
 from PyQt5.QtWidgets import QTableWidgetItem,QTabWidget
 from GestionClient import ReservationClient as rc
 class MainWindow(QtWidgets.QMainWindow):
-    def __init__(self,login,choix):
+    def __init__(self,login,choix,admin_o_n):
         super().__init__()
         self.ui = uic.loadUi("main_ui.ui", self)
         self.ui.full_menu_widget.setVisible(False)
@@ -34,6 +34,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.client_btn_2.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_clients))
         self.ui.client_btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_clients))
 
+        self.ui.users_btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_users))
+
         self.ui.cars_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_cars))
         self.ui.cars_btn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_cars))
 
@@ -43,6 +45,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.clients_data.clicked.connect(self.handlClick)
         self.client = Client.Client()
+
+        #setting the CRUD user to disabled view to the privilege of the admin :
+        self.ui.users_btn.setEnabled(admin_o_n)
+        if(not admin_o_n):
+            self.users_btn.setStyleSheet('color: #788596')
 
         #linking the update button with the update method:
         self.ui.modifier_btn.clicked.connect(self.updateTable)

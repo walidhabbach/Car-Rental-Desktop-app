@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1394</width>
+    <width>1351</width>
     <height>715</height>
    </rect>
   </property>
@@ -83,7 +83,7 @@
 		border-radius: 3px;
 		text-align: left;
 		padding: 8px 0 8px 15px;
-		color: #788596;
+		color: #fff;
 	}
 
 	#full_menu_widget QPushButton:hover {
@@ -752,7 +752,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>4</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -792,7 +792,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_3">
+         <widget class="QWidget" name="page_crud_users">
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
             <widget class="QLabel" name="label_6">
@@ -802,7 +802,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Orders Page</string>
+              <string>users page</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
