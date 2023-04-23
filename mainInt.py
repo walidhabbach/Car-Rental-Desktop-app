@@ -81,13 +81,16 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             print("Try to click on a client")
         self.client_dict.clear()
+    def messageBox(self,field):
+        message = QtWidgets.QMessageBox.question(None, "Confirmation",
+                                                 f"{field} : {self.client_dict['idUser']}",
+                                                 QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                                                 QtWidgets.QMessageBox.No)
+        return message
     def updateTable(self):
         if(bool(self.client_dict)) == True:
-            message = QtWidgets.QMessageBox.question(None, "Confirmation",
-                                                     f"Etes vous sure de le modifier idUser : {self.client_dict['idUser']}",
-                                                     QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
-                                                     QtWidgets.QMessageBox.No)
-            if (message == QtWidgets.QMessageBox.Yes):
+
+            if (self.messageBox("etes vous sure de le modifier") == QtWidgets.QMessageBox.Yes):
                 edit_client = ec.EditClient(self.client_dict)
                 edit_client.show()
             else:
@@ -97,11 +100,8 @@ class MainWindow(QtWidgets.QMainWindow):
             print("try to click on a client")
     def deleteButtonClient(self):
         if (bool(self.client_dict)) == True:
-            message = QtWidgets.QMessageBox.question(None, "Confirmation",
-                                                     f"Etes vous sure de le supprimer idUser : {self.client_dict['idUser']}",
-                                                     QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
-                                                     QtWidgets.QMessageBox.No)
-            if (message == QtWidgets.QMessageBox.Yes):
+
+            if (self.messageBox("Etes vous sure de le supprimer")  == QtWidgets.QMessageBox.Yes):
                 self.client.supprimerClient(self.client_dict['idUser'])
             else:
                 print("NO")
