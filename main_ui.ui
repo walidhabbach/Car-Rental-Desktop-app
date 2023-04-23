@@ -861,7 +861,7 @@ border: 0;</string>
              <widget class="QComboBox" name="comboClients">
               <property name="geometry">
                <rect>
-                <x>350</x>
+                <x>550</x>
                 <y>20</y>
                 <width>181</width>
                 <height>31</height>
@@ -900,6 +900,24 @@ border: 0;</string>
 border: 0</string>
               </property>
              </widget>
+             <widget class="QPushButton" name="reservation_client_btn">
+              <property name="geometry">
+               <rect>
+                <x>360</x>
+                <y>20</y>
+                <width>161</width>
+                <height>28</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(0, 255, 255);
+color: black;
+border: 0;</string>
+              </property>
+              <property name="text">
+               <string>Liste de reservation</string>
+              </property>
+             </widget>
             </widget>
            </item>
           </layout>
@@ -907,22 +925,74 @@ border: 0</string>
          <widget class="QWidget" name="page_noire_clients">
           <layout class="QGridLayout" name="gridLayout_7">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="font">
-              <font>
-               <pointsize>-1</pointsize>
-              </font>
+            <widget class="QFrame" name="frame_3">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
-             <property name="text">
-              <string>Page noire</string>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
+             <widget class="QTableWidget" name="page_noire_data">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>100</y>
+                <width>1051</width>
+                <height>431</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: transparent;
+border: 0</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="modifier_btn_2">
+              <property name="geometry">
+               <rect>
+                <x>200</x>
+                <y>30</y>
+                <width>151</width>
+                <height>28</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: orange;
+color: white;
+border: 0;</string>
+              </property>
+              <property name="text">
+               <string>Modifier/Afficher</string>
+              </property>
+             </widget>
+             <widget class="QComboBox" name="comboClients_2">
+              <property name="geometry">
+               <rect>
+                <x>370</x>
+                <y>30</y>
+                <width>181</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="supprimer_btn_2">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>30</y>
+                <width>151</width>
+                <height>28</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: red;
+color: white;
+border: 0;</string>
+              </property>
+              <property name="text">
+               <string>Supprimer client</string>
+              </property>
+             </widget>
             </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QTableWidget" name="page_noire_data"/>
            </item>
           </layout>
          </widget>

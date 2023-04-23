@@ -4,6 +4,7 @@ sys.path.append("./GestionClient/")
 from GestionClient import Client
 from GestionClient import editClient as ec
 from PyQt5.QtWidgets import QTableWidgetItem,QTabWidget
+from GestionClient import ReservationClient as rc
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix):
         super().__init__()
@@ -47,6 +48,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.modifier_btn.clicked.connect(self.updateTable)
         self.ui.supprimer_btn.clicked.connect(self.deleteButtonClient)
         self.ui.comboClients.currentIndexChanged.connect(self.searchByComboClient)
+        self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
         self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",
@@ -58,6 +60,15 @@ class MainWindow(QtWidgets.QMainWindow):
        '''
         self.displayReservations()
         self.fillComboClient()
+    def selectReservationClient(self):
+        if(bool(self.client_dict) == True):
+            reservations = self.client.getValuePairDataClient(
+                f"SELECT idCar,date_depart,date_arr FROM RESERVATION WHERE idUser = '{self.client_dict['idUser']}'")
+            reservation_client_ui = rc.ReservationClient(reservations)
+            reservation_client_ui.show()
+        else:
+            print("Try to click on a client")
+        self.client_dict.clear()
     def updateTable(self):
         if(bool(self.client_dict)) == True:
             message = QtWidgets.QMessageBox.question(None, "Confirmation",
@@ -147,7 +158,7 @@ class MainWindow(QtWidgets.QMainWindow):
                               QTableWidgetItem(str(item)))  # Set the table item with the data
 
     def fillComboClient(self):
-        diction_client = self.client.getValuePairDataClient()
+        diction_client = self.client.getValuePairDataClient("SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
         self.ui.comboClients.addItem('Selectionner client')
         for key, value in diction_client.items():
             self.ui.comboClients.addItem(value)

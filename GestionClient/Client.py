@@ -8,14 +8,13 @@ class Client:
             self.connexion.cursor.execute(req)
             users = self.connexion.cursor.fetchall()
             return users
-    def getValuePairDataClient(self):
+    def getValuePairDataClient(self,request):
         vp = dict()
-        req = "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser"
+        req = request
         self.connexion.cursor.execute(req)
         users = self.connexion.cursor.fetchall()
         for user in users:
             vp[user[0]] = user[1]
-        print(vp)
         return vp
     def updateClient(self,client_dict):
         if(self.connexion.connect()):
