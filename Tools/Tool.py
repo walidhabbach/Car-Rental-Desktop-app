@@ -1,8 +1,10 @@
 import base64
 
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QMessageBox
 
-class convert:
+
+class tool:
     def convertToBinary(self, path):
         try:
             with open(path, "rb") as File:
@@ -25,3 +27,28 @@ class convert:
             return pixmap
         except Exception as e:
             print(f"An error occurred: {e}")
+    def warning(self,message):
+
+        # Create an instance of QMessageBox
+        msg_box = QMessageBox()
+
+        # Set the icon and title
+        msg_box.setIcon(QMessageBox.Warning)
+        msg_box.setWindowTitle("Error")
+
+        # Set the text or message
+        msg_box.setText(message)
+
+        # Set additional buttons (optional)
+        msg_box.setStandardButtons(QMessageBox.Ok)
+
+        # Set the appearance (optional)
+        msg_box.setStyleSheet("QMessageBox { background-color: lightgray; }")
+
+        # Show the message box and wait for user response
+        result = msg_box.exec_()
+
+        # Check the user response
+        if result == QMessageBox.Ok:
+            # User clicked OK, handle the event
+            pass

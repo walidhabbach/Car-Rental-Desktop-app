@@ -1,6 +1,6 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QFont
 
 sys.path.append("./GestionClient/")
 from GestionClient import Client
@@ -11,10 +11,10 @@ from GestionVoiture import car
 from GestionVoiture import brand
 
 sys.path.append("./Tools/")
-from Tools import Convertion
+from Tools import Tool
 
 
-from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
+from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel, QTableWidget, QHeaderView, QMessageBox
 from GestionClient import ReservationClient as rc
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix,admin_o_n):
@@ -82,14 +82,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.fillComboClient(self.ui.comboClients_2, f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
 
      ########################################### Car Section ##########################################################
+        self.dict_brands = dict()
+        self.dict_fuel = dict()
+        self.imagePath = ""
 
         self.car = car.Car()
         self.brand = brand.Brand()
-        self.convert = Convertion.convert()
+        self.tool = Tool.tool()
 
         # Add Car Section
         self.ui.AddButton.clicked.connect(self.addCarButton)
         self.ui.tableWidgetCar.clearContents()
+        # load combobox
+        self.load_Brand_Fuel()
         print("2")
         # Retrieve data from the database
         car_data = self.car.getCar("SELECT * FROM voiture;")
@@ -98,12 +103,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.addImage.clicked.connect(self.image_dialog)
         self.ui.search_input.textChanged.connect(self.sync_SearchLine)
         print("4")
-        # load combobox
-        self.load_Brand_Fuel()
+
         print("5")
         # Connect the combobox signal to a slot
         self.comboBoxBrand.currentIndexChanged.connect(self.id_SelectedBrand)
-        self.comboBoxFuel.currentIndexChanged.connect(self.id_SelectedFuel )
+        self.comboBoxFuel.currentIndexChanged.connect(self.id_SelectedFuel)
         print("6")
 
      ###############################################################################################################
@@ -227,34 +231,73 @@ class MainWindow(QtWidgets.QMainWindow):
             brand = self.id_SelectedBrand()
             model = self.ui.model.text()
             fuel = self.id_SelectedFuel()
-            img = self.convert.convertToBinary(self.imagePath)
-            self.car.addCar(brand, model, fuel,img)
-            # Retrieve data from the database
-            car_data = self.car.getCar("SELECT * FROM voiture;")
-            self.displayCars(car_data)
+
+            if brand == "":
+                self.tool.warning("Please enter a model.")
+            elif self.comboBoxBrand.currentIndex() == 0:
+                self.tool.warning( "Please select a brand.")
+            elif self.comboBoxFuel.currentIndex() == 0:
+                self.tool.warning( "Please select a fuel type.")
+            elif self.imagePath == "":
+                self.tool.warning( "Please select an image.")
+            else:
+                img = self.tool.convertToBinary(self.imagePath)
+                self.car.addCar(brand, model, fuel,img)
+                # Retrieve data from the database
+                car_data = self.car.getCar("SELECT * FROM voiture;")
+                self.displayCars(car_data)
         except Exception as e:
             print(f"addCarButton : An error occurred: {e}")
     def displayCars(self,data):
-        self.ui.tableWidgetCar.clearContents()  # Clear the existing data in the table
-        self.ui.tableWidgetCar.setColumnCount(5)  # Set the number of columns in the table, including the image column
-        self.ui.tableWidgetCar.setHorizontalHeaderLabels(["Image","idCar", "idMarque", "idCarburant", "Model"])  # Set the column labels
-        self.ui.tableWidgetCar.setRowCount(len(data))  # Set the number of rows in the table
+        try:
+            self.ui.tableWidgetCar.clearContents()  # Clear the existing data in the table
+            self.ui.tableWidgetCar.setColumnCount(
+                5)  # Set the number of columns in the table, including the image column
+            self.ui.tableWidgetCar.setHorizontalHeaderLabels(
+                ["Image", "idCar", "idMarque", "idCarburant", "Model"])  # Set the column labels
+            self.ui.tableWidgetCar.setRowCount(len(data))  # Set the number of rows in the table
 
-        for row_idx, car in enumerate(data):
-            label = QLabel()  # Create a QLabel to display the image
-            label.setScaledContents(True)  # Set the label to scale its contents
-            label.setMaximumSize(80, 80)
-            pixmap = self.convert.getImageLabel(car[3])  # Get QPixmap from binary data
-            label.setPixmap(pixmap)
+            for row_idx, car in enumerate(data):
+                label = QLabel()  # Create a QLabel to display the image
+                label.setScaledContents(True)  # Set the label to scale its contents
+                label.setMaximumSize(80, 80)
+                pixmap = self.tool.getImageLabel(car[3])  # Get QPixmap from binary data
+                label.setPixmap(pixmap)
 
-            self.ui.tableWidgetCar.setCellWidget(row_idx, 0, label)  # Set the label as the cell widget for the image column
+                self.ui.tableWidgetCar.setCellWidget(row_idx, 0,  label)  # Set the label as the cell widget for the image column
 
-            self.ui.tableWidgetCar.setItem(row_idx, 1, QTableWidgetItem(str(car[0])))
-            self.ui.tableWidgetCar.setItem(row_idx, 2, QTableWidgetItem(str(car[1])))
-            self.ui.tableWidgetCar.setItem(row_idx, 3, QTableWidgetItem(str(car[2])))
-            self.ui.tableWidgetCar.setItem(row_idx, 4, QTableWidgetItem(str(car[4])))
+                self.ui.tableWidgetCar.setItem(row_idx, 1, QTableWidgetItem(str(car[0])))
+                print(self.dict_brands[car[1]],"  ",self.dict_fuel[car[2]])
+                self.ui.tableWidgetCar.setItem(row_idx, 2, QTableWidgetItem(str(self.dict_brands[car[1]])))
+                self.ui.tableWidgetCar.setItem(row_idx, 3, QTableWidgetItem(str(self.dict_fuel[car[2]])))
+                self.ui.tableWidgetCar.setItem(row_idx, 4, QTableWidgetItem(str(car[4])))
+
+        except Exception as e:
+            print(f"addCarButton : An error occurred: {e}")
+
+        self.ui.tableWidgetCar.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         self.ui.tableWidgetCar.verticalHeader().setDefaultSectionSize(80)  # Set default row height
+        font = QFont()
+        font.setBold(True)
+        self.ui.tableWidgetCar.horizontalHeader().setFont(font)
+
+        # Set row height
+        self.ui.tableWidgetCar.verticalHeader().setDefaultSectionSize(80)
+
+        # Set alternating row colors
+        self.ui.tableWidgetCar.setAlternatingRowColors(True)
+        self.ui.tableWidgetCar.setStyleSheet("alternate-background-color: gray;")
+        self.ui.tableWidgetCar.setStyleSheet("background-color: white;  ")
+
+        # Set table dimensions
+        self.ui.tableWidgetCar.setMinimumSize(500, 500)
+
+        # Set sorting behavior for columns
+        self.ui.tableWidgetCar.setSortingEnabled(True)
+
+        # Set selection mode to row selection
+        self.ui.tableWidgetCar.setSelectionBehavior(QTableWidget.SelectRows)
 
     def id_SelectedBrand(self):
         selected_index = self.comboBoxBrand.currentIndex()
@@ -297,7 +340,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.imagePath = file_path
                 pixmap = QPixmap(file_path)
                 # Set the desired size
-                desired_size = QtCore.QSize(200, 200)  # Width, Height
+                desired_size = QtCore.QSize(250, 250)  # Width, Height
                 # Scale the pixmap to the desired size
                 pixmap = pixmap.scaled(desired_size, aspectRatioMode=QtCore.Qt.KeepAspectRatio)
                 self.image_label.setPixmap(pixmap)
@@ -313,19 +356,19 @@ class MainWindow(QtWidgets.QMainWindow):
             self.comboBoxFuel.clear()
             self.comboBoxFuel.addItem('Select Carburant')
 
-            brands = self.brand.getBrands()
-            fuel = self.car.getFuel()
+            self.dict_brands = self.brand.getBrands()
+            self.dict_fuel = self.car.getFuel()
 
-            if isinstance(brands, dict):
-                for key, value in brands.items():
+            if isinstance(self.dict_brands, dict):
+                for key, value in self.dict_brands.items():
                     self.comboBoxBrand.addItem(value)
                     # Set the key as custom data for the item
                     self.comboBoxBrand.setItemData(self.comboBoxBrand.count() - 1, key)
             else:
                 print("Error: Brands is not a dictionary.")
 
-            if isinstance(fuel, dict):
-                for key, value in fuel.items():
+            if isinstance(self.dict_fuel, dict):
+                for key, value in self.dict_fuel.items():
                     self.comboBoxFuel.addItem(str(value))
                     # Set the key as custom data for the item
                     self.comboBoxFuel.setItemData(self.comboBoxFuel.count() - 1, key)

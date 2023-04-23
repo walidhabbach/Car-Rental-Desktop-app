@@ -1,6 +1,7 @@
-
+import brand
 import conn
 import base64
+
 class Car:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
@@ -14,7 +15,7 @@ class Car:
                     result = self.connexion.cursor.fetchall()
                     return result
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"getCar : An error occurred: {e}")
 
     def addCar(self, brand, model, fuel, image):
         try:
@@ -76,11 +77,9 @@ class Car:
     def searchByIdBrand(self,id_brand):
         req = f"SELECT * FROM voiture WHERE idMarque = {id_brand}"
         return self.getCar(req)
-    def searchByIdFuel(self,id_Carburant):
-        req = f"SELECT * FROM voiture WHERE idCarburant = {id_Carburant}"
-        return self.getCar(req)
+
     def searchByIdFuel(self,id_Fuel):
-        req = f"SELECT * FROM voiture WHERE idMarque = {id_Fuel}"
+        req = f"SELECT * FROM voiture WHERE idCarburant = {id_Fuel}"
         return self.getCar(req)
     def searchByIdCar(self,id):
         req = f"SELECT * FROM voiture WHERE idCar = {id}"
