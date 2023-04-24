@@ -72,8 +72,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.comboClients_2.currentIndexChanged.connect(self.searchByComboClient)
         self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
-        self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
-        self.displayClients(f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
+        self.displayClients(f"select su.idUser,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
+        self.displayClients(f"select su.idUser,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
         '''
         self.ui.drop_down_two.setVisible(self.visible)
         self.ui.dropBtn.clicked.connect(self.dropMenu)
@@ -147,8 +147,8 @@ class MainWindow(QtWidgets.QMainWindow):
             print("try to click on a client")
     def displayClients(self,request,table):
         table.clearContents()  # Clear the existing data in the table
-        table.setColumnCount(12)  # Set the number of columns in the table
-        table.setHorizontalHeaderLabels(['idUser', 'Adresse', 'nom', 'prenom','societe','cin','tel','ville','permis','passport','observation','liste_noire'])  # Set the column labels
+        table.setColumnCount(14)  # Set the number of columns in the table
+        table.setHorizontalHeaderLabels(['idUser', 'login','mdp','Adresse', 'nom', 'prenom','societe','cin','tel','ville','permis','passport','observation','liste_noire'])  # Set the column labels
 
         users = self.client.getClientsData(request)
         table.setRowCount(len(users))  # Set the number of rows in the table
@@ -158,7 +158,7 @@ class MainWindow(QtWidgets.QMainWindow):
             for col_idx, item in enumerate(user):
                 table.setItem(row_idx, col_idx,
                                              QTableWidgetItem(str(item)))  # Set the table item with the data
-
+        print(f"here users:  {users}")
         for row in range(table.rowCount()):
             for column in range(self.ui.clients_data.columnCount()):
                 item = self.ui.clients_data.item(row, column)
@@ -215,10 +215,10 @@ class MainWindow(QtWidgets.QMainWindow):
             combo.setItemData(combo.count() - 1, key)
     def searchByComboClient(self,condition):
         if (self.ui.comboClients.currentData() is not None):
-            self.displayClients(f"SELECT su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{self.ui.comboClients.currentData()}'",self.ui.clients_data)
+            self.displayClients(f"SELECT su.idUser,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{self.ui.comboClients.currentData()}'",self.ui.clients_data)
         else:
             self.displayClients(
-                f"select su.idUser,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",
+                f"select su.idUser,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",
                 self.ui.clients_data)
 
     ############################################## Car Section ########################################################

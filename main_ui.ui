@@ -198,7 +198,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
+            <pixmap>:/icon/icon/Logo.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -221,7 +221,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/home-4-32.ico</normaloff>
              <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
            </property>
@@ -245,7 +245,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
              <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
            </property>
@@ -269,7 +269,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/activity-feed-32.ico</normaloff>
              <normalon>:/icon/icon/activity-feed-48.ico</normalon>:/icon/icon/activity-feed-32.ico</iconset>
            </property>
@@ -293,7 +293,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/product-32.ico</normaloff>
              <normalon>:/icon/icon/product-48.ico</normalon>:/icon/icon/product-32.ico</iconset>
            </property>
@@ -317,7 +317,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/group-32.ico</normaloff>
              <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
            </property>
@@ -363,7 +363,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="resource.qrc">
+          <iconset>
            <normaloff>:/icon/icon/close-window-64.ico</normaloff>:/icon/icon/close-window-64.ico</iconset>
          </property>
          <property name="iconSize">
@@ -406,7 +406,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
+            <pixmap>:/icon/icon/Logo.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -441,7 +441,7 @@
             <string>Home</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/home-4-32.ico</normaloff>
              <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
            </property>
@@ -465,7 +465,7 @@
             <string>Dashboard</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
              <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
            </property>
@@ -489,7 +489,7 @@
             <string>Gestion users</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/activity-feed-32.ico</normaloff>
              <normalon>:/icon/icon/activity-feed-48.ico</normalon>:/icon/icon/activity-feed-32.ico</iconset>
            </property>
@@ -513,7 +513,7 @@
             <string>Gestion voiture</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/product-32.ico</normaloff>
              <normalon>:/icon/icon/product-48.ico</normalon>:/icon/icon/product-32.ico</iconset>
            </property>
@@ -537,7 +537,7 @@
             <string>Gestion client</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset>
              <normaloff>:/icon/icon/group-32.ico</normaloff>
              <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
            </property>
@@ -605,7 +605,7 @@
           <string>Exit</string>
          </property>
          <property name="icon">
-          <iconset resource="resource.qrc">
+          <iconset>
            <normaloff>:/icon/icon/close-window-64.ico</normaloff>:/icon/icon/close-window-64.ico</iconset>
          </property>
          <property name="iconSize">
@@ -667,7 +667,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset>
               <normaloff>:/icon/icon/menu-4-32.ico</normaloff>:/icon/icon/menu-4-32.ico</iconset>
             </property>
             <property name="iconSize">
@@ -722,7 +722,7 @@
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="resource.qrc">
+               <iconset>
                 <normaloff>:/icon/icon/search-13-48.ico</normaloff>:/icon/icon/search-13-48.ico</iconset>
               </property>
              </widget>
@@ -751,7 +751,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset>
               <normaloff>:/icon/icon/user-48.ico</normaloff>:/icon/icon/user-48.ico</iconset>
             </property>
            </widget>
@@ -762,7 +762,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>4</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
