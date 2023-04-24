@@ -1,7 +1,4 @@
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets, uic
-from PyQt5.QtGui import QPixmap, QFont
-
 sys.path.append("./GestionClient/")
 from GestionClient import Client
 from GestionClient import editClient as ec
@@ -14,7 +11,10 @@ sys.path.append("./Tools/")
 from Tools import Tool
 
 
-from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel, QTableWidget, QHeaderView, QMessageBox
+from PyQt5 import QtCore, QtGui, QtWidgets, uic
+from PyQt5.QtGui import QPixmap, QFont
+
+from PyQt5.QtWidgets import QTableWidgetItem, QFileDialog, QLabel, QTableWidget, QHeaderView
 from GestionClient import ReservationClient as rc
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix,admin_o_n):
