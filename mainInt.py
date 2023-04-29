@@ -72,8 +72,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.comboClients_2.currentIndexChanged.connect(self.searchByComboClient)
         self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
-        self.displayClients(f"select su.idUser,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
-        self.displayClients(f"select su.idUser,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
+        self.displayClients(f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
+        self.displayClients(f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
         '''
         self.ui.drop_down_two.setVisible(self.visible)
         self.ui.dropBtn.clicked.connect(self.dropMenu)
@@ -146,29 +146,46 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             print("try to click on a client")
     def displayClients(self,request,table):
-        table.clearContents()  # Clear the existing data in the table
-        table.setColumnCount(14)  # Set the number of columns in the table
-        table.setHorizontalHeaderLabels(['idUser', 'login','mdp','Adresse', 'nom', 'prenom','societe','cin','tel','ville','permis','passport','observation','liste_noire'])  # Set the column labels
+        try:
+            table.clearContents()  # Clear the existing data in the table
+            table.setColumnCount(15)  # Set the number of columns in the table
+            table.setHorizontalHeaderLabels(
+                ['idUser', 'photo', 'login', 'mdp', 'Adresse', 'nom', 'prenom', 'societe', 'cin', 'tel', 'ville',
+                 'permis', 'passport', 'observation', 'liste_noire'])  # Set the column labels
+            print(request)
+            users = self.client.getClientsData(request)
+            table.setRowCount(len(users))  # Set the number of rows in the table
+            # adding select check mark :
+            self.convert = Convertion.convert()
+            for row_idx, user in enumerate(users):
+                self.ui.clients_data.setItem(row_idx, 0, QTableWidgetItem(str(user[0])))
+                if(user[1] is not None):
+                    label = QLabel()  # Create a QLabel to display the image
+                    label.setScaledContents(True)  # Set the label to scale its contents
+                    label.setMaximumSize(80, 80)
+                    pixmap = self.convert.getImageLabel(user[1])  # Get QPixmap from binary data
+                    label.setPixmap(pixmap)
+                    table.setCellWidget(row_idx, 1,
+                                                       label)  # Set the label as the cell widget for the image column
+                for col_idx in range(2,15):
+                    table.setItem(row_idx, col_idx, QTableWidgetItem(str(user[col_idx])))
 
-        users = self.client.getClientsData(request)
-        table.setRowCount(len(users))  # Set the number of rows in the table
-        #adding select check mark :
-
-        for row_idx, user in enumerate(users):
-            for col_idx, item in enumerate(user):
-                table.setItem(row_idx, col_idx,
-                                             QTableWidgetItem(str(item)))  # Set the table item with the data
-        print(f"here users:  {users}")
-        for row in range(table.rowCount()):
-            for column in range(self.ui.clients_data.columnCount()):
-                item = self.ui.clients_data.item(row, column)
-                if item is not None:
-                    column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
-                    if(column_name == "liste_noire" and int(item.text()) == 1):
-                        item.setBackground(QtGui.QColor("red"))
-                    elif (column_name == "liste_noire" and int(item.text()) == 0):
-                        item.setBackground(QtGui.QColor("green"))
-        table.resizeColumnsToContents()  # Resize the columns to fit the content
+            print(f"here users:  {users}")
+            table.setColumnHidden(0, True)
+            table.setColumnHidden(2, True)
+            table.setColumnHidden(3, True)
+            for row in range(table.rowCount()):
+                for column in range(self.ui.clients_data.columnCount()):
+                    item = self.ui.clients_data.item(row, column)
+                    if item is not None:
+                        column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
+                        if (column_name == "liste_noire" and int(item.text()) == 1):
+                            item.setBackground(QtGui.QColor("red"))
+                        elif (column_name == "liste_noire" and int(item.text()) == 0):
+                            item.setBackground(QtGui.QColor("green"))
+            table.resizeColumnsToContents()  # Resize the columns to fit the content
+        except Exception as e:
+            print(f"{e}")
     def dropMenu(self):
         if(self.visible == True):
             self.visible = False
@@ -178,15 +195,27 @@ class MainWindow(QtWidgets.QMainWindow):
     def exitApp(self):
         QtWidgets.QApplication.exit()
     def handlClick(self,index:QtCore.QModelIndex):
-        row = index.row()
-        column = index.column()
-        #to get the current row and the idUser which is 0 order
-        for column in range(self.ui.clients_data.columnCount()):
-            item = self.ui.clients_data.item(row, column)
-            if item is not None:
+        try:
+            row = index.row()
+            column = index.column()
+            # to get the current row and the idUser which is 0 order
+            for column in range(self.ui.clients_data.columnCount()):
+                item = self.ui.clients_data.item(row, column)
                 column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
-                self.client_dict[column_name] = item.text()
+                print(column_name)
+                if(column_name == "photo"):
+                    print(item)
+                    if(item is not None):
+                        self.client_dict[column_name] = item.icon().pixmap()
+                    else:
+                        self.client_dict[column_name] = QPixmap()
+                else:
+                    if item is not None:
+                        column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
+                        self.client_dict[column_name] = item.text()
 
+        except Exception as e:
+            print(e)
 
     def displayReservations(self):
         self.ui.reservation_data.clearContents()  # Clear the existing data in the table
@@ -215,10 +244,10 @@ class MainWindow(QtWidgets.QMainWindow):
             combo.setItemData(combo.count() - 1, key)
     def searchByComboClient(self,condition):
         if (self.ui.comboClients.currentData() is not None):
-            self.displayClients(f"SELECT su.idUser,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{self.ui.comboClients.currentData()}'",self.ui.clients_data)
+            self.displayClients(f"SELECT su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{self.ui.comboClients.currentData()}'",self.ui.clients_data)
         else:
             self.displayClients(
-                f"select su.idUser,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",
+                f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",
                 self.ui.clients_data)
 
     ############################################## Car Section ########################################################
@@ -232,6 +261,7 @@ class MainWindow(QtWidgets.QMainWindow):
             model = self.ui.model.text()
             fuel = self.id_SelectedFuel()
             img = self.convert.convertToBinary(self.imagePath)
+            print(img)
             self.car.addCar(brand, model, fuel,img)
             # Retrieve data from the database
             car_data = self.car.getCar("SELECT * FROM voiture;")

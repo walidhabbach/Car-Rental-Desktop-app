@@ -46,17 +46,13 @@ class Client:
                 self.connexion.cursor.execute(req2)
                 result = self.connexion.cursor.fetchone()
                 client_id = result[0]
-
+                print(client_dict['photo'])
                 # creating the client:
-                req3 = f"INSERT INTO client(`idUser`, `adresse`, `cin`, `liste_noire`, `permis`, `passport`, `email`, " \
-                       f"`observation`, `societe`, `ville`, `tel`) " \
-                       f"VALUES ('{client_id}', '{client_dict['adresse']}', '{client_dict['cin']}', " \
-                       f"'{client_dict['liste_noire']}', '{client_dict['permis']}', '{client_dict['passport']}', " \
-                       f"'{client_dict['email']}', '{client_dict['observation']}', '{client_dict['societe']}', " \
-                       f"'{client_dict['ville']}', '{client_dict['tel']}')"
-                self.connexion.cursor.execute(req3)
-                
-                
+                req3 = f"INSERT INTO client(`idUser`,`photo`, `adresse`, `cin`, `liste_noire`, `permis`, `passport`, `email`, " \
+                       f"`observation`, `societe`, `ville`, `tel`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                self.connexion.cursor.execute(req3,(client_id,client_dict['photo'],client_dict['adresse'], client_dict['cin'],client_dict['liste_noire'], client_dict['permis'], client_dict['passport'],
+                       client_dict['email'], client_dict['observation'], client_dict['societe'],client_dict['ville'],client_dict['tel']))
+
                 self.connexion.conn.commit()
                 print("Added successfully")
             except Exception as e:

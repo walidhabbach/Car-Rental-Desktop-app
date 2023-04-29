@@ -1,4 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
+import base64
+from PyQt5.QtGui import QPixmap, QImage
 import Client
 class EditClient(QtWidgets.QMainWindow):
     def __init__(self,user_dict_):
@@ -12,8 +14,10 @@ class EditClient(QtWidgets.QMainWindow):
 
     def setDictionary(self,user_dict):
         print("hna")
+
     def displayDataClient(self):
-        print(self.user_dict)
+        self.ui.image_label_cli.setPixmap(self.user_dict['photo'])
+        print(self.ui.image_label_cli.pixmap())
         for widget in self.ui.findChildren(QtWidgets.QWidget):
             for key,value in self.user_dict.items():
                 if(key.lower() == widget.objectName().lower()):

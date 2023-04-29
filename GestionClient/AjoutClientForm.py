@@ -5,10 +5,15 @@ from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
 import string
 from datetime import datetime
+import sys
+sys.path.append("./Tools/")
+from Tools import Convertion
+
 class AjoutClient(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.client = Client.Client()
+        self.convert = Convertion.convert()
         self.ui = uic.loadUi("../main/editClient_ui.ui",self)
         self.ui.image_btn.clicked.connect(self.image_dialog)
         self.ui.valider_btn.clicked.connect(self.AddButtonClient)
@@ -31,6 +36,7 @@ class AjoutClient(QtWidgets.QMainWindow):
                 pixmap = pixmap.scaled(desired_size, aspectRatioMode=QtCore.Qt.KeepAspectRatio)
                 self.ui.image_label_cli.setPixmap(pixmap)
                 self.ui.image_label_cli.adjustSize()
+
         except Exception as e:
             print(f"An error occurred: {e}")
 
@@ -43,6 +49,7 @@ class AjoutClient(QtWidgets.QMainWindow):
                 elif (widget.objectName() == "observation" or widget.objectName() == "adresse"):
                     self.user_dict[widget.objectName()] = widget.toPlainText()
             self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
+            self.user_dict['photo'] = self.convert.convertToBinary(self.imagePath)
             self.client.addClient(self.user_dict)
 
     def generateRandomPassword(self):
@@ -51,6 +58,7 @@ class AjoutClient(QtWidgets.QMainWindow):
         for i in range(5):
             password += random.choice(characters)
         self.ui.mdp.setText(password)
+
     def verificationFields(self):
         checkers = []
         flag = True
@@ -77,7 +85,7 @@ class AjoutClient(QtWidgets.QMainWindow):
                 dure_permis  = datetime.now().date() - datetime.strptime(widget.text(), '%d/%m/%Y').date()
                 if((dure_permis.days)/365 < 2):
                     flag = False
-                    print("duree permis est inférieur a 2 ans : ")
+                    print("azbiiiii rah duree permis est inférieur a 2 ans : ")
         if(flag and flagChecks):
             return True
         elif(flag and not flagChecks):
