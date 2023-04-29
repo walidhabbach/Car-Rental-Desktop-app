@@ -128,7 +128,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if(bool(self.client_dict)) == True:
 
             if (self.messageBox("etes vous sure de le modifier") == QtWidgets.QMessageBox.Yes):
-                edit_client = ec.EditClient(self.client_dict,self.ui.clients_data)
+                edit_client = ec.EditClient(self.client_dict,self.ui.clients_data,self.ui.page_noire_data)
                 edit_client.show()
             else:
                 print("NO")

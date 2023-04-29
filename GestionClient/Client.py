@@ -21,8 +21,7 @@ class Client:
         return vp
     def updateClient(self,client_dict):
         if(self.connexion.connect()):
-            print("edit button triggered")
-            print(client_dict)
+
             req = f"UPDATE client SET `photo`=%s ,`cin`=%s, `liste_noire` = %s, " \
                   f" `permis` = %s,`passport`=%s,`email`=%s,`observation`=%s,`societe`=%s,`ville`=%s,`tel`=%s WHERE `idUser`=%s"
 

@@ -7,9 +7,10 @@ from PyQt5.QtCore import QByteArray,QBuffer,QIODevice
 
 import Client
 class EditClient(QtWidgets.QMainWindow):
-    def __init__(self,user_dict_,tableWid):
+    def __init__(self,user_dict_,tableWid,table_listeNoir):
         super().__init__()
         self.table = tableWid
+        self.table_list_no = table_listeNoir
         self.idUser = user_dict_['idUser']
         self.user_dict = user_dict_
         self.client = Client.Client()
@@ -63,11 +64,13 @@ class EditClient(QtWidgets.QMainWindow):
                     buffer.open(QIODevice.WriteOnly)
                     pixmap.toImage().save(buffer, 'PNG')
                     self.user_dict['photo'] = byte_array
-                    print(self.user_dict['photo'])
                     self.client.updateClient(self.user_dict)
                     self.client.displayClients(
                         f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
                         , self.table)
+                    self.client.displayClients(
+                        f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser WHERE liste_noire = 1"
+                        , self.table_list_no)
         except Exception as e:
             print(e)
     def verificationFields(self):
