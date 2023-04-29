@@ -10,8 +10,9 @@ sys.path.append("./Tools/")
 from Tools import Convertion
 
 class AjoutClient(QtWidgets.QMainWindow):
-    def __init__(self):
+    def __init__(self,tableWid):
         super().__init__()
+        self.table = tableWid
         self.client = Client.Client()
         self.convert = Convertion.convert()
         self.ui = uic.loadUi("../main/editClient_ui.ui",self)
@@ -51,7 +52,8 @@ class AjoutClient(QtWidgets.QMainWindow):
             self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
             self.user_dict['photo'] = self.convert.convertToBinary(self.imagePath)
             self.client.addClient(self.user_dict)
-
+            self.client.displayClients(f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
+                                       ,self.table)
     def generateRandomPassword(self):
         characters = string.ascii_letters + string.digits + string.punctuation
         password = str()

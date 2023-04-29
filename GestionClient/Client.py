@@ -1,4 +1,7 @@
 from main import conn
+from Tools import Convertion
+from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
+from PyQt5 import QtGui
 class Client:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
@@ -57,3 +60,45 @@ class Client:
                 print("Added successfully")
             except Exception as e:
                 print(f"Error: {e}")
+    def displayClients(self,request,table):
+        try:
+            table.clearContents()  # Clear the existing data in the table
+            table.setColumnCount(15)  # Set the number of columns in the table
+            table.setHorizontalHeaderLabels(
+                ['idUser', 'photo', 'login', 'mdp', 'Adresse', 'nom', 'prenom', 'societe', 'cin', 'tel', 'ville',
+                 'permis', 'passport', 'observation', 'liste_noire'])  # Set the column labels
+            print(request)
+            users = self.getClientsData(request)
+            table.setRowCount(len(users))  # Set the number of rows in the table
+            # adding select check mark :
+            self.convert = Convertion.convert()
+            for row_idx, user in enumerate(users):
+                table.setItem(row_idx, 0, QTableWidgetItem(str(user[0])))
+                if(user[1] is not None):
+                    label = QLabel()  # Create a QLabel to display the image
+                    label.setScaledContents(True)  # Set the label to scale its contents
+                    label.setMaximumSize(80, 80)
+                    pixmap = self.convert.getImageLabel(user[1])  # Get QPixmap from binary data
+                    label.setPixmap(pixmap)
+                    table.setCellWidget(row_idx, 1,
+                                                       label)  # Set the label as the cell widget for the image column
+                for col_idx in range(2,15):
+                    table.setItem(row_idx, col_idx, QTableWidgetItem(str(user[col_idx])))
+
+            table.setColumnHidden(0, True)
+            table.setColumnHidden(2, True)
+            table.setColumnHidden(3, True)
+
+            for row in range(table.rowCount()):
+                for column in range(table.columnCount()):
+                    item = table.item(row, column)
+                    if item is not None:
+                        column_name = table.horizontalHeaderItem(column).text()
+                        if (column_name == "liste_noire" and int(item.text()) == 1):
+                            item.setBackground(QtGui.QColor("red"))
+                        elif (column_name == "liste_noire" and int(item.text()) == 0):
+                            item.setBackground(QtGui.QColor("green"))
+            table.resizeColumnsToContents()  # Resize the columns to fit the content
+
+        except Exception as e:
+            print(f"{e}")

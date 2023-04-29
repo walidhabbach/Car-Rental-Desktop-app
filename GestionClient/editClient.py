@@ -4,8 +4,9 @@ from PyQt5.QtGui import QPixmap, QImage
 from main import mainInt
 import Client
 class EditClient(QtWidgets.QMainWindow):
-    def __init__(self,user_dict_):
+    def __init__(self,user_dict_,tableWid):
         super().__init__()
+        self.table = tableWid
         self.idUser = user_dict_['idUser']
         self.user_dict = user_dict_
         self.client = Client.Client()
@@ -51,6 +52,9 @@ class EditClient(QtWidgets.QMainWindow):
             self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
             self.user_dict['idUser'] = self.idUser
             self.client.updateClient(self.user_dict)
+            self.client.displayClients(
+                f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
+                , self.table)
     def verificationFields(self):
         checkers = []
         flag = True
