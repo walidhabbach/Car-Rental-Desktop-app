@@ -57,9 +57,9 @@ class Client:
                 print(client_dict['photo'])
                 # creating the client:
                 req3 = f"INSERT INTO client(`idUser`,`photo`, `adresse`, `cin`, `liste_noire`, `permis`, `passport`, `email`, " \
-                       f"`observation`, `societe`, `ville`, `tel`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                       f"`observation`, `societe`, `ville`, `tel`,`date_permis`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
                 self.connexion.cursor.execute(req3,(client_id,client_dict['photo'],client_dict['adresse'], client_dict['cin'],client_dict['liste_noire'], client_dict['permis'], client_dict['passport'],
-                       client_dict['email'], client_dict['observation'], client_dict['societe'],client_dict['ville'],client_dict['tel']))
+                       client_dict['email'], client_dict['observation'], client_dict['societe'],client_dict['ville'],client_dict['tel'],client_dict['date_permis']))
 
                 self.connexion.conn.commit()
                 print("Added successfully")
@@ -68,10 +68,10 @@ class Client:
     def displayClients(self,request,table):
         try:
             table.clearContents()  # Clear the existing data in the table
-            table.setColumnCount(16)  # Set the number of columns in the table
+            table.setColumnCount(17)  # Set the number of columns in the table
             table.setHorizontalHeaderLabels(
                 ['idUser', 'photo', 'email' , 'login', 'mdp', 'Adresse', 'nom', 'prenom', 'societe', 'cin', 'tel', 'ville',
-                 'permis', 'passport', 'observation', 'liste_noire'])  # Set the column labels
+                 'permis', 'passport', 'observation', 'liste_noire','date_permis'])  # Set the column labels
             print(request)
             users = self.getClientsData(request)
             table.setRowCount(len(users))  # Set the number of rows in the table
@@ -87,12 +87,12 @@ class Client:
                     label.setPixmap(pixmap)
                     table.setCellWidget(row_idx, 1,
                                                        label)  # Set the label as the cell widget for the image column
-                for col_idx in range(2,16):
+                for col_idx in range(2,17):
                     table.setItem(row_idx, col_idx, QTableWidgetItem(str(user[col_idx])))
 
-            table.setColumnHidden(0, True)
+            '''table.setColumnHidden(0, True)
             table.setColumnHidden(3, True)
-            table.setColumnHidden(4, True)
+            table.setColumnHidden(4, True)'''
 
             for row in range(table.rowCount()):
                 for column in range(table.columnCount()):

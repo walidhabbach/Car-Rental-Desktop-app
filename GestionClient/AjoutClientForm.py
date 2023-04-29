@@ -49,10 +49,19 @@ class AjoutClient(QtWidgets.QMainWindow):
                     self.user_dict[widget.objectName()] = widget.text()
                 elif (widget.objectName() == "observation" or widget.objectName() == "adresse"):
                     self.user_dict[widget.objectName()] = widget.toPlainText()
+                elif(isinstance(widget, QtWidgets.QDateEdit)):
+                    tuple_date = widget.date().getDate()
+                    my_string = '/'.join(map(str, tuple_date))
+                    self.user_dict['date_permis'] = my_string
+
+                    print(self.user_dict['date_permis'])
             self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
+            self.user_dict['photo'] = self.convert.convertToBinary(self.imagePath)
             self.client.addClient(self.user_dict)
-            self.client.displayClients(f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
-                                       ,self.table)
+            self.client.displayClients(
+                f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
+                self.table)
+
     def generateRandomPassword(self):
         characters = string.ascii_letters + string.digits + string.punctuation
         password = str()

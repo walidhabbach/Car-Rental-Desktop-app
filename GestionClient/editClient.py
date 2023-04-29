@@ -3,8 +3,8 @@ import base64
 from main import mainInt
 from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
 from PyQt5.QtGui import QPixmap, QImage
-from PyQt5.QtCore import QByteArray,QBuffer,QIODevice
-
+from PyQt5.QtCore import QByteArray,QBuffer,QIODevice,QDate
+import datetime
 import Client
 class EditClient(QtWidgets.QMainWindow):
     def __init__(self,user_dict_,tableWid,table_listeNoir):
@@ -56,6 +56,11 @@ class EditClient(QtWidgets.QMainWindow):
                         self.user_dict[widget.objectName()] = widget.text()
                     elif (widget.objectName() == "observation"):
                         self.user_dict[widget.objectName()] = widget.toPlainText()
+                    elif(isinstance(widget, QtWidgets.QDateEdit)):
+                        date_str = self.user_dict['date_permis']
+                        date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
+                        date = QDate(date_obj.year, date_obj.month, date_obj.day)
+                        self.ui.date_permis.setDate(date)
                 self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
                 self.user_dict['idUser'] = self.idUser
                 pixmap = self.ui.image_label_cli.pixmap()  # Get the pixmap from the label widget
@@ -67,10 +72,10 @@ class EditClient(QtWidgets.QMainWindow):
                     self.user_dict['photo'] = byte_array
                     self.client.updateClient(self.user_dict)
                     self.client.displayClients(
-                        f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
+                        f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser "
                         , self.table)
                     self.client.displayClients(
-                        f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser WHERE liste_noire = 1"
+                        f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser WHERE liste_noire = 1"
                         , self.table_list_no)
         except Exception as e:
             print(e)
