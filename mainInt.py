@@ -170,10 +170,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 for col_idx in range(2,15):
                     table.setItem(row_idx, col_idx, QTableWidgetItem(str(user[col_idx])))
 
-            print(f"here users:  {users}")
             table.setColumnHidden(0, True)
             table.setColumnHidden(2, True)
             table.setColumnHidden(3, True)
+
             for row in range(table.rowCount()):
                 for column in range(self.ui.clients_data.columnCount()):
                     item = self.ui.clients_data.item(row, column)
@@ -197,22 +197,13 @@ class MainWindow(QtWidgets.QMainWindow):
     def handlClick(self,index:QtCore.QModelIndex):
         try:
             row = index.row()
-            column = index.column()
             # to get the current row and the idUser which is 0 order
             for column in range(self.ui.clients_data.columnCount()):
+
                 item = self.ui.clients_data.item(row, column)
                 column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
-                print(column_name)
-                if(column_name == "photo"):
-                    print(item)
-                    if(item is not None):
-                        self.client_dict[column_name] = item.icon().pixmap()
-                    else:
-                        self.client_dict[column_name] = QPixmap()
-                else:
-                    if item is not None:
-                        column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
-                        self.client_dict[column_name] = item.text()
+                if (item is not None):
+                    self.client_dict[column_name] = item.text()
 
         except Exception as e:
             print(e)

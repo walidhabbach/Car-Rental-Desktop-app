@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import base64
 from PyQt5.QtGui import QPixmap, QImage
+from main import mainInt
 import Client
 class EditClient(QtWidgets.QMainWindow):
     def __init__(self,user_dict_):
@@ -11,13 +12,25 @@ class EditClient(QtWidgets.QMainWindow):
         self.ui = uic.loadUi("../main/editClient_ui.ui",self)
         self.ui.valider_btn.clicked.connect(self.editClientBtn)
         self.displayDataClient()
+        self.getUserImage()
+    def getUserImage(self):
+        try:
+            data = self.client.getClientsData(f"SELECT photo from client where idUser={self.idUser}")
+            print(data[0][0])
 
-    def setDictionary(self,user_dict):
-        print("hna")
+            # Convert the blob image to a QPixmap
+            pixmap = QPixmap()
+            pixmap.loadFromData(data[0][0])
 
+            # Set the desired size
+            desired_size = QtCore.QSize(200, 200)  # Width, Height
+            # Scale the pixmap to the desired size
+            pixmap = pixmap.scaled(desired_size, aspectRatioMode=QtCore.Qt.KeepAspectRatio)
+            self.ui.image_label_cli.setPixmap(pixmap)
+            self.ui.image_label_cli.adjustSize()
+        except Exception as e:
+            print(e)
     def displayDataClient(self):
-        self.ui.image_label_cli.setPixmap(self.user_dict['photo'])
-        print(self.ui.image_label_cli.pixmap())
         for widget in self.ui.findChildren(QtWidgets.QWidget):
             for key,value in self.user_dict.items():
                 if(key.lower() == widget.objectName().lower()):
