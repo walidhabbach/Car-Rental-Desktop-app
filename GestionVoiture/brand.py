@@ -26,7 +26,6 @@ class Brand:
                     result = self.connexion.cursor.fetchall()
                     for row in result:
                         data[row[0]] = row[1]
-                        print(data)
                 return data
         except Exception as e:
             print(f"An error occurred: {e}")

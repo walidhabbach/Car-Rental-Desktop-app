@@ -1,4 +1,5 @@
 import sys
+import json
 sys.path.append("./GestionClient/")
 from GestionClient import Client
 from GestionClient import editClient as ec
@@ -6,6 +7,9 @@ from GestionClient import editClient as ec
 sys.path.append("./GestionVoiture/")
 from GestionVoiture import car
 from GestionVoiture import brand
+
+sys.path.append("./Scraping/")
+from Scraping import scraping
 
 sys.path.append("./Tools/")
 from Tools import Tool
@@ -86,28 +90,29 @@ class MainWindow(QtWidgets.QMainWindow):
         self.dict_fuel = dict()
         self.imagePath = ""
 
+        self.scraping = scraping.scrap()
         self.car = car.Car()
         self.brand = brand.Brand()
         self.tool = Tool.tool()
 
-        # Add Car Section
-        self.ui.AddButton.clicked.connect(self.addCarButton)
+
         self.ui.tableWidgetCar.clearContents()
         # load combobox
-        self.load_Brand_Fuel()
+        self.fill_combobox(self.ui.comboBoxFuel)
+        self.fill_combobox(self.ui.comboAllBrand)
+        self.fill_combobox(self.ui.comboBoxBrand)
         print("2")
         # Retrieve data from the database
         car_data = self.car.getCar("SELECT * FROM voiture;")
         self.displayCars(car_data)
-        print("3")
+        print("5")
+        # linking the update button with the update method:
+        self.ui.comboBoxBrand.currentIndexChanged.connect(self.id_SelectedBrand)
+        self.ui.comboBoxFuel.currentIndexChanged.connect(self.id_SelectedFuel)
+        self.ui.comboAllBrand.currentIndexChanged.connect(self.id_SelectedAllBrand)
+        self.ui.AddButton.clicked.connect(self.addCarButton)
         self.addImage.clicked.connect(self.image_dialog)
         self.ui.search_input.textChanged.connect(self.sync_SearchLine)
-        print("4")
-
-        print("5")
-        # Connect the combobox signal to a slot
-        self.comboBoxBrand.currentIndexChanged.connect(self.id_SelectedBrand)
-        self.comboBoxFuel.currentIndexChanged.connect(self.id_SelectedFuel)
         print("6")
 
      ###############################################################################################################
@@ -267,7 +272,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.tableWidgetCar.setCellWidget(row_idx, 0,  label)  # Set the label as the cell widget for the image column
 
                 self.ui.tableWidgetCar.setItem(row_idx, 1, QTableWidgetItem(str(car[0])))
-                print(self.dict_brands[car[1]],"  ",self.dict_fuel[car[2]])
+
                 self.ui.tableWidgetCar.setItem(row_idx, 2, QTableWidgetItem(str(self.dict_brands[car[1]])))
                 self.ui.tableWidgetCar.setItem(row_idx, 3, QTableWidgetItem(str(self.dict_fuel[car[2]])))
                 self.ui.tableWidgetCar.setItem(row_idx, 4, QTableWidgetItem(str(car[4])))
@@ -329,6 +334,21 @@ class MainWindow(QtWidgets.QMainWindow):
             car_data = self.car.searchByIdFuel(key)
             self.displayCars(car_data)
             return key
+    def id_SelectedAllBrand(self):
+        selected_index = self.comboAllBrand.currentIndex()
+        # Get the item key using the selected index
+        key = self.comboAllBrand.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
+        # Get the value of the selected item
+        value = self.comboAllBrand.itemText(selected_index)
+        # Print the retrieved text and data
+        print("value: ", value)
+        print("key: ", key)
+
+        if key is not None:
+            # Retrieve data from the database based on the selected item
+            car_data = self.scraping.getCarsByBrand(value)
+            print(car_data)
+
     def image_dialog(self):
         try:
             file_dialog = QFileDialog()
@@ -348,33 +368,27 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             print(f"An error occurred: {e}")
 
-    def load_Brand_Fuel(self):
+
+    def fill_combobox(self,combo):
+        print(1)
         try:
             self.comboBoxBrand.clear()
-            self.comboBoxBrand.addItem('Select Brand')
+            data = dict()
+            if combo.objectName() == 'comboBoxBrand':
+                combo.addItem('Select Brand')
+                data = self.brand.getBrands()
+                self.dict_brands = data
+            elif combo.objectName() == 'comboBoxFuel':
+                combo.addItem('Select Carburant')
+                data = self.car.getFuel()
+                self.dict_fuel = data
+            elif combo.objectName() == 'comboAllBrand':
+                combo.addItem('Select Brand')
+                data = self.scraping.getCarBrandAll()
 
-            self.comboBoxFuel.clear()
-            self.comboBoxFuel.addItem('Select Carburant')
-
-            self.dict_brands = self.brand.getBrands()
-            self.dict_fuel = self.car.getFuel()
-
-            if isinstance(self.dict_brands, dict):
-                for key, value in self.dict_brands.items():
-                    self.comboBoxBrand.addItem(value)
-                    # Set the key as custom data for the item
-                    self.comboBoxBrand.setItemData(self.comboBoxBrand.count() - 1, key)
-            else:
-                print("Error: Brands is not a dictionary.")
-
-            if isinstance(self.dict_fuel, dict):
-                for key, value in self.dict_fuel.items():
-                    self.comboBoxFuel.addItem(str(value))
-                    # Set the key as custom data for the item
-                    self.comboBoxFuel.setItemData(self.comboBoxFuel.count() - 1, key)
-            else:
-                print("Error: fuel is not a dictionary.")
+            for key, value in data.items():
+                combo.addItem(value)
+                combo.setItemData(combo.count() - 1, key)
 
         except Exception as e:
             print(f"Error: {e}")
-
