@@ -1,7 +1,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import base64
-from PyQt5.QtGui import QPixmap, QImage
 from main import mainInt
+from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
+from PyQt5.QtGui import QPixmap, QImage
+from PyQt5.QtCore import QByteArray,QBuffer,QIODevice
+
 import Client
 class EditClient(QtWidgets.QMainWindow):
     def __init__(self,user_dict_,tableWid):
@@ -14,6 +17,7 @@ class EditClient(QtWidgets.QMainWindow):
         self.ui.valider_btn.clicked.connect(self.editClientBtn)
         self.displayDataClient()
         self.getUserImage()
+        self.ui.image_btn.clicked.connect(self.image_dialog)
     def getUserImage(self):
         try:
             data = self.client.getClientsData(f"SELECT photo from client where idUser={self.idUser}")
@@ -42,19 +46,30 @@ class EditClient(QtWidgets.QMainWindow):
             self.ui.radioOui.setChecked(True)
 
     def editClientBtn(self):
-        if(self.verificationFields()):
-            # problem with empty dictionary trying to resolve it :
-            for widget in self.ui.findChildren(QtWidgets.QWidget):
-                if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit":
-                    self.user_dict[widget.objectName()] = widget.text()
-                elif (widget.objectName() == "observation"):
-                    self.user_dict[widget.objectName()] = widget.toPlainText()
-            self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
-            self.user_dict['idUser'] = self.idUser
-            self.client.updateClient(self.user_dict)
-            self.client.displayClients(
-                f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
-                , self.table)
+        try:
+            if (self.verificationFields()):
+                # problem with empty dictionary trying to resolve it :
+                for widget in self.ui.findChildren(QtWidgets.QWidget):
+                    if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit":
+                        self.user_dict[widget.objectName()] = widget.text()
+                    elif (widget.objectName() == "observation"):
+                        self.user_dict[widget.objectName()] = widget.toPlainText()
+                self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
+                self.user_dict['idUser'] = self.idUser
+                pixmap = self.ui.image_label_cli.pixmap()  # Get the pixmap from the label widget
+                if pixmap is not None:
+                    byte_array = QByteArray()
+                    buffer = QBuffer(byte_array)
+                    buffer.open(QIODevice.WriteOnly)
+                    pixmap.toImage().save(buffer, 'PNG')
+                    self.user_dict['photo'] = byte_array
+                    print(self.user_dict['photo'])
+                    self.client.updateClient(self.user_dict)
+                    self.client.displayClients(
+                        f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
+                        , self.table)
+        except Exception as e:
+            print(e)
     def verificationFields(self):
         checkers = []
         flag = True
@@ -84,3 +99,22 @@ class EditClient(QtWidgets.QMainWindow):
            return False
         elif(not flag or not flagChecks):
             return False
+
+    def image_dialog(self):
+        try:
+            file_dialog = QFileDialog()
+            file_dialog.setFileMode(QFileDialog.ExistingFile)
+            file_dialog.setNameFilter("Image files (*.jpg *.jpeg *.png *.bmp)")
+            if file_dialog.exec_():
+                file_path = file_dialog.selectedFiles()[0]
+                print(file_path)
+                self.imagePath = file_path
+                pixmap = QPixmap(file_path)
+                # Set the desired size
+                desired_size = QtCore.QSize(200, 200)  # Width, Height
+                # Scale the pixmap to the desired size
+                pixmap = pixmap.scaled(desired_size, aspectRatioMode=QtCore.Qt.KeepAspectRatio)
+                self.ui.image_label_cli.setPixmap(pixmap)
+                self.ui.image_label_cli.adjustSize()
+        except Exception as e:
+            print(e)

@@ -23,16 +23,22 @@ class Client:
         if(self.connexion.connect()):
             print("edit button triggered")
             print(client_dict)
-            req = f"UPDATE client SET tel='{client_dict['tel']}', liste_noire = '{client_dict['liste_noire']}', " \
-                  f" permis = '{client_dict['permis']}',observation='{client_dict['observation']}' WHERE idUser='{client_dict['idUser']}'"
-            self.connexion.cursor.execute(req)
+            req = f"UPDATE client SET `photo`=%s ,`cin`=%s, `liste_noire` = %s, " \
+                  f" `permis` = %s,`passport`=%s,`email`=%s,`observation`=%s,`societe`=%s,`ville`=%s,`tel`=%s WHERE `idUser`=%s"
+
+            self.connexion.cursor.execute(req, (bytes(client_dict['photo']), client_dict['cin'], client_dict['liste_noire'],
+            client_dict['permis'], client_dict['passport'],
+            client_dict['email'], client_dict['observation'], client_dict['societe'], client_dict['ville'],
+            client_dict['tel'],client_dict['idUser']))
+
             self.connexion.conn.commit()
             print("updated successfully")
     def supprimerClient(self,id):
-        req = f"DELETE FROM client WHERE IDUSER = '{id}'"
-        self.connexion.cursor.execute(req)
-        self.connexion.conn.commit()
-        print("deleted succesfully")
+        if(self.connexion.connect()):
+            req = f"DELETE FROM client WHERE IDUSER = '{id}'"
+            self.connexion.cursor.execute(req)
+            self.connexion.conn.commit()
+            print("deleted succesfully")
 
     def addClient(self, client_dict):
         if self.connexion.connect():

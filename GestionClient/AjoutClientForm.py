@@ -50,7 +50,6 @@ class AjoutClient(QtWidgets.QMainWindow):
                 elif (widget.objectName() == "observation" or widget.objectName() == "adresse"):
                     self.user_dict[widget.objectName()] = widget.toPlainText()
             self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
-            self.user_dict['photo'] = self.convert.convertToBinary(self.imagePath)
             self.client.addClient(self.user_dict)
             self.client.displayClients(f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
                                        ,self.table)
