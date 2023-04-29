@@ -68,9 +68,9 @@ class Client:
     def displayClients(self,request,table):
         try:
             table.clearContents()  # Clear the existing data in the table
-            table.setColumnCount(15)  # Set the number of columns in the table
+            table.setColumnCount(16)  # Set the number of columns in the table
             table.setHorizontalHeaderLabels(
-                ['idUser', 'photo', 'login', 'mdp', 'Adresse', 'nom', 'prenom', 'societe', 'cin', 'tel', 'ville',
+                ['idUser', 'photo', 'email' , 'login', 'mdp', 'Adresse', 'nom', 'prenom', 'societe', 'cin', 'tel', 'ville',
                  'permis', 'passport', 'observation', 'liste_noire'])  # Set the column labels
             print(request)
             users = self.getClientsData(request)
@@ -87,12 +87,12 @@ class Client:
                     label.setPixmap(pixmap)
                     table.setCellWidget(row_idx, 1,
                                                        label)  # Set the label as the cell widget for the image column
-                for col_idx in range(2,15):
+                for col_idx in range(2,16):
                     table.setItem(row_idx, col_idx, QTableWidgetItem(str(user[col_idx])))
 
             table.setColumnHidden(0, True)
-            table.setColumnHidden(2, True)
             table.setColumnHidden(3, True)
+            table.setColumnHidden(4, True)
 
             for row in range(table.rowCount()):
                 for column in range(table.columnCount()):

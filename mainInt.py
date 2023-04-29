@@ -72,8 +72,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.comboClients_2.currentIndexChanged.connect(self.searchByComboClient)
         self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
-        self.client.displayClients(f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
-        self.client.displayClients(f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
+        self.client.displayClients(f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
+        self.client.displayClients(f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
         '''
         self.ui.drop_down_two.setVisible(self.visible)
         self.ui.dropBtn.clicked.connect(self.dropMenu)
@@ -159,7 +159,6 @@ class MainWindow(QtWidgets.QMainWindow):
             row = index.row()
             # to get the current row and the idUser which is 0 order
             for column in range(self.ui.clients_data.columnCount()):
-
                 item = self.ui.clients_data.item(row, column)
                 column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
                 if (item is not None):
@@ -195,10 +194,10 @@ class MainWindow(QtWidgets.QMainWindow):
             combo.setItemData(combo.count() - 1, key)
     def searchByComboClient(self,condition):
         if (self.ui.comboClients.currentData() is not None):
-            self.client.displayClients(f"SELECT su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{self.ui.comboClients.currentData()}'",self.ui.clients_data)
+            self.client.displayClients(f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{self.ui.comboClients.currentData()}'",self.ui.clients_data)
         else:
             self.client.displayClients(
-                f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",
+                f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser ",
                 self.ui.clients_data)
 
     ############################################## Car Section ########################################################

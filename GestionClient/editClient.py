@@ -37,6 +37,7 @@ class EditClient(QtWidgets.QMainWindow):
         except Exception as e:
             print(e)
     def displayDataClient(self):
+        print(self.user_dict)
         for widget in self.ui.findChildren(QtWidgets.QWidget):
             for key,value in self.user_dict.items():
                 if(key.lower() == widget.objectName().lower()):
@@ -66,10 +67,10 @@ class EditClient(QtWidgets.QMainWindow):
                     self.user_dict['photo'] = byte_array
                     self.client.updateClient(self.user_dict)
                     self.client.displayClients(
-                        f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
+                        f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser "
                         , self.table)
                     self.client.displayClients(
-                        f"select su.idUser,photo,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser WHERE liste_noire = 1"
+                        f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire from client su join utilisateur u on su.idUser = u.idUser WHERE liste_noire = 1"
                         , self.table_list_no)
         except Exception as e:
             print(e)
