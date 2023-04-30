@@ -136,7 +136,7 @@ class MainWindow(QtWidgets.QMainWindow):
             print("Try to click on a client")
             self.client_dict.clear()
     def messageBox(self, field):
-        message = QtWidgets.QMessageBox.question(None, "Confirmation",f"{field} : {self.client_dict['idUser']}", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
+        message = QtWidgets.QMessageBox.warning(None, "Confirmation",f"{field} : {self.client_dict['idUser']}", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
         return message
     def updateTable(self):
         if(bool(self.client_dict)) == True:
@@ -152,7 +152,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def deleteButtonClient(self):
         if (bool(self.client_dict)) == True:
 
-            if (self.messageBox("Etes vous sure de le supprimer")  == QtWidgets.QMessageBox.Yes):
+            if (self.messageBox("Etes vous sure de le supprimer la suppression de ce client va entrainer la suppression de toutes ces reservations !")  == QtWidgets.QMessageBox.Yes):
                 self.client.supprimerClient(self.client_dict['idUser'])
             else:
                 print("NO")
