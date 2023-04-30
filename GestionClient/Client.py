@@ -25,15 +25,16 @@ class Client:
 
     def updateClient(self,client_dict):
         try:
+            print(client_dict['date_permis'])
             if (self.connexion.connect()):
                 req = f"UPDATE client SET `photo`=%s ,`cin`=%s, `liste_noire` = %s, " \
-                      f" `permis` = %s,`passport`=%s,`email`=%s,`observation`=%s,`societe`=%s,`ville`=%s,`tel`=%s WHERE `idUser`=%s"
+                      f" `permis` = %s,`passport`=%s,`email`=%s,`observation`=%s,`societe`=%s,`ville`=%s,`tel`=%s,`date_permis`=%s WHERE `idUser`=%s"
 
                 self.connexion.cursor.execute(req, (
                 bytes(client_dict['photo']), client_dict['cin'], client_dict['liste_noire'],
                 client_dict['permis'], client_dict['passport'],
                 client_dict['email'], client_dict['observation'], client_dict['societe'], client_dict['ville'],
-                client_dict['tel'], client_dict['idUser']))
+                client_dict['tel'], client_dict['date_permis'],client_dict['idUser']))
 
                 self.connexion.conn.commit()
                 print("updated successfully")

@@ -4,7 +4,7 @@ from main import mainInt
 from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import QByteArray,QBuffer,QIODevice,QDate
-import datetime
+from datetime import datetime
 import Client
 class EditClient(QtWidgets.QMainWindow):
     def __init__(self,user_dict_,tableWid,table_listeNoir):
@@ -61,6 +61,11 @@ class EditClient(QtWidgets.QMainWindow):
                         self.user_dict[widget.objectName()] = widget.text()
                     elif (widget.objectName() == "observation"):
                         self.user_dict[widget.objectName()] = widget.toPlainText()
+                    elif isinstance(widget, QtWidgets.QDateEdit):
+                        tuple_date = widget.date().getDate()
+                        my_string = '/'.join(map(str, tuple_date))
+                        self.user_dict['date_permis'] = my_string
+
                 self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
                 self.user_dict['idUser'] = self.idUser
                 pixmap = self.ui.image_label_cli.pixmap()  # Get the pixmap from the label widget
@@ -101,6 +106,11 @@ class EditClient(QtWidgets.QMainWindow):
                     flag = False
                 else:
                     widget.setStyleSheet("border: 1px solid green")
+            elif isinstance(widget,QtWidgets.QDateEdit):
+                dure_permis  = datetime.now().date() - datetime.strptime(widget.text(), '%d/%m/%Y').date()
+                if((dure_permis.days)/365 < 2):
+                    flag = False
+                    print("azbiiiii rah duree permis est inférieur a 2 ans : ")
         if(flag and flagChecks):
             return True
         elif(flag and not flagChecks):
