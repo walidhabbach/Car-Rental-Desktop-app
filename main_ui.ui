@@ -1284,19 +1284,6 @@ border: 0;height: 40px;</string>
                        </property>
                       </widget>
                      </item>
-                     <item>
-                      <widget class="QPushButton" name="modifier_btn2_2">
-                       <property name="styleSheet">
-                        <string notr="true">background-color: orange;
-color: white;
-border: 0;
-height: 40px;</string>
-                       </property>
-                       <property name="text">
-                        <string>Modifier/Afficher</string>
-                       </property>
-                      </widget>
-                     </item>
                     </layout>
                    </item>
                    <item>
