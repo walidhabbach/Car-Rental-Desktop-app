@@ -76,8 +76,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.supprimer_btn.clicked.connect(self.deleteButtonClient)
         self.ui.supprimer_btn_3.clicked.connect(self.deleteButtonClient)
-        self.ui.comboClients.currentIndexChanged.connect(lambda: self.searchByComboClient(self.ui.comboClients,self.ui.clients_data))
-        self.ui.comboClients_3.currentIndexChanged.connect(lambda: self.searchByComboClient(self.ui.comboClients_3,self.ui.page_noire_data))
+        self.ui.comboClients.currentIndexChanged.connect(lambda: self.searchByComboClient("",self.ui.comboClients,self.ui.clients_data))
+        self.ui.comboClients_3.currentIndexChanged.connect(lambda: self.searchByComboClient("yes",self.ui.comboClients_3,self.ui.page_noire_data))
         self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
         self.client.displayClients(f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
@@ -208,13 +208,28 @@ class MainWindow(QtWidgets.QMainWindow):
             combo.addItem(value)
             # Set the key as custom data for the item
             combo.setItemData(combo.count() - 1, key)
-    def searchByComboClient(self,comboBox,table):
-        if (comboBox.currentData() is not None):
-            self.client.displayClients(f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{comboBox.currentData()}'",table)
-        else:
-            self.client.displayClients(
-                f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
-                table)
+    def searchByComboClient(self,condition,comboBox,table):
+        try:
+            if (condition != ""):
+                if (comboBox.currentData() is not None):
+                    self.client.displayClients(
+                        f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{comboBox.currentData()}' and liste_noire = 1",
+                        table)
+                else:
+                    self.client.displayClients(
+                        f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where liste_noire = 1 ",
+                        table)
+            else:
+                if (comboBox.currentData() is not None):
+                    self.client.displayClients(
+                        f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{comboBox.currentData()}'",
+                        table)
+                else:
+                    self.client.displayClients(
+                        f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
+                        table)
+        except Exception as e:
+            print(e)
 
     ############################################## Car Section ########################################################
     def sync_SearchLine(self, text):
