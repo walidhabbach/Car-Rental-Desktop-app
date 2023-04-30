@@ -765,7 +765,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>5</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -1251,16 +1251,83 @@ border: 2px solid red;</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <widget class="QTableWidget" name="reservation_data">
-              <property name="geometry">
-               <rect>
-                <x>100</x>
-                <y>120</y>
-                <width>731</width>
-                <height>371</height>
-               </rect>
-              </property>
-             </widget>
+             <layout class="QGridLayout" name="gridLayout_15">
+              <item row="1" column="0">
+               <widget class="QFrame" name="frame_8">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_16">
+                 <item row="0" column="0">
+                  <layout class="QVBoxLayout" name="verticalLayout_7">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_7">
+                     <item>
+                      <widget class="QComboBox" name="comboClients_4">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="supprimer_btn_4">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: red;
+color: white;
+border: 0;height: 40px;</string>
+                       </property>
+                       <property name="text">
+                        <string>Supprimer reservation</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="modifier_btn2_2">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: orange;
+color: white;
+border: 0;
+height: 40px;</string>
+                       </property>
+                       <property name="text">
+                        <string>Modifier/Afficher</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QTableWidget" name="reservation_data"/>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>Page de réservation client</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
