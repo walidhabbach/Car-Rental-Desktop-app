@@ -61,7 +61,6 @@ class AjoutClient(QtWidgets.QMainWindow):
             self.client.displayClients(
                 f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
                 self.table)
-        else: print("chi 7aja khawiya")
     def generateRandomPassword(self):
         characters = string.ascii_letters + string.digits + string.punctuation
         password = str()
@@ -81,10 +80,16 @@ class AjoutClient(QtWidgets.QMainWindow):
                     flag = False
                 else:
                     widget.setStyleSheet("border: 1px solid green")
+                    if(widget.objectName() == "cin"):
+                       if(self.client.testCin(widget.text())):
+                           widget.setStyleSheet("border: 1px solid red")
+                           print("cin deja entré")
+                           flag = False
 
             elif isinstance(widget,QtWidgets.QRadioButton):
                 if(widget.isChecked()):
                     flagChecks = True
+
             elif isinstance(widget,QtWidgets.QTextEdit):
                 if (widget.toPlainText() == ""):
                     print(f"widget is empty : {widget.objectName()} ")
@@ -92,11 +97,18 @@ class AjoutClient(QtWidgets.QMainWindow):
                     flag = False
                 else:
                     widget.setStyleSheet("border: 1px solid green")
+
             elif isinstance(widget,QtWidgets.QDateEdit):
                 dure_permis  = datetime.now().date() - datetime.strptime(widget.text(), '%d/%m/%Y').date()
                 if((dure_permis.days)/365 < 2):
                     flag = False
                     print("azbiiiii rah duree permis est inférieur a 2 ans : ")
+
+            elif isinstance(widget,QtWidgets.QLabel):
+                if widget.objectName() == "image_label_cli":
+                    if widget.pixmap() is None:
+                        print("image n'est pas définie")
+                        flag = False
         if(flag and flagChecks):
             return True
         elif(flag and not flagChecks):

@@ -95,6 +95,11 @@ class EditClient(QtWidgets.QMainWindow):
                     flag = False
                 else:
                     widget.setStyleSheet("border: 1px solid green")
+                    if (widget.objectName() == "cin"):
+                        if (self.client.testCin(widget.text())):
+                            widget.setStyleSheet("border: 1px solid red")
+                            print("cin deja entré")
+                            flag = False
 
             elif isinstance(widget,QtWidgets.QRadioButton):
                 if(widget.isChecked()):
@@ -111,6 +116,13 @@ class EditClient(QtWidgets.QMainWindow):
                 if((dure_permis.days)/365 < 2):
                     flag = False
                     print("azbiiiii rah duree permis est inférieur a 2 ans : ")
+
+            elif isinstance(widget,QtWidgets.QLabel):
+                if widget.objectName() == "image_label_cli":
+                    if widget.pixmap() is None:
+                        print("image n'est pas définie")
+                        flag = False
+
         if(flag and flagChecks):
             return True
         elif(flag and not flagChecks):

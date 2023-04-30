@@ -133,3 +133,9 @@ class Client:
             for col_idx, item in enumerate(user):
                 table.setItem(row_idx, col_idx,
                               QTableWidgetItem(str(item)))  # Set the table item with the data
+    def testCin(self,cinClie):
+        cins = self.getClientsData("SELECT cin from client")
+        for cin in cins:
+            if(cinClie == cin[0]):
+                return True
+        return False

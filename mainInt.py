@@ -141,6 +141,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def messageBox(self, field):
         message = QtWidgets.QMessageBox.warning(None, "Confirmation",f"{field} : {self.client_dict['idUser']}", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
         return message
+
     def updateTable(self):
         if(bool(self.client_dict)) == True:
 
