@@ -93,13 +93,13 @@ CREATE TABLE voiture (
 
 
 alter table client add constraint FK_client_utilisateur foreign key (idUser)
-      references utilisateur (idUser) on delete restrict on update restrict;
+      references utilisateur (idUser) on delete CASACADE on update restrict;
 
 ALTER TABLE reservation
 ADD CONSTRAINT FK_reservation_client FOREIGN KEY (idUser)
-REFERENCES client(idUser) ON DELETE RESTRICT ON UPDATE RESTRICT,
+REFERENCES client(idUser) ON DELETE CASCADE ON UPDATE RESTRICT,
 ADD CONSTRAINT FK_reservation_voiture FOREIGN KEY (idCar)
-REFERENCES voiture(idCar) ON DELETE RESTRICT ON UPDATE RESTRICT;
+REFERENCES voiture(idCar) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 alter table super_utilisateur add constraint FK_superuser_user foreign key (idUser)
       references utilisateur (idUser) on delete restrict on update restrict;
