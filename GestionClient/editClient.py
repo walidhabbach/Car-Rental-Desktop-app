@@ -22,8 +22,6 @@ class EditClient(QtWidgets.QMainWindow):
     def getUserImage(self):
         try:
             data = self.client.getClientsData(f"SELECT photo from client where idUser={self.idUser}")
-            print(data[0][0])
-
             # Convert the blob image to a QPixmap
             pixmap = QPixmap()
             pixmap.loadFromData(data[0][0])
@@ -98,7 +96,7 @@ class EditClient(QtWidgets.QMainWindow):
                     flagChecks = True
             elif isinstance(widget,QtWidgets.QTextEdit):
                 if (widget.toPlainText() == ""):
-                    print(f"widget is empty : {widget.objectName()} ")
+                    #print(f"widget is empty : {widget.objectName()} ")
                     widget.setStyleSheet("border: 1px solid red")
                     flag = False
                 else:
@@ -118,7 +116,6 @@ class EditClient(QtWidgets.QMainWindow):
             file_dialog.setNameFilter("Image files (*.jpg *.jpeg *.png *.bmp)")
             if file_dialog.exec_():
                 file_path = file_dialog.selectedFiles()[0]
-                print(file_path)
                 self.imagePath = file_path
                 pixmap = QPixmap(file_path)
                 # Set the desired size

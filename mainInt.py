@@ -135,7 +135,7 @@ class MainWindow(QtWidgets.QMainWindow):
             reservation_client_ui = rc.ReservationClient(reservations)
             reservation_client_ui.show()
         else:
-            print("Try to click on a client")
+            self.messageBox("Try to click on a client")
             self.client_dict.clear()
 
     def messageBox(self, field):
@@ -151,7 +151,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 print("NO")
             self.client_dict.clear()
         else:
-            print("try to click on a client")
+            self.messageBox("try to click on a client")
     def deleteButtonClient(self):
         if (bool(self.client_dict)) == True:
             if (self.messageBox("Etes vous sure de le supprimer la suppression de ce client va entrainer la suppression de toutes ces reservations !")  == QtWidgets.QMessageBox.Yes):
@@ -163,7 +163,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 print("NO")
             self.client_dict.clear()
         else:
-            print("try to click on a client")
+            self.messageBox("try to click on a client")
 
     def deleteButtonReservation(self):
         if (bool(self.client_dict)) == True:
@@ -175,7 +175,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 print("NO")
             self.client_dict.clear()
         else:
-            print("try to click on a reservation")
+            self.messageBox("try to click on a reservation")
 
     def dropMenu(self):
         if(self.visible == True):
@@ -188,15 +188,12 @@ class MainWindow(QtWidgets.QMainWindow):
     def handlClick(self,index:QtCore.QModelIndex,table):
         try:
             row = index.row()
-            print(f"row is : {row} ")
             # to get the current row and the idUser which is 0 order
             for column in range(table.columnCount()):
                 item = table.item(row, column)
                 column_name = table.horizontalHeaderItem(column).text()
                 if (item is not None):
                     self.client_dict[column_name] = item.text()
-                    print(column_name+ " : " + item.text())
-
         except Exception as e:
             print(e)
 
@@ -243,7 +240,6 @@ class MainWindow(QtWidgets.QMainWindow):
             model = self.ui.model.text()
             fuel = self.id_SelectedFuel()
             img = self.convert.convertToBinary(self.imagePath)
-            print(img)
             self.car.addCar(brand, model, fuel,img)
             # Retrieve data from the database
             car_data = self.car.getCar("SELECT * FROM voiture;")
@@ -279,8 +275,8 @@ class MainWindow(QtWidgets.QMainWindow):
         # Get the value of the selected item
         value = self.comboBoxBrand.itemText(selected_index)
         # Print the retrieved text and data
-        print("value: ", value)
-        print("key: ", key)
+        '''print("value: ", value)
+        print("key: ", key)'''
 
         if key is not None:
             # Retrieve data from the database based on the selected item
@@ -294,8 +290,8 @@ class MainWindow(QtWidgets.QMainWindow):
         # Get the value of the selected item
         value = self.comboBoxFuel.itemText(selected_index)
         # Print the retrieved text and data
-        print("value: ", value)
-        print("key: ", key)
+        '''print("value: ", value)
+        print("key: ", key)'''
 
         if key is not None:
             # Retrieve data from the database based on the selected item

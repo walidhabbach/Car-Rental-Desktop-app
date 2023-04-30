@@ -64,7 +64,6 @@ class Client:
                 self.connexion.cursor.execute(req2)
                 result = self.connexion.cursor.fetchone()
                 client_id = result[0]
-                print(client_dict['photo'])
                 # creating the client:
                 req3 = f"INSERT INTO client(`idUser`,`photo`, `adresse`, `cin`, `liste_noire`, `permis`, `passport`, `email`, " \
                        f"`observation`, `societe`, `ville`, `tel`,`date_permis`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
@@ -83,7 +82,6 @@ class Client:
             table.setHorizontalHeaderLabels(
                 ['idUser', 'photo', 'email' , 'login', 'mdp', 'Adresse', 'nom', 'prenom', 'societe', 'cin', 'tel', 'ville',
                  'permis', 'passport', 'observation', 'liste_noire','date_permis'])  # Set the column labels
-            print(request)
             users = self.getClientsData(request)
             table.setRowCount(len(users))  # Set the number of rows in the table
             # adding select check mark :
@@ -126,7 +124,6 @@ class Client:
             ['idUser', 'idCar', 'date'])  # Set the column labels
 
         users = self.getClientsData("SELECT idUser,idCar,date_depart,date_arr FROM RESERVATION")
-        print(users)
         table.setRowCount(len(users))  # Set the number of rows in the table
 
         # adding select check mark :
