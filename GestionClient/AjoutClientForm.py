@@ -61,7 +61,7 @@ class AjoutClient(QtWidgets.QMainWindow):
             self.client.displayClients(
                 f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
                 self.table)
-
+        else: print("chi 7aja khawiya")
     def generateRandomPassword(self):
         characters = string.ascii_letters + string.digits + string.punctuation
         password = str()
@@ -76,6 +76,7 @@ class AjoutClient(QtWidgets.QMainWindow):
         for widget in self.ui.findChildren(QtWidgets.QWidget):
             if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit":
                 if(widget.text() == ""):
+                    print(f"widget is empty : {widget.objectName()} ")
                     widget.setStyleSheet("border: 1px solid red")
                     flag = False
                 else:
