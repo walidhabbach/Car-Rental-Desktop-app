@@ -37,15 +37,22 @@ class EditClient(QtWidgets.QMainWindow):
         except Exception as e:
             print(e)
     def displayDataClient(self):
-        print(self.user_dict)
-        for widget in self.ui.findChildren(QtWidgets.QWidget):
-            for key,value in self.user_dict.items():
-                if(key.lower() == widget.objectName().lower()):
-                    widget.setText(self.user_dict[key])
-        if (int(self.user_dict['liste_noire']) == 0):
-            self.ui.radioNon.setChecked(True)
-        else:
-            self.ui.radioOui.setChecked(True)
+        try:
+            print(self.user_dict)
+            for widget in self.ui.findChildren(QtWidgets.QWidget):
+                for key, value in self.user_dict.items():
+                    if(isinstance(widget,QtWidgets.QDateEdit)):
+                        date = QDate.fromString(self.user_dict['date_permis'], 'yyyy-MM-dd')
+                        widget.setDate(date)
+                    else:
+                        if (key.lower() == widget.objectName().lower()):
+                            widget.setText(self.user_dict[key])
+            if (int(self.user_dict['liste_noire']) == 0):
+                self.ui.radioNon.setChecked(True)
+            else:
+                self.ui.radioOui.setChecked(True)
+        except Exception as e:
+            print(f"error : {e}")
 
     def editClientBtn(self):
         try:
@@ -56,11 +63,6 @@ class EditClient(QtWidgets.QMainWindow):
                         self.user_dict[widget.objectName()] = widget.text()
                     elif (widget.objectName() == "observation"):
                         self.user_dict[widget.objectName()] = widget.toPlainText()
-                    elif(isinstance(widget, QtWidgets.QDateEdit)):
-                        date_str = self.user_dict['date_permis']
-                        date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
-                        date = QDate(date_obj.year, date_obj.month, date_obj.day)
-                        self.ui.date_permis.setDate(date)
                 self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
                 self.user_dict['idUser'] = self.idUser
                 pixmap = self.ui.image_label_cli.pixmap()  # Get the pixmap from the label widget

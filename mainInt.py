@@ -42,6 +42,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.user_info_btn.setIcon(QtGui.QIcon("./icon/user-48.ico"))
         self.ui.reservation_btn2.setIcon(QtGui.QIcon("./icon/user-48.ico"))
 
+        # Set row height
+        self.ui.clients_data.verticalHeader().setDefaultSectionSize(50)
+        self.ui.page_noire_data.verticalHeader().setDefaultSectionSize(50)
+
         self.ui.client_btn_2.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_clients))
         self.ui.client_btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_clients))
 
@@ -54,7 +58,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.reserv.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_reserv))
 
-        self.ui.clients_data.clicked.connect(self.handlClick)
+        self.ui.clients_data.clicked.connect(lambda: self.handlClick(self.ui.clients_data.currentIndex(),self.ui.clients_data))
+        self.ui.page_noire_data.clicked.connect(lambda: self.handlClick(self.ui.page_noire_data.currentIndex(),self.ui.page_noire_data))
         self.client = Client.Client()
 
         self.ui.add_client_btn.clicked.connect(self.AjouterClient)
@@ -67,9 +72,12 @@ class MainWindow(QtWidgets.QMainWindow):
         else: self.ui.user_label.setText(self.ui.user_label.text() + " Admin")
         #linking the update button with the update method:
         self.ui.modifier_btn.clicked.connect(self.updateTable)
+        self.ui.modifier_btn2.clicked.connect(self.updateTable)
+
         self.ui.supprimer_btn.clicked.connect(self.deleteButtonClient)
-        self.ui.comboClients.currentIndexChanged.connect(self.searchByComboClient)
-        self.ui.comboClients_2.currentIndexChanged.connect(self.searchByComboClient)
+        self.ui.supprimer_btn_3.clicked.connect(self.deleteButtonClient)
+        self.ui.comboClients.currentIndexChanged.connect(lambda: self.searchByComboClient(self.ui.comboClients,self.ui.clients_data))
+        self.ui.comboClients_3.currentIndexChanged.connect(lambda: self.searchByComboClient(self.ui.comboClients_3,self.ui.page_noire_data))
         self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
         self.client.displayClients(f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
@@ -81,7 +89,7 @@ class MainWindow(QtWidgets.QMainWindow):
        '''
         self.displayReservations()
         self.fillComboClient(self.ui.comboClients, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
-        self.fillComboClient(self.ui.comboClients_2, f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
+        self.fillComboClient(self.ui.comboClients_3, f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
 
      ########################################### Car Section ##########################################################
 
@@ -108,10 +116,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.comboBoxFuel.currentIndexChanged.connect(self.id_SelectedFuel )
         print("6")
 
-     ###############################################################################################################
+
+    ###############################################################################################################
+
+
+
     def AjouterClient(self):
         ajout_client = af.AjoutClient(self.ui.clients_data)
         ajout_client.show()
+
+
     def selectReservationClient(self):
         if(bool(self.client_dict) == True):
             reservations = self.client.getValuePairDataClient(
@@ -154,15 +168,17 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.drop_down_two.setVisible(self.visible)
     def exitApp(self):
         QtWidgets.QApplication.exit()
-    def handlClick(self,index:QtCore.QModelIndex):
+    def handlClick(self,index:QtCore.QModelIndex,table):
         try:
             row = index.row()
+            print(f"row is : {row} ")
             # to get the current row and the idUser which is 0 order
-            for column in range(self.ui.clients_data.columnCount()):
-                item = self.ui.clients_data.item(row, column)
-                column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
+            for column in range(table.columnCount()):
+                item = table.item(row, column)
+                column_name = table.horizontalHeaderItem(column).text()
                 if (item is not None):
                     self.client_dict[column_name] = item.text()
+                    print(item.text())
 
         except Exception as e:
             print(e)
@@ -192,13 +208,13 @@ class MainWindow(QtWidgets.QMainWindow):
             combo.addItem(value)
             # Set the key as custom data for the item
             combo.setItemData(combo.count() - 1, key)
-    def searchByComboClient(self,condition):
-        if (self.ui.comboClients.currentData() is not None):
-            self.client.displayClients(f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{self.ui.comboClients.currentData()}'",self.ui.clients_data)
+    def searchByComboClient(self,comboBox,table):
+        if (comboBox.currentData() is not None):
+            self.client.displayClients(f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{comboBox.currentData()}'",table)
         else:
             self.client.displayClients(
                 f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
-                self.ui.clients_data)
+                table)
 
     ############################################## Car Section ########################################################
     def sync_SearchLine(self, text):
