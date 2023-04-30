@@ -762,7 +762,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>3</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -948,21 +948,99 @@
                  <string>addImage</string>
                 </property>
                </widget>
-               <widget class="QComboBox" name="comboAllBrand">
-                <property name="geometry">
-                 <rect>
-                  <x>760</x>
-                  <y>520</y>
-                  <width>161</width>
-                  <height>31</height>
-                 </rect>
-                </property>
-               </widget>
               </widget>
              </item>
             </layout>
            </item>
           </layout>
+         </widget>
+         <widget class="QWidget" name="page_All_Cars">
+          <widget class="QFrame" name="frame_5">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>-10</y>
+             <width>1031</width>
+             <height>665</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QComboBox" name="comboAllModels">
+            <property name="geometry">
+             <rect>
+              <x>240</x>
+              <y>20</y>
+              <width>181</width>
+              <height>31</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="tableWidgeModels">
+            <property name="geometry">
+             <rect>
+              <x>40</x>
+              <y>80</y>
+              <width>1001</width>
+              <height>531</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: transparent;
+border: 0</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="reservation_client_btn_2">
+            <property name="geometry">
+             <rect>
+              <x>480</x>
+              <y>20</y>
+              <width>161</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(0, 255, 255);
+color: black;
+border: 0;</string>
+            </property>
+            <property name="text">
+             <string>Liste de reservation</string>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="comboAllBrand">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>20</y>
+              <width>181</width>
+              <height>31</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLabel" name="loading">
+            <property name="geometry">
+             <rect>
+              <x>740</x>
+              <y>30</y>
+              <width>151</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>status</string>
+            </property>
+           </widget>
+           <zorder>comboAllModels</zorder>
+           <zorder>reservation_client_btn_2</zorder>
+           <zorder>comboAllBrand</zorder>
+           <zorder>tableWidgeModels</zorder>
+           <zorder>loading</zorder>
+          </widget>
          </widget>
          <widget class="QWidget" name="page_crud_clients">
           <layout class="QGridLayout" name="gridLayout_6">

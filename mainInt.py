@@ -14,11 +14,12 @@ from Scraping import scraping
 sys.path.append("./Tools/")
 from Tools import Tool
 
+from functools import partial
 
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from PyQt5.QtGui import QPixmap, QFont
 
-from PyQt5.QtWidgets import QTableWidgetItem, QFileDialog, QLabel, QTableWidget, QHeaderView
+from PyQt5.QtWidgets import QTableWidgetItem, QFileDialog, QLabel, QTableWidget, QHeaderView, QSizePolicy, QApplication
 from GestionClient import ReservationClient as rc
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix,admin_o_n):
@@ -46,8 +47,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.user_info_btn.setIcon(QtGui.QIcon("./icon/user-48.ico"))
         self.ui.reservation_btn2.setIcon(QtGui.QIcon("./icon/user-48.ico"))
 
+
         self.ui.client_btn_2.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_clients))
         self.ui.client_btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_clients))
+
+
+        self.ui.home_Btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_All_Cars))
 
         self.ui.users_btn.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_users))
 
@@ -87,7 +92,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
      ########################################### Car Section ##########################################################
         self.dict_brands = dict()
+        self.dict_Allbrands= dict()
         self.dict_fuel = dict()
+
         self.imagePath = ""
 
         self.scraping = scraping.scrap()
@@ -98,18 +105,20 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.tableWidgetCar.clearContents()
         # load combobox
-        self.fill_combobox(self.ui.comboBoxFuel)
-        self.fill_combobox(self.ui.comboAllBrand)
-        self.fill_combobox(self.ui.comboBoxBrand)
-        print("2")
+        print("# load combobox")
+        self.dict_fuel = self.tool.fill_combobox(self.ui.comboBoxFuel)
+        self.dict_Allbrands = self.tool.fill_combobox(self.ui.comboAllBrand)
+        self.dict_brands = self.tool.fill_combobox(self.ui.comboBoxBrand)
+        print("# Retrieve data from the database")
         # Retrieve data from the database
         car_data = self.car.getCar("SELECT * FROM voiture;")
         self.displayCars(car_data)
-        print("5")
+        print("# linking the update button with the update method")
         # linking the update button with the update method:
-        self.ui.comboBoxBrand.currentIndexChanged.connect(self.id_SelectedBrand)
-        self.ui.comboBoxFuel.currentIndexChanged.connect(self.id_SelectedFuel)
-        self.ui.comboAllBrand.currentIndexChanged.connect(self.id_SelectedAllBrand)
+        self.ui.comboBoxBrand.currentIndexChanged.connect(partial(self.id_SelectedCombobox, self.ui.comboBoxBrand))
+        self.ui.comboBoxFuel.currentIndexChanged.connect(partial(self.id_SelectedCombobox, self.ui.comboBoxFuel))
+        self.ui.comboAllBrand.currentIndexChanged.connect(partial(self.id_SelectedCombobox, self.ui.comboAllBrand))
+
         self.ui.AddButton.clicked.connect(self.addCarButton)
         self.addImage.clicked.connect(self.image_dialog)
         self.ui.search_input.textChanged.connect(self.sync_SearchLine)
@@ -233,9 +242,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.displayCars(car_data)
     def addCarButton(self):
         try:
-            brand = self.id_SelectedBrand()
+            brand = self.id_SelectedCombobox(self.ui.comboBoxBrand)
             model = self.ui.model.text()
-            fuel = self.id_SelectedFuel()
+            fuel = self.id_SelectedCombobox(self.ui.comboBoxFuel)
 
             if brand == "":
                 self.tool.warning("Please enter a model.")
@@ -264,8 +273,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             for row_idx, car in enumerate(data):
                 label = QLabel()  # Create a QLabel to display the image
-                label.setScaledContents(True)  # Set the label to scale its contents
-                label.setMaximumSize(80, 80)
+                label.setScaledContents(True)
                 pixmap = self.tool.getImageLabel(car[3])  # Get QPixmap from binary data
                 label.setPixmap(pixmap)
 
@@ -282,11 +290,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.tableWidgetCar.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
-        self.ui.tableWidgetCar.verticalHeader().setDefaultSectionSize(80)  # Set default row height
+        # Set default row height
         font = QFont()
         font.setBold(True)
         self.ui.tableWidgetCar.horizontalHeader().setFont(font)
-
         # Set row height
         self.ui.tableWidgetCar.verticalHeader().setDefaultSectionSize(80)
 
@@ -295,60 +302,87 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.tableWidgetCar.setStyleSheet("alternate-background-color: gray;")
         self.ui.tableWidgetCar.setStyleSheet("background-color: white;  ")
 
-        # Set table dimensions
-        self.ui.tableWidgetCar.setMinimumSize(500, 500)
-
-        # Set sorting behavior for columns
-        self.ui.tableWidgetCar.setSortingEnabled(True)
-
         # Set selection mode to row selection
         self.ui.tableWidgetCar.setSelectionBehavior(QTableWidget.SelectRows)
 
-    def id_SelectedBrand(self):
-        selected_index = self.comboBoxBrand.currentIndex()
-        # Get the item key using the selected index
-        key = self.comboBoxBrand.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
-        # Get the value of the selected item
-        value = self.comboBoxBrand.itemText(selected_index)
-        # Print the retrieved text and data
-        print("value: ", value)
-        print("key: ", key)
+    def id_SelectedCombobox(self, combo):
+        try:
+            print("id_SelectedCombobox ::")
+            selected_index = combo.currentIndex()
+            # Get the item key using the selected index
+            key = combo.itemData(selected_index, QtCore.Qt.UserRole)
+            # Get the value of the selected item
+            value = combo.itemText(selected_index)
+            if key is not None and key != -1:
+                print("value: ", value)
+                print("key: ", key)
+                if combo.objectName() == 'comboBoxBrand':
+                    data = self.car.searchByIdBrand(key)
 
-        if key is not None:
-            # Retrieve data from the database based on the selected item
-            car_data = self.car.searchByIdBrand(key)
-            self.displayCars(car_data)
-            return key
-    def id_SelectedFuel(self):
-        selected_index = self.comboBoxFuel.currentIndex()
-        # Get the item key using the selected index
-        key = self.comboBoxFuel.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
-        # Get the value of the selected item
-        value = self.comboBoxFuel.itemText(selected_index)
-        # Print the retrieved text and data
-        print("value: ", value)
-        print("key: ", key)
+                elif combo.objectName() == 'comboBoxFuel':
+                    # Retrieve data from the database based on the selected item
+                    data = self.car.searchByIdFuel(key)
 
-        if key is not None:
-            # Retrieve data from the database based on the selected item
-            car_data = self.car.searchByIdFuel(key)
-            self.displayCars(car_data)
-            return key
-    def id_SelectedAllBrand(self):
-        selected_index = self.comboAllBrand.currentIndex()
-        # Get the item key using the selected index
-        key = self.comboAllBrand.itemData(selected_index, QtCore.Qt.UserRole)  # Retrieve custom data using UserRole
-        # Get the value of the selected item
-        value = self.comboAllBrand.itemText(selected_index)
-        # Print the retrieved text and data
-        print("value: ", value)
-        print("key: ", key)
+                elif combo.objectName() == 'comboAllBrand':
+                    data = self.scraping.getCarsByBrand(value)
+                    dd = self.tool.fill_combobox(self.ui.comboAllModels,value)
+                    print(data)
+                    self.displayModels(data)
+                    return
+                elif combo.objectName() == 'comboAllModels':
+                    return
 
-        if key is not None:
-            # Retrieve data from the database based on the selected item
-            car_data = self.scraping.getCarsByBrand(value)
-            print(car_data)
+                self.displayCars(data)
+                return key
 
+        except Exception as e:
+            print(f"id_SelectedCombobox :: Error: {e}")
+
+    def displayModels(self, data):
+        try:
+            self.ui.tableWidgeModels.clearContents()  # Clear the existing data in the table
+            self.ui.tableWidgeModels.setColumnCount(
+                3)  # Set the number of columns in the table, including the image column
+            self.ui.tableWidgeModels.setHorizontalHeaderLabels(
+                ["Image", "Model", "link"])  # Set the column labels
+            self.ui.tableWidgeModels.setRowCount(len(data))  # Set the number of rows in the table
+            image_urls = []
+            images = []
+
+            for url in data:
+                image_urls.append(url["link"])
+            # Download the image and update the label with a loading message
+            #self.ui.loading_image.setText("Loading...")
+            QApplication.processEvents()
+            images = self.scraping.download_images(image_urls)
+
+            for row_idx, car in enumerate(data):
+                label = QLabel()  # Create a QLabel to display the image
+                label.setScaledContents(True)
+                label.setText("Loading...")
+                label.setPixmap(images[row_idx])
+                self.ui.tableWidgeModels.setCellWidget(row_idx,0,label)  # Set the label as the cell widget for the image column
+
+                self.ui.tableWidgeModels.setItem(row_idx, 1, QTableWidgetItem(str(car["model"])))
+                self.ui.tableWidgeModels.setItem(row_idx, 2, QTableWidgetItem(str(car["link"])))
+
+        except Exception as e:
+            print(f"displayModels : An error occurred: {e}")
+        # Assuming self.tableWidget is the QTableWidget object
+        # Set default row height
+        font = QFont()
+        font.setBold(True)
+        self.ui.tableWidgeModels.horizontalHeader().setFont(font)
+        # Set row height
+        self.ui.tableWidgeModels.verticalHeader().setDefaultSectionSize(80)
+
+        # Set alternating row colors
+        self.ui.tableWidgeModels.setAlternatingRowColors(True)
+        self.ui.tableWidgeModels.setStyleSheet("alternate-background-color: gray;")
+        self.ui.tableWidgeModels.setStyleSheet("background-color: white;  ")
+
+        # Set selection mode to row selection
+        self.ui.tableWidgeModels.setSelectionBehavior(QTableWidget.SelectRows)
     def image_dialog(self):
         try:
             file_dialog = QFileDialog()
@@ -369,26 +403,4 @@ class MainWindow(QtWidgets.QMainWindow):
             print(f"An error occurred: {e}")
 
 
-    def fill_combobox(self,combo):
-        print(1)
-        try:
-            self.comboBoxBrand.clear()
-            data = dict()
-            if combo.objectName() == 'comboBoxBrand':
-                combo.addItem('Select Brand')
-                data = self.brand.getBrands()
-                self.dict_brands = data
-            elif combo.objectName() == 'comboBoxFuel':
-                combo.addItem('Select Carburant')
-                data = self.car.getFuel()
-                self.dict_fuel = data
-            elif combo.objectName() == 'comboAllBrand':
-                combo.addItem('Select Brand')
-                data = self.scraping.getCarBrandAll()
 
-            for key, value in data.items():
-                combo.addItem(value)
-                combo.setItemData(combo.count() - 1, key)
-
-        except Exception as e:
-            print(f"Error: {e}")

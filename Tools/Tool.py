@@ -1,10 +1,20 @@
-import base64
+from GestionVoiture import car
+from GestionVoiture import brand
+from Scraping import scraping
 
+import base64
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox ,QComboBox
+from PyQt5 import QtCore
 
 
 class tool:
+
+    def __init__(self):
+        self.scraping = scraping.scrap()
+        self.car = car.Car()
+        self.brand = brand.Brand()
+
     def convertToBinary(self, path):
         try:
             with open(path, "rb") as File:
@@ -52,3 +62,28 @@ class tool:
         if result == QMessageBox.Ok:
             # User clicked OK, handle the event
             pass
+    def fill_combobox(self,combo,brand=None):
+        print(1)
+        try:
+            combo.clear()
+            data = dict()
+            if combo.objectName() == 'comboBoxBrand':
+                combo.addItem('Select Brand')
+                data = self.brand.getBrands()
+            elif combo.objectName() == 'comboBoxFuel':
+                combo.addItem('Select Carburant')
+                data = self.car.getFuel()
+            elif combo.objectName() == 'comboAllBrand':
+                combo.addItem('Select Brand')
+                data = self.scraping.getCarBrandAll()
+            elif combo.objectName() == 'comboAllModels' and brand is not None:
+                combo.addItem('Select Brand')
+                data = self.scraping.getCarModelsByBrand(brand)
+
+            for key, value in data.items():
+                combo.addItem(value)
+                combo.setItemData(combo.count() - 1, key)
+
+            return data
+        except Exception as e:
+            print(f"Error: {e}")

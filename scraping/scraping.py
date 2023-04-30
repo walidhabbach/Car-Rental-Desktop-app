@@ -1,12 +1,13 @@
 import requests
 import json
+import concurrent.futures
+from PyQt5.QtGui import QPixmap
 from bs4 import BeautifulSoup
-import sys
-
 class scrap:
     def __init__(self):
         with open('./Scraping/brands_modelsAll.json') as f:
             self.data = json.load(f)
+
     def dowloadScript(self,url):
         # Send a GET request to the URL and get the response
         response = requests.get(url)
@@ -97,12 +98,12 @@ class scrap:
             updated_models = []
             for model in models:
                 updated_model = model.copy()  # Create a copy of the model to avoid modifying the original dictionary
-                updated_model["img_url"] = getCarImages(model["link"])  # Update the "img_url" attribute
+                updated_model["img_url"] = self.getCarImages(model["link"])  # Update the "img_url" attribute
                 updated_models.append(updated_model)
                 print(updated_model["img_url"])
             updated_data[brand] = updated_models
 
-    def getCarImages(self,url):
+    def getModelImage(self,url):
         response = requests.get(url)
         soup = BeautifulSoup(response.content, "html.parser")
 
@@ -115,7 +116,59 @@ class scrap:
             href = link_tag.get("href")
             return href
 
-#######################################################################################################################
+
+    def get_image_from_url(self,url):
+        try:
+            response = requests.get(url)
+            pixmap = QPixmap()
+            pixmap.loadFromData(response.content)
+            return pixmap
+        except Exception as e:
+            print(f"Error downloading image: {e}")
+            return None
+
+    def getCarImages(self, url):
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        img_tags = soup.find_all('img', class_='inCarList')
+        img_srcs = [img['src'] for img in img_tags]
+
+        print(img_srcs)
+
+    def download_images(self,image_urls):
+        total_images = len(image_urls)
+        current_image = 0
+        images = []
+        while current_image < total_images:
+            print(f"Downloading image {current_image + 1}/{total_images}...")
+            url = image_urls[current_image]
+            print(url)
+            url = self.getModelImage(url)
+            pixmap = self.get_image_from_url(url)
+            if pixmap is not None:
+                images.append(pixmap)
+                current_image += 1
+
+        print("All images downloaded!")
+        return images
+
+    import concurrent.futures
+
+    def download_imagesVer2(self, image_urls):
+        images = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            futures = [executor.submit(self.get_image_from_url, url) for url in image_urls]
+            for future in concurrent.futures.as_completed(futures):
+                try:
+                    pixmap = future.result()
+                    if pixmap is not None:
+                        images.append(pixmap)
+                except Exception as e:
+                    print(f"Error downloading image: {e}")
+        return images
+
+    #######################################################################################################################
 
 
 
@@ -128,19 +181,18 @@ class scrap:
 
         return brands_dict
 
-
-    def getCarModelsByBrand(self,brand_name):
-
+    def getCarModelsByBrand(self, brand_name):
         car_data = self.data.get(brand_name)
-        print(car_data)
         if car_data is None:
             print(f"No data found for brand {brand_name}")
             return {}
-        models = []
-        for car in car_data:
-            models.append(car["model"])
+
+        models = {}
+        for i, car in enumerate(car_data):
+            models[i + 1] = car["model"]
 
         return models
+
     def getCarsByBrand(self,brand_name):
 
         car_data = self.data.get(brand_name)
