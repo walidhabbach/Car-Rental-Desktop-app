@@ -3,6 +3,7 @@ import json
 import concurrent.futures
 from PyQt5.QtGui import QPixmap
 from bs4 import BeautifulSoup
+import re
 class scrap:
     def __init__(self):
         with open('./Scraping/brands_modelsAll.json') as f:
@@ -127,14 +128,23 @@ class scrap:
             print(f"Error downloading image: {e}")
             return None
 
-    def getCarImages(self, url):
+    def getCarUrlImages(self,url):
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        img_tags = soup.find_all('img', class_='inCarList')
-        img_srcs = [img['src'] for img in img_tags]
+        img_src_list = []
+        scripts = soup.find_all('script')
 
-        print(img_srcs)
+        # regular expression pattern to match the contents of the `bigs` array
+        pattern = r'bigs\[\d+\] = "([\w\/\.-]+)";'
+
+        # extract the `bigs` data using `re.findall()`
+        matches = re.findall(pattern, str(scripts))
+        # add prefix to each item in the list using a list comprehension
+        bigs_data = ['https://www.auto-data.net/images/' + item for item in matches]
+
+        # print the `bigs` data
+        return bigs_data
 
     def download_images(self,image_urls):
         total_images = len(image_urls)
