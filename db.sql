@@ -31,14 +31,21 @@ CREATE TABLE carburant (
 /*==============================================================*/
 /* Table : client                                               */
 /*==============================================================*/
-create table client
-(
-   idUser               int not null ,
-   adresse              varchar(254) not null,
-   cin                  varchar(50) not null,
-   photo                blob,
-   primary key (idUser)
-);
+ CREATE TABLE client (
+      idUser int(11),
+      adresse varchar(254),
+      cin varchar(50),
+      photo LONGBLOB,
+      liste_noire tinyint(1),
+      permis varchar(20),
+      passport varchar(20),
+      email varchar(60),
+      observation varchar(254),
+      societe varchar(50),
+      ville varchar(50),
+      tel varchar(30),
+      date_permis date
+    );
 
 /*==============================================================*/
 /* Table : marque                                               */
@@ -72,14 +79,13 @@ create table super_utilisateur
 /*==============================================================*/
 /* Table : utilisateur                                          */
 /*==============================================================*/
-create table utilisateur
-(
-   idUser               int not null AUTO_INCREMENT,
-   nom                  varchar(32) not null,
-   prenom               varchar(32) not null,
-   primary key (idUser)
-);
-
+CREATE TABLE utilisateur (
+    idUser int(11),
+    nom varchar(32),
+    prenom varchar(32),
+    login varchar(50),
+    mdp varchar(50)
+  );
 /*==============================================================*/
 /* Table : voiture                                              */
 /*==============================================================*/
