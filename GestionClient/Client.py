@@ -3,14 +3,17 @@ from Tools import Convertion
 from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
 from PyQt5 import QtGui
 class Client:
+
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
+
     def getClientsData(self,request):
         if(self.connexion.connect()):
             req = request
             self.connexion.cursor.execute(req)
             users = self.connexion.cursor.fetchall()
             return users
+
     def getValuePairDataClient(self,request):
         vp = dict()
         req = request
@@ -19,6 +22,7 @@ class Client:
         for user in users:
             vp[user[0]] = user[1]
         return vp
+
     def updateClient(self,client_dict):
         try:
             if (self.connexion.connect()):
@@ -35,12 +39,15 @@ class Client:
                 print("updated successfully")
         except Exception as e:
             print(f"error: {e}")
-    def supprimerClient(self,id):
-        if(self.connexion.connect()):
-            req = f"DELETE FROM client WHERE IDUSER = '{id}'"
-            self.connexion.cursor.execute(req)
-            self.connexion.conn.commit()
-            print("deleted succesfully")
+
+    def supprimer(self,request):
+        try:
+            if (self.connexion.connect()):
+                self.connexion.cursor.execute(request)
+                self.connexion.conn.commit()
+                print("deleted succesfully")
+        except Exception as e:
+            print(e)
 
     def addClient(self, client_dict):
         if self.connexion.connect():
@@ -68,6 +75,7 @@ class Client:
                 print("Added successfully")
             except Exception as e:
                 print(f"Error: {e}")
+
     def displayClients(self,request,table):
         try:
             table.clearContents()  # Clear the existing data in the table
@@ -110,3 +118,20 @@ class Client:
 
         except Exception as e:
             print(f"{e}")
+
+    def displayReservations(self,table):
+        table.clearContents()  # Clear the existing data in the table
+        table.setColumnCount(3)  # Set the number of columns in the table
+        table.setHorizontalHeaderLabels(
+            ['idUser', 'idCar', 'date'])  # Set the column labels
+
+        users = self.getClientsData("SELECT idUser,idCar,date_depart,date_arr FROM RESERVATION")
+        print(users)
+        table.setRowCount(len(users))  # Set the number of rows in the table
+
+        # adding select check mark :
+
+        for row_idx, user in enumerate(users):
+            for col_idx, item in enumerate(user):
+                table.setItem(row_idx, col_idx,
+                              QTableWidgetItem(str(item)))  # Set the table item with the data

@@ -59,6 +59,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.reserv.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_reserv))
 
         self.ui.clients_data.clicked.connect(lambda: self.handlClick(self.ui.clients_data.currentIndex(),self.ui.clients_data))
+        self.ui.reservation_data.clicked.connect(lambda: self.handlClick(self.ui.reservation_data.currentIndex(),self.ui.reservation_data))
         self.ui.page_noire_data.clicked.connect(lambda: self.handlClick(self.ui.page_noire_data.currentIndex(),self.ui.page_noire_data))
         self.client = Client.Client()
 
@@ -74,6 +75,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.modifier_btn.clicked.connect(self.updateTable)
         self.ui.modifier_btn2.clicked.connect(self.updateTable)
 
+
+        self.ui.supprimer_reser.clicked.connect(self.deleteButtonReservation)
         self.ui.supprimer_btn.clicked.connect(self.deleteButtonClient)
         self.ui.supprimer_btn_3.clicked.connect(self.deleteButtonClient)
         self.ui.comboClients.currentIndexChanged.connect(lambda: self.searchByComboClient("",self.ui.comboClients,self.ui.clients_data))
@@ -87,7 +90,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.dropBtn.clicked.connect(self.dropMenu)
         self.login_name.setText(self.login_name.text() + login)
        '''
-        self.displayReservations()
+        self.client.displayReservations(self.ui.reservation_data)
         self.fillComboClient(self.ui.comboClients, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser")
         self.fillComboClient(self.ui.comboClients_3, f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'")
 
@@ -125,7 +128,6 @@ class MainWindow(QtWidgets.QMainWindow):
         ajout_client = af.AjoutClient(self.ui.clients_data)
         ajout_client.show()
 
-
     def selectReservationClient(self):
         if(bool(self.client_dict) == True):
             reservations = self.client.getValuePairDataClient(
@@ -135,6 +137,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             print("Try to click on a client")
             self.client_dict.clear()
+
     def messageBox(self, field):
         message = QtWidgets.QMessageBox.warning(None, "Confirmation",f"{field} : {self.client_dict['idUser']}", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
         return message
@@ -151,14 +154,28 @@ class MainWindow(QtWidgets.QMainWindow):
             print("try to click on a client")
     def deleteButtonClient(self):
         if (bool(self.client_dict)) == True:
-
             if (self.messageBox("Etes vous sure de le supprimer la suppression de ce client va entrainer la suppression de toutes ces reservations !")  == QtWidgets.QMessageBox.Yes):
-                self.client.supprimerClient(self.client_dict['idUser'])
+                self.client.supprimer(f"DELETE FROM CLIENT WHERE IDUSER = '{self.client_dict['idUser']}'")
+                self.client.displayClients(
+                    f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{comboBox.currentData()}' and liste_noire = 1",
+                    self.ui.clients_data)
             else:
                 print("NO")
             self.client_dict.clear()
         else:
             print("try to click on a client")
+
+    def deleteButtonReservation(self):
+        if (bool(self.client_dict)) == True:
+            if (self.messageBox("Etes vous sure de le supprimer la suppression de cet reservation !")  == QtWidgets.QMessageBox.Yes):
+                print(f"DELETE FROM reservation WHERE idUser = '{self.client_dict['idUser']}' and idCar = '{self.client_dict['idCar']}'")
+                self.client.supprimer(f"DELETE FROM reservation WHERE idUser = '{self.client_dict['idUser']}' and idCar = '{self.client_dict['idCar']}'")
+                self.client.displayReservations(self.ui.reservation_data)
+            else:
+                print("NO")
+            self.client_dict.clear()
+        else:
+            print("try to click on a reservation")
 
     def dropMenu(self):
         if(self.visible == True):
@@ -178,28 +195,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 column_name = table.horizontalHeaderItem(column).text()
                 if (item is not None):
                     self.client_dict[column_name] = item.text()
-                    print(item.text())
+                    print(column_name+ " : " + item.text())
 
         except Exception as e:
             print(e)
-
-    def displayReservations(self):
-        self.ui.reservation_data.clearContents()  # Clear the existing data in the table
-        self.ui.reservation_data.setColumnCount(3)  # Set the number of columns in the table
-        self.ui.reservation_data.setHorizontalHeaderLabels(
-            ['idUser', 'idCar', 'date'])  # Set the column labels
-
-        users = self.client.getClientsData("SELECT * FROM RESERVATION")
-        print(users)
-        self.ui.reservation_data.setRowCount(len(users))  # Set the number of rows in the table
-        tab = ["edit.png", "voir.png"]
-
-        # adding select check mark :
-
-        for row_idx, user in enumerate(users):
-            for col_idx, item in enumerate(user):
-                self.ui.reservation_data.setItem(row_idx, col_idx,
-                              QTableWidgetItem(str(item)))  # Set the table item with the data
 
     def fillComboClient(self,combo,request):
         diction_client = self.client.getValuePairDataClient(request)
@@ -208,6 +207,8 @@ class MainWindow(QtWidgets.QMainWindow):
             combo.addItem(value)
             # Set the key as custom data for the item
             combo.setItemData(combo.count() - 1, key)
+
+
     def searchByComboClient(self,condition,comboBox,table):
         try:
             if (condition != ""):

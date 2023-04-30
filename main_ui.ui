@@ -765,7 +765,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>5</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -1273,7 +1273,7 @@ border: 2px solid red;</string>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="supprimer_btn_4">
+                      <widget class="QPushButton" name="supprimer_reser">
                        <property name="styleSheet">
                         <string notr="true">background-color: red;
 color: white;
