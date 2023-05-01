@@ -96,9 +96,9 @@ class EditClient(QtWidgets.QMainWindow):
                 else:
                     widget.setStyleSheet("border: 1px solid green")
                     if (widget.objectName() == "cin"):
-                        if (self.client.testCin(widget.text())):
+                        if (self.client.testCin(widget.text(),self.idUser)):
                             widget.setStyleSheet("border: 1px solid red")
-                            print("cin deja entré")
+                            print("cin deja entré for edit client")
                             flag = False
 
             elif isinstance(widget,QtWidgets.QRadioButton):

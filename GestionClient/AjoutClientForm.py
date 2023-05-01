@@ -81,7 +81,7 @@ class AjoutClient(QtWidgets.QMainWindow):
                 else:
                     widget.setStyleSheet("border: 1px solid green")
                     if(widget.objectName() == "cin"):
-                       if(self.client.testCin(widget.text())):
+                       if(self.client.testCin(widget.text()),""):
                            widget.setStyleSheet("border: 1px solid red")
                            print("cin deja entré")
                            flag = False
