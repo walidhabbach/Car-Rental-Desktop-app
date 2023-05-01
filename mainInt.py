@@ -77,8 +77,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
         self.ui.supprimer_reser.clicked.connect(self.deleteButtonReservation)
-        self.ui.supprimer_btn.clicked.connect(self.deleteButtonClient)
-        self.ui.supprimer_btn_3.clicked.connect(self.deleteButtonClient)
+        self.ui.supprimer_btn.clicked.connect(lambda: self.deleteButtonClient(False))
+        self.ui.supprimer_btn_3.clicked.connect(lambda: self.deleteButtonClient(True))
         self.ui.comboClients.currentIndexChanged.connect(lambda: self.searchByComboClient("",self.ui.comboClients,self.ui.clients_data))
         self.ui.comboClients_3.currentIndexChanged.connect(lambda: self.searchByComboClient("yes",self.ui.comboClients_3,self.ui.page_noire_data))
         self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
@@ -129,13 +129,13 @@ class MainWindow(QtWidgets.QMainWindow):
         ajout_client.show()
 
     def selectReservationClient(self):
-        if(bool(self.client_dict) == True):
-            reservations = self.client.getValuePairDataClient(
-                f"SELECT idCar,date_depart,date_arr FROM RESERVATION WHERE idUser = '{self.client_dict['idUser']}'")
-            reservation_client_ui = rc.ReservationClient(reservations)
-            reservation_client_ui.show()
-        else:
-            self.messageBox("Try to click on a client")
+            if (bool(self.client_dict) == True):
+                reservations = self.client.getValuePairDataClient(
+                    f"SELECT idCar,date_depart,date_arr FROM RESERVATION WHERE idUser = '{self.client_dict['idUser']}'")
+                reservation_client_ui = rc.ReservationClient(reservations)
+                reservation_client_ui.show()
+            else:
+                print("Try to click on a client")
             self.client_dict.clear()
 
     def messageBox(self, field):
@@ -152,19 +152,30 @@ class MainWindow(QtWidgets.QMainWindow):
                 print("NO")
             self.client_dict.clear()
         else:
-            self.messageBox("try to click on a client")
-    def deleteButtonClient(self):
-        if (bool(self.client_dict)) == True:
-            if (self.messageBox("Etes vous sure de le supprimer la suppression de ce client va entrainer la suppression de toutes ces reservations !")  == QtWidgets.QMessageBox.Yes):
-                self.client.supprimer(f"DELETE FROM CLIENT WHERE IDUSER = '{self.client_dict['idUser']}'")
-                self.client.displayClients(
-                    f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where su.idUser = '{comboBox.currentData()}' and liste_noire = 1",
-                    self.ui.clients_data)
+            print("try to click on a client")
+    def deleteButtonClient(self,liste_noire):
+        try:
+            if (bool(self.client_dict)) == True:
+                if (self.messageBox(
+                        "Etes vous sure de le supprimer la suppression de ce client va entrainer la suppression de toutes ces reservations !") == QtWidgets.QMessageBox.Yes):
+                    self.client.supprimer(f"DELETE FROM CLIENT WHERE IDUSER = '{self.client_dict['idUser']}'")
+                    print(f"liste_noire = {liste_noire}")
+                    if(liste_noire):
+                        print("page noire")
+                        self.client.displayClients(
+                            f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where liste_noire = 1",
+                            self.ui.page_noire_data)
+                    else:
+                        self.client.displayClients(
+                            f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
+                            self.ui.clients_data)
+                else:
+                    print("NO")
+                self.client_dict.clear()
             else:
-                print("NO")
-            self.client_dict.clear()
-        else:
-            self.messageBox("try to click on a client")
+                print("try to click on a client")
+        except Exception as e:
+            print(e)
 
     def deleteButtonReservation(self):
         if (bool(self.client_dict)) == True:
@@ -176,7 +187,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 print("NO")
             self.client_dict.clear()
         else:
-            self.messageBox("try to click on a reservation")
+            print("try to click on a reservation")
 
     def dropMenu(self):
         if(self.visible == True):
