@@ -1,0 +1,33 @@
+gestion client : :
+    utilisateur :  
+    CREATE TABLE utilisateur (
+      idUser int(11),
+      nom varchar(32),
+      prenom varchar(32),
+      login varchar(50),
+      mdp varchar(50)
+    );
+
+    client : 
+    CREATE TABLE client (
+      idUser int(11),
+      adresse varchar(254),
+      cin varchar(50),
+      photo blob,
+      liste_noire tinyint(1),
+      permis varchar(20),
+      passport varchar(20),
+      email varchar(60),
+      observation varchar(254),
+      societe varchar(50),
+      ville varchar(50),
+      tel varchar(30)
+    );
+
+    reservation : 
+    CREATE TABLE reservation (
+      idCar int(11),
+      idUser int(11),
+      date_depart date,
+      date_arrivee date
+    );

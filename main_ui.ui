@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1335</width>
-    <height>723</height>
+    <width>1302</width>
+    <height>933</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -60,7 +60,7 @@
 	}
 
 	#icon_only_widget QPushButton:hover {
-		background-color: rgba( 86, 101, 115, 0.5);
+		background-color: rgba( 0, 101, 115, 0.5);
 	}
 
 	/* style for logo image */
@@ -154,6 +154,265 @@
     <property name="spacing">
      <number>0</number>
     </property>
+    <item row="0" column="1">
+     <widget class="QWidget" name="full_menu_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(32,35,30)</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="main_logo">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="logo_label_3">
+           <property name="font">
+            <font>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-size:25px</string>
+           </property>
+           <property name="text">
+            <string>Location voiture</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>17</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="home_Btn">
+           <property name="text">
+            <string>Home</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
+             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>14</width>
+             <height>14</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="dashborad_btn">
+           <property name="text">
+            <string>Dashboard</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
+             <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>14</width>
+             <height>14</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="users_btn">
+           <property name="text">
+            <string>Gestion users</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/activity-feed-32.ico</normaloff>
+             <normalon>:/icon/icon/activity-feed-48.ico</normalon>:/icon/icon/activity-feed-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>14</width>
+             <height>14</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="cars_btn">
+           <property name="text">
+            <string>Gestion voiture</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/product-32.ico</normaloff>
+             <normalon>:/icon/icon/product-48.ico</normalon>:/icon/icon/product-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>14</width>
+             <height>14</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="addCars_page_Btn">
+           <property name="text">
+            <string>Ajouter Voiture</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="scrap_cars_Btn">
+           <property name="text">
+            <string>List des Voitures</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="client_btn">
+           <property name="text">
+            <string>Gestion client</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/group-32.ico</normaloff>
+             <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>14</width>
+             <height>14</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="liste_noire_btn">
+           <property name="styleSheet">
+            <string notr="true">checked:#fff</string>
+           </property>
+           <property name="text">
+            <string>Liste noire</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="reserv">
+           <property name="text">
+            <string>Liste de reservation clients</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exit_btn">
+         <property name="text">
+          <string>Exit</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resource.qrc">
+           <normaloff>:/icon/icon/close-window-64.ico</normaloff>:/icon/icon/close-window-64.ico</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>14</width>
+           <height>14</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="QWidget" name="icon_only_widget" native="true">
       <property name="styleSheet">
@@ -377,248 +636,6 @@
       </layout>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QWidget" name="full_menu_widget" native="true">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(32,35,30)</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="main_logo">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="logo_label_3">
-           <property name="font">
-            <font>
-             <pointsize>-1</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">font-size:14px</string>
-           </property>
-           <property name="text">
-            <string>Location voiture</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="home_Btn">
-           <property name="text">
-            <string>Home</string>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
-             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>14</width>
-             <height>14</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="dashborad_btn">
-           <property name="text">
-            <string>Dashboard</string>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
-             <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>14</width>
-             <height>14</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="users_btn">
-           <property name="text">
-            <string>Gestion users</string>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/activity-feed-32.ico</normaloff>
-             <normalon>:/icon/icon/activity-feed-48.ico</normalon>:/icon/icon/activity-feed-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>14</width>
-             <height>14</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="cars_btn">
-           <property name="text">
-            <string>Gestion voiture</string>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/product-32.ico</normaloff>
-             <normalon>:/icon/icon/product-48.ico</normalon>:/icon/icon/product-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>14</width>
-             <height>14</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="client_btn">
-           <property name="text">
-            <string>Gestion client</string>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/group-32.ico</normaloff>
-             <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>14</width>
-             <height>14</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="liste_noire_btn">
-           <property name="styleSheet">
-            <string notr="true">checked:#fff</string>
-           </property>
-           <property name="text">
-            <string>Liste noire</string>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="reserv">
-           <property name="text">
-            <string>Liste de reservation clients</string>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="exit_btn">
-         <property name="text">
-          <string>Exit</string>
-         </property>
-         <property name="icon">
-          <iconset resource="resource.qrc">
-           <normaloff>:/icon/icon/close-window-64.ico</normaloff>:/icon/icon/close-window-64.ico</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>14</width>
-           <height>14</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item row="0" column="2">
      <widget class="QWidget" name="widget_3" native="true">
       <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -821,230 +838,385 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_crud_cars">
+         <widget class="QWidget" name="page_scarp_cars">
           <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="0">
-            <layout class="QHBoxLayout" name="horizontalLayout_5">
-             <item>
-              <widget class="QFrame" name="frame_4">
-               <property name="minimumSize">
-                <size>
-                 <width>519</width>
-                 <height>628</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(82,85,85)</string>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <widget class="QTableWidget" name="tableWidgetCar">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>671</width>
-                  <height>671</height>
-                 </rect>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>661</width>
-                  <height>628</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(32,35,40)</string>
-                </property>
-               </widget>
-               <widget class="QLineEdit" name="model">
-                <property name="geometry">
-                 <rect>
-                  <x>840</x>
-                  <y>170</y>
-                  <width>141</width>
-                  <height>31</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(0, 85, 255)</string>
-                </property>
-               </widget>
-               <widget class="QComboBox" name="comboBoxBrand">
-                <property name="geometry">
-                 <rect>
-                  <x>840</x>
-                  <y>260</y>
-                  <width>141</width>
-                  <height>22</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(170, 170, 255)</string>
-                </property>
-               </widget>
-               <widget class="QComboBox" name="comboBoxFuel">
-                <property name="geometry">
-                 <rect>
-                  <x>830</x>
-                  <y>330</y>
-                  <width>141</width>
-                  <height>22</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(170, 170, 255)</string>
-                </property>
-               </widget>
-               <widget class="QLabel" name="image_label">
-                <property name="geometry">
-                 <rect>
-                  <x>700</x>
-                  <y>10</y>
-                  <width>141</width>
-                  <height>141</height>
-                 </rect>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>MS Gothic</family>
-                  <pointsize>-1</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: white</string>
-                </property>
+           <item row="1" column="0">
+            <widget class="QFrame" name="frame_4">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QLabel" name="label_7">
                 <property name="text">
-                 <string>image</string>
+                 <string>Liste des Voitures </string>
                 </property>
                </widget>
-               <widget class="QPushButton" name="AddButton">
-                <property name="geometry">
-                 <rect>
-                  <x>830</x>
-                  <y>470</y>
-                  <width>75</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>addCar</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="addImage">
-                <property name="geometry">
-                 <rect>
-                  <x>900</x>
-                  <y>50</y>
-                  <width>111</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>addImage</string>
-                </property>
-               </widget>
-              </widget>
-             </item>
-            </layout>
+              </item>
+              <item>
+               <layout class="QGridLayout" name="gridLayout_21">
+                <item row="0" column="0">
+                 <layout class="QHBoxLayout" name="horizontalLayout_10">
+                  <item>
+                   <widget class="QComboBox" name="comboAllBrands">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboAllModels">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QTableWidget" name="tableWidgeModels">
+                  <property name="mouseTracking">
+                   <bool>true</bool>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: transparent;
+border: 2px solid red;</string>
+                  </property>
+                  <attribute name="horizontalHeaderMinimumSectionSize">
+                   <number>100</number>
+                  </attribute>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_6">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_All_Cars">
-          <widget class="QFrame" name="frame_5">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>-10</y>
-             <width>1031</width>
-             <height>665</height>
-            </rect>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <widget class="QComboBox" name="comboAllModels">
-            <property name="geometry">
-             <rect>
-              <x>240</x>
-              <y>20</y>
-              <width>221</width>
-              <height>31</height>
-             </rect>
-            </property>
-           </widget>
-           <widget class="QTableWidget" name="tableWidgeModels">
-            <property name="geometry">
-             <rect>
-              <x>40</x>
-              <y>80</y>
-              <width>1001</width>
-              <height>531</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: transparent;
-border: 0</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="reservation_client_btn_2">
-            <property name="geometry">
-             <rect>
-              <x>550</x>
-              <y>20</y>
-              <width>161</width>
-              <height>28</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(0, 255, 255);
+         <widget class="QWidget" name="page_add_car">
+          <layout class="QGridLayout" name="gridLayout_28">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_15">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_29">
+              <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_14">
+                <item>
+                 <widget class="QFrame" name="frame_16">
+                  <property name="styleSheet">
+                   <string notr="true">width:100px;</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_38">
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="image_label_car">
+                     <property name="font">
+                      <font>
+                       <family>MS Shell Dlg 2</family>
+                       <pointsize>20</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: white;
+border: 1px solid rgb(100,100,100);
+font: 20pt &quot;MS Shell Dlg 2&quot;; </string>
+                     </property>
+                     <property name="text">
+                      <string>Uploader votre image ici</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" rowspan="3">
+                    <layout class="QGridLayout" name="gridLayout_30">
+                     <item row="5" column="0">
+                      <widget class="QLineEdit" name="cin_2">
+                       <property name="styleSheet">
+                        <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string> prix</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QComboBox" name="comboBoxBrand_1">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px; </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="6" column="0">
+                      <widget class="QLineEdit" name="permis_2">
+                       <property name="styleSheet">
+                        <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string> Numero  </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="7" column="0">
+                      <widget class="QLineEdit" name="tel_2">
+                       <property name="styleSheet">
+                        <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="placeholderText">
+                        <string>téléphone</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="8" column="0">
+                      <widget class="QLineEdit" name="email_2">
+                       <property name="styleSheet">
+                        <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Email client</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QComboBox" name="comboBoxGear_1">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px; </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QComboBox" name="comboBoxFuel_1">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px; </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLineEdit" name="model">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string>  model</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="0">
+                      <widget class="QDateEdit" name="production_date">
+                       <property name="styleSheet">
+                        <string notr="true">height:40px</string>
+                       </property>
+                       <property name="displayFormat">
+                        <string>dd/MM/yyyy</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="add_image_Btn">
+                     <property name="styleSheet">
+                      <string notr="true">background-color: #007bff;
+border: 0;
+border-radius: 5px;
+height: 25px;
+padding: 10px;</string>
+                     </property>
+                     <property name="text">
+                      <string>Ajouter une image</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="addcar_Btn">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: #007bff;
+border: 0;
+border-radius: 5px;
+height: 25px;
+padding: 10px;</string>
+                  </property>
+                  <property name="text">
+                   <string>ajouter</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="cancelBtn_2">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: red;
+color: white;
+font-weight: bold;
+border: 0;
+border-radius: 4px;
+height: 50px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Annuler</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_crud_cars">
+          <layout class="QGridLayout" name="gridLayout_20">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_9">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_18">
+              <item row="2" column="0">
+               <layout class="QGridLayout" name="gridLayout_19">
+                <item row="2" column="0">
+                 <widget class="QTableWidget" name="tableWidgetCar">
+                  <property name="mouseTracking">
+                   <bool>true</bool>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: transparent;
+border: 2px solid red;</string>
+                  </property>
+                  <attribute name="horizontalHeaderMinimumSectionSize">
+                   <number>100</number>
+                  </attribute>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_5">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <item>
+                   <widget class="QComboBox" name="comboBoxBrand">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxFuel"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="all_cars_btn">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="acceptDrops">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(0, 255, 255);
 color: black;
-border: 0;</string>
-            </property>
-            <property name="text">
-             <string>Liste des voitures</string>
-            </property>
-           </widget>
-           <widget class="QComboBox" name="comboAllBrand">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>20</y>
-              <width>191</width>
-              <height>31</height>
-             </rect>
-            </property>
-           </widget>
-           <widget class="QLabel" name="loading">
-            <property name="geometry">
-             <rect>
-              <x>770</x>
-              <y>20</y>
-              <width>151</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>status</string>
-            </property>
-           </widget>
-           <zorder>comboAllModels</zorder>
-           <zorder>reservation_client_btn_2</zorder>
-           <zorder>comboAllBrand</zorder>
-           <zorder>tableWidgeModels</zorder>
-           <zorder>loading</zorder>
-          </widget>
+border: 0;height: 40px;</string>
+                    </property>
+                    <property name="text">
+                     <string>Liste des Voiture</string>
+                    </property>
+                    <property name="flat">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="addCarButton">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;
+border: 0;
+background-color: green;</string>
+                    </property>
+                    <property name="text">
+                     <string>Ajouter Voiture</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>Gestion Voiture</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="page_crud_clients">
           <layout class="QGridLayout" name="gridLayout_6">
-           <item row="0" column="0">
+           <item row="1" column="0">
             <widget class="QFrame" name="frame">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1052,84 +1224,130 @@ border: 0;</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <widget class="QPushButton" name="supprimer_btn">
-              <property name="geometry">
-               <rect>
-                <x>10</x>
-                <y>20</y>
-                <width>151</width>
-                <height>28</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: red;
-color: white;
-border: 0;</string>
-              </property>
-              <property name="text">
-               <string>Supprimer client</string>
-              </property>
-             </widget>
-             <widget class="QComboBox" name="comboClients">
-              <property name="geometry">
-               <rect>
-                <x>550</x>
-                <y>20</y>
-                <width>181</width>
-                <height>31</height>
-               </rect>
-              </property>
-             </widget>
-             <widget class="QPushButton" name="modifier_btn">
-              <property name="geometry">
-               <rect>
-                <x>180</x>
-                <y>20</y>
-                <width>151</width>
-                <height>28</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: orange;
-color: white;
-border: 0;</string>
-              </property>
-              <property name="text">
-               <string>Modifier/Afficher</string>
-              </property>
-             </widget>
-             <widget class="QTableWidget" name="clients_data">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>90</y>
-                <width>1051</width>
-                <height>471</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: transparent;
-border: 0</string>
-              </property>
-             </widget>
-             <widget class="QPushButton" name="reservation_client_btn">
-              <property name="geometry">
-               <rect>
-                <x>360</x>
-                <y>20</y>
-                <width>161</width>
-                <height>28</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(0, 255, 255);
+             <layout class="QGridLayout" name="gridLayout_10">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Gestion clients</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QFrame" name="frame_5">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_11">
+                 <item row="0" column="0">
+                  <layout class="QGridLayout" name="gridLayout_9">
+                   <item row="0" column="0">
+                    <layout class="QHBoxLayout" name="horizontalLayout_6">
+                     <item>
+                      <widget class="QComboBox" name="comboClients">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="reservation_client_btn">
+                       <property name="enabled">
+                        <bool>true</bool>
+                       </property>
+                       <property name="acceptDrops">
+                        <bool>false</bool>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(0, 255, 255);
 color: black;
-border: 0;</string>
-              </property>
-              <property name="text">
-               <string>Liste de reservation</string>
-              </property>
-             </widget>
+border: 0;height: 40px;</string>
+                       </property>
+                       <property name="text">
+                        <string>Liste de reservation</string>
+                       </property>
+                       <property name="flat">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="add_client_btn">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px;
+border: 0;
+background-color: green;</string>
+                       </property>
+                       <property name="text">
+                        <string>Ajouter client</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="supprimer_btn">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: red;
+color: white;
+border: 0;height: 40px;</string>
+                       </property>
+                       <property name="text">
+                        <string>Supprimer client</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="modifier_btn">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: orange;
+color: white;
+border: 0;
+height: 40px;</string>
+                       </property>
+                       <property name="text">
+                        <string>Modifier/Afficher</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="1" column="0">
+                    <spacer name="verticalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QTableWidget" name="clients_data">
+                     <property name="mouseTracking">
+                      <bool>true</bool>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: transparent;
+border: 2px solid red;</string>
+                     </property>
+                     <attribute name="horizontalHeaderMinimumSectionSize">
+                      <number>100</number>
+                     </attribute>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
@@ -1144,66 +1362,109 @@ border: 0;</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <widget class="QTableWidget" name="page_noire_data">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>100</y>
-                <width>1051</width>
-                <height>431</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: transparent;
-border: 0</string>
-              </property>
-             </widget>
-             <widget class="QPushButton" name="modifier_btn_2">
-              <property name="geometry">
-               <rect>
-                <x>200</x>
-                <y>30</y>
-                <width>151</width>
-                <height>28</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: orange;
+             <layout class="QGridLayout" name="gridLayout_12">
+              <item row="1" column="0">
+               <widget class="QFrame" name="frame_6">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <item>
+                  <widget class="QFrame" name="frame_7">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_13">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_14">
+                      <item row="0" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_8">
+                        <item>
+                         <widget class="QComboBox" name="comboClients_3">
+                          <property name="styleSheet">
+                           <string notr="true">height: 40px;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="supprimer_btn_3">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: red;
 color: white;
-border: 0;</string>
-              </property>
-              <property name="text">
-               <string>Modifier/Afficher</string>
-              </property>
-             </widget>
-             <widget class="QComboBox" name="comboClients_2">
-              <property name="geometry">
-               <rect>
-                <x>370</x>
-                <y>30</y>
-                <width>181</width>
-                <height>31</height>
-               </rect>
-              </property>
-             </widget>
-             <widget class="QPushButton" name="supprimer_btn_2">
-              <property name="geometry">
-               <rect>
-                <x>30</x>
-                <y>30</y>
-                <width>151</width>
-                <height>28</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: red;
+border: 0;height: 40px;</string>
+                          </property>
+                          <property name="text">
+                           <string>Supprimer client</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="modifier_btn2">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: orange;
 color: white;
-border: 0;</string>
-              </property>
-              <property name="text">
-               <string>Supprimer client</string>
-              </property>
-             </widget>
+border: 0;
+height: 40px;</string>
+                          </property>
+                          <property name="text">
+                           <string>Modifier/Afficher</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="1" column="0">
+                       <spacer name="verticalSpacer_4">
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::Fixed</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>20</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QTableWidget" name="page_noire_data">
+                        <property name="mouseTracking">
+                         <bool>true</bool>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">background-color: transparent;
+border: 2px solid red;</string>
+                        </property>
+                        <attribute name="horizontalHeaderMinimumSectionSize">
+                         <number>100</number>
+                        </attribute>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Page noire</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
@@ -1218,16 +1479,70 @@ border: 0;</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <widget class="QTableWidget" name="reservation_data">
-              <property name="geometry">
-               <rect>
-                <x>100</x>
-                <y>120</y>
-                <width>731</width>
-                <height>371</height>
-               </rect>
-              </property>
-             </widget>
+             <layout class="QGridLayout" name="gridLayout_15">
+              <item row="1" column="0">
+               <widget class="QFrame" name="frame_8">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_16">
+                 <item row="0" column="0">
+                  <layout class="QVBoxLayout" name="verticalLayout_7">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_7">
+                     <item>
+                      <widget class="QComboBox" name="comboClients_4">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="supprimer_reser">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: red;
+color: white;
+border: 0;height: 40px;</string>
+                       </property>
+                       <property name="text">
+                        <string>Supprimer reservation</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QTableWidget" name="reservation_data"/>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>Page de réservation client</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>

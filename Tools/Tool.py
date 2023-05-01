@@ -1,5 +1,6 @@
 from GestionVoiture import car
 from GestionVoiture import brand
+from GestionVoiture import fuel
 from Scraping import scraping
 
 import base64
@@ -14,7 +15,7 @@ class tool:
         self.scraping = scraping.scrap()
         self.car = car.Car()
         self.brand = brand.Brand()
-
+        self.fuel = fuel.Fuel()
     def convertToBinary(self, path):
         try:
             with open(path, "rb") as File:
@@ -67,19 +68,23 @@ class tool:
         try:
             combo.clear()
             data = dict()
-            if combo.objectName() == 'comboBoxBrand':
+            print(combo.objectName())
+            if combo.objectName() == 'comboBoxBrand' or combo.objectName() == 'comboBoxBrand_1':
                 combo.addItem('Select Brand')
                 data = self.brand.getBrands()
-            elif combo.objectName() == 'comboBoxFuel':
+            elif combo.objectName() == 'comboBoxFuel' or combo.objectName() == 'comboBoxFuel_1':
                 combo.addItem('Select Carburant')
-                data = self.car.getFuel()
-            elif combo.objectName() == 'comboAllBrand':
+                data = self.fuel.getFuel()
+            elif combo.objectName() == 'comboAllBrands':
+                print("combo.addItem('Select Brand')")
                 combo.addItem('Select Brand')
+                print("combo.addItem('Select Brand')")
                 data = self.scraping.getCarBrandAll()
+
             elif combo.objectName() == 'comboAllModels' and brand is not None:
                 combo.addItem('Select Brand')
                 data = self.scraping.getCarModelsByBrand(brand)
-
+            print(data)
             for key, value in data.items():
                 combo.addItem(value)
                 combo.setItemData(combo.count() - 1, key)
