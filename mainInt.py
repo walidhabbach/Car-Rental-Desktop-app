@@ -118,6 +118,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.comboBoxBrand.currentIndexChanged.connect(partial(self.id_SelectedCombobox, self.ui.comboBoxBrand))
         self.ui.comboBoxFuel.currentIndexChanged.connect(partial(self.id_SelectedCombobox, self.ui.comboBoxFuel))
         self.ui.comboAllBrand.currentIndexChanged.connect(partial(self.id_SelectedCombobox, self.ui.comboAllBrand))
+        self.ui.comboAllModels.currentIndexChanged.connect(partial(self.id_SelectedCombobox, self.ui.comboAllModels))
 
         self.ui.AddButton.clicked.connect(self.addCarButton)
         self.addImage.clicked.connect(self.image_dialog)
@@ -324,12 +325,14 @@ class MainWindow(QtWidgets.QMainWindow):
                     data = self.car.searchByIdFuel(key)
 
                 elif combo.objectName() == 'comboAllBrand':
-                    data = self.scraping.getCarsByBrand(value)
+                    #data = self.scraping.getCarsByBrand(value)
                     dd = self.tool.fill_combobox(self.ui.comboAllModels,value)
-                    print(data)
-                    self.displayModels(data)
+
+                    #self.displayModels(data)
                     return
                 elif combo.objectName() == 'comboAllModels':
+                    data = self.scraping.getCarsByModel(self.ui.comboAllBrand.currentText(),self.ui.comboAllModels.currentText())
+                    self.displayModels(data)
                     return
 
                 self.displayCars(data)
@@ -341,28 +344,26 @@ class MainWindow(QtWidgets.QMainWindow):
     def displayModels(self, data):
         try:
             self.ui.tableWidgeModels.clearContents()  # Clear the existing data in the table
-            self.ui.tableWidgeModels.setColumnCount(
-                3)  # Set the number of columns in the table, including the image column
+            self.ui.tableWidgeModels.setColumnCount(3)  # Set the number of columns in the table, including the image column
             self.ui.tableWidgeModels.setHorizontalHeaderLabels(
                 ["Image", "Model", "link"])  # Set the column labels
             self.ui.tableWidgeModels.setRowCount(len(data))  # Set the number of rows in the table
             image_urls = []
-            images = []
-
             for url in data:
                 image_urls.append(url["link"])
+
             # Download the image and update the label with a loading message
             #self.ui.loading_image.setText("Loading...")
             QApplication.processEvents()
             images = self.scraping.download_images(image_urls)
 
             for row_idx, car in enumerate(data):
+                print(car)
                 label = QLabel()  # Create a QLabel to display the image
                 label.setScaledContents(True)
                 label.setText("Loading...")
                 label.setPixmap(images[row_idx])
                 self.ui.tableWidgeModels.setCellWidget(row_idx,0,label)  # Set the label as the cell widget for the image column
-
                 self.ui.tableWidgeModels.setItem(row_idx, 1, QTableWidgetItem(str(car["model"])))
                 self.ui.tableWidgeModels.setItem(row_idx, 2, QTableWidgetItem(str(car["link"])))
 

@@ -926,7 +926,7 @@
                 <property name="geometry">
                  <rect>
                   <x>830</x>
-                  <y>430</y>
+                  <y>470</y>
                   <width>75</width>
                   <height>23</height>
                  </rect>
@@ -975,7 +975,7 @@
              <rect>
               <x>240</x>
               <y>20</y>
-              <width>181</width>
+              <width>221</width>
               <height>31</height>
              </rect>
             </property>
@@ -997,7 +997,7 @@ border: 0</string>
            <widget class="QPushButton" name="reservation_client_btn_2">
             <property name="geometry">
              <rect>
-              <x>480</x>
+              <x>550</x>
               <y>20</y>
               <width>161</width>
               <height>28</height>
@@ -1009,7 +1009,7 @@ color: black;
 border: 0;</string>
             </property>
             <property name="text">
-             <string>Liste de reservation</string>
+             <string>Liste des voitures</string>
             </property>
            </widget>
            <widget class="QComboBox" name="comboAllBrand">
@@ -1017,7 +1017,7 @@ border: 0;</string>
              <rect>
               <x>20</x>
               <y>20</y>
-              <width>181</width>
+              <width>191</width>
               <height>31</height>
              </rect>
             </property>
@@ -1025,8 +1025,8 @@ border: 0;</string>
            <widget class="QLabel" name="loading">
             <property name="geometry">
              <rect>
-              <x>740</x>
-              <y>30</y>
+              <x>770</x>
+              <y>20</y>
               <width>151</width>
               <height>16</height>
              </rect>
