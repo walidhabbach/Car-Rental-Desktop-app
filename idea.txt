@@ -1,0 +1,25 @@
+column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
+                print(column_name)
+                if(column_name == "photo"):
+                    print(item)
+                    if(item is not None):
+                        self.client_dict[column_name] = item.icon().pixmap()
+                    else:
+                        self.client_dict[column_name] = QPixmap()
+                else:
+                    if item is not None:
+                        column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
+                        self.client_dict[column_name] = item.text()
+
+
+
+
+
+
+
+
+
+
+ table.setColumnHidden(0, True)
+            table.setColumnHidden(2, True)
+            table.setColumnHidden(3, True)
