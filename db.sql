@@ -3,7 +3,6 @@
 /* Date de création :  20/04/2023 14:10:36                      */
 /*==============================================================*/
 
-
 drop table if exists carburant;
 
 drop table if exists client;
@@ -23,9 +22,9 @@ drop table if exists voiture;
 /*==============================================================*/
 
 CREATE TABLE carburant (
-  i  idCarburant   int not null AUTO_INCREMENT,
-  nom VARCHAR(254)
-    primary key (idCarburant)
+  idCarburant   int not null AUTO_INCREMENT,
+  nom VARCHAR(254),
+  primary key (idCarburant)
 );
 
 /*==============================================================*/
