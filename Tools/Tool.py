@@ -70,10 +70,10 @@ class tool:
             data = dict()
             print(combo.objectName())
             if combo.objectName() == 'comboBoxBrand' or combo.objectName() == 'comboBoxBrand_1':
-                combo.addItem('Select Brand')
+                combo.addItem('All Brands')
                 data = self.brand.getBrands()
             elif combo.objectName() == 'comboBoxFuel' or combo.objectName() == 'comboBoxFuel_1':
-                combo.addItem('Select Carburant')
+                combo.addItem('Select Fuel')
                 data = self.fuel.getFuel()
             elif combo.objectName() == 'comboAllBrands':
                 print("combo.addItem('Select Brand')")
@@ -82,7 +82,7 @@ class tool:
                 data = self.scraping.getCarBrandAll()
 
             elif combo.objectName() == 'comboAllModels' and brand is not None:
-                combo.addItem('Select Brand')
+                combo.addItem('Select Model')
                 data = self.scraping.getCarModelsByBrand(brand)
             print(data)
             for key, value in data.items():

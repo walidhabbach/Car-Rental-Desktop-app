@@ -1,7 +1,6 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
-from PyQt5.QtGui import QPixmap ,QFont
-
+from PyQt5.QtGui import QPixmap, QFont, QIcon
 
 sys.path.append("./GestionClient/")
 from GestionClient import Client
@@ -21,7 +20,7 @@ from Tools import Convertion
 from Tools import Tool
 
 
-from PyQt5.QtWidgets import QTableWidgetItem, QTableWidget, QApplication, QFileDialog, QLabel, QHeaderView
+from PyQt5.QtWidgets import QTableWidgetItem, QTableWidget, QApplication, QFileDialog, QLabel, QHeaderView, QPushButton
 from GestionClient import ReservationClient as rc
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix,admin_o_n):
@@ -143,7 +142,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             self.ui.add_image_Btn.clicked.connect(self.image_dialog)
             self.ui.search_input.textChanged.connect(self.sync_SearchLine)
-            self.ui.all_cars_btn.clicked.connect(self.displayCars(car_data))
+            self.ui.all_cars_btn.clicked.connect(lambda : self.displayCars(car_data))
             #self.ui.addCar_btn.clicked.connect(self.addCar)
         except Exception as e:
             print(e)
@@ -286,6 +285,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def addCar(self):
         try:
+            self.edit_Car(75)
             brand = self.id_SelectedCombobox(self.ui.comboBoxBrand_1)
             model = self.ui.model.text()
             fuel = self.id_SelectedCombobox(self.ui.comboBoxFuel_1)
@@ -300,40 +300,73 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.tool.warning("Please select an image.")
             else:
                 img = self.tool.convertToBinary(self.imagePath)
-                print(img)
-                print(model)
-                print(brand)
-                print(fuel)
                 self.car.addCar(brand, model, fuel, img)
                 # Retrieve data from the database
                 car_data = self.car.getCar("SELECT * FROM voiture;")
         except Exception as e:
             print(f"addCarButton : An error occurred: {e}")
 
+    def fill_fieldsWithCarData(self, idCar):
+        try:
+            data = self.car.getCarById(idCar)
+            data = list(data[0])
+            print(data)
+            index = self.ui.comboBoxBrand_1.findData(data[1])
+            print(index)
+            self.ui.comboBoxBrand_1.setCurrentIndex(index)
+            print("é""")
+            index = self.ui.comboBoxFuel_1.findData(data[2])
+            print("é""")
+            print("data[4]")
+            self.ui.comboBoxFuel_1.setCurrentIndex(index)
+            self.ui.model.setText(data[4])
+
+            pixmap = self.tool.getImageLabel(data[3])
+            self.image_label_car.setPixmap(pixmap)
+            self.image_label_car.adjustSize()
+
+        except Exception as e:
+            print(f"edit car : An error occurred: {e}")
+
     def displayCars(self, data):
         try:
-            print(data)
+            self.edit_Car(75)
             self.ui.tableWidgetCar.clearContents()  # Clear the existing data in the table
             self.ui.tableWidgetCar.setColumnCount(
-                5)  # Set the number of columns in the table, including the image column
+                7)  # Set the number of columns in the table, including the image column
             self.ui.tableWidgetCar.setHorizontalHeaderLabels(
-                ["Image", "idCar", "idMarque", "idCarburant", "Model"])  # Set the column labels
+                ["Image", "idCar", "idMarque", "idCarburant", "Model","Edit","Delete"])  # Set the column labels
             self.ui.tableWidgetCar.setRowCount(len(data))  # Set the number of rows in the table
 
             for row_idx, car in enumerate(data):
+
                 label = QLabel()  # Create a QLabel to display the image
                 label.setScaledContents(True)
                 pixmap = self.tool.getImageLabel(car[3])  # Get QPixmap from binary data
                 label.setPixmap(pixmap)
+                self.ui.tableWidgetCar.setCellWidget(row_idx, 0, label)  # Set the label as the cell widget for the image column
+                if car[0] is not None:
+                    self.ui.tableWidgetCar.setItem(row_idx, 1, QTableWidgetItem(str(car[0])))
+                if car[1] is not None:
+                    self.ui.tableWidgetCar.setItem(row_idx, 2, QTableWidgetItem(str(self.dict_brands[car[1]])))
+                if car[2] is not None:
+                    self.ui.tableWidgetCar.setItem(row_idx, 3, QTableWidgetItem(str(self.dict_fuel[car[2]])))
+                if car[4] is not None:
+                    self.ui.tableWidgetCar.setItem(row_idx, 4, QTableWidgetItem(str(car[4])))
 
-                self.ui.tableWidgetCar.setCellWidget(row_idx, 0,
-                                                     label)  # Set the label as the cell widget for the image column
+                # Create a push button for the edit icon
+                edit_button = QPushButton()
+                edit_button.setIcon(QIcon('./icon/edit.png'))
+                edit_item = QTableWidgetItem()
+                edit_item.setData(5, edit_button)
+                self.tableWidgetCar.setItem(row_idx, 5, edit_item)
 
-                self.ui.tableWidgetCar.setItem(row_idx, 1, QTableWidgetItem(str(car[0])))
-
-                self.ui.tableWidgetCar.setItem(row_idx, 2, QTableWidgetItem(str(self.dict_brands[car[1]])))
-                self.ui.tableWidgetCar.setItem(row_idx, 3, QTableWidgetItem(str(self.dict_fuel[car[2]])))
-                self.ui.tableWidgetCar.setItem(row_idx, 4, QTableWidgetItem(str(car[4])))
+                # Create a push button for the delete icon
+                delete_button = QPushButton()
+                delete_button.setIcon(QIcon('./icon/delete.png'))
+                delete_item = QTableWidgetItem()
+                delete_item.setData(6, delete_button)
+                self.tableWidgetCar.setItem(row_idx, 6, delete_item)
 
         except Exception as e:
             print(f"display car : An error occurred: {e}")
