@@ -779,7 +779,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>5</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -942,20 +942,22 @@ border: 2px solid red;</string>
                     <widget class="QLabel" name="image_label_car">
                      <property name="font">
                       <font>
-                       <family>MS Shell Dlg 2</family>
-                       <pointsize>20</pointsize>
+                       <family>Georgia</family>
+                       <pointsize>-1</pointsize>
                        <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: white;
-border: 1px solid rgb(100,100,100);
-font: 20pt &quot;MS Shell Dlg 2&quot;; </string>
+                      <string notr="true">color:black;
+border: 2px solid rgb(100,100,100);
+ 
+font: 30px &quot;Georgia&quot;;
+</string>
                      </property>
                      <property name="text">
-                      <string>Uploader votre image ici</string>
+                      <string>Uploader une image </string>
                      </property>
                     </widget>
                    </item>
@@ -1085,13 +1087,6 @@ padding: 10px;</string>
                   </property>
                   <property name="text">
                    <string>ajouter</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="resource.qrc">
-                    <normaloff>:/icon/icon/home-4-32.ico</normaloff>:/icon/icon/home-4-32.ico</iconset>
-                  </property>
-                  <property name="autoDefault">
-                   <bool>false</bool>
                   </property>
                  </widget>
                 </item>

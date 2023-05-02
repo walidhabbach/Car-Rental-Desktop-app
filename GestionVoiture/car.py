@@ -15,7 +15,7 @@ class Car:
                     result = self.connexion.cursor.fetchall()
                     return result
         except Exception as e:
-            print(f"getCar : An error occurred: {e}")
+            print(f"get : An error occurred: {e}")
 
     def add(self, brand, model, fuel, image):
         try:
