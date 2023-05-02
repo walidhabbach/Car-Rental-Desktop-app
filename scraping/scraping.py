@@ -208,10 +208,20 @@ class scrap:
         car_data = self.data.get(brand_name)
         if car_data is None:
             print(f"No data found for brand {brand_name}")
-            return {}
+            return []
 
         return car_data
 
+    def getCarsByModel(self, brand, model):
+        car_data = self.data.get(brand)
+        if car_data is None:
+            print(f"No data found for brand {brand}")
+            return []
+        matching_cars = []
+        for car in car_data:
+            if car["model"] == model:
+                matching_cars.append(car)
+        return matching_cars
 
 #######################################################################################################################
 
