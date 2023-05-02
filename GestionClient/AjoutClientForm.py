@@ -42,25 +42,28 @@ class AjoutClient(QtWidgets.QMainWindow):
             print(f"An error occurred: {e}")
 
     def AddButtonClient(self):
-        if(self.verificationFields()):
-            self.user_dict = dict()
-            for widget in self.ui.findChildren(QtWidgets.QWidget):
-                if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit":
-                    self.user_dict[widget.objectName()] = widget.text()
-                elif (widget.objectName() == "observation" or widget.objectName() == "adresse"):
-                    self.user_dict[widget.objectName()] = widget.toPlainText()
-                elif(isinstance(widget, QtWidgets.QDateEdit)):
-                    tuple_date = widget.date().getDate()
-                    my_string = '/'.join(map(str, tuple_date))
-                    self.user_dict['date_permis'] = my_string
+        try:
+            if(self.verificationFields()):
+                self.user_dict = dict()
+                for widget in self.ui.findChildren(QtWidgets.QWidget):
+                    if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit":
+                        self.user_dict[widget.objectName()] = widget.text()
+                    elif (widget.objectName() == "observation" or widget.objectName() == "adresse"):
+                        self.user_dict[widget.objectName()] = widget.toPlainText()
+                    elif(isinstance(widget, QtWidgets.QDateEdit)):
+                        tuple_date = widget.date().getDate()
+                        my_string = '/'.join(map(str, tuple_date))
+                        self.user_dict['date_permis'] = my_string
 
-                    print(self.user_dict['date_permis'])
-            self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
-            self.user_dict['photo'] = self.convert.convertToBinary(self.imagePath)
-            self.client.addClient(self.user_dict)
-            self.client.displayClients(
-                f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
-                self.table)
+                        print(self.user_dict['date_permis'])
+                self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
+                self.user_dict['photo'] = self.convert.convertToBinary(self.imagePath)
+                self.client.addClient(self.user_dict)
+                self.client.displayClients(
+                    f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
+                    self.table)
+        except Exception as e:
+            print(f"An error occurred: {e}")
     def generateRandomPassword(self):
         characters = string.ascii_letters + string.digits + string.punctuation
         password = str()
@@ -81,7 +84,7 @@ class AjoutClient(QtWidgets.QMainWindow):
                 else:
                     widget.setStyleSheet("border: 1px solid green")
                     if(widget.objectName() == "cin"):
-                       if(self.client.testCin(widget.text()),""):
+                       if(self.client.testCin(widget.text(),"")):
                            widget.setStyleSheet("border: 1px solid red")
                            print("cin deja entré")
                            flag = False

@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import base64
-from main import mainInt
+import mainInt
 from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import QByteArray,QBuffer,QIODevice,QDate
@@ -14,7 +14,7 @@ class EditClient(QtWidgets.QMainWindow):
         self.idUser = user_dict_['idUser']
         self.user_dict = user_dict_
         self.client = Client.Client()
-        self.ui = uic.loadUi("../main/editClient_ui.ui",self)
+        self.ui = uic.loadUi("../Location-voiture-master/editClient_ui.ui",self)
         self.ui.valider_btn.clicked.connect(self.editClientBtn)
         self.displayDataClient()
         self.getUserImage()

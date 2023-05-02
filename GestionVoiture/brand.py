@@ -19,14 +19,14 @@ class Brand:
 
     def getBrands(self):
         try:
+            print("getBrands")
             if self.connexion.connect():
-                data = {}
+                data = dict()
                 with self.connexion.conn:
                     self.connexion.cursor.execute("SELECT idMarque,nom FROM marque")
                     result = self.connexion.cursor.fetchall()
                     for row in result:
                         data[row[0]] = row[1]
-                        print(data)
                 return data
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -36,7 +36,22 @@ class Brand:
                 self.connexion.cursor.close()
             if self.connexion.conn:
                 self.connexion.conn.close()
-
+    def getBrandById(self,id):
+        try:
+            if self.connexion.connect():
+                data = dict()
+                with self.connexion.conn:
+                    self.connexion.cursor.execute(f"SELECT nom FROM marque where idMarque='{id}'")
+                    result = self.connexion.cursor.fetchall()
+                return result
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return {}  # Return default data dictionary
+        finally:
+            if self.connexion.cursor:
+                self.connexion.cursor.close()
+            if self.connexion.conn:
+                self.connexion.conn.close()
     def updateBrand(self, brand_id,logo, brand):
         try:
             if self.connexion.connect():

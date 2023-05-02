@@ -1,6 +1,7 @@
-
+import brand
 import conn
 import base64
+
 class Car:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
@@ -14,7 +15,7 @@ class Car:
                     result = self.connexion.cursor.fetchall()
                     return result
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"getCar : An error occurred: {e}")
 
     def addCar(self, brand, model, fuel, image):
         try:
@@ -49,25 +50,6 @@ class Car:
         except Exception as e:
             print(f"An error occurred: {e}")
 
-    def getFuel(self):
-        try:
-            if self.connexion.connect():
-                data = dict()
-                with self.connexion.conn:
-                    self.connexion.cursor.execute("SELECT idCarburant ,nom FROM carburant")
-                    result = self.connexion.cursor.fetchall()
-                    for row in result:
-                        data[row[0]] = row[1]
-                        print(data)
-                return data
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return {}  # Return default data dictionary
-        finally:
-            if self.connexion.cursor:
-                self.connexion.cursor.close()
-            if self.connexion.conn:
-                self.connexion.conn.close()
 
     # Search methods
     def searchByModel(self,model):
@@ -76,12 +58,7 @@ class Car:
     def searchByIdBrand(self,id_brand):
         req = f"SELECT * FROM voiture WHERE idMarque = {id_brand}"
         return self.getCar(req)
-    def searchByIdFuel(self,id_Carburant):
-        req = f"SELECT * FROM voiture WHERE idCarburant = {id_Carburant}"
-        return self.getCar(req)
-    def searchByIdFuel(self,id_Fuel):
-        req = f"SELECT * FROM voiture WHERE idMarque = {id_Fuel}"
-        return self.getCar(req)
-    def searchByIdCar(self,id):
+
+    def getCarById(self,id):
         req = f"SELECT * FROM voiture WHERE idCar = {id}"
         return self.getCar(req)
