@@ -27,4 +27,4 @@ class Fuel:
 
     def searchByIdFuel(self,id_Fuel):
         req = f"SELECT * FROM voiture WHERE idCarburant = {id_Fuel}"
-        return self.car.getCar(req)
+        return self.car.get(req)

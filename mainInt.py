@@ -59,6 +59,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.cars_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_cars))
         self.ui.cars_btn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_cars))
         self.ui.scrap_cars_Btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_scarp_cars))
+        self.ui.addCars_page_Btn.clicked.connect(lambda: (self.reset_AddCarpage() , self.ui.stackedWidget.setCurrentWidget(self.ui.page_add_car)) )
 
         self.ui.liste_noire_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_noire_clients))
 
@@ -80,7 +81,6 @@ class MainWindow(QtWidgets.QMainWindow):
         #linking the update button with the update method:
         self.ui.modifier_btn.clicked.connect(self.updateTable)
         self.ui.modifier_btn2.clicked.connect(self.updateTable)
-
 
         self.ui.supprimer_reser.clicked.connect(self.deleteButtonReservation)
         self.ui.supprimer_btn.clicked.connect(lambda: self.deleteButtonClient(False))
@@ -108,6 +108,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.dict_fuel = dict()
 
             self.imagePath = ""
+            self.id_SelectedCar = None
 
             self.scraping = scraping.scrap()
             self.car = car.Car()
@@ -125,7 +126,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             # Retrieve data from the database
             print("# Retrieve data from the database")
-            car_data = self.car.getCar("SELECT * FROM voiture;")
+            car_data = self.car.getAll()
             self.displayCars(car_data)
 
             #linking comboBox with the update methods
@@ -135,18 +136,18 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.comboAllBrands.currentIndexChanged.connect(lambda :self.id_SelectedCombobox(self.ui.comboAllBrands))
             self.ui.comboAllModels.currentIndexChanged.connect(lambda : self.id_SelectedCombobox(self.ui.comboAllModels))
 
+            self.ui.tableWidgetCar.clicked.connect(lambda: self.edit_Car(self.tool.handlClick(self.ui.tableWidgetCar.currentIndex(),self.ui.tableWidgetCar)))
             # linking the update button with the update method:
             print("# linking the update button with the update method")
 
             self.ui.add_image_Btn.clicked.connect(self.image_dialog)
             self.ui.search_input.textChanged.connect(self.sync_SearchLine)
-            self.ui.all_cars_btn.clicked.connect(lambda : self.displayCars(car_data))
-            #self.ui.addCar_btn.clicked.connect(self.addCar)
+            self.ui.all_cars_btn.clicked.connect(lambda : self.displayCars(self.car.getAll()))
+            self.addcar_Btn.clicked.connect(self.addCar)
         except Exception as e:
             print(e)
+
     ###############################################################################################################
-
-
 
     def AjouterClient(self):
         try:
@@ -282,7 +283,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def addCar(self):
         try:
-            self.edit_Car(75)
             brand = self.id_SelectedCombobox(self.ui.comboBoxBrand_1)
             model = self.ui.model.text()
             fuel = self.id_SelectedCombobox(self.ui.comboBoxFuel_1)
@@ -297,24 +297,39 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.tool.warning("Please select an image.")
             else:
                 img = self.tool.convertToBinary(self.imagePath)
-                self.car.addCar(brand, model, fuel, img)
-                # Retrieve data from the database
-                car_data = self.car.getCar("SELECT * FROM voiture;")
+
+                if self.id_SelectedCar is not None :
+                    self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_cars)
+                    self.car.update(self.id_SelectedCar,brand, model, fuel, img)
+                    self.reset_AddCarpage()
+
+                else :
+                    self.car.add(brand, model, fuel, img)
+
         except Exception as e:
             print(f"addCarButton : An error occurred: {e}")
+            self.reset_AddCarpage()
+
+    def edit_Car(self,idCar):
+        try:
+            if idCar is not None :
+                self.id_SelectedCar = idCar
+                self.fill_fieldsWithCarData(self.id_SelectedCar)
+                self.addcar_Btn.setText("modifie")
+                self.add_image_Btn.setText("modifie l'image")
+                self.ui.stackedWidget.setCurrentWidget(self.ui.page_add_car)
+
+        except Exception as e:
+            print(f"edit car : An error occurred: {e}")
+            self.reset_AddCarpage()
 
     def fill_fieldsWithCarData(self, idCar):
         try:
             data = self.car.getCarById(idCar)
             data = list(data[0])
-            print(data)
             index = self.ui.comboBoxBrand_1.findData(data[1])
-            print(index)
             self.ui.comboBoxBrand_1.setCurrentIndex(index)
-            print("é""")
             index = self.ui.comboBoxFuel_1.findData(data[2])
-            print("é""")
-            print("data[4]")
             self.ui.comboBoxFuel_1.setCurrentIndex(index)
             self.ui.model.setText(data[4])
 
@@ -327,7 +342,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def displayCars(self, data):
         try:
-            self.edit_Car(75)
             self.ui.tableWidgetCar.clearContents()  # Clear the existing data in the table
             self.ui.tableWidgetCar.setColumnCount(
                 7)  # Set the number of columns in the table, including the image column
@@ -387,7 +401,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def id_SelectedCombobox(self, combo):
         try:
-            print("id_SelectedCombobox ::")
             selected_index = combo.currentIndex()
             # Get the item key using the selected index
             key = combo.itemData(selected_index, QtCore.Qt.UserRole)
@@ -398,22 +411,19 @@ class MainWindow(QtWidgets.QMainWindow):
                 print("key: ", key)
                 if combo.objectName() == 'comboBoxBrand' or combo.objectName() == 'comboBoxBrand_1':
                     data = self.car.searchByIdBrand(key)
-
                 elif combo.objectName() == 'comboBoxFuel' or combo.objectName() == 'comboBoxFuel_1':
                     # Retrieve data from the database based on the selected item
                     data = self.fuel.searchByIdFuel(key)
-
                 elif combo.objectName() == 'comboAllBrands':
                     #data = self.scraping.getCarsByBrand(value)
                     dd = self.tool.fill_combobox(self.ui.comboAllModels, value)
                     #self.displayModels(data)
                     return
+
                 elif combo.objectName() == 'comboAllModels':
-                    data = self.scraping.getCarsByModel(self.ui.comboAllBrands.currentText(),
-                                                        self.ui.comboAllModels.currentText())
+                    data = self.scraping.getCarsByModel(self.ui.comboAllBrands.currentText(),self.ui.comboAllModels.currentText())
                     self.displayModels(data)
                     return
-
                 self.displayCars(data)
                 return key
 
@@ -466,6 +476,17 @@ class MainWindow(QtWidgets.QMainWindow):
         # Set selection mode to row selection
         self.ui.tableWidgeModels.setSelectionBehavior(QTableWidget.SelectRows)
 
+
+    def reset_AddCarpage(self):
+
+        self.id_SelectedCar = None
+        self.ui.addcar_Btn.setText("ajouter")
+        self.add_image_Btn.setText("Ajouter une image")
+        self.ui.comboBoxBrand_1.setCurrentIndex(0)
+        self.ui.comboBoxFuel_1.setCurrentIndex(0)
+        self.ui.model.setText("")
+        self.image_label_car.setText("Uploader une image")
+
     def image_dialog(self):
         try:
             file_dialog = QFileDialog()
@@ -481,6 +502,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 pixmap = pixmap.scaled(desired_size, aspectRatioMode=QtCore.Qt.KeepAspectRatio)
                 self.image_label_car.setPixmap(pixmap)
                 self.image_label_car.adjustSize()
-                self.addCar()
         except Exception as e:
             print(f"An error occurred: {e}")
+

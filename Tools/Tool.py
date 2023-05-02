@@ -26,7 +26,7 @@ class tool:
         except PermissionError:
             print(f"Error: Permission denied to read file at path '{path}'")
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"An error occurred convertToBinary : {e}")
 
     def getImageLabel(self, binary_data):
         try:
@@ -37,7 +37,7 @@ class tool:
             pixmap.loadFromData(base64.b64decode(base64_data))
             return pixmap
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"An error occurred getImageLabel : {e}")
     def warning(self,message):
 
         # Create an instance of QMessageBox
@@ -91,4 +91,18 @@ class tool:
 
             return data
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"fill_combobox: {e}")
+    def handlClick(self, index: QtCore.QModelIndex, table):
+        try:
+            row = index.row()
+            idCar = table.item(row, 1)
+            column = index.column()
+            if table.horizontalHeaderItem(column).text() == "Delete":
+                self.car.delete(int(idCar.text()))
+                table.removeRow(row)
+                return None
+            # Edit Car:
+            return int(idCar.text())
+
+        except Exception as e:
+            print(f"handlClick: {e}")

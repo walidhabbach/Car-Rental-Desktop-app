@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1397</width>
-    <height>720</height>
+    <width>1280</width>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -942,20 +942,22 @@ border: 2px solid red;</string>
                     <widget class="QLabel" name="image_label_car">
                      <property name="font">
                       <font>
-                       <family>MS Shell Dlg 2</family>
-                       <pointsize>20</pointsize>
+                       <family>Georgia</family>
+                       <pointsize>-1</pointsize>
                        <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: white;
-border: 1px solid rgb(100,100,100);
-font: 20pt &quot;MS Shell Dlg 2&quot;; </string>
+                      <string notr="true">color:black;
+border: 2px solid rgb(100,100,100);
+ 
+font: 30px &quot;Georgia&quot;;
+</string>
                      </property>
                      <property name="text">
-                      <string>Uploader votre image ici</string>
+                      <string>Uploader une image </string>
                      </property>
                     </widget>
                    </item>
@@ -1163,7 +1165,11 @@ border: 2px solid red;</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBoxFuel"/>
+                   <widget class="QComboBox" name="comboBoxFuel">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;</string>
+                    </property>
+                   </widget>
                   </item>
                   <item>
                    <widget class="QPushButton" name="all_cars_btn">
