@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1302</width>
-    <height>933</height>
+    <width>1280</width>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -779,7 +779,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>4</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -1086,6 +1086,13 @@ padding: 10px;</string>
                   <property name="text">
                    <string>ajouter</string>
                   </property>
+                  <property name="icon">
+                   <iconset resource="resource.qrc">
+                    <normaloff>:/icon/icon/home-4-32.ico</normaloff>:/icon/icon/home-4-32.ico</iconset>
+                  </property>
+                  <property name="autoDefault">
+                   <bool>false</bool>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -1163,7 +1170,11 @@ border: 2px solid red;</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBoxFuel"/>
+                   <widget class="QComboBox" name="comboBoxFuel">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;</string>
+                    </property>
+                   </widget>
                   </item>
                   <item>
                    <widget class="QPushButton" name="all_cars_btn">
