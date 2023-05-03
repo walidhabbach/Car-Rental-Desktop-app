@@ -1,11 +1,12 @@
-
+import brand
 import conn
 import base64
+
 class Car:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
 
-    def getCar(self,req):
+    def get(self,req):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
@@ -14,9 +15,9 @@ class Car:
                     result = self.connexion.cursor.fetchall()
                     return result
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"get : An error occurred: {e}")
 
-    def addCar(self, brand, model, fuel, image):
+    def add(self, brand, model, fuel, image):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
@@ -27,18 +28,23 @@ class Car:
         except Exception as e:
             print(f"An error occurred: {e}")
 
-    def updateCar(self, car_id, brand, model, fuel):
+    def update(self, car_id, brand, model, fuel, image):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
-                    req = f"UPDATE voiture SET idMarque = {brand}, idCarburant = {fuel}, image = '{model}' WHERE idCar  = '{car_id}'"
-                    self.connexion.cursor.execute(req)
+                    req = "UPDATE voiture SET idMarque = %s, idCarburant = %s, model = %s, image = %s WHERE idCar = %s"
+                    values = (brand, fuel, model, image, car_id)
+                    self.connexion.cursor.execute(req, values)
                     self.connexion.conn.commit()
                     print("Record updated successfully.")
 
         except Exception as e:
+            print(f"An error occurred: {e}")
+
+
+        except Exception as e:
              print(f"An error occurred: {e}")
-    def deleteCar(self, car_id):
+    def delete(self, car_id):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
@@ -49,39 +55,19 @@ class Car:
         except Exception as e:
             print(f"An error occurred: {e}")
 
-    def getFuel(self):
-        try:
-            if self.connexion.connect():
-                data = dict()
-                with self.connexion.conn:
-                    self.connexion.cursor.execute("SELECT idCarburant ,nom FROM carburant")
-                    result = self.connexion.cursor.fetchall()
-                    for row in result:
-                        data[row[0]] = row[1]
-                        print(data)
-                return data
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return {}  # Return default data dictionary
-        finally:
-            if self.connexion.cursor:
-                self.connexion.cursor.close()
-            if self.connexion.conn:
-                self.connexion.conn.close()
 
     # Search methods
     def searchByModel(self,model):
         req = f"SELECT * FROM voiture WHERE model like '{model}%'"
-        return self.getCar(req)
+        return self.get(req)
     def searchByIdBrand(self,id_brand):
         req = f"SELECT * FROM voiture WHERE idMarque = {id_brand}"
-        return self.getCar(req)
-    def searchByIdFuel(self,id_Carburant):
-        req = f"SELECT * FROM voiture WHERE idCarburant = {id_Carburant}"
-        return self.getCar(req)
-    def searchByIdFuel(self,id_Fuel):
-        req = f"SELECT * FROM voiture WHERE idMarque = {id_Fuel}"
-        return self.getCar(req)
-    def searchByIdCar(self,id):
+        return self.get(req)
+
+    def getCarById(self,id):
         req = f"SELECT * FROM voiture WHERE idCar = {id}"
-        return self.getCar(req)
+        return self.get(req)
+
+    def getAll(self):
+        req = f"SELECT * FROM voiture"
+        return self.get(req)

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1397</width>
-    <height>720</height>
+    <width>1280</width>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -308,6 +308,20 @@
            </property>
            <property name="autoExclusive">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="addCars_page_Btn">
+           <property name="text">
+            <string>Ajouter Voiture</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="scrap_cars_Btn">
+           <property name="text">
+            <string>List des Voitures</string>
            </property>
           </widget>
          </item>
@@ -765,7 +779,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>6</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -824,164 +838,384 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_crud_cars">
+         <widget class="QWidget" name="page_scarp_cars">
           <layout class="QGridLayout" name="gridLayout_5">
            <item row="1" column="0">
-            <layout class="QHBoxLayout" name="horizontalLayout_5">
-             <item>
-              <widget class="QFrame" name="frame_4">
-               <property name="minimumSize">
-                <size>
-                 <width>519</width>
-                 <height>628</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: transparent</string>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <widget class="QTableWidget" name="tableWidgetCar">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>611</width>
-                  <height>628</height>
-                 </rect>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>256</width>
-                  <height>628</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: transparent</string>
-                </property>
-               </widget>
-               <widget class="QLineEdit" name="model">
-                <property name="geometry">
-                 <rect>
-                  <x>710</x>
-                  <y>100</y>
-                  <width>241</width>
-                  <height>41</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: 0;
-border-bottom: 1px solid rgb(0, 85, 255);
-color: black;</string>
-                </property>
-                <property name="placeholderText">
-                 <string>Nom voiture</string>
-                </property>
-               </widget>
-               <widget class="QComboBox" name="comboBoxBrand">
-                <property name="geometry">
-                 <rect>
-                  <x>710</x>
-                  <y>190</y>
-                  <width>231</width>
-                  <height>31</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(170, 170, 255)</string>
-                </property>
-               </widget>
-               <widget class="QComboBox" name="comboBoxFuel">
-                <property name="geometry">
-                 <rect>
-                  <x>710</x>
-                  <y>270</y>
-                  <width>241</width>
-                  <height>31</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(170, 170, 255)</string>
-                </property>
-               </widget>
-               <widget class="QLabel" name="image_label">
-                <property name="geometry">
-                 <rect>
-                  <x>650</x>
-                  <y>430</y>
-                  <width>371</width>
-                  <height>141</height>
-                 </rect>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>MS Gothic</family>
-                  <pointsize>-1</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: white</string>
-                </property>
+            <widget class="QFrame" name="frame_4">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QLabel" name="label_7">
                 <property name="text">
-                 <string>image</string>
+                 <string>Liste des Voitures </string>
                 </property>
                </widget>
-               <widget class="QPushButton" name="AddButton">
-                <property name="geometry">
-                 <rect>
-                  <x>704</x>
-                  <y>340</y>
-                  <width>251</width>
-                  <height>41</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(30,200,200);
-border: 0</string>
-                </property>
-                <property name="text">
-                 <string>addCar</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="addImage">
-                <property name="geometry">
-                 <rect>
-                  <x>640</x>
-                  <y>20</y>
-                  <width>111</width>
-                  <height>31</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: red;
-border: 0;
-color: white;</string>
-                </property>
-                <property name="text">
-                 <string>addImage</string>
-                </property>
-               </widget>
-              </widget>
-             </item>
-            </layout>
+              </item>
+              <item>
+               <layout class="QGridLayout" name="gridLayout_21">
+                <item row="0" column="0">
+                 <layout class="QHBoxLayout" name="horizontalLayout_10">
+                  <item>
+                   <widget class="QComboBox" name="comboAllBrands">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboAllModels">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QTableWidget" name="tableWidgeModels">
+                  <property name="mouseTracking">
+                   <bool>true</bool>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: transparent;
+border: 2px solid red;</string>
+                  </property>
+                  <attribute name="horizontalHeaderMinimumSectionSize">
+                   <number>100</number>
+                  </attribute>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_6">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
            </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_add_car">
+          <layout class="QGridLayout" name="gridLayout_28">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_7">
-             <property name="font">
-              <font>
-               <pointsize>-1</pointsize>
-              </font>
+            <widget class="QFrame" name="frame_15">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
-             <property name="text">
-              <string>CARS PAGE</string>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+             <layout class="QGridLayout" name="gridLayout_29">
+              <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_14">
+                <item>
+                 <widget class="QFrame" name="frame_16">
+                  <property name="styleSheet">
+                   <string notr="true">width:100px;</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_38">
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="image_label_car">
+                     <property name="font">
+                      <font>
+                       <family>Georgia</family>
+                       <pointsize>-1</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color:black;
+border: 2px solid rgb(100,100,100);
+ 
+font: 30px &quot;Georgia&quot;;
+</string>
+                     </property>
+                     <property name="text">
+                      <string>Uploader une image </string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" rowspan="3">
+                    <layout class="QGridLayout" name="gridLayout_30">
+                     <item row="5" column="0">
+                      <widget class="QLineEdit" name="cin_2">
+                       <property name="styleSheet">
+                        <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string> prix</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QComboBox" name="comboBoxBrand_1">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px; </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="6" column="0">
+                      <widget class="QLineEdit" name="permis_2">
+                       <property name="styleSheet">
+                        <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string> Numero  </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="7" column="0">
+                      <widget class="QLineEdit" name="tel_2">
+                       <property name="styleSheet">
+                        <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="placeholderText">
+                        <string>téléphone</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="8" column="0">
+                      <widget class="QLineEdit" name="email_2">
+                       <property name="styleSheet">
+                        <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Email client</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QComboBox" name="comboBoxGear_1">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px; </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QComboBox" name="comboBoxFuel_1">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px; </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLineEdit" name="model">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string>  model</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="0">
+                      <widget class="QDateEdit" name="production_date">
+                       <property name="styleSheet">
+                        <string notr="true">height:40px</string>
+                       </property>
+                       <property name="displayFormat">
+                        <string>dd/MM/yyyy</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="add_image_Btn">
+                     <property name="styleSheet">
+                      <string notr="true">background-color: #007bff;
+border: 0;
+border-radius: 5px;
+height: 25px;
+padding: 10px;</string>
+                     </property>
+                     <property name="text">
+                      <string>Ajouter une image</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="addcar_Btn">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: #007bff;
+border: 0;
+border-radius: 5px;
+height: 25px;
+padding: 10px;</string>
+                  </property>
+                  <property name="text">
+                   <string>ajouter</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="cancelBtn_2">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: red;
+color: white;
+font-weight: bold;
+border: 0;
+border-radius: 4px;
+height: 50px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Annuler</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_crud_cars">
+          <layout class="QGridLayout" name="gridLayout_20">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_9">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_18">
+              <item row="2" column="0">
+               <layout class="QGridLayout" name="gridLayout_19">
+                <item row="2" column="0">
+                 <widget class="QTableWidget" name="tableWidgetCar">
+                  <property name="mouseTracking">
+                   <bool>true</bool>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: transparent;
+border: 2px solid red;</string>
+                  </property>
+                  <attribute name="horizontalHeaderMinimumSectionSize">
+                   <number>100</number>
+                  </attribute>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_5">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <item>
+                   <widget class="QComboBox" name="comboBoxBrand">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxFuel">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="all_cars_btn">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="acceptDrops">
+                     <bool>false</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(0, 255, 255);
+color: black;
+border: 0;height: 40px;</string>
+                    </property>
+                    <property name="text">
+                     <string>Liste des Voiture</string>
+                    </property>
+                    <property name="flat">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="addCarButton">
+                    <property name="styleSheet">
+                     <string notr="true">height: 40px;
+border: 0;
+background-color: green;</string>
+                    </property>
+                    <property name="text">
+                     <string>Ajouter Voiture</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>Gestion Voiture</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
@@ -997,6 +1231,13 @@ color: white;</string>
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_10">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Gestion clients</string>
+                </property>
+               </widget>
+              </item>
               <item row="1" column="0">
                <widget class="QFrame" name="frame_5">
                 <property name="frameShape">
@@ -1110,13 +1351,6 @@ border: 2px solid red;</string>
                   </layout>
                  </item>
                 </layout>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_2">
-                <property name="text">
-                 <string>Gestion clients</string>
-                </property>
                </widget>
               </item>
              </layout>

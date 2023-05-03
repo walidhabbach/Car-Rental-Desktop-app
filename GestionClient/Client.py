@@ -1,4 +1,4 @@
-from main import conn
+import conn
 from Tools import Convertion
 from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
 from PyQt5 import QtGui
@@ -119,20 +119,24 @@ class Client:
             print(f"{e}")
 
     def displayReservations(self,table):
-        table.clearContents()  # Clear the existing data in the table
-        table.setColumnCount(3)  # Set the number of columns in the table
-        table.setHorizontalHeaderLabels(
-            ['idUser', 'idCar', 'date'])  # Set the column labels
+        try:
+            table.clearContents()  # Clear the existing data in the table
+            table.setColumnCount(3)  # Set the number of columns in the table
+            table.setHorizontalHeaderLabels(
+                ['idUser', 'idCar', 'date'])  # Set the column labels
 
-        users = self.getClientsData("SELECT idUser,idCar,date_depart,date_arr FROM RESERVATION")
-        table.setRowCount(len(users))  # Set the number of rows in the table
+            users = self.getClientsData("SELECT idUser,idCar,date_depart,date_arr FROM RESERVATION")
+            table.setRowCount(len(users))  # Set the number of rows in the table
 
-        # adding select check mark :
+            # adding select check mark :
 
-        for row_idx, user in enumerate(users):
-            for col_idx, item in enumerate(user):
-                table.setItem(row_idx, col_idx,
-                              QTableWidgetItem(str(item)))  # Set the table item with the data
+            for row_idx, user in enumerate(users):
+                for col_idx, item in enumerate(user):
+                    table.setItem(row_idx, col_idx,
+                                  QTableWidgetItem(str(item)))  # Set the table item with the data
+        except Exception as e:
+            print(f"{e}")
+
     def testCin(self,cinClie,idUser):
         request = f"SELECT cin from client where idUser != '{idUser}'" if idUser != "" else "SELECT cin from client"
         cins = self.getClientsData(request)
