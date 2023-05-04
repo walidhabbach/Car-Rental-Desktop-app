@@ -45,6 +45,7 @@ class Reservation:
             combo.addItem(f'Selectionner Reservation ')
             request = f"SELECT reservation.idUser,concat(date_depart,'/',date_arr) from client join reservation on client.idUser = reservation.idUser" \
                       f" where client.idUser = '{idClient}'"
+            print(request)
             res = self.getAllReser(request)
             for re in res:
                 combo.addItem(str(re[1]))
@@ -52,16 +53,24 @@ class Reservation:
                 combo.setItemData(combo.count() - 1, re[0])
             print(res)
 
-    def searchByReservation(self,combo,table):
+
+    def searchByReservation(self,combo,table,idClient):
         try:
             print("-------------------------------------------------------" + str(combo.currentText()))
-            date_ = combo.currentText().split('/')
-            print(date_)
-            if (len(date_) == 2):
+            if(combo.currentText() != "Selectionner Reservation "):
+                date_ = combo.currentText().split('/')
+                print(date_)
+                if (len(date_) == 2):
+                    request = f"SELECT reservation.idUser,date_depart,date_arr from client join reservation on client.idUser = reservation.idUser" \
+                              f" where date_depart = '{date_[0]}' and date_arr='{date_[1]}' and reservation.idUser = '{combo.currentData()}'"
+                    data = self.getAllReser(request)
+                    self.displayReservationsClient(table, data)
+            else:
+                print(f"hna 3la lkhawi {combo.currentData()}")
                 request = f"SELECT reservation.idUser,date_depart,date_arr from client join reservation on client.idUser = reservation.idUser" \
-                          f" where date_depart = '{date_[0]}' and date_arr='{date_[1]}' and reservation.idUser = '{combo.currentData()}'"
+                          f" WHERE reservation.idUser = '{idClient}'"
                 data = self.getAllReser(request)
-                self.displayReservationsClient(table,data)
+                self.displayReservationsClient(table, data)
         except Exception as e:
             print(e)
     def supprimer(self,request):
@@ -98,4 +107,6 @@ class Reservation:
             print(data)
             self.displayReservationsClient(table, data)
             self.filterComboBox(comboBox,id)
+        else:
+            self.displayReservations(table)
 

@@ -112,7 +112,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.fillComboClient(self.ui.comboClients_4, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser","client")
         self.ui.comboBoxReservation.addItem("Select reservation")
 
-        self.ui.comboBoxReservation.currentIndexChanged.connect(lambda: self.reservation.searchByReservation(self.ui.comboBoxReservation,self.ui.reservation_data))
+        self.ui.comboBoxReservation.currentIndexChanged.connect(lambda: self.reservation.searchByReservation(self.ui.comboBoxReservation,self.ui.reservation_data,self.ui.comboClients_4.currentData()))
      ########################################### Car Section ##########################################################
         try:
             print("car section:")
