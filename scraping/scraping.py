@@ -9,7 +9,7 @@ class scrap:
         with open('./Scraping/brands_modelsAll.json') as f:
             self.data = json.load(f)
 
-    def dowloadScript(self,url):
+    def downloadScript(self,url):
         # Send a GET request to the URL and get the response
         response = requests.get(url)
 
@@ -128,6 +128,7 @@ class scrap:
             print(f"Error downloading image: {e}")
             return None
 
+
     def getCarUrlImages(self,url):
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -162,21 +163,13 @@ class scrap:
 
         print("All images downloaded!")
         return images
+    def download_img(self,url):
+        url = self.getModelImage(url)
+        pixmap = self.get_image_from_url(url)
+        return pixmap
 
-    import concurrent.futures
 
-    def download_imagesVer2(self, image_urls):
-        images = []
-        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-            futures = [executor.submit(self.get_image_from_url, url) for url in image_urls]
-            for future in concurrent.futures.as_completed(futures):
-                try:
-                    pixmap = future.result()
-                    if pixmap is not None:
-                        images.append(pixmap)
-                except Exception as e:
-                    print(f"Error downloading image: {e}")
-        return images
+
 
     #######################################################################################################################
 
@@ -212,7 +205,7 @@ class scrap:
 
         return car_data
 
-    def getCarsByModel(self, brand, model):
+    def getCarByModel(self, brand, model):
         car_data = self.data.get(brand)
         if car_data is None:
             print(f"No data found for brand {brand}")
@@ -222,6 +215,20 @@ class scrap:
             if car["model"] == model:
                 matching_cars.append(car)
         return matching_cars
+
+    def get(self):
+        data = json.loads(self.data)
+        for brand in data.values():
+            for item in brand:
+                for value in item.values():
+                    if isinstance(value, list):
+                        for image in value:
+                            print(image)
+                    elif isinstance(value, dict):
+                        for detail in value.values():
+                            print(detail)
+                    else:
+                        print(value)
 
 #######################################################################################################################
 

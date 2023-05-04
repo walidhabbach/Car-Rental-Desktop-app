@@ -1,13 +1,16 @@
 from GestionVoiture import car
 from GestionVoiture import brand
 from GestionVoiture import fuel
+from GestionVoiture import transmission
 from Scraping import scraping
-
+from PIL import Image
 import base64
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QMessageBox ,QComboBox
+from PyQt5.QtGui import  QPixmap, QImage, qRgb, qRed, qGreen, qBlue
+from PyQt5.QtWidgets import QMessageBox
 from PyQt5 import QtCore
-
+from PyQt5.QtGui import QImage
+import numpy as np
+from PyQt5.QtCore import QByteArray, QBuffer
 
 class tool:
 
@@ -16,6 +19,7 @@ class tool:
         self.car = car.Car()
         self.brand = brand.Brand()
         self.fuel = fuel.Fuel()
+        self.gearBox = transmission.Transmission()
     def convertToBinary(self, path):
         try:
             with open(path, "rb") as File:
@@ -28,6 +32,57 @@ class tool:
         except Exception as e:
             print(f"An error occurred convertToBinary : {e}")
 
+
+    def label_to_binary(self,qpixmap):
+        # Get the QPixmap from the QLabel
+        pixmap = qpixmap.pixmap()
+        qimage = pixmap.toImage()
+
+        # Convert the QImage to a numpy array
+        buffer = qimage.bits().asstring(qimage.byteCount())
+        arr = np.frombuffer(buffer, dtype=np.uint8).reshape(qimage.height(), qimage.width(), 4)
+
+        # Convert the numpy array to a binary image
+        gray = arr[:, :, 0]
+        binary = np.where(gray < 128, 0, 255)
+
+        return binary
+
+
+
+    def label_to_byte_array(self,label):
+        # Get the pixmap from the label
+        pixmap = label.pixmap()
+
+        # Convert the pixmap to a QImage
+        qimage = pixmap.toImage()
+
+        # Convert the QImage to a QByteArray
+        byte_array = QByteArray()
+        buffer = QBuffer(byte_array)
+        buffer.open(QBuffer.WriteOnly)
+        qimage.save(buffer, "PNG")
+
+        return byte_array
+
+    def qlabel_to_binary(self,qlabel):
+        # Get the QPixmap from the QLabel
+        pixmap = qlabel.pixmap()
+        # Convert the QPixmap to a QImage
+        qimage = pixmap.toImage()
+        # Create a binary image from the QImage
+        binary = []
+        for y in range(qimage.height()):
+            row = []
+            for x in range(qimage.width()):
+                pixel = qimage.pixel(x, y)
+                gray = qRgb(qRed(pixel), qGreen(pixel), qBlue(pixel))
+                if gray < qRgb(128, 128, 128):
+                    row.append(0)
+                else:
+                    row.append(255)
+            binary.append(row)
+        return binary
     def getImageLabel(self, binary_data):
         try:
             # Convert binary data to base64-encoded string
@@ -69,6 +124,9 @@ class tool:
             combo.clear()
             data = dict()
             print(combo.objectName())
+            if combo.objectName() == 'comboBoxGear_1' :
+                combo.addItem('Select Transmission')
+                data = self.gearBox.getGearBox()
             if combo.objectName() == 'comboBoxBrand' or combo.objectName() == 'comboBoxBrand_1':
                 combo.addItem('All Brands')
                 data = self.brand.getBrands()
@@ -95,14 +153,18 @@ class tool:
     def handlClick(self, index: QtCore.QModelIndex, table):
         try:
             row = index.row()
-            idCar = table.item(row, 1)
-            column = index.column()
-            if table.horizontalHeaderItem(column).text() == "Delete":
-                self.car.delete(int(idCar.text()))
-                table.removeRow(row)
-                return None
-            # Edit Car:
-            return int(idCar.text())
+            if table.objectName()=="tableWidgeModels":
+                return table.item(row, 1)
+            else :
+                idCar = table.item(row, 1)
+                column = index.column()
+                if table.horizontalHeaderItem(column).text() == "Delete":
+                    self.car.delete(int(idCar.text()))
+                    table.removeRow(row)
+                    return None
+                else:
+                    # Edit Car:
+                    return int(idCar.text())
 
         except Exception as e:
             print(f"handlClick: {e}")

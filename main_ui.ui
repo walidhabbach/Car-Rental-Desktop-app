@@ -963,39 +963,63 @@ font: 30px &quot;Georgia&quot;;
                    </item>
                    <item row="0" column="0" rowspan="3">
                     <layout class="QGridLayout" name="gridLayout_30">
-                     <item row="5" column="0">
-                      <widget class="QLineEdit" name="cin_2">
+                     <item row="7" column="0">
+                      <widget class="QLineEdit" name="seats">
                        <property name="styleSheet">
                         <string notr="true">height: 50px;
 border: 0;
 border-bottom: 1px solid rgb(100,100,100)</string>
                        </property>
                        <property name="placeholderText">
-                        <string> prix</string>
+                        <string> Nombre de places</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="1" column="0">
-                      <widget class="QComboBox" name="comboBoxBrand_1">
+                     <item row="4" column="0">
+                      <widget class="QDateEdit" name="production_date">
                        <property name="styleSheet">
-                        <string notr="true">height: 40px; </string>
+                        <string notr="true">height:40px;
+padding-left:10px; </string>
+                       </property>
+                       <property name="dateTime">
+                        <datetime>
+                         <hour>0</hour>
+                         <minute>0</minute>
+                         <second>0</second>
+                         <year>2023</year>
+                         <month>1</month>
+                         <day>1</day>
+                        </datetime>
+                       </property>
+                       <property name="maximumDateTime">
+                        <datetime>
+                         <hour>23</hour>
+                         <minute>59</minute>
+                         <second>59</second>
+                         <year>9999</year>
+                         <month>12</month>
+                         <day>23</day>
+                        </datetime>
+                       </property>
+                       <property name="displayFormat">
+                        <string>dd/MM/yyyy</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="5" column="0">
+                      <widget class="QLineEdit" name="price">
+                       <property name="styleSheet">
+                        <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                       </property>
+                       <property name="placeholderText">
+                        <string> Prix</string>
                        </property>
                       </widget>
                      </item>
                      <item row="6" column="0">
-                      <widget class="QLineEdit" name="permis_2">
-                       <property name="styleSheet">
-                        <string notr="true">height: 50px;
-border: 0;
-border-bottom: 1px solid rgb(100,100,100)</string>
-                       </property>
-                       <property name="placeholderText">
-                        <string> Numero  </string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="7" column="0">
-                      <widget class="QLineEdit" name="tel_2">
+                      <widget class="QLineEdit" name="power">
                        <property name="styleSheet">
                         <string notr="true">height: 50px;
 border: 0;
@@ -1005,31 +1029,12 @@ border-bottom: 1px solid rgb(100,100,100)</string>
                         <string/>
                        </property>
                        <property name="placeholderText">
-                        <string>téléphone</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="8" column="0">
-                      <widget class="QLineEdit" name="email_2">
-                       <property name="styleSheet">
-                        <string notr="true">height: 50px;
-border: 0;
-border-bottom: 1px solid rgb(100,100,100)</string>
-                       </property>
-                       <property name="placeholderText">
-                        <string>Email client</string>
+                        <string> Puissance</string>
                        </property>
                       </widget>
                      </item>
                      <item row="3" column="0">
                       <widget class="QComboBox" name="comboBoxGear_1">
-                       <property name="styleSheet">
-                        <string notr="true">height: 40px; </string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QComboBox" name="comboBoxFuel_1">
                        <property name="styleSheet">
                         <string notr="true">height: 40px; </string>
                        </property>
@@ -1047,13 +1052,27 @@ border-bottom: 1px solid rgb(100,100,100)</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="4" column="0">
-                      <widget class="QDateEdit" name="production_date">
+                     <item row="1" column="0">
+                      <widget class="QComboBox" name="comboBoxBrand_1">
                        <property name="styleSheet">
-                        <string notr="true">height:40px</string>
+                        <string notr="true">height: 40px; </string>
                        </property>
-                       <property name="displayFormat">
-                        <string>dd/MM/yyyy</string>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QComboBox" name="comboBoxFuel_1">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px; </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="8" column="0">
+                      <widget class="QSpinBox" name="doors">
+                       <property name="styleSheet">
+                        <string notr="true">height:40px;</string>
+                       </property>
+                       <property name="maximum">
+                        <number>12</number>
                        </property>
                       </widget>
                      </item>

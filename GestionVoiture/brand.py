@@ -5,12 +5,11 @@ class Brand:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
 
-    def addBrands(self, logo, name):
+    def addBrand(self,name, logo=None):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
-                    print("image_base64 ")
-                    req = "INSERT INTO marque(`logo`, `name`) VALUES (%s, %s)"
+                    req = "INSERT INTO marque(`logo`, `nom`) VALUES (%s, %s)"
                     self.connexion.cursor.execute(req, (logo, name))
                     self.connexion.conn.commit()
                     print("Record added successfully.")
@@ -52,11 +51,28 @@ class Brand:
                 self.connexion.cursor.close()
             if self.connexion.conn:
                 self.connexion.conn.close()
+
+    def getIdByBrand(self, brand):
+        try:
+            if self.connexion.connect():
+                data = dict()
+                with self.connexion.conn:
+                    self.connexion.cursor.execute(f"SELECT idMarque FROM marque where nom='{brand}'")
+                    result = self.connexion.cursor.fetchall()
+                return result
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return {}  # Return default data dictionary
+        finally:
+            if self.connexion.cursor:
+                self.connexion.cursor.close()
+            if self.connexion.conn:
+                self.connexion.conn.close()
     def updateBrand(self, brand_id,logo, brand):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
-                    req = f"UPDATE voiture SET name = {brand}, logo = '{logo}' WHERE idMarque  = {brand_id}"
+                    req = f"UPDATE voiture SET nom = {brand}, logo = '{logo}' WHERE idMarque  = {brand_id}"
                     self.connexion.cursor.execute(req)
                     self.connexion.conn.commit()
                     print("Record updated successfully.")

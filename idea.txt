@@ -15,11 +15,6 @@ column_name = self.ui.clients_data.horizontalHeaderItem(column).text()
 
 
 
-
-
-
-
-
  table.setColumnHidden(0, True)
             table.setColumnHidden(2, True)
             table.setColumnHidden(3, True)
