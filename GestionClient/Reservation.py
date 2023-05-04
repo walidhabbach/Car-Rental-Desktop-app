@@ -4,12 +4,14 @@ import conn
 from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
 from PyQt5 import QtGui
 import Client
-
+import os
+import sys
 class Reservation:
 
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
         self.client_ = Client.Client()
+        self.car = Car.Car()
     def getAllReser(self,request):
         try:
             if (self.connexion.connect()):
@@ -21,19 +23,28 @@ class Reservation:
     def displayReservations(self, table):
         try:
             table.clearContents()  # Clear the existing data in the table
-            table.setColumnCount(3)  # Set the number of columns in the table
+            table.setColumnCount(6)  # Set the number of columns in the table
             table.setHorizontalHeaderLabels(
-                ['idUser', 'idCar', 'date'])  # Set the column labels
+                ['nom_client','model de voiture','idUser', 'idCar', 'date_depart','date_arrivé'])  # Set the column labels
 
-            users = self.client_.getClientsData("SELECT idUser,idCar,date_depart,date_arr FROM RESERVATION")
-            table.setRowCount(len(users))  # Set the number of rows in the table
+            reservations = self.client_.getClientsData("SELECT idUser,idCar,date_depart,date_arr FROM RESERVATION")
+            table.setRowCount(len(reservations))  # Set the number of rows in the table
 
             # adding select check mark :
+            for row_idx, res in enumerate(reservations):
+                name = self.client_.getClientsData(
+                    f"select nom from client join utilisateur on utilisateur.idUser = client.idUser where client.idUser = '{res[0]}'")
+                print(name)
+                table.setItem(row_idx, 0, QTableWidgetItem(name[0][0]))
+                table.setItem(row_idx, 1, QTableWidgetItem(name[0][0]))
 
-            for row_idx, user in enumerate(users):
-                for col_idx, item in enumerate(user):
-                    table.setItem(row_idx, col_idx,
-                                  QTableWidgetItem(str(item)))  # Set the table item with the data
+            for row_idx, res in enumerate(reservations):
+                # get the name of client  :
+                print(res)
+                for col_idx in range(2, 6):
+                    table.setItem(row_idx, col_idx, QTableWidgetItem(str(res[col_idx-2])))
+
+
         except Exception as e:
             print(f"{e}")
     def filterComboBox(self,combo,idClient):
@@ -66,7 +77,6 @@ class Reservation:
                     data = self.getAllReser(request)
                     self.displayReservationsClient(table, data)
             else:
-                print(f"hna 3la lkhawi {combo.currentData()}")
                 request = f"SELECT reservation.idUser,date_depart,date_arr from client join reservation on client.idUser = reservation.idUser" \
                           f" WHERE reservation.idUser = '{idClient}'"
                 data = self.getAllReser(request)
