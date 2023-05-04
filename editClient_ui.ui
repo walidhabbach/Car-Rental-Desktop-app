@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>788</width>
+    <width>1048</width>
     <height>989</height>
    </rect>
   </property>
@@ -14,8 +14,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(32,30,35);
-color: white;</string>
+   <string notr="true">
+color: black;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_6">
@@ -502,7 +502,7 @@ height: 40px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>788</width>
+     <width>1048</width>
      <height>26</height>
     </rect>
    </property>
