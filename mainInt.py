@@ -350,12 +350,14 @@ class MainWindow(QtWidgets.QMainWindow):
                     print("isbrand:",brand)
                 if self.id_SelectedCar is not None :
                     self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_cars)
-                    self.car.update(int(self.id_SelectedCar),int(brand), model, int(fuel), img,int(self.ui.power.text()),int(self.ui.seats.text()),int(self.ui.doors.text()),float(self.ui.price.text()),gearbox)
+                    self.car.update(int(self.id_SelectedCar),int(brand), model, int(fuel), img,int(gearbox),float(self.ui.price.text()),float(self.ui.power.text()),int(self.ui.seats.text()),int(self.ui.doors.text()))
                     self.reset_AddCarpage()
+                    self.imagePath = ""
                 else :
                     print("gear : ",gearbox)
-                    self.car.add(int(brand), model, int(fuel), img,int(gearbox),int(self.ui.power.text()),int(self.ui.seats.text()),int(self.ui.doors.text()),float(self.ui.price.text()))
-
+                    self.car.add(int(brand), model, int(fuel), img,int(gearbox),float(self.ui.price.text()),float(self.ui.power.text()),int(self.ui.seats.text()),int(self.ui.doors.text()))
+                    self.add_DataJson=False
+                    self.imagePath = ""
 
         except Exception as e:
             print(f"addCarButton : An error occurred: {e}")
@@ -387,11 +389,21 @@ class MainWindow(QtWidgets.QMainWindow):
             self.add_DataJson=False
             data = self.car.getCarById(idCar)
             data = list(data[0])
+
             index = self.ui.comboBoxBrand_1.findData(data[1])
             self.ui.comboBoxBrand_1.setCurrentIndex(index)
+
             index = self.ui.comboBoxFuel_1.findData(data[2])
             self.ui.comboBoxFuel_1.setCurrentIndex(index)
+
+            index = self.ui.comboBoxGear_1.findData(data[5])
+            self.ui.comboBoxGear_1.setCurrentIndex(index)
+            print(data[4])
             self.ui.model.setText(data[4])
+            self.ui.price.setText(str(data[9]))
+            self.ui.power.setText(str(data[6]))
+            self.ui.seats.setText(str(data[7]))
+            self.ui.doors.setValue(int(data[8]))
 
             pixmap = self.tool.getImageLabel(data[3])
             self.image_label_car.setPixmap(pixmap)
@@ -485,7 +497,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             self.ui.tableWidgetCar.clearContents()  # Clear the existing data in the table
             self.ui.tableWidgetCar.setColumnCount(
-                12)  # Set the number of columns in the table, including the image column
+                13)  # Set the number of columns in the table, including the image column
             self.ui.tableWidgetCar.setHorizontalHeaderLabels(["Image", "idCar", "Brand", "Model","price","Fuel Type","gearbox","Year","Power","Seats","Doors","Edit","Delete"])  # Set the column labels
             self.ui.tableWidgetCar.setRowCount(len(data))  # Set the number of rows in the table
 
@@ -501,16 +513,20 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.ui.tableWidgetCar.setItem(row_idx, 1, QTableWidgetItem(str(car[0])))
                 if car[1] is not None:#brand
                     self.ui.tableWidgetCar.setItem(row_idx, 2, QTableWidgetItem(str(self.dict_brands[car[1]])))
+
                 if car[2] is not None:#fuel
                     self.ui.tableWidgetCar.setItem(row_idx,5, QTableWidgetItem(str(self.dict_fuel[car[2]])))
+
                 if car[4] is not None:#model
-                    self.ui.tableWidgetCar.setItem(row_idx,3, QTableWidgetItem(str(self.dict_fuel[car[4]])))
+                    self.ui.tableWidgetCar.setItem(row_idx,3, QTableWidgetItem(str(car[4])))
+
                 if car[9] is not None:#price
                     self.ui.tableWidgetCar.setItem(row_idx, 4, QTableWidgetItem(str(car[9])))
+
                 if car[5] is not None:#gearbox
                     self.ui.tableWidgetCar.setItem(row_idx, 6, QTableWidgetItem(str(self.dict_gearbox[car[5]])))
                 if car[6] is not None:#power
-                    self.ui.tableWidgetCar.setItem(row_idx,8, QTableWidgetItem(str([car[6]])))
+                    self.ui.tableWidgetCar.setItem(row_idx,8, QTableWidgetItem(str(car[6])))
                 if car[6] is not None:#year
                     self.ui.tableWidgetCar.setItem(row_idx, 7, QTableWidgetItem(str(car[6])))
                 if car[7] is not None:#seats
@@ -522,15 +538,15 @@ class MainWindow(QtWidgets.QMainWindow):
                 edit_button = QPushButton()
                 edit_button.setIcon(QIcon('./icon/edit.png'))
                 edit_item = QTableWidgetItem()
-                edit_item.setData(10, edit_button)
-                self.tableWidgetCar.setItem(row_idx, 10, edit_item)
+                edit_item.setData(11, edit_button)
+                self.tableWidgetCar.setItem(row_idx, 11, edit_item)
 
                 # Create a push button for the delete icon
                 delete_button = QPushButton()
                 delete_button.setIcon(QIcon('./icon/delete.png'))
                 delete_item = QTableWidgetItem()
-                delete_item.setData(11, delete_button)
-                self.tableWidgetCar.setItem(row_idx, 11, delete_item)
+                delete_item.setData(12, delete_button)
+                self.tableWidgetCar.setItem(row_idx, 12, delete_item)
 
         except Exception as e:
             print(f"display car : An error occurred: {e}")

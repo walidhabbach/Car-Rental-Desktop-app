@@ -975,6 +975,16 @@ border-bottom: 1px solid rgb(100,100,100)</string>
                        </property>
                       </widget>
                      </item>
+                     <item row="8" column="0">
+                      <widget class="QSpinBox" name="doors">
+                       <property name="styleSheet">
+                        <string notr="true">height:40px;</string>
+                       </property>
+                       <property name="maximum">
+                        <number>12</number>
+                       </property>
+                      </widget>
+                     </item>
                      <item row="4" column="0">
                       <widget class="QDateEdit" name="production_date">
                        <property name="styleSheet">
@@ -1063,16 +1073,6 @@ border-bottom: 1px solid rgb(100,100,100)</string>
                       <widget class="QComboBox" name="comboBoxFuel_1">
                        <property name="styleSheet">
                         <string notr="true">height: 40px; </string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="8" column="0">
-                      <widget class="QSpinBox" name="doors">
-                       <property name="styleSheet">
-                        <string notr="true">height:40px;</string>
-                       </property>
-                       <property name="maximum">
-                        <number>12</number>
                        </property>
                       </widget>
                      </item>
