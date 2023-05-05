@@ -30,12 +30,13 @@ class scrap:
         response = requests.get(url)
         soup = BeautifulSoup(response.content, "html.parser")
         car_details = soup.find_all('table', class_='cardetailsout car2')
+        flag = False
         for info in car_details:
             #getting th element to compare it with the list :
             headers = info.findAll('th')
             for header in headers:
                 if header.text.strip() in listDetails:
-                    details[header.text] = header.next_sibling.text
+                    details[header.text.join('_')] = header.next_sibling.text.strip()
         return details
 
     def getNecessaryData(self,url):

@@ -22,11 +22,11 @@ class Reservation:
     def displayReservations(self, table):
         try:
             table.clearContents()  # Clear the existing data in the table
-            table.setColumnCount(5)  # Set the number of columns in the table
+            table.setColumnCount(7)  # Set the number of columns in the table
             table.setHorizontalHeaderLabels(
-                ['nom_client','idUser', 'idCar', 'date_depart','date_arrivé'])  # Set the column labels
+                ['nom_client','idUser', 'idCar', 'date_depart','date_arrivé','status','prix'])  # Set the column labels
 
-            reservations = self.client_.getClientsData("SELECT idUser,idCar,date_depart,date_arr FROM RESERVATION")
+            reservations = self.getAllReser("SELECT idUser,idCar,date_depart,date_arr,status,price FROM RESERVATION")
             table.setRowCount(len(reservations))  # Set the number of rows in the table
 
             # adding select check mark :
@@ -39,7 +39,7 @@ class Reservation:
             for row_idx, res in enumerate(reservations):
                 # get the name of client  :
                 print(res)
-                for col_idx in range(1, 5):
+                for col_idx in range(1, 7):
                     table.setItem(row_idx, col_idx, QTableWidgetItem(str(res[col_idx-1])))
 
 
@@ -68,7 +68,7 @@ class Reservation:
                 date_ = combo.currentText().split('/')
                 print(date_)
                 if (len(date_) == 2):
-                    request = f"SELECT reservation.idUser,idCar,date_depart,date_arr from client join reservation on client.idUser = reservation.idUser" \
+                    request = f"SELECT reservation.idUser,idCar,date_depart,date_arr,status,price from client join reservation on client.idUser = reservation.idUser" \
                               f" where date_depart = '{date_[0]}' and date_arr='{date_[1]}' and reservation.idUser = '{combo.currentData()}'"
                     data = self.getAllReser(request)
                     self.displayReservationsClient(table, data)
@@ -91,9 +91,9 @@ class Reservation:
     def displayReservationsClient(self, table,data):
         try:
             table.clearContents()  # Clear the existing data in the table
-            table.setColumnCount(5)  # Set the number of columns in the table
+            table.setColumnCount(7)  # Set the number of columns in the table
             table.setHorizontalHeaderLabels(
-                ['nom_client','idUser', 'idCar', 'date_depart','date_arrivé'])  # Set the column labels
+                ['nom_client','idUser', 'idCar', 'date_depart','date_arrivé','status','prix'])  # Set the column labels
 
             table.setRowCount(len(data))  # Set the number of rows in the table
 
@@ -106,7 +106,7 @@ class Reservation:
 
             for row_idx, res in enumerate(data):
                 # get the name of client  :
-                for col_idx in range(1, 5):
+                for col_idx in range(1, 7):
                     table.setItem(row_idx, col_idx, QTableWidgetItem(str(res[col_idx-1])))
         except Exception as e:
             print(f"{e}")
