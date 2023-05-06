@@ -7,7 +7,7 @@ from GestionClient import Client
 from GestionClient import editClient as ec
 from GestionClient import AjoutClientForm as af
 from GestionClient import Reservation
-
+from GestionClient import ReservationForm
 sys.path.append("./GestionVoiture/")
 from GestionVoiture import car
 from GestionVoiture import fuel
@@ -70,6 +70,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.clients_data.clicked.connect(lambda: self.handlClick(self.ui.clients_data.currentIndex(),self.ui.clients_data))
         self.ui.reservation_data.clicked.connect(lambda: self.handlClick(self.ui.reservation_data.currentIndex(),self.ui.reservation_data))
         self.ui.page_noire_data.clicked.connect(lambda: self.handlClick(self.ui.page_noire_data.currentIndex(),self.ui.page_noire_data))
+        self.ui.reservation_data.clicked.connect(lambda: self.handlClick(self.ui.reservation_data.currentIndex(),self.ui.reservation_data))
         self.client = Client.Client()
         self.reservation = Reservation.Reservation()
 
@@ -88,7 +89,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.supprimer_reser.clicked.connect(self.deleteButtonReservation)
         self.ui.supprimer_btn.clicked.connect(lambda: self.deleteButtonClient(False))
         self.ui.supprimer_btn_3.clicked.connect(lambda: self.deleteButtonClient(True))
-
+        self.ui.modifier_reser.clicked.connect(self.updateReservationStatus)
 
 
 
@@ -180,7 +181,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.client_dict.clear()
 
     def messageBox(self, field):
-        message = QtWidgets.QMessageBox.warning(None, "Confirmation",f"{field} : {self.client_dict['idUser']}", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
+        message = QtWidgets.QMessageBox.warning(None, "Confirmation",f"{field}", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
         return message
 
     def updateTable(self):
@@ -223,7 +224,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def deleteButtonReservation(self):
         if (bool(self.client_dict)) == True:
-            if (self.messageBox("Etes vous sure de le supprimer la suppression de cet reservation !")  == QtWidgets.QMessageBox.Yes):
+            if (self.messageBox("Etes vous sure de vouloir supprimer cet reservation !")  == QtWidgets.QMessageBox.Yes):
                 print(f"DELETE FROM reservation WHERE idUser = '{self.client_dict['idUser']}' and idCar = '{self.client_dict['idCar']}'")
                 self.reservation.supprimer(f"DELETE FROM reservation WHERE idUser = '{self.client_dict['idUser']}' and idCar = '{self.client_dict['idCar']}'")
                 self.reservation.displayReservations(self.ui.reservation_data)
@@ -232,7 +233,17 @@ class MainWindow(QtWidgets.QMainWindow):
             self.client_dict.clear()
         else:
             print("try to click on a reservation")
-
+    def updateReservationStatus(self):
+        if (bool(self.client_dict)) == True:
+            if (self.messageBox("Etes vous d'accord de modifier cette reservation !")  == QtWidgets.QMessageBox.Yes):
+                print(self.client_dict)
+                res = ReservationForm.ReservationForm(self.client_dict['idRes'])
+                res.show()
+            else:
+                print("NO")
+            self.client_dict.clear()
+        else:
+            print("try to click on a reservation")
     def dropMenu(self):
         if(self.visible == True):
             self.visible = False

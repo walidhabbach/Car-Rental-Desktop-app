@@ -22,24 +22,26 @@ class Reservation:
     def displayReservations(self, table):
         try:
             table.clearContents()  # Clear the existing data in the table
-            table.setColumnCount(7)  # Set the number of columns in the table
+            table.setColumnCount(8)  # Set the number of columns in the table
             table.setHorizontalHeaderLabels(
-                ['nom_client','idUser', 'idCar', 'date_depart','date_arrivé','status','prix'])  # Set the column labels
+                ['idRes','nom_client','idUser', 'idCar', 'date_depart','date_arrivé','status','prix'])  # Set the column labels
 
-            reservations = self.getAllReser("SELECT idUser,idCar,date_depart,date_arr,status,price FROM RESERVATION")
+            reservations = self.getAllReser("SELECT id_res,idUser,idCar,date_depart,date_arr,status,price FROM RESERVATION")
             table.setRowCount(len(reservations))  # Set the number of rows in the table
 
             # adding select check mark :
             for row_idx, res in enumerate(reservations):
                 name = self.client_.getClientsData(
-                    f"select nom from client join utilisateur on utilisateur.idUser = client.idUser where client.idUser = '{res[0]}'")
-                print(name)
-                table.setItem(row_idx, 0, QTableWidgetItem(name[0][0]))
+                    f"select nom from client join utilisateur on utilisateur.idUser = client.idUser where client.idUser = '{res[1]}'")
+                print(res[0])
+                table.setItem(row_idx, 0, QTableWidgetItem(str(res[0])))
+                table.setItem(row_idx, 1, QTableWidgetItem(name[0][0]))
+
 
             for row_idx, res in enumerate(reservations):
                 # get the name of client  :
                 print(res)
-                for col_idx in range(1, 7):
+                for col_idx in range(2, 8):
                     table.setItem(row_idx, col_idx, QTableWidgetItem(str(res[col_idx-1])))
 
 
@@ -91,9 +93,9 @@ class Reservation:
     def displayReservationsClient(self, table,data):
         try:
             table.clearContents()  # Clear the existing data in the table
-            table.setColumnCount(7)  # Set the number of columns in the table
+            table.setColumnCount(8)  # Set the number of columns in the table
             table.setHorizontalHeaderLabels(
-                ['nom_client','idUser', 'idCar', 'date_depart','date_arrivé','status','prix'])  # Set the column labels
+                ['idRes','nom_client','idUser', 'idCar', 'date_depart','date_arrivé','status','prix'])  # Set the column labels
 
             table.setRowCount(len(data))  # Set the number of rows in the table
 
@@ -101,12 +103,12 @@ class Reservation:
             for row_idx, res in enumerate(data):
                 name = self.client_.getClientsData(
                     f"select nom from client join utilisateur on utilisateur.idUser = client.idUser where client.idUser = '{res[0]}'")
-                table.setItem(row_idx, 0, QTableWidgetItem(str(name[0][0])))
+                table.setItem(row_idx, 1, QTableWidgetItem(str(name[0][0])))
 
 
             for row_idx, res in enumerate(data):
                 # get the name of client  :
-                for col_idx in range(1, 7):
+                for col_idx in range(2, 8):
                     table.setItem(row_idx, col_idx, QTableWidgetItem(str(res[col_idx-1])))
         except Exception as e:
             print(f"{e}")
@@ -121,3 +123,13 @@ class Reservation:
         else:
             self.displayReservations(table)
 
+    def updateReservation(self,reserva_dict):
+        try:
+            print(reserva_dict)
+            if (self.connexion.connect()):
+                req = f"UPDATE reservation SET status={reserva_dict['status']} where id_res={reserva_dict['idRes']} "
+                self.connexion.cursor.execute(req)
+                self.connexion.conn.commit()
+                print("updated successfully")
+        except Exception as e:
+            print(e)
