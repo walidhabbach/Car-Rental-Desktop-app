@@ -70,12 +70,12 @@ class Reservation:
                 date_ = combo.currentText().split('/')
                 print(date_)
                 if (len(date_) == 2):
-                    request = f"SELECT reservation.idUser,idCar,date_depart,date_arr,status,price from client join reservation on client.idUser = reservation.idUser" \
+                    request = f"SELECT id_res,reservation.idUser,idCar,date_depart,date_arr,status,price from client join reservation on client.idUser = reservation.idUser" \
                               f" where date_depart = '{date_[0]}' and date_arr='{date_[1]}' and reservation.idUser = '{combo.currentData()}'"
                     data = self.getAllReser(request)
                     self.displayReservationsClient(table, data)
             else:
-                request = f"SELECT reservation.idUser,idCar,date_depart,date_arr from client join reservation on client.idUser = reservation.idUser" \
+                request = f"SELECT id_res,reservation.idUser,idCar,date_depart,date_arr,status,price from client join reservation on client.idUser = reservation.idUser" \
                           f" WHERE reservation.idUser = '{idClient}'"
                 data = self.getAllReser(request)
                 self.displayReservationsClient(table, data)
@@ -96,13 +96,16 @@ class Reservation:
             table.setColumnCount(8)  # Set the number of columns in the table
             table.setHorizontalHeaderLabels(
                 ['idRes','nom_client','idUser', 'idCar', 'date_depart','date_arrivé','status','prix'])  # Set the column labels
-
+            print("getting data from user : ---------")
+            print(data)
+            print("--------------------")
             table.setRowCount(len(data))  # Set the number of rows in the table
 
             # adding select check mark :
             for row_idx, res in enumerate(data):
                 name = self.client_.getClientsData(
-                    f"select nom from client join utilisateur on utilisateur.idUser = client.idUser where client.idUser = '{res[0]}'")
+                    f"select nom from client join utilisateur on utilisateur.idUser = client.idUser where client.idUser = '{res[1]}'")
+                table.setItem(row_idx, 0, QTableWidgetItem(str(res[0])))
                 table.setItem(row_idx, 1, QTableWidgetItem(str(name[0][0])))
 
 
@@ -115,7 +118,7 @@ class Reservation:
     def searchByUser(self,table,id,comboBox):
         if(id is not None):
             print("searching by User")
-            request = f"SELECT idUser,idCar,date_depart,date_arr FROM RESERVATION where idUser='{id}'"
+            request = f"SELECT id_res,idUser,idCar,date_depart,date_arr,price,status FROM RESERVATION where idUser='{id}'"
             data = self.getAllReser(request)
             print(data)
             self.displayReservationsClient(table, data)
