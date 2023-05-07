@@ -9,7 +9,6 @@ class Brand:
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
-                    print("image_base64 ")
                     req = "INSERT INTO marque(`logo`, `name`) VALUES (%s, %s)"
                     self.connexion.cursor.execute(req, (logo, name))
                     self.connexion.conn.commit()
@@ -19,7 +18,6 @@ class Brand:
 
     def getBrands(self):
         try:
-            print("getBrands")
             if self.connexion.connect():
                 data = dict()
                 with self.connexion.conn:

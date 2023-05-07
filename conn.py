@@ -13,7 +13,6 @@ class Connexion:
         flag = False
         try:
             self.conn = mc.connect(host=self.host, database=self.database, user=self.username, password=self.password)
-            print("connect to database")
             flag = True
         except mc.Error as err:
             print(err)

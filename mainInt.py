@@ -116,7 +116,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.comboBoxReservation.currentIndexChanged.connect(lambda: self.reservation.searchByReservation(self.ui.comboBoxReservation,self.ui.reservation_data,self.ui.comboClients_4.currentData()))
      ########################################### Car Section ##########################################################
         try:
-            print("car section:")
             self.dict_brands = dict()
             self.dict_Allbrands = dict()
             self.dict_fuel = dict()
@@ -131,7 +130,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.tool = Tool.tool()
 
             # load combobox
-            print("# load combobox")
             self.dict_fuel = self.tool.fill_combobox(self.ui.comboBoxFuel)
             self.dict_Allbrands = self.tool.fill_combobox(self.ui.comboAllBrands)
             self.dict_brands = self.tool.fill_combobox(self.ui.comboBoxBrand)
@@ -139,12 +137,10 @@ class MainWindow(QtWidgets.QMainWindow):
             self.dict_brands = self.tool.fill_combobox(self.ui.comboBoxBrand_1)
 
             # Retrieve data from the database
-            print("# Retrieve data from the database")
             car_data = self.car.getAll()
             self.displayCars(car_data)
 
             #linking comboBox with the update methods
-            print("#linking comboBox with the update methods")
             self.ui.comboBoxBrand.currentIndexChanged.connect(lambda :self.id_SelectedCombobox(self.ui.comboBoxBrand))
             self.ui.comboBoxFuel.currentIndexChanged.connect(lambda : self.id_SelectedCombobox(self.ui.comboBoxFuel))
             self.ui.comboAllBrands.currentIndexChanged.connect(lambda :self.id_SelectedCombobox(self.ui.comboAllBrands))
@@ -152,7 +148,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
             self.ui.tableWidgetCar.clicked.connect(lambda: self.edit_Car(self.tool.handlClick(self.ui.tableWidgetCar.currentIndex(),self.ui.tableWidgetCar)))
             # linking the update button with the update method:
-            print("# linking the update button with the update method")
 
             self.ui.add_image_Btn.clicked.connect(self.image_dialog)
             self.ui.search_input.textChanged.connect(self.sync_SearchLine)
@@ -204,9 +199,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 if (self.messageBox(
                         "Etes vous sure de le supprimer la suppression de ce client va entrainer la suppression de toutes ces reservations !") == QtWidgets.QMessageBox.Yes):
                     self.client.supprimer(f"DELETE FROM CLIENT WHERE IDUSER = '{self.client_dict['idUser']}'")
-                    print(f"liste_noire = {liste_noire}")
                     if(liste_noire):
-                        print("page noire")
                         self.client.displayClients(
                             f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where liste_noire = 1",
                             self.ui.page_noire_data)
@@ -225,7 +218,6 @@ class MainWindow(QtWidgets.QMainWindow):
     def deleteButtonReservation(self):
         if (bool(self.client_dict)) == True:
             if (self.messageBox("Etes vous sure de vouloir supprimer cet reservation !")  == QtWidgets.QMessageBox.Yes):
-                print(f"DELETE FROM reservation WHERE idUser = '{self.client_dict['idUser']}' and idCar = '{self.client_dict['idCar']}'")
                 self.reservation.supprimer(f"DELETE FROM reservation WHERE idUser = '{self.client_dict['idUser']}' and idCar = '{self.client_dict['idCar']}'")
                 self.reservation.displayReservations(self.ui.reservation_data)
             else:
@@ -236,7 +228,6 @@ class MainWindow(QtWidgets.QMainWindow):
     def updateReservationStatus(self):
         if (bool(self.client_dict)) == True:
             if (self.messageBox("Etes vous d'accord de modifier cette reservation !")  == QtWidgets.QMessageBox.Yes):
-                print(self.client_dict)
                 res = ReservationForm.ReservationForm(self.client_dict['idRes'])
                 res.show()
             else:
@@ -268,7 +259,6 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             diction_client = self.client.getValuePairDataClient(request)
             combo.addItem(f'Selectionner {type}')
-            print("combo reservation : ")
             for key, value in diction_client.items():
                 combo.addItem(str(value))
                 # Set the key as custom data for the item
@@ -433,8 +423,6 @@ class MainWindow(QtWidgets.QMainWindow):
             # Get the value of the selected item
             value = combo.itemText(selected_index)
             if key is not None and key != -1:
-                print("value: ", value)
-                print("key: ", key)
                 if combo.objectName() == 'comboBoxBrand' or combo.objectName() == 'comboBoxBrand_1':
                     data = self.car.searchByIdBrand(key)
                 elif combo.objectName() == 'comboBoxFuel' or combo.objectName() == 'comboBoxFuel_1':
@@ -474,7 +462,6 @@ class MainWindow(QtWidgets.QMainWindow):
             images = self.scraping.download_images(image_urls)
 
             for row_idx, car in enumerate(data):
-                print(car)
                 label = QLabel()  # Create a QLabel to display the image
                 label.setScaledContents(True)
                 label.setText("Loading...")
