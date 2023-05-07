@@ -108,9 +108,9 @@ class MainWindow(QtWidgets.QMainWindow):
        '''
         self.reservation.displayReservations(self.ui.reservation_data)
 
-        self.fillComboClient(self.ui.comboClients, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser","client")
-        self.fillComboClient(self.ui.comboClients_3, f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'","client")
-        self.fillComboClient(self.ui.comboClients_4, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser","client")
+        self.client.fillComboClient(self.ui.comboClients, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser","client")
+        self.client.fillComboClient(self.ui.comboClients_3, f"SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser WHERE liste_noire = '{1}'","client")
+        self.client.fillComboClient(self.ui.comboClients_4, "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser","client")
         self.ui.comboBoxReservation.addItem("Select reservation")
 
         self.ui.comboBoxReservation.currentIndexChanged.connect(lambda: self.reservation.searchByReservation(self.ui.comboBoxReservation,self.ui.reservation_data,self.ui.comboClients_4.currentData()))
@@ -160,7 +160,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def AjouterClient(self):
         try:
-            ajout_client = af.AjoutClient(self.ui.clients_data)
+            ajout_client = af.AjoutClient(self.ui.clients_data,self.ui.comboClients)
             ajout_client.show()
         except Exception as e:
             print(e)
@@ -172,7 +172,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 reservation_client_ui = rc.ReservationClient(reservations)
                 reservation_client_ui.show()
             else:
-                print("Try to click on a client")
+                self.tool.warning("Cliquer sur un client pour executer l'action demandé")
             self.client_dict.clear()
 
     def messageBox(self, field):
@@ -190,7 +190,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     print("NO")
                 self.client_dict.clear()
             else:
-                print("try to click on a client")
+                self.tool.warning("Cliquer sur un client pour executer l'action demandé")
         except Exception as e:
             print(e)
     def deleteButtonClient(self,liste_noire):
@@ -198,7 +198,7 @@ class MainWindow(QtWidgets.QMainWindow):
             if (bool(self.client_dict)) == True:
                 if (self.messageBox(
                         "Etes vous sure de le supprimer la suppression de ce client va entrainer la suppression de toutes ces reservations !") == QtWidgets.QMessageBox.Yes):
-                    self.client.supprimer(f"DELETE FROM CLIENT WHERE IDUSER = '{self.client_dict['idUser']}'")
+                    self.client.supprimer(f"DELETE FROM CLIENT WHERE IDUSER = '{self.client_dict['idUser']}'",self.ui.comboClients)
                     if(liste_noire):
                         self.client.displayClients(
                             f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where liste_noire = 1",
@@ -211,7 +211,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     print("NO")
                 self.client_dict.clear()
             else:
-                print("try to click on a client")
+                self.tool.warning("Cliquer sur un client pour executer l'action demandé")
         except Exception as e:
             print(e)
 
@@ -224,7 +224,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 print("NO")
             self.client_dict.clear()
         else:
-            print("try to click on a reservation")
+            self.tool.warning("Cliquer sur une reservation pour executer l'action demandé")
     def updateReservationStatus(self):
         if (bool(self.client_dict)) == True:
             if (self.messageBox("Etes vous d'accord de modifier cette reservation !")  == QtWidgets.QMessageBox.Yes):
@@ -234,7 +234,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 print("NO")
             self.client_dict.clear()
         else:
-            print("try to click on a reservation")
+            self.tool.warning("Cliquer sur une reservation pour executer l'action demandé")
     def dropMenu(self):
         if(self.visible == True):
             self.visible = False
@@ -255,16 +255,7 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             print(e)
 
-    def fillComboClient(self,combo,request,type):
-        try:
-            diction_client = self.client.getValuePairDataClient(request)
-            combo.addItem(f'Selectionner {type}')
-            for key, value in diction_client.items():
-                combo.addItem(str(value))
-                # Set the key as custom data for the item
-                combo.setItemData(combo.count() - 1, key)
-        except Exception as e:
-            print(e)
+
 
     def searchByComboClient(self,condition,comboBox,table):
         try:

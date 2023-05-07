@@ -2,6 +2,7 @@ import conn
 from Tools import Convertion
 from PyQt5.QtWidgets import QTableWidgetItem, QTabWidget, QFileDialog, QLabel
 from PyQt5 import QtGui
+from PyQt5.QtWidgets import QMessageBox ,QComboBox
 
 class Client:
 
@@ -38,18 +39,48 @@ class Client:
                 client_dict['tel'], client_dict['date_permis'],client_dict['idUser']))
 
                 self.connexion.conn.commit()
-                print("updated successfully")
+                self.warning("Modifié avec succés : ")
         except Exception as e:
             print(f"error: {e}")
+    def warning(self,message):
 
-    def supprimer(self,request):
+        # Create an instance of QMessageBox
+        msg_box = QMessageBox()
+
+        # Set the icon and title
+        msg_box.setIcon(QMessageBox.Warning)
+        msg_box.setWindowTitle("Error")
+
+        # Set the text or message
+        msg_box.setText(message)
+
+        # Set additional buttons (optional)
+        msg_box.setStandardButtons(QMessageBox.Ok)
+
+        # Set the appearance (optional)
+        msg_box.setStyleSheet("QMessageBox { background-color: lightgray; }")
+
+        # Show the message box and wait for user response
+        result = msg_box.exec_()
+
+        # Check the user response
+        if result == QMessageBox.Ok:
+            # User clicked OK, handle the event
+            pass
+    def supprimer(self,request,combo):
         try:
             if (self.connexion.connect()):
                 self.connexion.cursor.execute(request)
                 self.connexion.conn.commit()
-                print("deleted succesfully")
+                combo.clear()
+                self.fillComboClient(combo,
+                                            "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser",
+                                            "client")
+                self.warning("Supprimer avec succés :")
         except Exception as e:
             print(e)
+
+
 
     def addClient(self, client_dict):
         if self.connexion.connect():
@@ -73,7 +104,7 @@ class Client:
                        client_dict['email'], client_dict['observation'], client_dict['societe'],client_dict['ville'],client_dict['tel'],client_dict['date_permis']))
 
                 self.connexion.conn.commit()
-                print("Added successfully")
+                self.warning("Ajouter avec succés ")
             except Exception as e:
                 print(f"Error: {e}")
 
@@ -128,3 +159,14 @@ class Client:
             if(cinClie == cin[0]):
                 return True
         return False
+
+    def fillComboClient(self,combo,request,type):
+        try:
+            diction_client = self.getValuePairDataClient(request)
+            combo.addItem(f'Selectionner {type}')
+            for key, value in diction_client.items():
+                combo.addItem(str(value))
+                # Set the key as custom data for the item
+                combo.setItemData(combo.count() - 1, key)
+        except Exception as e:
+            print(e)
