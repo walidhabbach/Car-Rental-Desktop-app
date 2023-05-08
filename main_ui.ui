@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>676</height>
+    <width>1089</width>
+    <height>689</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -779,7 +779,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>4</number>
+          <number>8</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -1522,6 +1522,25 @@ border: 2px solid red;</string>
                       <widget class="QComboBox" name="comboClients_4">
                        <property name="styleSheet">
                         <string notr="true">height: 40px;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="comboBoxReservation">
+                       <property name="styleSheet">
+                        <string notr="true">height: 40px;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="modifier_reser">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: green;
+color: white;
+border: 0;height: 40px;</string>
+                       </property>
+                       <property name="text">
+                        <string>Modifier la reservation</string>
                        </property>
                       </widget>
                      </item>

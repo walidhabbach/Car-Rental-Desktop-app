@@ -8,8 +8,8 @@ class Login(QtWidgets.QMainWindow):
         self.ui = uic.loadUi("login.ui", self)
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
         self.ui.connectButton.clicked.connect(self.connect_to_database)
-        self.ui.login.setText("walid")
-        self.ui.mdp.setText("walid")
+        self.ui.login.setText("a")
+        self.ui.mdp.setText("12345")
         self.admin_o_n = True #switch this to False to view normal demonstration this is just for test :)
 
     def getLoginPassword(self,login,password,admin_o_n):
