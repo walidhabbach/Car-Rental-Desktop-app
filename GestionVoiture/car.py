@@ -17,23 +17,23 @@ class Car:
         except Exception as e:
             print(f"get : An error occurred: {e}")
 
-    def add(self, brand, model, fuel, image):
+    def add(self, brand, model, fuel, image,idgear,price,power,seats,doors):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
-                    req = "INSERT INTO voiture(`idMarque`, `idCarburant`, `model`, `image`) VALUES (%s, %s, %s, %s)"
-                    self.connexion.cursor.execute(req, (brand, fuel, model, image))
+                    req = "INSERT INTO voiture(`idMarque`, `idCarburant`, `model`, `image`, `power`, `seats`, `doors`, `price`,`idTransmission`) VALUES (%s, %s, %s, %s,%s,%s, %s, %s,%s)"
+                    self.connexion.cursor.execute(req, (brand, fuel, model, image,power,seats,doors,price,idgear))
                     self.connexion.conn.commit()
                     print("Record added successfully.")
         except Exception as e:
             print(f"An error occurred: {e}")
 
-    def update(self, car_id, brand, model, fuel, image):
+    def update(self, car_id, brand, model, fuel, image,idTransmission,price,power,seats,doors):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
-                    req = "UPDATE voiture SET idMarque = %s, idCarburant = %s, model = %s, image = %s WHERE idCar = %s"
-                    values = (brand, fuel, model, image, car_id)
+                    req = "UPDATE voiture SET idMarque = %s, idCarburant = %s, model = %s, image = %s,idTransmission=%s , power = %s ,  seats = %s ,  doors = %s ,  price = %s WHERE idCar = %s "
+                    values = (brand, fuel, model, image,idTransmission,power,seats,doors,price, car_id)
                     self.connexion.cursor.execute(req, values)
                     self.connexion.conn.commit()
                     print("Record updated successfully.")

@@ -12,6 +12,7 @@ sys.path.append("./GestionVoiture/")
 from GestionVoiture import car
 from GestionVoiture import fuel
 from GestionVoiture import brand
+from GestionVoiture import transmission
 
 sys.path.append("./Scraping/")
 from Scraping import scraping
@@ -19,6 +20,7 @@ from Scraping import scraping
 sys.path.append("./Tools/")
 from Tools import Convertion
 from Tools import Tool
+from PyQt5.QtCore import QDate
 
 
 from PyQt5.QtWidgets import QTableWidgetItem, QTableWidget, QApplication, QFileDialog, QLabel, QHeaderView, QPushButton
@@ -26,6 +28,7 @@ from GestionClient import ReservationClient as rc
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix,admin_o_n):
         super().__init__()
+
         self.ui = uic.loadUi("main_ui.ui", self)
         self.ui.full_menu_widget.setVisible(False)
         self.client_dict = dict()
@@ -48,7 +51,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.users_btn_2.setIcon(QtGui.QIcon("./icon/activity-feed-48.ico"))
         self.ui.user_info_btn.setIcon(QtGui.QIcon("./icon/user-48.ico"))
         self.ui.reservation_btn2.setIcon(QtGui.QIcon("./icon/user-48.ico"))
-
         # Set row height
         self.ui.clients_data.verticalHeader().setDefaultSectionSize(50)
         self.ui.page_noire_data.verticalHeader().setDefaultSectionSize(50)
@@ -119,14 +121,18 @@ class MainWindow(QtWidgets.QMainWindow):
             self.dict_brands = dict()
             self.dict_Allbrands = dict()
             self.dict_fuel = dict()
+            self.dict_gearbox = dict()
 
             self.imagePath = ""
             self.id_SelectedCar = None
+            self.add_DataJson = False
+
 
             self.scraping = scraping.scrap()
             self.car = car.Car()
             self.brand = brand.Brand()
             self.fuel = fuel.Fuel()
+            self.gearBox= transmission.Transmission()
             self.tool = Tool.tool()
 
             # load combobox
@@ -135,6 +141,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.dict_brands = self.tool.fill_combobox(self.ui.comboBoxBrand)
             self.dict_fuel = self.tool.fill_combobox(self.ui.comboBoxFuel_1)
             self.dict_brands = self.tool.fill_combobox(self.ui.comboBoxBrand_1)
+            self.dict_gearbox = self.tool.fill_combobox(self.ui.comboBoxGear_1)
 
             # Retrieve data from the database
             car_data = self.car.getAll()
@@ -145,14 +152,16 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.comboBoxFuel.currentIndexChanged.connect(lambda : self.id_SelectedCombobox(self.ui.comboBoxFuel))
             self.ui.comboAllBrands.currentIndexChanged.connect(lambda :self.id_SelectedCombobox(self.ui.comboAllBrands))
             self.ui.comboAllModels.currentIndexChanged.connect(lambda : self.id_SelectedCombobox(self.ui.comboAllModels))
-
+            # handle click table wisget
             self.ui.tableWidgetCar.clicked.connect(lambda: self.edit_Car(self.tool.handlClick(self.ui.tableWidgetCar.currentIndex(),self.ui.tableWidgetCar)))
+            self.ui.tableWidgeModels.clicked.connect(lambda: self.redirect_to_AddCarPage(self.scraping.getCarByModel(self.ui.comboAllBrands.currentText(),self.ui.comboAllModels.currentText())))
             # linking the update button with the update method:
-
+            print("# linking the update button with the update method")
             self.ui.add_image_Btn.clicked.connect(self.image_dialog)
             self.ui.search_input.textChanged.connect(self.sync_SearchLine)
             self.ui.all_cars_btn.clicked.connect(lambda : self.displayCars(self.car.getAll()))
             self.addcar_Btn.clicked.connect(self.addCar)
+
         except Exception as e:
             print(e)
 
@@ -293,25 +302,67 @@ class MainWindow(QtWidgets.QMainWindow):
             brand = self.id_SelectedCombobox(self.ui.comboBoxBrand_1)
             model = self.ui.model.text()
             fuel = self.id_SelectedCombobox(self.ui.comboBoxFuel_1)
+            gearbox = self.id_SelectedCombobox(self.ui.comboBoxGear_1)
+
+
+            if self.add_DataJson:
+                if self.imagePath == "":
+                    self.imagePath = "DataJson"
 
             if model == "":
                 self.tool.warning("Please enter a model.")
+                return
             elif self.comboBoxBrand_1.currentIndex() == 0:
                 self.tool.warning("Please select a brand.")
+                return
             elif self.comboBoxFuel_1.currentIndex() == 0:
                 self.tool.warning("Please select a fuel type.")
+                return
+            elif self.comboBoxGear_1.currentIndex() == 0:
+                self.tool.warning("Please select a transmission type.")
+                return
+
+            elif self.ui.price.text() == "":
+                self.tool.warning("Please enter a price type.")
+                return
+            elif self.ui.power.text() == "":
+                self.tool.warning("Please enter a power type.")
+                return
+            elif self.ui.seats.text() == "":
+                self.tool.warning("Please enter a seats type.")
+                return
+            elif self.ui.doors.value() == 0:
+                self.tool.warning("Please enter a doors type.")
+                return
             elif self.imagePath == "":
                 self.tool.warning("Please select an image.")
-            else:
-                img = self.tool.convertToBinary(self.imagePath)
+                return
 
+            else:
+                if self.add_DataJson:
+                    print(2)
+                    img = bytes(self.tool.label_to_byte_array(self.image_label_car))
+                else:
+                    img = self.tool.convertToBinary(self.imagePath)
+
+                idBrand = self.brand.getIdByBrand(self.ui.comboBoxBrand_1.currentText())
+
+                if len(idBrand) == 0 :
+                    self.brand.addBrand(self.ui.comboBoxBrand_1.currentText())
+                    brand =self.brand.getIdByBrand(self.ui.comboBoxBrand_1.currentText())[0][0]
+                    msg = "new brand has been added :"+self.ui.comboBoxBrand_1.currentText()
+                    self.tool.warning(msg)
+                    print("isbrand:",brand)
                 if self.id_SelectedCar is not None :
                     self.ui.stackedWidget.setCurrentWidget(self.ui.page_crud_cars)
-                    self.car.update(self.id_SelectedCar,brand, model, fuel, img)
+                    self.car.update(int(self.id_SelectedCar),int(brand), model, int(fuel), img,int(gearbox),float(self.ui.price.text()),float(self.ui.power.text()),int(self.ui.seats.text()),int(self.ui.doors.text()))
                     self.reset_AddCarpage()
-
+                    self.imagePath = ""
                 else :
-                    self.car.add(brand, model, fuel, img)
+                    print("gear : ",gearbox)
+                    self.car.add(int(brand), model, int(fuel), img,int(gearbox),float(self.ui.price.text()),float(self.ui.power.text()),int(self.ui.seats.text()),int(self.ui.doors.text()))
+                    self.add_DataJson=False
+                    self.imagePath = ""
 
         except Exception as e:
             print(f"addCarButton : An error occurred: {e}")
@@ -321,7 +372,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             if idCar is not None :
                 self.id_SelectedCar = idCar
-                self.fill_fieldsWithCarData(self.id_SelectedCar)
+                self.fill_AddCarPage_database(idCar)
                 self.addcar_Btn.setText("modifie")
                 self.add_image_Btn.setText("modifie l'image")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_add_car)
@@ -329,31 +380,130 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             print(f"edit car : An error occurred: {e}")
             self.reset_AddCarpage()
-
-    def fill_fieldsWithCarData(self, idCar):
+    def redirect_to_AddCarPage(self,data):
         try:
+            print(data)
+            self.fill_AddCarPage_json(data[0])
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_add_car)
+        except Exception as e:
+            print(f"redirect_to_AddCarPage car : An error occurred: {e}")
+            self.reset_AddCarpage()
+
+    def fill_AddCarPage_database(self, idCar):
+        try:
+            self.add_DataJson=False
             data = self.car.getCarById(idCar)
             data = list(data[0])
+
             index = self.ui.comboBoxBrand_1.findData(data[1])
             self.ui.comboBoxBrand_1.setCurrentIndex(index)
+
             index = self.ui.comboBoxFuel_1.findData(data[2])
             self.ui.comboBoxFuel_1.setCurrentIndex(index)
+
+            index = self.ui.comboBoxGear_1.findData(data[5])
+            self.ui.comboBoxGear_1.setCurrentIndex(index)
+            print(data[4])
             self.ui.model.setText(data[4])
+            self.ui.price.setText(str(data[9]))
+            self.ui.power.setText(str(data[6]))
+            self.ui.seats.setText(str(data[7]))
+            self.ui.doors.setValue(int(data[8]))
 
             pixmap = self.tool.getImageLabel(data[3])
             self.image_label_car.setPixmap(pixmap)
             self.image_label_car.adjustSize()
 
         except Exception as e:
-            print(f"edit car : An error occurred: {e}")
+            print(f"fill_AddCarPage car : An error occurred: {e}")
+    def fill_AddCarPage_json(self, car):
+        try:
+            self.add_DataJson = True
+            print(car["details"]["Brand"].split(" ")[0])
+            index = self.ui.comboBoxBrand_1.findText(car["details"]["Brand"].split()[0])
+            if index == -1:
+                self.tool.warning("Brand not exist")
+                self.comboBoxBrand_1.addItem(car["details"]["Brand"].split()[0])
+                self.comboBoxBrand_1.setItemData(self.comboBoxBrand_1.count() - 1, None)
+                self.ui.comboBoxBrand_1.setCurrentIndex(self.comboBoxBrand_1.count() - 1)
+            else:
+                self.ui.comboBoxBrand_1.setCurrentIndex(index)
+        except Exception as e:
+            print(f"brand car : An error occurred: {e}")
+
+        print(car["details"]["Fuel Type"].split(" ")[0])
+        try:
+            index = self.ui.comboBoxFuel_1.findText(car["details"]["Fuel Type"].split(" ")[0])
+            if index == -1:
+                self.tool.warning("Fuel type not exist")
+                self.comboBoxFuel_1.addItem(car["details"]["Fuel Type"].split()[0])
+                self.comboBoxFuel_1.setItemData(self.comboBoxBrand_1.count() - 1, None)
+                self.ui.comboBoxFuel_1.setCurrentIndex(self.comboBoxFuel_1.count() - 1)
+            else:
+                self.ui.comboBoxFuel_1.setCurrentIndex(index)
+
+        except Exception as e:
+            print(f"fuel type : An error occurred: {e}")
+
+        try:
+            print(car["details"]["gearbox"].split(" ")[0])
+            if car["details"]["gearbox"] is not None and car["details"]["gearbox"].split(" ")[0] != "":
+                gearbox = car["details"]["gearbox"].split(" ")[0]
+                index = self.ui.comboBoxGear_1.findText(gearbox)
+                if index != 1:
+                    self.ui.comboBoxGear_1.setCurrentIndex(index)
+        except Exception as e:
+            print(f"gearbox : An error occurred: {e}")
+        try:
+            self.ui.model.setText(car["model"])
+        except Exception as e:
+            print(f"model car : An error occurred: {e}")
+
+        self.ui.price.setText(None)
+        try:
+            print(car["details"]["Power"].split(" ")[0])
+            self.ui.power.setText(car["details"]["Power"].split(" ")[0])
+        except Exception as e:
+            print(f"power : An error occurred: {e}")
+
+        try:
+            print(car["details"]["Doors"])
+            self.ui.doors.setValue(int(car["details"]["Doors"]))
+        except Exception as e:
+            print(f"doors : An error occurred: {e}")
+
+        try:
+            print(car["details"]["Seats"])
+            self.ui.seats.setText(car["details"]["Seats"])
+        except Exception as e:
+            print(f"SEATS : An error occurred: {e}")
+
+        try:
+            # Create a new QDate object with the desired date
+            print(car["details"]["Start of production"].split(" ")[0])
+            new_date = QDate(int(car["details"]["Start of production"].split(" ")[0]), 1, 1)
+            # Set the date of the QDateEdit widget to the new date
+            self.ui.production_date.setDate(new_date)
+        except Exception as e:
+            print(f"date : An error occurred: {e}")
+
+        try:
+            # Get the image from the URL and convert it to a QPixmap object
+
+            # pixmap = self.scraping.get_image_from_url(car["images"][0])
+            pixmap = self.scraping.download_img(car["link"])
+            self.image_label_car.setScaledContents(True)
+            self.image_label_car.setText("Loading...")
+            self.image_label_car.setPixmap(pixmap)
+        except Exception as e:
+            print(f" image : An error occurred: {e}")
 
     def displayCars(self, data):
         try:
             self.ui.tableWidgetCar.clearContents()  # Clear the existing data in the table
             self.ui.tableWidgetCar.setColumnCount(
-                7)  # Set the number of columns in the table, including the image column
-            self.ui.tableWidgetCar.setHorizontalHeaderLabels(
-                ["Image", "idCar", "idMarque", "idCarburant", "Model","Edit","Delete"])  # Set the column labels
+                13)  # Set the number of columns in the table, including the image column
+            self.ui.tableWidgetCar.setHorizontalHeaderLabels(["Image", "idCar", "Brand", "Model","price","Fuel Type","gearbox","Year","Power","Seats","Doors","Edit","Delete"])  # Set the column labels
             self.ui.tableWidgetCar.setRowCount(len(data))  # Set the number of rows in the table
 
             for row_idx, car in enumerate(data):
@@ -362,29 +512,46 @@ class MainWindow(QtWidgets.QMainWindow):
                 label.setScaledContents(True)
                 pixmap = self.tool.getImageLabel(car[3])  # Get QPixmap from binary data
                 label.setPixmap(pixmap)
+
                 self.ui.tableWidgetCar.setCellWidget(row_idx, 0, label)  # Set the label as the cell widget for the image column
-                if car[0] is not None:
+                if car[0] is not None:#idcar
                     self.ui.tableWidgetCar.setItem(row_idx, 1, QTableWidgetItem(str(car[0])))
-                if car[1] is not None:
+                if car[1] is not None:#brand
                     self.ui.tableWidgetCar.setItem(row_idx, 2, QTableWidgetItem(str(self.dict_brands[car[1]])))
-                if car[2] is not None:
-                    self.ui.tableWidgetCar.setItem(row_idx, 3, QTableWidgetItem(str(self.dict_fuel[car[2]])))
-                if car[4] is not None:
-                    self.ui.tableWidgetCar.setItem(row_idx, 4, QTableWidgetItem(str(car[4])))
+
+                if car[2] is not None:#fuel
+                    self.ui.tableWidgetCar.setItem(row_idx,5, QTableWidgetItem(str(self.dict_fuel[car[2]])))
+
+                if car[4] is not None:#model
+                    self.ui.tableWidgetCar.setItem(row_idx,3, QTableWidgetItem(str(car[4])))
+
+                if car[9] is not None:#price
+                    self.ui.tableWidgetCar.setItem(row_idx, 4, QTableWidgetItem(str(car[9])))
+
+                if car[5] is not None:#gearbox
+                    self.ui.tableWidgetCar.setItem(row_idx, 6, QTableWidgetItem(str(self.dict_gearbox[car[5]])))
+                if car[6] is not None:#power
+                    self.ui.tableWidgetCar.setItem(row_idx,8, QTableWidgetItem(str(car[6])))
+                if car[6] is not None:#year
+                    self.ui.tableWidgetCar.setItem(row_idx, 7, QTableWidgetItem(str(car[6])))
+                if car[7] is not None:#seats
+                    self.ui.tableWidgetCar.setItem(row_idx,9, QTableWidgetItem(str(car[7])))
+                if car[8] is not None:#doors
+                    self.ui.tableWidgetCar.setItem(row_idx, 10, QTableWidgetItem(str(car[8])))
 
                 # Create a push button for the edit icon
                 edit_button = QPushButton()
                 edit_button.setIcon(QIcon('./icon/edit.png'))
                 edit_item = QTableWidgetItem()
-                edit_item.setData(5, edit_button)
-                self.tableWidgetCar.setItem(row_idx, 5, edit_item)
+                edit_item.setData(11, edit_button)
+                self.tableWidgetCar.setItem(row_idx, 11, edit_item)
 
                 # Create a push button for the delete icon
                 delete_button = QPushButton()
                 delete_button.setIcon(QIcon('./icon/delete.png'))
                 delete_item = QTableWidgetItem()
-                delete_item.setData(6, delete_button)
-                self.tableWidgetCar.setItem(row_idx, 6, delete_item)
+                delete_item.setData(12, delete_button)
+                self.tableWidgetCar.setItem(row_idx, 12, delete_item)
 
         except Exception as e:
             print(f"display car : An error occurred: {e}")
@@ -414,6 +581,11 @@ class MainWindow(QtWidgets.QMainWindow):
             # Get the value of the selected item
             value = combo.itemText(selected_index)
             if key is not None and key != -1:
+                print("value: ", value)
+                print("key: ", key)
+                if combo.objectName() == "comboBoxGear_1":
+                    data = None
+                    print(key)
                 if combo.objectName() == 'comboBoxBrand' or combo.objectName() == 'comboBoxBrand_1':
                     data = self.car.searchByIdBrand(key)
                 elif combo.objectName() == 'comboBoxFuel' or combo.objectName() == 'comboBoxFuel_1':
@@ -426,10 +598,11 @@ class MainWindow(QtWidgets.QMainWindow):
                     return
 
                 elif combo.objectName() == 'comboAllModels':
-                    data = self.scraping.getCarsByModel(self.ui.comboAllBrands.currentText(),self.ui.comboAllModels.currentText())
+                    data = self.scraping.getCarByModel(self.ui.comboAllBrands.currentText(),self.ui.comboAllModels.currentText())
                     self.displayModels(data)
                     return
-                self.displayCars(data)
+                if data is not None:
+                    self.displayCars(data)
                 return key
 
         except Exception as e:
@@ -439,9 +612,9 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             self.ui.tableWidgeModels.clearContents()  # Clear the existing data in the table
             self.ui.tableWidgeModels.setColumnCount(
-                3)  # Set the number of columns in the table, including the image column
+                9)  # Set the number of columns in the table, including the image column
             self.ui.tableWidgeModels.setHorizontalHeaderLabels(
-                ["Image", "Model", "link"])  # Set the column labels
+                ["Image","Model","Fuel Type","gearbox","Year","Power","Seats","Doors","link"])  # Set the column labels
             self.ui.tableWidgeModels.setRowCount(len(data))  # Set the number of rows in the table
             image_urls = []
             for url in data:
@@ -457,10 +630,16 @@ class MainWindow(QtWidgets.QMainWindow):
                 label.setScaledContents(True)
                 label.setText("Loading...")
                 label.setPixmap(images[row_idx])
-                self.ui.tableWidgeModels.setCellWidget(row_idx, 0,
-                                                       label)  # Set the label as the cell widget for the image column
+                # Set the label as the cell widget for the image column
+                self.ui.tableWidgeModels.setCellWidget(row_idx, 0,label)
                 self.ui.tableWidgeModels.setItem(row_idx, 1, QTableWidgetItem(str(car["model"])))
-                self.ui.tableWidgeModels.setItem(row_idx, 2, QTableWidgetItem(str(car["link"])))
+                self.ui.tableWidgeModels.setItem(row_idx, 2, QTableWidgetItem(str(car["details"]["Fuel Type"])))
+                self.ui.tableWidgeModels.setItem(row_idx, 3, QTableWidgetItem(str(car["details"]["gearbox"])))
+                self.ui.tableWidgeModels.setItem(row_idx, 4, QTableWidgetItem(str(car["details"]["Start of production"])))
+                self.ui.tableWidgeModels.setItem(row_idx, 5, QTableWidgetItem(str(car["details"]["Power"])))
+                self.ui.tableWidgeModels.setItem(row_idx, 6, QTableWidgetItem(str(car["details"]["Seats"])))
+                self.ui.tableWidgeModels.setItem(row_idx, 7, QTableWidgetItem(str(car["details"]["Doors"])))
+                self.ui.tableWidgeModels.setItem(row_idx, 8, QTableWidgetItem(str(car["link"])))
 
         except Exception as e:
             print(f"displayModels : An error occurred: {e}")

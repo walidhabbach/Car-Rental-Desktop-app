@@ -62,18 +62,21 @@ class Login(QtWidgets.QMainWindow):
             return False
         return flag
     def connect_to_database(self):
-        if(self.connexion.connect()):
-            login = self.ui.login.text()
-            mdp = self.ui.mdp.text()
-            choix = self.ui.choix_admin.currentText()
-            check = self.getLoginPassword(login,mdp,choix)
-            # giving access to the main :
-            if(check == True):
-                print("everything is good")
-                main_window = m.MainWindow(login,choix,self.admin_o_n)
-                main_window.show()
-                self.hide()
-
+        try:
+            if(self.connexion.connect()):
+                login = self.ui.login.text()
+                mdp = self.ui.mdp.text()
+                choix = self.ui.choix_admin.currentText()
+                check = self.getLoginPassword(login,mdp,choix)
+                # giving access to the main :
+                if(check == True):
+                    print("everything is good")
+                    main_window = m.MainWindow(login,choix,self.admin_o_n)
+                    main_window.show()
+                    print("setPlaceholderText")
+                    self.hide()
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

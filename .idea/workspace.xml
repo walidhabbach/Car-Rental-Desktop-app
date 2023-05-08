@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d48a69e7-549f-46b2-be03-502f15f5e4d4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestionVoiture/car.py" beforeDir="false" afterPath="$PROJECT_DIR$/GestionVoiture/car.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestionVoiture/fuel.py" beforeDir="false" afterPath="$PROJECT_DIR$/GestionVoiture/fuel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainInt.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainInt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_ui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/main_ui.ui" afterDir="false" />
     </list>
@@ -32,7 +30,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/MT/Documents/code blocks/Python/Location-voiture",
+    "last_opened_file_path": "C:/Users/MT/Documents/code blocks/Python/Python/scraping",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,8 +94,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.mainInt" />
       <item itemvalue="Python.login" />
+      <item itemvalue="Python.mainInt" />
     </list>
     <recent_temporary>
       <list>
@@ -120,29 +118,24 @@
       <workItem from="1682263526203" duration="4084000" />
       <workItem from="1682952602980" duration="11309000" />
       <workItem from="1682974653975" duration="5179000" />
-      <workItem from="1682982532807" duration="10061000" />
+      <workItem from="1682982532807" duration="10460000" />
+      <workItem from="1683041360860" duration="834000" />
+      <workItem from="1683060578856" duration="590000" />
+      <workItem from="1683074673320" duration="43000" />
+      <workItem from="1683124253146" duration="850000" />
+      <workItem from="1683133733635" duration="31891000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mainInt.py</url>
-          <line>148</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Location_voiture$main.coverage" NAME="main Coverage Results" MODIFIED="1682251589363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/main_py$login.coverage" NAME="login Coverage Results" MODIFIED="1682263368810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mainInt_py$scraping.coverage" NAME="scraping Coverage Results" MODIFIED="1683134521807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scraping" />
     <SUITE FILE_PATH="coverage/main_py$Client.coverage" NAME="Client Coverage Results" MODIFIED="1682251834856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GestionClient" />
-    <SUITE FILE_PATH="coverage/mainInt_py$login.coverage" NAME="login Coverage Results" MODIFIED="1682992497046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mainInt_py$login.coverage" NAME="login Coverage Results" MODIFIED="1683165728375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/main_py$mainInt.coverage" NAME="login Coverage Results" MODIFIED="1682263050118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
