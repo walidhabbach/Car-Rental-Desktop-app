@@ -163,6 +163,7 @@ class scrap:
 
         print("All images downloaded!")
         return images
+
     def download_img(self,url):
         url = self.getModelImage(url)
         pixmap = self.get_image_from_url(url)

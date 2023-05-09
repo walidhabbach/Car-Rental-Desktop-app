@@ -5,16 +5,33 @@ class Brand:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
 
-    def addBrand(self,name, logo=None):
+    def addBrand(self, name):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
-                    req = "INSERT INTO marque(`logo`, `nom`) VALUES (%s, %s)"
-                    self.connexion.cursor.execute(req, (logo, name))
+                    req = "INSERT INTO marque(`nom`) VALUES (%s)"
+                    self.connexion.cursor.execute(req, (name,))
                     self.connexion.conn.commit()
-                    print("Record added successfully.")
+                    print("brand added successfully.")
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"addBrand : An error occurred: {e}")
+
+    def getLastId(self):
+        try:
+            if self.connexion.connect():
+                with self.connexion.conn:
+                    req = "SELECT idMarque FROM marque ORDER BY idMarque DESC LIMIT 1;"
+                    self.connexion.cursor.execute(req)
+                    result = self.connexion.cursor.fetchone()
+                    if result:
+                        last_id = result[0]
+                        print(f"Last inserted ID: {last_id}")
+                        return last_id
+                    else:
+                        print("No records found in the table.")
+        except Exception as e:
+            print(f"getLastId: An error occurred: {e}")
+            return
 
     def getBrands(self):
         try:
@@ -68,11 +85,11 @@ class Brand:
                 self.connexion.cursor.close()
             if self.connexion.conn:
                 self.connexion.conn.close()
-    def updateBrand(self, brand_id,logo, brand):
+    def updateBrand(self, brand_id, brand):
         try:
             if self.connexion.connect():
                 with self.connexion.conn:
-                    req = f"UPDATE voiture SET nom = {brand}, logo = '{logo}' WHERE idMarque  = {brand_id}"
+                    req = f"UPDATE voiture SET nom = {brand}  WHERE idMarque  = {brand_id}"
                     self.connexion.cursor.execute(req)
                     self.connexion.conn.commit()
                     print("Record updated successfully.")

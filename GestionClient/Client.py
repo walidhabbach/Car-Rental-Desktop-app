@@ -9,8 +9,8 @@ class Client:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
 
-    def getClientsData(self,request):
-        if(self.connexion.connect()):
+    def getClientsData(self, request):
+        if (self.connexion.connect()):
             req = request
             self.connexion.cursor.execute(req)
             users = self.connexion.cursor.fetchall()

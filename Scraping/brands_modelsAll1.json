@@ -4,14 +4,13 @@
             "model": "124 GT",
             "link": "https://www.auto-data.net/en/abarth-124-gt-generation-6774",
             "details": {
-                "brand": "Abarth",
-                "generation": "124 GT",
-                "start_of_production": "2018",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "170",
-                "gearbox": "automatic"
+                "Brand": "Abarth",
+                "Start of production": "2018 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "170 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f49/Abarth-124-GT.jpg"
@@ -23,14 +22,13 @@
             "model": "Ace",
             "link": "https://www.auto-data.net/en/ac-ace-generation-1",
             "details": {
-                "brand": "AC",
-                "generation": "Ace",
-                "start_of_production": "1994",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "260",
-                "gearbox": "automatic"
+                "Brand": "AC",
+                "Start of production": "1994 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "260 Hp @ 5250 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f38/AC-Ace.jpg",
@@ -45,14 +43,13 @@
             "model": "CL",
             "link": "https://www.auto-data.net/en/acura-cl-generation-304",
             "details": {
-                "brand": "Acura",
-                "generation": "CL",
-                "start_of_production": "1996",
-                "seats": "5",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "203",
-                "gearbox": "automatic"
+                "Brand": "Acura",
+                "Start of production": "1996 year",
+                "Seats": "5",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "203 Hp @ 5000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f91/Acura-CL.jpg",
@@ -66,13 +63,12 @@
             "model": "M5",
             "link": "https://www.auto-data.net/en/aito-m5-generation-8994",
             "details": {
-                "brand": "AITO",
-                "generation": "M5",
-                "start_of_production": "2022",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "AITO",
+                "Start of production": "September, 2022 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f114/AITO-M5.jpg",
@@ -88,13 +84,12 @@
             "model": "U5",
             "link": "https://www.auto-data.net/en/aiways-u5-generation-8529",
             "details": {
-                "brand": "Aiways",
-                "generation": "U5",
-                "start_of_production": "2019",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Aiways",
+                "Start of production": "2019 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f49/Aiways-U5.jpg",
@@ -110,13 +105,12 @@
             "model": "eAIXAM COMPACT",
             "link": "https://www.auto-data.net/en/aixam-eaixam-compact-generation-6881",
             "details": {
-                "brand": "Aixam",
-                "generation": "eAIXAM COMPACT",
-                "start_of_production": "2018",
-                "seats": "2",
-                "doors": "3",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Aixam",
+                "Start of production": "2018 year",
+                "Seats": "2",
+                "Doors": "3",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission VSD"
             },
             "images": [
                 "https://www.auto-data.net/images/f78/Aixam-eAIXAM-COMPACT.jpg"
@@ -128,14 +122,13 @@
             "model": "Romeo 145 (930, facelift 1997)",
             "link": "https://www.auto-data.net/en/alfa-romeo-145-930-facelift-1997-generation-7921",
             "details": {
-                "brand": "Alfa Romeo",
-                "generation": "145 (930, facelift 1997)",
-                "start_of_production": "1998",
-                "seats": "5",
-                "doors": "3",
-                "fuel_type": "Petrol",
-                "power": "155",
-                "gearbox": "manual"
+                "Brand": "Alfa Romeo",
+                "Start of production": "1998 year",
+                "Seats": "5",
+                "Doors": "3",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "155 Hp @ 6400 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f39/Alfa-Romeo-145-930.jpg",
@@ -151,12 +144,12 @@
             "model": "B10 (E34)",
             "link": "https://www.auto-data.net/en/alpina-b10-e34-generation-433",
             "details": {
-                "brand": "Alpina",
-                "generation": "B10 (E34)",
-                "start_of_production": "1994",
-                "fuel_type": "Petrol",
-                "power": "340",
-                "gearbox": null
+                "Brand": "Alpina",
+                "Start of production": "1994 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "340 Hp",
+                 "Seats": "",
+                "gearbox": ""
             },
             "images": [
                 "https://www.auto-data.net/images/f115/Alpina-B10-E34.jpg",
@@ -172,14 +165,13 @@
             "model": "A110 (2017)",
             "link": "https://www.auto-data.net/en/alpine-a110-2017-generation-6025",
             "details": {
-                "brand": "Alpine",
-                "generation": "A110 (2017)",
-                "start_of_production": "2021",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "300",
-                "gearbox": "automatic"
+                "Brand": "Alpine",
+                "Start of production": "November, 2021 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "300 Hp @ 6300 rpm.",
+                "gearbox": "automatic transmission DCT"
             },
             "images": [
                 "https://www.auto-data.net/images/f8/alpine-a110-2017.jpg",
@@ -195,14 +187,13 @@
             "model": "IE",
             "link": "https://www.auto-data.net/en/apollo-ie-generation-5949",
             "details": {
-                "brand": "Apollo",
-                "generation": "IE",
-                "start_of_production": "2017",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "780",
-                "gearbox": "manual"
+                "Brand": "Apollo",
+                "Start of production": "2017 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "780 Hp @ 8500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f62/Apollo-IE.jpg",
@@ -215,13 +206,12 @@
             "model": "Alpha-S",
             "link": "https://www.auto-data.net/en/arcfox-alpha-s-generation-8333",
             "details": {
-                "brand": "Arcfox",
-                "generation": "Alpha-S",
-                "start_of_production": "2021",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Arcfox",
+                "Start of production": "April, 2021 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f104/Arcfox-Alpha-S.jpg"
@@ -233,13 +223,12 @@
             "model": "Nomad",
             "link": "https://www.auto-data.net/en/ariel-nomad-generation-6660",
             "details": {
-                "brand": "Ariel",
-                "generation": "Nomad",
-                "start_of_production": "2015",
-                "seats": "2",
-                "fuel_type": "Petrol",
-                "power": "235",
-                "gearbox": "manual"
+                "Brand": "Ariel",
+                "Start of production": "2015 year",
+                "Seats": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "235 Hp @ 7200 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f59/Ariel-Nomad.jpg",
@@ -252,14 +241,13 @@
             "model": "10",
             "link": "https://www.auto-data.net/en/aro-10-generation-639",
             "details": {
-                "brand": "Aro",
-                "generation": "10",
-                "start_of_production": "1994",
-                "seats": "5",
-                "doors": "3",
-                "fuel_type": "Diesel",
-                "power": "94",
-                "gearbox": "manual"
+                "Brand": "Aro",
+                "Start of production": "1994 year",
+                "Seats": "5",
+                "Doors": "3",
+                "Fuel Type": "Diesel",
+                "Power": "94 Hp @ 4250 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f80/Aro-10.jpg",
@@ -275,14 +263,13 @@
             "model": "GT",
             "link": "https://www.auto-data.net/en/artega-gt-generation-5644",
             "details": {
-                "brand": "Artega",
-                "generation": "GT",
-                "start_of_production": "2010",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "300",
-                "gearbox": "automatic"
+                "Brand": "Artega",
+                "Start of production": "2010 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "300 Hp @ 6600 rpm.",
+                "gearbox": "automatic transmission DSG"
             },
             "images": [
                 "https://www.auto-data.net/images/f96/Artega-GT.jpg",
@@ -298,14 +285,13 @@
             "model": "Rocsta",
             "link": "https://www.auto-data.net/en/asia-rocsta-generation-671",
             "details": {
-                "brand": "Asia",
-                "generation": "Rocsta",
-                "start_of_production": "1993",
-                "seats": "4",
-                "doors": "3",
-                "fuel_type": "Diesel",
-                "power": "61",
-                "gearbox": "manual"
+                "Brand": "Asia",
+                "Start of production": "1993 year",
+                "Seats": "4",
+                "Doors": "3",
+                "Fuel Type": "Diesel",
+                "Power": "61 Hp @ 4000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f51/Asia-Rocsta.jpg",
@@ -320,12 +306,11 @@
             "model": "OWL",
             "link": "https://www.auto-data.net/en/aspark-owl-generation-7407",
             "details": {
-                "brand": "Aspark",
-                "generation": "OWL",
-                "start_of_production": "2020",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Electricity",
+                "Brand": "Aspark",
+                "Start of production": "2020 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Electricity",
                 "gearbox": null
             },
             "images": [
@@ -342,11 +327,10 @@
             "model": "Martin Bulldog",
             "link": "https://www.auto-data.net/en/aston-martin-bulldog-generation-717",
             "details": {
-                "brand": "Aston Martin",
-                "generation": "Bulldog",
-                "start_of_production": "1980",
-                "fuel_type": "Petrol",
-                "power": "600",
+                "Brand": "Aston Martin",
+                "Start of production": "1980 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "600 Hp",
                 "gearbox": null
             },
             "images": [
@@ -360,14 +344,13 @@
             "model": "100 (4A,C4)",
             "link": "https://www.auto-data.net/en/audi-100-4a-c4-generation-1059",
             "details": {
-                "brand": "Audi",
-                "generation": "100 (4A,C4)",
-                "start_of_production": "1991",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "174",
-                "gearbox": "automatic"
+                "Brand": "Audi",
+                "Start of production": "1991 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "174 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f65/Audi-100-4A-C4.jpg",
@@ -383,14 +366,13 @@
             "model": "Senat",
             "link": "https://www.auto-data.net/en/aurus-senat-generation-6992",
             "details": {
-                "brand": "Aurus",
-                "generation": "Senat",
-                "start_of_production": "2018",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "598",
-                "gearbox": "automatic"
+                "Brand": "Aurus",
+                "Start of production": "2018 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "598 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f49/Aurus-Senat.jpg",
@@ -406,11 +388,10 @@
             "model": "Allegro (ado 67)",
             "link": "https://www.auto-data.net/en/austin-allegro-ado-67-generation-1191",
             "details": {
-                "brand": "Austin",
-                "generation": "Allegro (ado 67)",
-                "start_of_production": "1975",
-                "fuel_type": "Petrol",
-                "power": "91",
+                "Brand": "Austin",
+                "Start of production": "1975 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "91 Hp",
                 "gearbox": null
             },
             "images": [
@@ -423,14 +404,13 @@
             "model": "100/4 (BN1)",
             "link": "https://www.auto-data.net/en/austin-healey-100-4-bn1-generation-8678",
             "details": {
-                "brand": "Austin-Healey",
-                "generation": "100/4 (BN1)",
-                "start_of_production": "1953",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "90",
-                "gearbox": "manual"
+                "Brand": "Austin-Healey",
+                "Start of production": "May, 1953 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "90 Hp @ 4000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f88/Austin-Healey-100-BN1.jpg",
@@ -446,11 +426,10 @@
             "model": "A 112",
             "link": "https://www.auto-data.net/en/autobianchi-a-112-generation-1299",
             "details": {
-                "brand": "Autobianchi",
-                "generation": "A 112",
-                "start_of_production": "1977",
-                "fuel_type": "Petrol",
-                "power": "48",
+                "Brand": "Autobianchi",
+                "Start of production": "1977 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "48 Hp",
                 "gearbox": null
             },
             "images": [
@@ -463,13 +442,12 @@
             "model": "Mono",
             "link": "https://www.auto-data.net/en/bac-mono-generation-5985",
             "details": {
-                "brand": "BAC",
-                "generation": "Mono",
-                "start_of_production": "2016",
-                "seats": "1",
-                "fuel_type": "Petrol",
-                "power": "305",
-                "gearbox": "automatic"
+                "Brand": "BAC",
+                "Start of production": "2016 year",
+                "Seats": "1",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "305 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f14/bac-mono.jpg"
@@ -481,14 +459,13 @@
             "model": "Motor BJ 2020",
             "link": "https://www.auto-data.net/en/baic-motor-bj-2020-generation-1480",
             "details": {
-                "brand": "BAIC Motor",
-                "generation": "BJ 2020",
-                "start_of_production": "1989",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "87",
-                "gearbox": "manual"
+                "Brand": "BAIC Motor",
+                "Start of production": "1989 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "87 Hp @ 3800 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f110/Beijing-BJ-2020.jpg",
@@ -513,11 +490,10 @@
             "model": "Dzips BD-1322",
             "link": "https://www.auto-data.net/en/baltijas-dzips-bd-1322-generation-1339",
             "details": {
-                "brand": "Baltijas Dzips",
-                "generation": "BD-1322",
-                "start_of_production": "1998",
-                "fuel_type": "Petrol",
-                "power": "100",
+                "Brand": "Baltijas Dzips",
+                "Start of production": "1998 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "100 Hp",
                 "gearbox": null
             },
             "images": [
@@ -534,14 +510,13 @@
             "model": "730",
             "link": "https://www.auto-data.net/en/baojun-730-generation-6408",
             "details": {
-                "brand": "Baojun",
-                "generation": "730",
-                "start_of_production": "2014",
-                "seats": "5-8",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "137",
-                "gearbox": "manual"
+                "Brand": "Baojun",
+                "Start of production": "2014 year",
+                "Seats": "5-8",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "137 Hp @ 5600 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f22/Baojun-730.jpg",
@@ -554,13 +529,12 @@
             "model": "Bee XS",
             "link": "https://www.auto-data.net/en/bee-bee-xs-generation-5002",
             "details": {
-                "brand": "Bee Bee",
-                "generation": "XS",
-                "start_of_production": "2016",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Bee Bee",
+                "Start of production": "2016 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f26/file345541.jpg"
@@ -572,14 +546,13 @@
             "model": "Arnage I",
             "link": "https://www.auto-data.net/en/bentley-arnage-i-generation-1546",
             "details": {
-                "brand": "Bentley",
-                "generation": "Arnage I",
-                "start_of_production": "1999",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "405",
-                "gearbox": "automatic"
+                "Brand": "Bentley",
+                "Start of production": "1999 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "405 Hp @ 4000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f66/Bentley-Arnage-I.jpg",
@@ -593,14 +566,13 @@
             "model": "Freeclimber",
             "link": "https://www.auto-data.net/en/bertone-freeclimber-generation-1641",
             "details": {
-                "brand": "Bertone",
-                "generation": "Freeclimber",
-                "start_of_production": "1990",
-                "seats": "5",
-                "doors": "3",
-                "fuel_type": "Petrol",
-                "power": "129",
-                "gearbox": "automatic"
+                "Brand": "Bertone",
+                "Start of production": "1990 year",
+                "Seats": "5",
+                "Doors": "3",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "129 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f76/Bertone-Freeclimber.jpg",
@@ -613,14 +585,13 @@
             "model": "T77",
             "link": "https://www.auto-data.net/en/bestune-t77-generation-6706",
             "details": {
-                "brand": "Bestune",
-                "generation": "T77",
-                "start_of_production": "2018",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "143",
-                "gearbox": "automatic"
+                "Brand": "Bestune",
+                "Start of production": "2018 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "143 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission DCT"
             },
             "images": [
                 "https://www.auto-data.net/images/f26/Besturn-T77.jpg",
@@ -634,14 +605,13 @@
             "model": "M3",
             "link": "https://www.auto-data.net/en/bisu-m3-generation-7375",
             "details": {
-                "brand": "Bisu",
-                "generation": "M3",
-                "start_of_production": "2016",
-                "seats": "7",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "106",
-                "gearbox": "manual"
+                "Brand": "Bisu",
+                "Start of production": "2016 year",
+                "Seats": "7",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "106 Hp",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f124/Bisu-M3.jpg",
@@ -654,11 +624,10 @@
             "model": "Type 3 Cabriolet",
             "link": "https://www.auto-data.net/en/bitter-type-3-cabriolet-generation-1819",
             "details": {
-                "brand": "Bitter",
-                "generation": "Type 3 Cabriolet",
-                "start_of_production": "1991",
-                "fuel_type": "Petrol",
-                "power": "272",
+                "Brand": "Bitter",
+                "Start of production": "1991 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "272 Hp",
                 "gearbox": null
             },
             "images": [
@@ -684,14 +653,13 @@
             "model": "02 (E10)",
             "link": "https://www.auto-data.net/en/bmw-02-e10-generation-1974",
             "details": {
-                "brand": "BMW",
-                "generation": "02 (E10)",
-                "start_of_production": "1974",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "170",
-                "gearbox": "manual"
+                "Brand": "BMW",
+                "Start of production": "1974 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "170 Hp @ 5800 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f120/BMW-02-E10.jpg",
@@ -707,13 +675,12 @@
             "model": "iV6",
             "link": "https://www.auto-data.net/en/bordrin-iv6-generation-7135",
             "details": {
-                "brand": "Bordrin",
-                "generation": "iV6",
-                "start_of_production": "2019",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Bordrin",
+                "Start of production": "April, 2019 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f0/Bordrin-iV6.jpg",
@@ -727,14 +694,13 @@
             "model": "BX5",
             "link": "https://www.auto-data.net/en/borgward-bx5-generation-5861",
             "details": {
-                "brand": "Borgward",
-                "generation": "BX5",
-                "start_of_production": "2017",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "190",
-                "gearbox": "automatic"
+                "Brand": "Borgward",
+                "Start of production": "2017 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "190 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f4/borgward-bx5.jpg",
@@ -750,14 +716,13 @@
             "model": "BT62",
             "link": "https://www.auto-data.net/en/brabham-bt62-generation-6557",
             "details": {
-                "brand": "Brabham",
-                "generation": "BT62",
-                "start_of_production": "2018",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "710",
-                "gearbox": "automatic"
+                "Brand": "Brabham",
+                "Start of production": "2018 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "710 Hp @ 7400 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f62/Brabham-BT62.jpg",
@@ -773,11 +738,10 @@
             "model": "BS4",
             "link": "https://www.auto-data.net/en/brilliance-bs4-generation-2080",
             "details": {
-                "brand": "Brilliance",
-                "generation": "BS4",
-                "start_of_production": "2008",
-                "fuel_type": "Petrol",
-                "power": "100",
+                "Brand": "Brilliance",
+                "Start of production": "2008 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "100 Hp @ 6000 rpm.",
                 "gearbox": null
             },
             "images": [
@@ -794,14 +758,13 @@
             "model": "Bullet",
             "link": "https://www.auto-data.net/en/bristol-bullet-generation-6097",
             "details": {
-                "brand": "Bristol",
-                "generation": "Bullet",
-                "start_of_production": "2017",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "374",
-                "gearbox": "automatic"
+                "Brand": "Bristol",
+                "Start of production": "2017 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "374 Hp @ 6300 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f13/bristol-bullet.jpg",
@@ -814,14 +777,13 @@
             "model": "Geneva",
             "link": "https://www.auto-data.net/en/bufori-geneva-generation-7380",
             "details": {
-                "brand": "Bufori",
-                "generation": "Geneva",
-                "start_of_production": "2010",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "477",
-                "gearbox": "automatic"
+                "Brand": "Bufori",
+                "Start of production": "2010 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "477 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f106/Bufori-Geneva.jpg"
@@ -833,14 +795,13 @@
             "model": "Bolide",
             "link": "https://www.auto-data.net/en/bugatti-bolide-generation-8481",
             "details": {
-                "brand": "Bugatti",
-                "generation": "Bolide",
-                "start_of_production": "2021",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "1850",
-                "gearbox": "automatic"
+                "Brand": "Bugatti",
+                "Start of production": "2021 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "1850 Hp @ 7000 rpm.",
+                "gearbox": "automatic transmission DSG"
             },
             "images": [
                 "https://www.auto-data.net/images/f107/Bugatti-Bolide.jpg",
@@ -856,14 +817,13 @@
             "model": "Cascada",
             "link": "https://www.auto-data.net/en/buick-cascada-generation-5089",
             "details": {
-                "brand": "Buick",
-                "generation": "Cascada",
-                "start_of_production": "2016",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "200",
-                "gearbox": "automatic"
+                "Brand": "Buick",
+                "Start of production": "2016 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "200 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f63/Buick-Cascada.jpg"
@@ -875,13 +835,12 @@
             "model": "Atto 3",
             "link": "https://www.auto-data.net/en/byd-atto-3-generation-9023",
             "details": {
-                "brand": "BYD",
-                "generation": "Atto 3",
-                "start_of_production": "2022",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "BYD",
+                "Start of production": "June, 2022 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f43/BYD-Atto-3.jpg",
@@ -897,14 +856,13 @@
             "model": "Allante",
             "link": "https://www.auto-data.net/en/cadillac-allante-generation-2474",
             "details": {
-                "brand": "Cadillac",
-                "generation": "Allante",
-                "start_of_production": "1993",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "299",
-                "gearbox": "automatic"
+                "Brand": "Cadillac",
+                "Start of production": "1993 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "299 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f98/Cadillac-Allante.jpg",
@@ -920,13 +878,12 @@
             "model": "T-REX 16S",
             "link": "https://www.auto-data.net/en/campagna-t-rex-16s-generation-6952",
             "details": {
-                "brand": "Campagna",
-                "generation": "T-REX 16S",
-                "start_of_production": "2017",
-                "seats": "2",
-                "fuel_type": "Petrol",
-                "power": "160",
-                "gearbox": "automatic"
+                "Brand": "Campagna",
+                "Start of production": "2017 year",
+                "Seats": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "160 Hp @ 7750 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f93/Campagna-T-REX-16S.jpg",
@@ -941,14 +898,13 @@
             "model": "Taxi",
             "link": "https://www.auto-data.net/en/carbodies-taxi-generation-2691",
             "details": {
-                "brand": "Carbodies",
-                "generation": "Taxi",
-                "start_of_production": "1989",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Diesel",
-                "power": "79",
-                "gearbox": "automatic"
+                "Brand": "Carbodies",
+                "Start of production": "1989 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Diesel",
+                "Power": "79 Hp @ 4300 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f76/Carbodies-Taxi.jpg"
@@ -960,14 +916,13 @@
             "model": "21",
             "link": "https://www.auto-data.net/en/caterham-21-generation-2716",
             "details": {
-                "brand": "Caterham",
-                "generation": "21",
-                "start_of_production": "1995",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "190",
-                "gearbox": "manual"
+                "Brand": "Caterham",
+                "Start of production": "1995 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "190 Hp @ 7500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f34/Caterham-21.jpg"
@@ -979,13 +934,12 @@
             "model": "BenBen II",
             "link": "https://www.auto-data.net/en/changan-benben-ii-generation-5653",
             "details": {
-                "brand": "ChangAn",
-                "generation": "BenBen II",
-                "start_of_production": "2018",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "ChangAn",
+                "Start of production": "2018 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f7/changan-benni.jpg",
@@ -999,13 +953,12 @@
             "model": "Flying",
             "link": "https://www.auto-data.net/en/changfeng-flying-generation-2952",
             "details": {
-                "brand": "ChangFeng",
-                "generation": "Flying",
-                "start_of_production": "2007",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Diesel",
-                "power": "92",
+                "Brand": "ChangFeng",
+                "Start of production": "2007 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Diesel",
+                "Power": "92 Hp",
                 "gearbox": null
             },
             "images": [
@@ -1018,14 +971,13 @@
             "model": "A3",
             "link": "https://www.auto-data.net/en/chery-a3-generation-3030",
             "details": {
-                "brand": "Chery",
-                "generation": "A3",
-                "start_of_production": "2008",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "132",
-                "gearbox": "manual"
+                "Brand": "Chery",
+                "Start of production": "2008 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "132 Hp @ 5500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f101/Chery-A3.jpg",
@@ -1041,14 +993,13 @@
             "model": "Agile",
             "link": "https://www.auto-data.net/en/chevrolet-agile-generation-6825",
             "details": {
-                "brand": "Chevrolet",
-                "generation": "Agile",
-                "start_of_production": "2009",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "102",
-                "gearbox": "automatic"
+                "Brand": "Chevrolet",
+                "Start of production": "2009 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol / Ethanol - E85",
+                "Power": "102 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission Easytronic"
             },
             "images": [
                 "https://www.auto-data.net/images/f27/Chevrolet-Agile.jpg",
@@ -1062,14 +1013,13 @@
             "model": "200 I",
             "link": "https://www.auto-data.net/en/chrysler-200-i-generation-5591",
             "details": {
-                "brand": "Chrysler",
-                "generation": "200 I",
-                "start_of_production": "2011",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "287",
-                "gearbox": "automatic"
+                "Brand": "Chrysler",
+                "Start of production": "2011 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "287 Hp @ 6400 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f95/Chrysler-200-I.jpg",
@@ -1085,14 +1035,13 @@
             "model": "2 CV",
             "link": "https://www.auto-data.net/en/citroen-2-cv-generation-3293",
             "details": {
-                "brand": "Citroen",
-                "generation": "2 CV",
-                "start_of_production": "1980",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "29",
-                "gearbox": "manual"
+                "Brand": "Citroen",
+                "Start of production": "1980 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "29 Hp @ 5750 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f76/Citroen-2-CV.jpg",
@@ -1108,14 +1057,13 @@
             "model": "V16t",
             "link": "https://www.auto-data.net/en/cizeta-v16t-generation-3362",
             "details": {
-                "brand": "Cizeta",
-                "generation": "V16t",
-                "start_of_production": "1989",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "520",
-                "gearbox": "manual"
+                "Brand": "Cizeta",
+                "Start of production": "1989 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "520 Hp @ 7000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f128/Cizeta-V16t.jpg",
@@ -1128,14 +1076,13 @@
             "model": "Corbellati Missile (Concept)",
             "link": "https://www.auto-data.net/en/corbellati-corbellati-missile-concept-generation-6145",
             "details": {
-                "brand": "Corbellati",
-                "generation": "Corbellati Missile (Concept)",
-                "start_of_production": "2018",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "1800",
-                "gearbox": "manual"
+                "Brand": "Corbellati",
+                "Start of production": "2018 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "1800 Hp",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f78/Corbellati-Corbellati-Missile-Concept.jpg",
@@ -1151,14 +1098,13 @@
             "model": "Ateca",
             "link": "https://www.auto-data.net/en/cupra-ateca-generation-6585",
             "details": {
-                "brand": "Cupra",
-                "generation": "Ateca",
-                "start_of_production": "2018",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "300",
-                "gearbox": "automatic"
+                "Brand": "Cupra",
+                "Start of production": "2018 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "300 Hp @ 5300-6500 rpm.",
+                "gearbox": "automatic transmission DSG"
             },
             "images": [
                 "https://www.auto-data.net/images/f106/Cupra-Ateca.jpg",
@@ -1174,14 +1120,13 @@
             "model": "1300",
             "link": "https://www.auto-data.net/en/dacia-1300-generation-3526",
             "details": {
-                "brand": "Dacia",
-                "generation": "1300",
-                "start_of_production": "1969",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "54",
-                "gearbox": "manual"
+                "Brand": "Dacia",
+                "Start of production": "1969 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "54 Hp @ 5250 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f125/Dacia-1300.jpg",
@@ -1196,14 +1141,13 @@
             "model": "Arcadia (CE)",
             "link": "https://www.auto-data.net/en/daewoo-arcadia-ce-generation-3641",
             "details": {
-                "brand": "Daewoo",
-                "generation": "Arcadia (CE)",
-                "start_of_production": "1994",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "220",
-                "gearbox": "automatic"
+                "Brand": "Daewoo",
+                "Start of production": "1994 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "220 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f90/Daewoo-Arcadia-CE.jpg",
@@ -1217,12 +1161,11 @@
             "model": "46",
             "link": "https://www.auto-data.net/en/daf-46-generation-3764",
             "details": {
-                "brand": "DAF",
-                "generation": "46",
-                "start_of_production": "1974",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "34",
+                "Brand": "DAF",
+                "Start of production": "1974 year",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "34 Hp",
                 "gearbox": null
             },
             "images": [
@@ -1239,11 +1182,10 @@
             "model": "Altis",
             "link": "https://www.auto-data.net/en/daihatsu-altis-generation-4",
             "details": {
-                "brand": "Daihatsu",
-                "generation": "Altis",
-                "start_of_production": "2000",
-                "fuel_type": "Petrol",
-                "power": "159",
+                "Brand": "Daihatsu",
+                "Start of production": "2000 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "159 Hp",
                 "gearbox": null
             },
             "images": [
@@ -1256,13 +1198,12 @@
             "model": "Stradale",
             "link": "https://www.auto-data.net/en/dallara-stradale-generation-6055",
             "details": {
-                "brand": "Dallara",
-                "generation": "Stradale",
-                "start_of_production": "2017",
-                "seats": "2",
-                "fuel_type": "Petrol",
-                "power": "400",
-                "gearbox": "manual"
+                "Brand": "Dallara",
+                "Start of production": "2017 year",
+                "Seats": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "400 Hp @ 6200 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f32/Dallara-Stradale.jpg",
@@ -1278,14 +1219,13 @@
             "model": "GO I",
             "link": "https://www.auto-data.net/en/datsun-go-i-generation-6728",
             "details": {
-                "brand": "Datsun",
-                "generation": "GO I",
-                "start_of_production": "2013",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "68",
-                "gearbox": "manual"
+                "Brand": "Datsun",
+                "Start of production": "2013 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "68 Hp @ 5000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f18/Datsun-Go-I.jpg",
@@ -1298,14 +1238,13 @@
             "model": "Brown Mini Remastered",
             "link": "https://www.auto-data.net/en/david-brown-mini-remastered-generation-6159",
             "details": {
-                "brand": "David Brown",
-                "generation": "Mini Remastered",
-                "start_of_production": "2017",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "71",
-                "gearbox": "manual"
+                "Brand": "David Brown",
+                "Start of production": "2017 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "71 Hp @ 4700 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f70/David-Brown-Mini-Remastered.jpg",
@@ -1321,14 +1260,13 @@
             "model": "Avanti",
             "link": "https://www.auto-data.net/en/dc-avanti-generation-5967",
             "details": {
-                "brand": "DC",
-                "generation": "Avanti",
-                "start_of_production": "2012",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "250",
-                "gearbox": "manual"
+                "Brand": "DC",
+                "Start of production": "2012 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "250 Hp @ 5500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f8/dc-avanti.jpg"
@@ -1340,14 +1278,13 @@
             "model": "Lorean Dmc-12",
             "link": "https://www.auto-data.net/en/de-lorean-dmc-12-generation-481",
             "details": {
-                "brand": "De Lorean",
-                "generation": "Dmc-12",
-                "start_of_production": "1981",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "145",
-                "gearbox": "manual"
+                "Brand": "De Lorean",
+                "Start of production": "1981 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "145 Hp @ 5500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f51/De-Lorean-Dmc-12.jpg",
@@ -1363,14 +1300,13 @@
             "model": "Adventurer I 2-Door Hardtop",
             "link": "https://www.auto-data.net/en/desoto-adventurer-i-2-door-hardtop-generation-7778",
             "details": {
-                "brand": "DeSoto",
-                "generation": "Adventurer I 2-Door Hardtop",
-                "start_of_production": "1959",
-                "seats": "6",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "330",
-                "gearbox": "automatic"
+                "Brand": "DeSoto",
+                "Start of production": "1959 year",
+                "Seats": "6",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "330 Hp @ 4800 rpm.",
+                "gearbox": "automatic transmission TorqueFlite"
             },
             "images": [
                 "https://www.auto-data.net/images/f126/DeSoto-2-Door-Hardtop.jpg",
@@ -1398,14 +1334,13 @@
             "model": "Avenger coupe",
             "link": "https://www.auto-data.net/en/dodge-avenger-coupe-generation-673",
             "details": {
-                "brand": "Dodge",
-                "generation": "Avenger coupe",
-                "start_of_production": "1994",
-                "seats": "5",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "166",
-                "gearbox": "automatic"
+                "Brand": "Dodge",
+                "Start of production": "1994 year",
+                "Seats": "5",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "166 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f46/Dodge-Avenger-coupe.jpg",
@@ -1421,13 +1356,12 @@
             "model": "Fengon E3",
             "link": "https://www.auto-data.net/en/dongfeng-fengon-e3-generation-9145",
             "details": {
-                "brand": "DongFeng",
-                "generation": "Fengon E3",
-                "start_of_production": "2019",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "DongFeng",
+                "Start of production": "2019 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f122/DongFeng-Fengon-E3.jpg",
@@ -1440,14 +1374,13 @@
             "model": "D8 270 RS",
             "link": "https://www.auto-data.net/en/donkervoort-d8-270-rs-generation-1202",
             "details": {
-                "brand": "Donkervoort",
-                "generation": "D8 270 RS",
-                "start_of_production": "2007",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "270",
-                "gearbox": "manual"
+                "Brand": "Donkervoort",
+                "Start of production": "2007 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "270 Hp @ 5700 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f103/Donkervoort-D8-270-RS.jpg",
@@ -1463,14 +1396,13 @@
             "model": "1",
             "link": "https://www.auto-data.net/en/dr-1-generation-8939",
             "details": {
-                "brand": "DR",
-                "generation": "1",
-                "start_of_production": "2009",
-                "seats": "4",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "83",
-                "gearbox": "automatic"
+                "Brand": "DR",
+                "Start of production": "2009 year",
+                "Seats": "4",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "83 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f129/DR-Automobiles-1.jpg",
@@ -1483,12 +1415,11 @@
             "model": "GTE",
             "link": "https://www.auto-data.net/en/drako-gte-generation-7511",
             "details": {
-                "brand": "Drako",
-                "generation": "GTE",
-                "start_of_production": "2019",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Electricity",
+                "Brand": "Drako",
+                "Start of production": "2019 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Electricity",
                 "gearbox": null
             },
             "images": [
@@ -1505,14 +1436,13 @@
             "model": "3",
             "link": "https://www.auto-data.net/en/ds-3-generation-4834",
             "details": {
-                "brand": "DS",
-                "generation": "3",
-                "start_of_production": "2016",
-                "seats": "5",
-                "doors": "3",
-                "fuel_type": "Petrol",
-                "power": "165",
-                "gearbox": "manual"
+                "Brand": "DS",
+                "Start of production": "2016 year",
+                "Seats": "5",
+                "Doors": "3",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "165 Hp @ 6000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f6/file3120786.jpg",
@@ -1528,13 +1458,12 @@
             "model": "Life",
             "link": "https://www.auto-data.net/en/e.go-life-generation-6448",
             "details": {
-                "brand": "e.GO",
-                "generation": "Life",
-                "start_of_production": "2018",
-                "seats": "4",
-                "doors": "3",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "e.GO",
+                "Start of production": "2018 year",
+                "Seats": "4",
+                "Doors": "3",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f5/e.GO-Life.jpg",
@@ -1549,14 +1478,13 @@
             "model": "Green Black Cuillin",
             "link": "https://www.auto-data.net/en/eadon-green-black-cuillin-generation-6968",
             "details": {
-                "brand": "Eadon Green",
-                "generation": "Black Cuillin",
-                "start_of_production": "2017",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "445",
-                "gearbox": "automatic"
+                "Brand": "Eadon Green",
+                "Start of production": "2017 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "445 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f107/Eadon-Green-Black-Cuillin.jpg",
@@ -1572,14 +1500,13 @@
             "model": "Premier",
             "link": "https://www.auto-data.net/en/eagle-premier-generation-1300",
             "details": {
-                "brand": "Eagle",
-                "generation": "Premier",
-                "start_of_production": "1987",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "152",
-                "gearbox": "automatic"
+                "Brand": "Eagle",
+                "Start of production": "1987 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "152 Hp @ 5000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f96/Eagle-Premier.jpg",
@@ -1594,12 +1521,11 @@
             "model": "F.F SUPERQUAD",
             "link": "https://www.auto-data.net/en/engler-f.f-superquad-generation-6950",
             "details": {
-                "brand": "Engler",
-                "generation": "F.F SUPERQUAD",
-                "start_of_production": "2018",
-                "seats": "1",
-                "fuel_type": "Petrol",
-                "power": "850",
+                "Brand": "Engler",
+                "Start of production": "2018 year",
+                "Seats": "1",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "850 Hp",
                 "gearbox": null
             },
             "images": [
@@ -1616,12 +1542,11 @@
             "model": "3",
             "link": "https://www.auto-data.net/en/evo-3-generation-8948",
             "details": {
-                "brand": "EVO",
-                "generation": "3",
-                "start_of_production": "2020",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
+                "Brand": "EVO",
+                "Start of production": "2020 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
                 "gearbox": null
             },
             "images": [
@@ -1638,14 +1563,13 @@
             "model": "Besturn B30",
             "link": "https://www.auto-data.net/en/faw-besturn-b30-generation-6712",
             "details": {
-                "brand": "FAW",
-                "generation": "Besturn B30",
-                "start_of_production": "2015",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "109",
-                "gearbox": "automatic"
+                "Brand": "FAW",
+                "Start of production": "2015 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "109 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f16/FAW-B30.jpg",
@@ -1659,13 +1583,12 @@
             "model": "208/308",
             "link": "https://www.auto-data.net/en/ferrari-208-308-generation-1487",
             "details": {
-                "brand": "Ferrari",
-                "generation": "208/308",
-                "start_of_production": "1977",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "255",
+                "Brand": "Ferrari",
+                "Start of production": "1977 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "255 Hp",
                 "gearbox": null
             },
             "images": [
@@ -1682,11 +1605,10 @@
             "model": "124",
             "link": "https://www.auto-data.net/en/fiat-124-generation-1561",
             "details": {
-                "brand": "Fiat",
-                "generation": "124",
-                "start_of_production": "1973",
-                "fuel_type": "Petrol",
-                "power": "95",
+                "Brand": "Fiat",
+                "Start of production": "1973 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "95 Hp",
                 "gearbox": null
             },
             "images": [
@@ -1702,13 +1624,12 @@
             "model": "Karma",
             "link": "https://www.auto-data.net/en/fisker-karma-generation-8482",
             "details": {
-                "brand": "Fisker",
-                "generation": "Karma",
-                "start_of_production": "2011",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "petrol",
-                "power": "260",
+                "Brand": "Fisker",
+                "Start of production": "June, 2011 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "petrol / electricity",
+                "Power": "260 Hp @ 5300 rpm.",
                 "gearbox": "CVT"
             },
             "images": [
@@ -1725,14 +1646,13 @@
             "model": "EF7",
             "link": "https://www.auto-data.net/en/fittipaldi-ef7-generation-6119",
             "details": {
-                "brand": "Fittipaldi",
-                "generation": "EF7",
-                "start_of_production": "2018",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "608",
-                "gearbox": "manual"
+                "Brand": "Fittipaldi",
+                "Start of production": "2018 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "608 Hp @ 8250 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f21/fittipaldi-ef7.jpg",
@@ -1748,12 +1668,11 @@
             "model": "Concept One",
             "link": "https://www.auto-data.net/en/fomm-concept-one-generation-6156",
             "details": {
-                "brand": "FOMM",
-                "generation": "Concept One",
-                "start_of_production": "2018",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Electricity",
+                "Brand": "FOMM",
+                "Start of production": "2018 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Electricity",
                 "gearbox": null
             },
             "images": [
@@ -1766,14 +1685,13 @@
             "model": "Aerostar",
             "link": "https://www.auto-data.net/en/ford-aerostar-generation-1642",
             "details": {
-                "brand": "Ford",
-                "generation": "Aerostar",
-                "start_of_production": "1989",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "155",
-                "gearbox": "automatic"
+                "Brand": "Ford",
+                "Start of production": "1989 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "155 Hp @ 4200 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f117/Ford-Aerostar.jpg",
@@ -1786,11 +1704,10 @@
             "model": "Polonez I",
             "link": "https://www.auto-data.net/en/fso-polonez-i-generation-1827",
             "details": {
-                "brand": "FSO",
-                "generation": "Polonez I",
-                "start_of_production": "1986",
-                "fuel_type": "Petrol",
-                "power": "87",
+                "Brand": "FSO",
+                "Start of production": "1986 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "87 Hp",
                 "gearbox": null
             },
             "images": [
@@ -1807,11 +1724,10 @@
             "model": "13",
             "link": "https://www.auto-data.net/en/gaz-13-generation-2923",
             "details": {
-                "brand": "GAZ",
-                "generation": "13",
-                "start_of_production": "1959",
-                "fuel_type": "Petrol",
-                "power": "195",
+                "Brand": "GAZ",
+                "Start of production": "1959 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "195 Hp",
                 "gearbox": null
             },
             "images": [
@@ -1826,14 +1742,13 @@
             "model": "Atlas",
             "link": "https://www.auto-data.net/en/geely-atlas-generation-6317",
             "details": {
-                "brand": "Geely",
-                "generation": "Atlas",
-                "start_of_production": "2016",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "149",
-                "gearbox": "automatic"
+                "Brand": "Geely",
+                "Start of production": "March, 2016 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "149 Hp @ 5300 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f95/Geely-Atlas.jpg"
@@ -1845,14 +1760,13 @@
             "model": "G70",
             "link": "https://www.auto-data.net/en/genesis-g70-generation-5992",
             "details": {
-                "brand": "Genesis",
-                "generation": "G70",
-                "start_of_production": "2017",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "370",
-                "gearbox": "automatic"
+                "Brand": "Genesis",
+                "Start of production": "2017 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "370 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f63/Genesis-G70.jpg",
@@ -1868,12 +1782,11 @@
             "model": "Style Kangaroo Concept",
             "link": "https://www.auto-data.net/en/gfg-style-kangaroo-concept-generation-6965",
             "details": {
-                "brand": "GFG Style",
-                "generation": "Kangaroo Concept",
-                "start_of_production": "2019",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Electricity",
+                "Brand": "GFG Style",
+                "Start of production": "2019 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Electricity",
                 "gearbox": null
             },
             "images": [
@@ -1904,14 +1817,13 @@
             "model": "Acadia I",
             "link": "https://www.auto-data.net/en/gmc-acadia-i-generation-2097",
             "details": {
-                "brand": "GMC",
-                "generation": "Acadia I",
-                "start_of_production": "2009",
-                "seats": "8",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "288",
-                "gearbox": "automatic"
+                "Brand": "GMC",
+                "Start of production": "2009 year",
+                "Seats": "8",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "288 Hp @ 6300 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f108/GMC-Acadia-I.jpg",
@@ -1927,14 +1839,13 @@
             "model": "Wall Hover H6",
             "link": "https://www.auto-data.net/en/great-wall-hover-h6-generation-6109",
             "details": {
-                "brand": "Great Wall",
-                "generation": "Hover H6",
-                "start_of_production": "2011",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Diesel",
-                "power": "143",
-                "gearbox": "manual"
+                "Brand": "Great Wall",
+                "Start of production": "2011 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Diesel",
+                "Power": "143 Hp",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f41/Great-Wall-Hover-H6.jpg",
@@ -1950,14 +1861,13 @@
             "model": "S5",
             "link": "https://www.auto-data.net/en/haima-s5-generation-6263",
             "details": {
-                "brand": "Haima",
-                "generation": "S5",
-                "start_of_production": "2014",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "122",
-                "gearbox": "manual"
+                "Brand": "Haima",
+                "Start of production": "2014 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "122 Hp @ 6000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f27/haima-s5.jpg",
@@ -1972,14 +1882,13 @@
             "model": "Dargo",
             "link": "https://www.auto-data.net/en/haval-dargo-generation-8906",
             "details": {
-                "brand": "Haval",
-                "generation": "Dargo",
-                "start_of_production": "2021",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "211",
-                "gearbox": "automatic"
+                "Brand": "Haval",
+                "Start of production": "January, 2021 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "211 Hp @ 6000-6300 rpm.",
+                "gearbox": "automatic transmission DCT"
             },
             "images": [
                 "https://www.auto-data.net/images/f47/Haval-Dargo.jpg",
@@ -1995,14 +1904,13 @@
             "model": "Venom F5",
             "link": "https://www.auto-data.net/en/hennessey-venom-f5-generation-6173",
             "details": {
-                "brand": "Hennessey",
-                "generation": "Venom F5",
-                "start_of_production": "2020",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "1817",
-                "gearbox": "automatic"
+                "Brand": "Hennessey",
+                "Start of production": "December, 2020 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "1817 Hp @ 8000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f91/Hennessey-Venom-F5.jpg",
@@ -2018,13 +1926,12 @@
             "model": "Suiza Carmen",
             "link": "https://www.auto-data.net/en/hispano-suiza-carmen-generation-6979",
             "details": {
-                "brand": "Hispano Suiza",
-                "generation": "Carmen",
-                "start_of_production": "2019",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Hispano Suiza",
+                "Start of production": "2019 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f72/Hispano-Suiza-Carmen.jpg",
@@ -2040,14 +1947,13 @@
             "model": "Acadia",
             "link": "https://www.auto-data.net/en/holden-acadia-generation-8384",
             "details": {
-                "brand": "Holden",
-                "generation": "Acadia",
-                "start_of_production": "2017",
-                "seats": "5-7",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "231",
-                "gearbox": "automatic"
+                "Brand": "Holden",
+                "Start of production": "2017 year",
+                "Seats": "5-7",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "231 Hp @ 6600 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f102/Holden-Acadia.jpg",
@@ -2061,14 +1967,13 @@
             "model": "Accord Crosstour",
             "link": "https://www.auto-data.net/en/honda-accord-crosstour-generation-8964",
             "details": {
-                "brand": "Honda",
-                "generation": "Accord Crosstour",
-                "start_of_production": "2009",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "271",
-                "gearbox": "automatic"
+                "Brand": "Honda",
+                "Start of production": "September, 2009 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "271 Hp @ 6200 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f63/Honda-Accord-Crosstour.jpg",
@@ -2081,13 +1986,12 @@
             "model": "E-HS9",
             "link": "https://www.auto-data.net/en/hongqi-e-hs9-generation-8793",
             "details": {
-                "brand": "Hongqi",
-                "generation": "E-HS9",
-                "start_of_production": "2020",
-                "seats": "7",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Hongqi",
+                "Start of production": "2020 year",
+                "Seats": "7",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f60/Hongqi-E-HS9.jpg",
@@ -2102,14 +2006,13 @@
             "model": "Avalanche XUV",
             "link": "https://www.auto-data.net/en/hsv-avalanche-xuv-generation-6743",
             "details": {
-                "brand": "HSV",
-                "generation": "Avalanche XUV",
-                "start_of_production": "2003",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "367",
-                "gearbox": "automatic"
+                "Brand": "HSV",
+                "Start of production": "2003 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "367 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f9/HSV-Avalanche-XUV.jpg",
@@ -2122,14 +2025,13 @@
             "model": "Landscape F1",
             "link": "https://www.auto-data.net/en/huanghai-landscape-f1-generation-2693",
             "details": {
-                "brand": "HuangHai",
-                "generation": "Landscape F1",
-                "start_of_production": "2007",
-                "seats": "5",
-                "doors": "4/5",
-                "fuel_type": "Petrol",
-                "power": "126",
-                "gearbox": "manual"
+                "Brand": "HuangHai",
+                "Start of production": "2007 year",
+                "Seats": "5",
+                "Doors": "4/5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "126 Hp @ 5250 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f48/HuangHai-Landscape-F1.jpg",
@@ -2142,14 +2044,13 @@
             "model": "H1 I",
             "link": "https://www.auto-data.net/en/hummer-h1-i-generation-5529",
             "details": {
-                "brand": "Hummer",
-                "generation": "H1 I",
-                "start_of_production": "2005",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Diesel",
-                "power": "305",
-                "gearbox": "automatic"
+                "Brand": "Hummer",
+                "Start of production": "2005 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Diesel",
+                "Power": "305 Hp @ 3000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f47/Hummer-H1-I.jpg",
@@ -2165,14 +2066,13 @@
             "model": "Accent Hatchback I",
             "link": "https://www.auto-data.net/en/hyundai-accent-hatchback-i-generation-2959",
             "details": {
-                "brand": "Hyundai",
-                "generation": "Accent Hatchback I",
-                "start_of_production": "1995",
-                "seats": "5",
-                "doors": "3/5",
-                "fuel_type": "Petrol",
-                "power": "99",
-                "gearbox": "manual"
+                "Brand": "Hyundai",
+                "Start of production": "1995 year",
+                "Seats": "5",
+                "Doors": "3/5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "99 Hp @ 5900 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f102/Hyundai-Accent-Hatchback-I.jpg",
@@ -2202,14 +2102,13 @@
             "model": "EX 35",
             "link": "https://www.auto-data.net/en/infiniti-ex-35-generation-3037",
             "details": {
-                "brand": "Infiniti",
-                "generation": "EX 35",
-                "start_of_production": "2009",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "302",
-                "gearbox": "automatic"
+                "Brand": "Infiniti",
+                "Start of production": "2009 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "302 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f67/Infiniti-EX-35.jpg",
@@ -2225,14 +2124,13 @@
             "model": "Khodro Soren",
             "link": "https://www.auto-data.net/en/iran-khodro-soren-generation-3349",
             "details": {
-                "brand": "Iran Khodro",
-                "generation": "Soren",
-                "start_of_production": "2008",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "113",
-                "gearbox": "manual"
+                "Brand": "Iran Khodro",
+                "Start of production": "2008 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "113 Hp @ 6000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f127/Iran-Khodro-Soren.jpg"
@@ -2244,14 +2142,13 @@
             "model": "Spyder",
             "link": "https://www.auto-data.net/en/isdera-spyder-generation-3518",
             "details": {
-                "brand": "Isdera",
-                "generation": "Spyder",
-                "start_of_production": "1991",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "220",
-                "gearbox": "manual"
+                "Brand": "Isdera",
+                "Start of production": "1991 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "220 Hp",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f34/Isdera-Spyder.jpg",
@@ -2267,14 +2164,13 @@
             "model": "Vision Gran Tourismo",
             "link": "https://www.auto-data.net/en/isorivolta-vision-gran-tourismo-generation-6371",
             "details": {
-                "brand": "IsoRivolta",
-                "generation": "Vision Gran Tourismo",
-                "start_of_production": "2018",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "997",
-                "gearbox": "automatic"
+                "Brand": "IsoRivolta",
+                "Start of production": "2018 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "997 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f95/IsoRivolta-Vision-Gran-Tourismo.jpg",
@@ -2290,14 +2186,13 @@
             "model": "Ascender",
             "link": "https://www.auto-data.net/en/isuzu-ascender-generation-3539",
             "details": {
-                "brand": "Isuzu",
-                "generation": "Ascender",
-                "start_of_production": "2005",
-                "seats": "7",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "304",
-                "gearbox": "automatic"
+                "Brand": "Isuzu",
+                "Start of production": "2005 year",
+                "Seats": "7",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "304 Hp @ 5200 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f65/Isuzu-Ascender.jpg",
@@ -2325,14 +2220,13 @@
             "model": "Massif 4x4",
             "link": "https://www.auto-data.net/en/iveco-massif-4x4-generation-3582",
             "details": {
-                "brand": "Iveco",
-                "generation": "Massif 4x4",
-                "start_of_production": "2008",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Diesel",
-                "power": "176",
-                "gearbox": "manual"
+                "Brand": "Iveco",
+                "Start of production": "2008 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Diesel",
+                "Power": "176 Hp @ 3500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f103/Iveco-Massif-4x4.jpg"
@@ -2344,13 +2238,12 @@
             "model": "412",
             "link": "https://www.auto-data.net/en/izh-412-generation-3227",
             "details": {
-                "brand": "Izh",
-                "generation": "412",
-                "start_of_production": "1967",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "75",
+                "Brand": "Izh",
+                "Start of production": "1967 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "75 Hp",
                 "gearbox": null
             },
             "images": [
@@ -2365,14 +2258,13 @@
             "model": "Rein",
             "link": "https://www.auto-data.net/en/jac-rein-generation-3679",
             "details": {
-                "brand": "JAC",
-                "generation": "Rein",
-                "start_of_production": "2007",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "130",
-                "gearbox": "manual"
+                "Brand": "JAC",
+                "Start of production": "2007 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "130 Hp @ 5500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f89/JAC-Rein.jpg"
@@ -2384,14 +2276,13 @@
             "model": "C-X16",
             "link": "https://www.auto-data.net/en/jaguar-c-x16-generation-8547",
             "details": {
-                "brand": "Jaguar",
-                "generation": "C-X16",
-                "start_of_production": "2011",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "petrol",
-                "power": "380",
-                "gearbox": "automatic"
+                "Brand": "Jaguar",
+                "Start of production": "2011 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "petrol / electricity",
+                "Power": "380 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f107/Jaguar-C-X16.jpg",
@@ -2407,13 +2298,12 @@
             "model": "Avenger",
             "link": "https://www.auto-data.net/en/jeep-avenger-generation-9018",
             "details": {
-                "brand": "Jeep",
-                "generation": "Avenger",
-                "start_of_production": "2022",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Jeep",
+                "Start of production": "December, 2022 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f107/Jeep-Avenger.jpg",
@@ -2429,14 +2319,13 @@
             "model": "Yuhu",
             "link": "https://www.auto-data.net/en/jiangling-yuhu-generation-6181",
             "details": {
-                "brand": "Jiangling",
-                "generation": "Yuhu",
-                "start_of_production": "2016",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "136",
-                "gearbox": "manual"
+                "Brand": "Jiangling",
+                "Start of production": "2016 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "136 Hp",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f16/jiangling-yuhu.jpg"
@@ -2448,14 +2337,13 @@
             "model": "Revero",
             "link": "https://www.auto-data.net/en/karma-revero-generation-7069",
             "details": {
-                "brand": "Karma",
-                "generation": "Revero",
-                "start_of_production": "2020",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "petrol",
-                "power": "228",
-                "gearbox": "automatic"
+                "Brand": "Karma",
+                "Start of production": "2020 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "petrol / electricity",
+                "Power": "228 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f21/Karma-Automotive-Revero.jpg",
@@ -2470,14 +2358,13 @@
             "model": "Carens I",
             "link": "https://www.auto-data.net/en/kia-carens-i-generation-615",
             "details": {
-                "brand": "Kia",
-                "generation": "Carens I",
-                "start_of_production": "2002",
-                "seats": "7",
-                "doors": "5",
-                "fuel_type": "Diesel",
-                "power": "113",
-                "gearbox": "automatic"
+                "Brand": "Kia",
+                "Start of production": "2002 year",
+                "Seats": "7",
+                "Doors": "5",
+                "Fuel Type": "Diesel",
+                "Power": "113 Hp @ 4000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f110/Kia-Carens-I.jpg",
@@ -2493,14 +2380,13 @@
             "model": "Agera",
             "link": "https://www.auto-data.net/en/koenigsegg-agera-generation-5031",
             "details": {
-                "brand": "Koenigsegg",
-                "generation": "Agera",
-                "start_of_production": "2013",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "1030",
-                "gearbox": "automatic"
+                "Brand": "Koenigsegg",
+                "Start of production": "2013 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "1030 Hp @ 7100 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f83/Koenigsegg-Agera.jpg",
@@ -2516,13 +2402,12 @@
             "model": "X-Bow",
             "link": "https://www.auto-data.net/en/ktm-x-bow-generation-713",
             "details": {
-                "brand": "KTM",
-                "generation": "X-Bow",
-                "start_of_production": "2007",
-                "seats": "2",
-                "fuel_type": "Petrol",
-                "power": "240",
-                "gearbox": "manual"
+                "Brand": "KTM",
+                "Start of production": "2007 year",
+                "Seats": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "240 Hp @ 6500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f34/KTM-X-Bow.jpg",
@@ -2538,14 +2423,13 @@
             "model": "1111 Oka",
             "link": "https://www.auto-data.net/en/lada-1111-oka-generation-2793",
             "details": {
-                "brand": "Lada",
-                "generation": "1111 Oka",
-                "start_of_production": "1990",
-                "seats": "4",
-                "doors": "3",
-                "fuel_type": "Petrol",
-                "power": "29",
-                "gearbox": "manual"
+                "Brand": "Lada",
+                "Start of production": "1990 year",
+                "Seats": "4",
+                "Doors": "3",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "29 Hp @ 5600 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f2/big6192.jpg",
@@ -2558,14 +2442,13 @@
             "model": "350 GT",
             "link": "https://www.auto-data.net/en/lamborghini-350-gt-generation-9228",
             "details": {
-                "brand": "Lamborghini",
-                "generation": "350 GT",
-                "start_of_production": "1964",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "280",
-                "gearbox": "manual"
+                "Brand": "Lamborghini",
+                "Start of production": "1964 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "280 Hp @ 6500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f124/Lamborghini-350-GT.jpg",
@@ -2581,14 +2464,13 @@
             "model": "Beta Coupe (BC)",
             "link": "https://www.auto-data.net/en/lancia-beta-coupe-bc-generation-1160",
             "details": {
-                "brand": "Lancia",
-                "generation": "Beta Coupe (BC)",
-                "start_of_production": "1983",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "135",
-                "gearbox": "manual"
+                "Brand": "Lancia",
+                "Start of production": "1983 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "135 Hp @ 5500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f40/Lancia-Beta-Coupe-BC.jpg",
@@ -2604,14 +2486,13 @@
             "model": "Rover Defender 110 (L663)",
             "link": "https://www.auto-data.net/en/land-rover-defender-110-l663-generation-7278",
             "details": {
-                "brand": "Land Rover",
-                "generation": "Defender 110 (L663)",
-                "start_of_production": "2020",
-                "seats": "2-3",
-                "doors": "5",
-                "fuel_type": "Diesel",
-                "power": "299",
-                "gearbox": "automatic"
+                "Brand": "Land Rover",
+                "Start of production": "September, 2020 year",
+                "Seats": "2-3",
+                "Doors": "5",
+                "Fuel Type": "Diesel",
+                "Power": "299 Hp @ 4000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f48/Land-Rover-Defender-110.jpg",
@@ -2627,14 +2508,13 @@
             "model": "SUV",
             "link": "https://www.auto-data.net/en/landwind-suv-generation-1305",
             "details": {
-                "brand": "Landwind",
-                "generation": "SUV",
-                "start_of_production": "2006",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Diesel",
-                "power": "92",
-                "gearbox": "manual"
+                "Brand": "Landwind",
+                "Start of production": "2006 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Diesel",
+                "Power": "92 Hp @ 3600 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f0/big940.jpg",
@@ -2650,13 +2530,12 @@
             "model": "CT 200h",
             "link": "https://www.auto-data.net/en/lexus-ct-200h-generation-3887",
             "details": {
-                "brand": "Lexus",
-                "generation": "CT 200h",
-                "start_of_production": "2011",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "99",
+                "Brand": "Lexus",
+                "Start of production": "March, 2011 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "99 Hp @ 5200 rpm.",
                 "gearbox": "E-CVT"
             },
             "images": [
@@ -2673,14 +2552,13 @@
             "model": "Aviator I",
             "link": "https://www.auto-data.net/en/lincoln-aviator-i-generation-1793",
             "details": {
-                "brand": "Lincoln",
-                "generation": "Aviator I",
-                "start_of_production": "2003",
-                "seats": "7",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "306",
-                "gearbox": "automatic"
+                "Brand": "Lincoln",
+                "Start of production": "2003 year",
+                "Seats": "7",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "306 Hp @ 5750 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f48/Lincoln-Aviator-I.jpg",
@@ -2696,14 +2574,13 @@
             "model": "LFT-666",
             "link": "https://www.auto-data.net/en/lister-lft-666-generation-6146",
             "details": {
-                "brand": "Lister",
-                "generation": "LFT-666",
-                "start_of_production": "2018",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "676",
-                "gearbox": "automatic"
+                "Brand": "Lister",
+                "Start of production": "2018 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "676 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f55/Lister-LFT-666.jpg"
@@ -2715,13 +2592,12 @@
             "model": "2-Eleven",
             "link": "https://www.auto-data.net/en/lotus-2-eleven-generation-8798",
             "details": {
-                "brand": "Lotus",
-                "generation": "2-Eleven",
-                "start_of_production": "2007",
-                "seats": "2",
-                "fuel_type": "Petrol",
-                "power": "255",
-                "gearbox": "manual"
+                "Brand": "Lotus",
+                "Start of production": "2007 year",
+                "Seats": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "255 Hp @ 8000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f34/Lotus-2-Eleven.jpg",
@@ -2737,13 +2613,12 @@
             "model": "Air",
             "link": "https://www.auto-data.net/en/lucid-air-generation-8590",
             "details": {
-                "brand": "Lucid",
-                "generation": "Air",
-                "start_of_production": "2022",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Lucid",
+                "Start of production": "2022 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f96/Lucid-Air.jpg",
@@ -2759,14 +2634,13 @@
             "model": "5",
             "link": "https://www.auto-data.net/en/luxgen-5-generation-7133",
             "details": {
-                "brand": "Luxgen",
-                "generation": "5",
-                "start_of_production": "2011",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "170",
-                "gearbox": "automatic"
+                "Brand": "Luxgen",
+                "Start of production": "November, 2011 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "170 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f3/Luxgen-5.jpg",
@@ -2779,13 +2653,12 @@
             "model": "Venere",
             "link": "https://www.auto-data.net/en/lvchi-venere-generation-6168",
             "details": {
-                "brand": "Lvchi",
-                "generation": "Venere",
-                "start_of_production": "2019",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Lvchi",
+                "Start of production": "2019 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f65/Lvchi-Venere.jpg",
@@ -2801,14 +2674,13 @@
             "model": "Bolero (CJ7)",
             "link": "https://www.auto-data.net/en/mahindra-bolero-cj7-generation-2067",
             "details": {
-                "brand": "Mahindra",
-                "generation": "Bolero (CJ7)",
-                "start_of_production": "2001",
-                "seats": "8",
-                "doors": "5",
-                "fuel_type": "Diesel",
-                "power": "72",
-                "gearbox": "manual"
+                "Brand": "Mahindra",
+                "Start of production": "2001 year",
+                "Seats": "8",
+                "Doors": "5",
+                "Fuel Type": "Diesel",
+                "Power": "72 Hp @ 4000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f115/Mahindra-Bolero-CJ7.jpg",
@@ -2823,14 +2695,13 @@
             "model": "ZEN (EF)",
             "link": "https://www.auto-data.net/en/maruti-zen-ef-generation-2209",
             "details": {
-                "brand": "Maruti",
-                "generation": "ZEN (EF)",
-                "start_of_production": "1999",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Diesel",
-                "power": "57",
-                "gearbox": "manual"
+                "Brand": "Maruti",
+                "Start of production": "1999 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Diesel",
+                "Power": "57 Hp @ 5000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f93/Maruti-ZEN-EF.jpg",
@@ -2843,14 +2714,13 @@
             "model": "228",
             "link": "https://www.auto-data.net/en/maserati-228-generation-2232",
             "details": {
-                "brand": "Maserati",
-                "generation": "228",
-                "start_of_production": "1986",
-                "seats": "5",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "250",
-                "gearbox": "manual"
+                "Brand": "Maserati",
+                "Start of production": "1986 year",
+                "Seats": "5",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "250 Hp @ 6000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f126/Maserati-228.jpg",
@@ -2865,13 +2735,12 @@
             "model": "D60",
             "link": "https://www.auto-data.net/en/maxus-d60-generation-8759",
             "details": {
-                "brand": "Maxus",
-                "generation": "D60",
-                "start_of_production": "2020",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "petrol",
-                "power": "163",
+                "Brand": "Maxus",
+                "Start of production": "April, 2020 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "petrol / electricity",
+                "Power": "163 Hp",
                 "gearbox": null
             },
             "images": [
@@ -2887,14 +2756,13 @@
             "model": "57",
             "link": "https://www.auto-data.net/en/maybach-57-generation-4073",
             "details": {
-                "brand": "Maybach",
-                "generation": "57",
-                "start_of_production": "2002",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "543",
-                "gearbox": "automatic"
+                "Brand": "Maybach",
+                "Start of production": "2002 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "543 Hp @ 5250 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f2/file1630589.jpg",
@@ -2909,14 +2777,13 @@
             "model": "1000",
             "link": "https://www.auto-data.net/en/mazda-1000-generation-2320",
             "details": {
-                "brand": "Mazda",
-                "generation": "1000",
-                "start_of_production": "1964",
-                "seats": "5",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "45",
-                "gearbox": "manual"
+                "Brand": "Mazda",
+                "Start of production": "1964 year",
+                "Seats": "5",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "45 Hp",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f54/Mazda-1000.jpg",
@@ -2932,14 +2799,13 @@
             "model": "570S",
             "link": "https://www.auto-data.net/en/mclaren-570s-generation-4793",
             "details": {
-                "brand": "McLaren",
-                "generation": "570S",
-                "start_of_production": "2015",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "570",
-                "gearbox": "automatic"
+                "Brand": "McLaren",
+                "Start of production": "2015 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "570 Hp @ 7500 rpm.",
+                "gearbox": "automatic transmission SSG"
             },
             "images": [
                 "https://www.auto-data.net/images/f8/file6469861.jpg",
@@ -2955,14 +2821,13 @@
             "model": "RS2000",
             "link": "https://www.auto-data.net/en/melkus-rs2000-generation-8364",
             "details": {
-                "brand": "Melkus",
-                "generation": "RS2000",
-                "start_of_production": "2009",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "270",
-                "gearbox": "manual"
+                "Brand": "Melkus",
+                "Start of production": "2009 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "270 Hp @ 7800 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f43/Melkus-RS2000.jpg",
@@ -2978,14 +2843,13 @@
             "model": "/8 (W114, facelift 1973)",
             "link": "https://www.auto-data.net/en/mercedes-benz-8-w114-facelift-1973-generation-8305",
             "details": {
-                "brand": "Mercedes-Benz",
-                "generation": "/8 (W114, facelift 1973)",
-                "start_of_production": "1973",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "185",
-                "gearbox": "automatic"
+                "Brand": "Mercedes-Benz",
+                "Start of production": "August, 1973 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "185 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f105/Mercedes-Benz-8-W114-facelift-1973.jpg",
@@ -3001,11 +2865,10 @@
             "model": "Capri III",
             "link": "https://www.auto-data.net/en/mercury-capri-iii-generation-2870",
             "details": {
-                "brand": "Mercury",
-                "generation": "Capri III",
-                "start_of_production": "1990",
-                "fuel_type": "Petrol",
-                "power": "132",
+                "Brand": "Mercury",
+                "Start of production": "1990 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "132 Hp",
                 "gearbox": null
             },
             "images": [
@@ -3022,13 +2885,12 @@
             "model": "Astor",
             "link": "https://www.auto-data.net/en/mg-astor-generation-9036",
             "details": {
-                "brand": "MG",
-                "generation": "Astor",
-                "start_of_production": "2021",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "110",
+                "Brand": "MG",
+                "Start of production": "September, 2021 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "110 Hp @ 6000 rpm.",
                 "gearbox": "CVT"
             },
             "images": [
@@ -3069,14 +2931,13 @@
             "model": "3000 GT",
             "link": "https://www.auto-data.net/en/mitsubishi-3000-gt-generation-3368",
             "details": {
-                "brand": "Mitsubishi",
-                "generation": "3000 GT",
-                "start_of_production": "1990",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "222",
-                "gearbox": "automatic"
+                "Brand": "Mitsubishi",
+                "Start of production": "1990 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "222 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f127/Mitsubishi-3000-GT-Z16A.jpg",
@@ -3092,14 +2953,13 @@
             "model": "Rock Star",
             "link": "https://www.auto-data.net/en/mitsuoka-rock-star-generation-8110",
             "details": {
-                "brand": "Mitsuoka",
-                "generation": "Rock Star",
-                "start_of_production": "2018",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "132",
-                "gearbox": "automatic"
+                "Brand": "Mitsuoka",
+                "Start of production": "2018 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "132 Hp @ 7000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f84/Mitsuoka-Rock-Star.jpg",
@@ -3113,13 +2973,12 @@
             "model": "3 Wheeler",
             "link": "https://www.auto-data.net/en/morgan-3-wheeler-generation-4978",
             "details": {
-                "brand": "Morgan",
-                "generation": "3 Wheeler",
-                "start_of_production": "2012",
-                "seats": "2",
-                "fuel_type": "Petrol",
-                "power": "82",
-                "gearbox": "manual"
+                "Brand": "Morgan",
+                "Start of production": "2012 year",
+                "Seats": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "82 Hp @ 5250 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f107/Morgan-3-Wheeler.jpg",
@@ -3135,11 +2994,10 @@
             "model": "Marina Coupe I",
             "link": "https://www.auto-data.net/en/morris-marina-coupe-i-generation-3685",
             "details": {
-                "brand": "Morris",
-                "generation": "Marina Coupe I",
-                "start_of_production": "1971",
-                "fuel_type": "Petrol",
-                "power": "95",
+                "Brand": "Morris",
+                "Start of production": "1971 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "95 Hp",
                 "gearbox": null
             },
             "images": [
@@ -3153,14 +3011,13 @@
             "model": "21406",
             "link": "https://www.auto-data.net/en/moskvich-21406-generation-3512",
             "details": {
-                "brand": "Moskvich",
-                "generation": "21406",
-                "start_of_production": "1978",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "68",
-                "gearbox": "manual"
+                "Brand": "Moskvich",
+                "Start of production": "1978 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "68 Hp @ 5800 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f120/Moskvich-21406.jpg",
@@ -3173,13 +3030,12 @@
             "model": "EC6",
             "link": "https://www.auto-data.net/en/nio-ec6-generation-8059",
             "details": {
-                "brand": "NIO",
-                "generation": "EC6",
-                "start_of_production": "2020",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "NIO",
+                "Start of production": "2020 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f93/NIO-EC6.jpg",
@@ -3193,14 +3049,13 @@
             "model": "100 NX (B13)",
             "link": "https://www.auto-data.net/en/nissan-100-nx-b13-generation-78",
             "details": {
-                "brand": "Nissan",
-                "generation": "100 NX (B13)",
-                "start_of_production": "1991",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "143",
-                "gearbox": "manual"
+                "Brand": "Nissan",
+                "Start of production": "1991 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "143 Hp @ 6400 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f97/Nissan-100-NX-B13.jpg",
@@ -3214,14 +3069,13 @@
             "model": "M600",
             "link": "https://www.auto-data.net/en/noble-m600-generation-5937",
             "details": {
-                "brand": "Noble",
-                "generation": "M600",
-                "start_of_production": "2011",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "659",
-                "gearbox": "manual"
+                "Brand": "Noble",
+                "Start of production": "2011 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "659 Hp @ 6500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f19/noble-m600.jpg"
@@ -3233,14 +3087,13 @@
             "model": "Achieva",
             "link": "https://www.auto-data.net/en/oldsmobile-achieva-generation-408",
             "details": {
-                "brand": "Oldsmobile",
-                "generation": "Achieva",
-                "start_of_production": "1991",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "117",
-                "gearbox": "automatic"
+                "Brand": "Oldsmobile",
+                "Start of production": "1991 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "117 Hp @ 5200 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f37/Oldsmobile-Achieva.jpg",
@@ -3253,14 +3106,13 @@
             "model": "Adam",
             "link": "https://www.auto-data.net/en/opel-adam-generation-3978",
             "details": {
-                "brand": "Opel",
-                "generation": "Adam",
-                "start_of_production": "2015",
-                "seats": "4",
-                "doors": "3",
-                "fuel_type": "Petrol",
-                "power": "150",
-                "gearbox": "manual"
+                "Brand": "Opel",
+                "Start of production": "2015 year",
+                "Seats": "4",
+                "Doors": "3",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "150 Hp @ 4900-5500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f11/file7727549.jpg",
@@ -3276,13 +3128,12 @@
             "model": "Cat",
             "link": "https://www.auto-data.net/en/ora-cat-generation-8907",
             "details": {
-                "brand": "ORA",
-                "generation": "Cat",
-                "start_of_production": "2021",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "ORA",
+                "Start of production": "2021 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f57/ORA-Funky-Cat.jpg",
@@ -3298,14 +3149,13 @@
             "model": "Huayra",
             "link": "https://www.auto-data.net/en/pagani-huayra-generation-4858",
             "details": {
-                "brand": "Pagani",
-                "generation": "Huayra",
-                "start_of_production": "2011",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "730",
-                "gearbox": "automatic"
+                "Brand": "Pagani",
+                "Start of production": "2011 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "730 Hp @ 5800 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f25/file9553838.jpg",
@@ -3321,14 +3171,13 @@
             "model": "Abruzzi Prototype",
             "link": "https://www.auto-data.net/en/panoz-abruzzi-prototype-generation-6457",
             "details": {
-                "brand": "Panoz",
-                "generation": "Abruzzi Prototype",
-                "start_of_production": "2011",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "649",
-                "gearbox": "manual"
+                "Brand": "Panoz",
+                "Start of production": "2011 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "649 Hp @ 6500 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f0/Panoz-Abruzzi-Prototype.jpg",
@@ -3356,14 +3205,13 @@
             "model": "Alza I (M500)",
             "link": "https://www.auto-data.net/en/perodua-alza-i-m500-generation-5621",
             "details": {
-                "brand": "Perodua",
-                "generation": "Alza I (M500)",
-                "start_of_production": "2009",
-                "seats": "7",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "103",
-                "gearbox": "automatic"
+                "Brand": "Perodua",
+                "Start of production": "2009 year",
+                "Seats": "7",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "103 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f29/Perodua-Alza.jpg",
@@ -3376,14 +3224,13 @@
             "model": "1007",
             "link": "https://www.auto-data.net/en/peugeot-1007-generation-1220",
             "details": {
-                "brand": "Peugeot",
-                "generation": "1007",
-                "start_of_production": "2005",
-                "seats": "4",
-                "doors": "3",
-                "fuel_type": "Petrol",
-                "power": "110",
-                "gearbox": "automatic"
+                "Brand": "Peugeot",
+                "Start of production": "2005 year",
+                "Seats": "4",
+                "Doors": "3",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "110 Hp @ 5800 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f113/Peugeot-1007.jpg",
@@ -3399,14 +3246,13 @@
             "model": "660 LMS",
             "link": "https://www.auto-data.net/en/picasso-660-lms-generation-8947",
             "details": {
-                "brand": "Picasso",
-                "generation": "660 LMS",
-                "start_of_production": "2023",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "660",
-                "gearbox": "manual"
+                "Brand": "Picasso",
+                "Start of production": "2023 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "660 Hp",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f115/Picasso-660-LMS.jpg",
@@ -3422,13 +3268,12 @@
             "model": "Battista",
             "link": "https://www.auto-data.net/en/pininfarina-battista-generation-6984",
             "details": {
-                "brand": "Pininfarina",
-                "generation": "Battista",
-                "start_of_production": "2019",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Pininfarina",
+                "Start of production": "2019 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f69/Pininfarina-Battista.jpg",
@@ -3444,14 +3289,13 @@
             "model": "Acclaim",
             "link": "https://www.auto-data.net/en/plymouth-acclaim-generation-1306",
             "details": {
-                "brand": "Plymouth",
-                "generation": "Acclaim",
-                "start_of_production": "1991",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "143",
-                "gearbox": "automatic"
+                "Brand": "Plymouth",
+                "Start of production": "1991 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "143 Hp @ 5000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f92/Plymouth-Acclaim.jpg",
@@ -3464,13 +3308,12 @@
             "model": "Slingshot",
             "link": "https://www.auto-data.net/en/polaris-slingshot-generation-6266",
             "details": {
-                "brand": "Polaris",
-                "generation": "Slingshot",
-                "start_of_production": "2014",
-                "seats": "2",
-                "fuel_type": "Petrol",
-                "power": "173",
-                "gearbox": "manual"
+                "Brand": "Polaris",
+                "Start of production": "2014 year",
+                "Seats": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "173 Hp @ 6200 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f58/Polaris-Slingshot.jpg",
@@ -3486,13 +3329,12 @@
             "model": "1",
             "link": "https://www.auto-data.net/en/polestar-1-generation-6047",
             "details": {
-                "brand": "Polestar",
-                "generation": "1",
-                "start_of_production": "2019",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "petrol",
-                "power": "341",
+                "Brand": "Polestar",
+                "Start of production": "2019 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "petrol / electricity",
+                "Power": "341 Hp",
                 "gearbox": null
             },
             "images": [
@@ -3509,14 +3351,13 @@
             "model": "6000",
             "link": "https://www.auto-data.net/en/pontiac-6000-generation-1374",
             "details": {
-                "brand": "Pontiac",
-                "generation": "6000",
-                "start_of_production": "1988",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "141",
-                "gearbox": "automatic"
+                "Brand": "Pontiac",
+                "Start of production": "1988 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "141 Hp @ 4400 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f96/Pontiac-6000.jpg"
@@ -3528,14 +3369,13 @@
             "model": "356 Coupe",
             "link": "https://www.auto-data.net/en/porsche-356-coupe-generation-8162",
             "details": {
-                "brand": "Porsche",
-                "generation": "356 Coupe",
-                "start_of_production": "1950",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "70",
-                "gearbox": "manual"
+                "Brand": "Porsche",
+                "Start of production": "1950 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "70 Hp @ 5000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f51/Porsche-356-Coupe.jpg",
@@ -3551,14 +3391,13 @@
             "model": "R1",
             "link": "https://www.auto-data.net/en/praga-r1-generation-6191",
             "details": {
-                "brand": "Praga",
-                "generation": "R1",
-                "start_of_production": "2013",
-                "seats": "1-2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "235",
-                "gearbox": "automatic"
+                "Brand": "Praga",
+                "Start of production": "2013 year",
+                "Seats": "1-2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "235 Hp @ 7250 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f25/praga-r1.jpg",
@@ -3572,14 +3411,13 @@
             "model": "Padmini",
             "link": "https://www.auto-data.net/en/premier-padmini-generation-1633",
             "details": {
-                "brand": "Premier",
-                "generation": "Padmini",
-                "start_of_production": "1964",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "42",
-                "gearbox": "manual"
+                "Brand": "Premier",
+                "Start of production": "1964 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "42 Hp @ 4800 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f99/Premier-Padmini.jpg"
@@ -3591,14 +3429,13 @@
             "model": "Ertiga",
             "link": "https://www.auto-data.net/en/proton-ertiga-generation-5522",
             "details": {
-                "brand": "Proton",
-                "generation": "Ertiga",
-                "start_of_production": "2016",
-                "seats": "6",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "92",
-                "gearbox": "automatic"
+                "Brand": "Proton",
+                "Start of production": "2016 year",
+                "Seats": "6",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "92 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f23/proton-ertiga.jpg"
@@ -3610,11 +3447,10 @@
             "model": "Pinzgauer",
             "link": "https://www.auto-data.net/en/puch-pinzgauer-generation-1843",
             "details": {
-                "brand": "PUCH",
-                "generation": "Pinzgauer",
-                "start_of_production": "1971",
-                "fuel_type": "Diesel",
-                "power": "115",
+                "Brand": "PUCH",
+                "Start of production": "1971 year",
+                "Fuel Type": "Diesel",
+                "Power": "115 Hp",
                 "gearbox": null
             },
             "images": [
@@ -3630,14 +3466,13 @@
             "model": "Berlinetta",
             "link": "https://www.auto-data.net/en/puritalia-berlinetta-generation-6981",
             "details": {
-                "brand": "Puritalia",
-                "generation": "Berlinetta",
-                "start_of_production": "2019",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "petrol",
-                "power": "750",
-                "gearbox": "automatic"
+                "Brand": "Puritalia",
+                "Start of production": "2019 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "petrol / electricity",
+                "Power": "750 Hp @ 7000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f80/Puritalia-Berlinetta.jpg",
@@ -3653,13 +3488,12 @@
             "model": "K50",
             "link": "https://www.auto-data.net/en/qiantu-k50-generation-7301",
             "details": {
-                "brand": "Qiantu",
-                "generation": "K50",
-                "start_of_production": "2018",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Qiantu",
+                "Start of production": "2018 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f92/Qiantu-K50.jpg",
@@ -3672,14 +3506,13 @@
             "model": "3 City SUV",
             "link": "https://www.auto-data.net/en/qoros-3-city-suv-generation-6329",
             "details": {
-                "brand": "Qoros",
-                "generation": "3 City SUV",
-                "start_of_production": "2014",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "156",
-                "gearbox": "automatic"
+                "Brand": "Qoros",
+                "Start of production": "December, 2014 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "156 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission DCT"
             },
             "images": [
                 "https://www.auto-data.net/images/f1/qoros-3-city-suv.jpg",
@@ -3695,14 +3528,13 @@
             "model": "1500 Crew Cab I",
             "link": "https://www.auto-data.net/en/ram-1500-crew-cab-i-generation-6852",
             "details": {
-                "brand": "RAM",
-                "generation": "1500 Crew Cab I",
-                "start_of_production": "2010",
-                "seats": "5-6",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "390",
-                "gearbox": "automatic"
+                "Brand": "RAM",
+                "Start of production": "2010 year",
+                "Seats": "5-6",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "390 Hp @ 5600 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f42/RAM-1500-Crew-Cab-I.jpg",
@@ -3718,14 +3550,13 @@
             "model": "Gentra",
             "link": "https://www.auto-data.net/en/ravon-gentra-generation-6506",
             "details": {
-                "brand": "Ravon",
-                "generation": "Gentra",
-                "start_of_production": "2015",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "107",
-                "gearbox": "automatic"
+                "Brand": "Ravon",
+                "Start of production": "2015 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "107 Hp @ 5800 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f17/Ravon-Gentra.jpg"
@@ -3737,14 +3568,13 @@
             "model": "Scimitar Sabre",
             "link": "https://www.auto-data.net/en/reliant-scimitar-sabre-generation-2090",
             "details": {
-                "brand": "Reliant",
-                "generation": "Scimitar Sabre",
-                "start_of_production": "1992",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "135",
-                "gearbox": "manual"
+                "Brand": "Reliant",
+                "Start of production": "1992 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "135 Hp @ 6000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f125/Reliant-Scimitar-Sabre.jpg",
@@ -3758,13 +3588,12 @@
             "model": "12",
             "link": "https://www.auto-data.net/en/renault-12-generation-2124",
             "details": {
-                "brand": "Renault",
-                "generation": "12",
-                "start_of_production": "1971",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "113",
+                "Brand": "Renault",
+                "Start of production": "1971 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "113 Hp",
                 "gearbox": null
             },
             "images": [
@@ -3780,12 +3609,11 @@
             "model": "C_Two (Concept)",
             "link": "https://www.auto-data.net/en/rimac-c-two-concept-generation-6166",
             "details": {
-                "brand": "Rimac",
-                "generation": "C_Two (Concept)",
-                "start_of_production": "2019",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Electricity",
+                "Brand": "Rimac",
+                "Start of production": "2019 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Electricity",
                 "gearbox": "CVT"
             },
             "images": [
@@ -3802,13 +3630,12 @@
             "model": "Budii Concept",
             "link": "https://www.auto-data.net/en/rinspeed-budii-concept-generation-6284",
             "details": {
-                "brand": "Rinspeed",
-                "generation": "Budii Concept",
-                "start_of_production": "2015",
-                "seats": "2",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Rinspeed",
+                "Start of production": "2015 year",
+                "Seats": "2",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f24/rinspeed-budii-concept.jpg",
@@ -3822,12 +3649,11 @@
             "model": "R1S",
             "link": "https://www.auto-data.net/en/rivian-r1s-generation-7070",
             "details": {
-                "brand": "Rivian",
-                "generation": "R1S",
-                "start_of_production": "2018",
-                "seats": "7",
-                "doors": "5",
-                "fuel_type": "Electricity",
+                "Brand": "Rivian",
+                "Start of production": "November, 2018 year",
+                "Seats": "7",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
                 "gearbox": null
             },
             "images": [
@@ -3840,14 +3666,13 @@
             "model": "360 Plus",
             "link": "https://www.auto-data.net/en/roewe-360-plus-generation-6330",
             "details": {
-                "brand": "Roewe",
-                "generation": "360 Plus",
-                "start_of_production": "2017",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "116",
-                "gearbox": "automatic"
+                "Brand": "Roewe",
+                "Start of production": "2017 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "116 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f30/roewe-360-plus.jpg",
@@ -3861,14 +3686,13 @@
             "model": "Corniche (2000)",
             "link": "https://www.auto-data.net/en/rolls-royce-corniche-2000-generation-2260",
             "details": {
-                "brand": "Rolls-Royce",
-                "generation": "Corniche (2000)",
-                "start_of_production": "2000",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "329",
-                "gearbox": "automatic"
+                "Brand": "Rolls-Royce",
+                "Start of production": "2000 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "329 Hp @ 4000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f47/Rolls-Royce-Corniche-2000.jpg",
@@ -3883,14 +3707,13 @@
             "model": "Lightning",
             "link": "https://www.auto-data.net/en/ronart-lightning-generation-2308",
             "details": {
-                "brand": "Ronart",
-                "generation": "Lightning",
-                "start_of_production": "1999",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "325",
-                "gearbox": "manual"
+                "Brand": "Ronart",
+                "Start of production": "October, 1999 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "325 Hp @ 5800 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f105/Ronart-Lightning.jpg"
@@ -3902,14 +3725,13 @@
             "model": "100 (METRO) (XP)",
             "link": "https://www.auto-data.net/en/rover-100-metro-xp-generation-2440",
             "details": {
-                "brand": "Rover",
-                "generation": "100 (METRO) (XP)",
-                "start_of_production": "1990",
-                "seats": "5",
-                "doors": "3-5",
-                "fuel_type": "Petrol",
-                "power": "75",
-                "gearbox": "automatic"
+                "Brand": "Rover",
+                "Start of production": "1990 year",
+                "Seats": "5",
+                "Doors": "3-5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "75 Hp @ 5500 rpm.",
+                "gearbox": "automatic transmission CVT"
             },
             "images": [
                 "https://www.auto-data.net/images/f64/Rover-100-METRO-XP.jpg"
@@ -3921,14 +3743,13 @@
             "model": "CTR",
             "link": "https://www.auto-data.net/en/ruf-ctr-generation-6699",
             "details": {
-                "brand": "RUF",
-                "generation": "CTR",
-                "start_of_production": "1987",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "469",
-                "gearbox": "manual"
+                "Brand": "RUF",
+                "Start of production": "1987 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "469 Hp @ 5950 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f3/ruf-ctr-3.jpg"
@@ -3940,14 +3761,13 @@
             "model": "9-2X",
             "link": "https://www.auto-data.net/en/saab-9-2x-generation-2530",
             "details": {
-                "brand": "Saab",
-                "generation": "9-2X",
-                "start_of_production": "2004",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "173",
-                "gearbox": "manual"
+                "Brand": "Saab",
+                "Start of production": "2004 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "173 Hp @ 5600 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f119/Saab-9-2X.jpg",
@@ -3963,14 +3783,13 @@
             "model": "S7",
             "link": "https://www.auto-data.net/en/saleen-s7-generation-2688",
             "details": {
-                "brand": "Saleen",
-                "generation": "S7",
-                "start_of_production": "2000",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "558",
-                "gearbox": "manual"
+                "Brand": "Saleen",
+                "Start of production": "2000 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "558 Hp @ 6400 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f94/Saleen-S7.jpg",
@@ -3985,14 +3804,13 @@
             "model": "SC (G127)",
             "link": "https://www.auto-data.net/en/saturn-sc-g127-generation-2707",
             "details": {
-                "brand": "Saturn",
-                "generation": "SC (G127)",
-                "start_of_production": "1996",
-                "seats": "5",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "126",
-                "gearbox": "manual"
+                "Brand": "Saturn",
+                "Start of production": "1996 year",
+                "Seats": "5",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "126 Hp @ 5600 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f115/Saturn-SC-G127.jpg"
@@ -4018,14 +3836,13 @@
             "model": "003S Concept",
             "link": "https://www.auto-data.net/en/scg-003s-concept-generation-5945",
             "details": {
-                "brand": "SCG",
-                "generation": "003S Concept",
-                "start_of_production": "2017",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "750",
-                "gearbox": "manual"
+                "Brand": "SCG",
+                "Start of production": "2017 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "750 Hp",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f14/scg-003s-concept.jpg"
@@ -4037,14 +3854,13 @@
             "model": "FR-S",
             "link": "https://www.auto-data.net/en/scion-fr-s-generation-5087",
             "details": {
-                "brand": "Scion",
-                "generation": "FR-S",
-                "start_of_production": "2013",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "200",
-                "gearbox": "automatic"
+                "Brand": "Scion",
+                "Start of production": "2013 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "200 Hp @ 7000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f65/Scion-FR-S.jpg"
@@ -4056,13 +3872,12 @@
             "model": "133",
             "link": "https://www.auto-data.net/en/seat-133-generation-2890",
             "details": {
-                "brand": "Seat",
-                "generation": "133",
-                "start_of_production": "1974",
-                "seats": "4-5",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "34",
+                "Brand": "Seat",
+                "Start of production": "1974 year",
+                "Seats": "4-5",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "34 Hp",
                 "gearbox": null
             },
             "images": [
@@ -4077,12 +3892,11 @@
             "model": "3",
             "link": "https://www.auto-data.net/en/seres-3-generation-9092",
             "details": {
-                "brand": "Seres",
-                "generation": "3",
-                "start_of_production": "2021",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
+                "Brand": "Seres",
+                "Start of production": "2021 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
                 "gearbox": "E-shift"
             },
             "images": [
@@ -4099,14 +3913,13 @@
             "model": "Cars R1",
             "link": "https://www.auto-data.net/en/sin-cars-r1-generation-4956",
             "details": {
-                "brand": "Sin Cars",
-                "generation": "R1",
-                "start_of_production": "2015",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "430",
-                "gearbox": "manual"
+                "Brand": "Sin Cars",
+                "Start of production": "2015 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "430 Hp",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f104/Sin-Cars-R1.jpg",
@@ -4122,13 +3935,12 @@
             "model": "100",
             "link": "https://www.auto-data.net/en/skoda-100-generation-3076",
             "details": {
-                "brand": "Skoda",
-                "generation": "100",
-                "start_of_production": "1969",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "42",
+                "Brand": "Skoda",
+                "Start of production": "1969 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "42 Hp",
                 "gearbox": null
             },
             "images": [
@@ -4141,13 +3953,12 @@
             "model": "#1",
             "link": "https://www.auto-data.net/en/smart-1-generation-8819",
             "details": {
-                "brand": "Smart",
-                "generation": "#1",
-                "start_of_production": "2023",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Smart",
+                "Start of production": "2023 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f41/Smart-1.jpg",
@@ -4163,12 +3974,11 @@
             "model": "Vision-S Concept",
             "link": "https://www.auto-data.net/en/sony-vision-s-concept-generation-7507",
             "details": {
-                "brand": "Sony",
-                "generation": "Vision-S Concept",
-                "start_of_production": "2020",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Electricity",
+                "Brand": "Sony",
+                "Start of production": "2020 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Electricity",
                 "gearbox": null
             },
             "images": [
@@ -4181,14 +3991,13 @@
             "model": "Lioncel",
             "link": "https://www.auto-data.net/en/soueast-lioncel-generation-3360",
             "details": {
-                "brand": "Soueast",
-                "generation": "Lioncel",
-                "start_of_production": "2005",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "100",
-                "gearbox": "manual"
+                "Brand": "Soueast",
+                "Start of production": "2005 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "100 Hp @ 6000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f91/Soueast-Lioncel.jpg",
@@ -4201,14 +4010,13 @@
             "model": "C8 Aileron",
             "link": "https://www.auto-data.net/en/spyker-c8-aileron-generation-5926",
             "details": {
-                "brand": "Spyker",
-                "generation": "C8 Aileron",
-                "start_of_production": "2009",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "400",
-                "gearbox": "automatic"
+                "Brand": "Spyker",
+                "Start of production": "2009 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "400 Hp @ 7000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f4/spyker-c8-aileron.jpg",
@@ -4221,14 +4029,13 @@
             "model": "Actyon",
             "link": "https://www.auto-data.net/en/ssangyong-actyon-generation-3564",
             "details": {
-                "brand": "SsangYong",
-                "generation": "Actyon",
-                "start_of_production": "2006",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "150",
-                "gearbox": "automatic"
+                "Brand": "SsangYong",
+                "Start of production": "2006 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "150 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f69/SsangYong-Actyon.jpg",
@@ -4244,14 +4051,13 @@
             "model": "Tuatara",
             "link": "https://www.auto-data.net/en/ssc-tuatara-generation-6485",
             "details": {
-                "brand": "SSC",
-                "generation": "Tuatara",
-                "start_of_production": "2019",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "1350",
-                "gearbox": "automatic"
+                "Brand": "SSC",
+                "Start of production": "2019 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol / Ethanol - E85",
+                "Power": "1350 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f80/SSC-Tuatara.jpg"
@@ -4263,14 +4069,13 @@
             "model": "Ascent",
             "link": "https://www.auto-data.net/en/subaru-ascent-generation-6018",
             "details": {
-                "brand": "Subaru",
-                "generation": "Ascent",
-                "start_of_production": "2018",
-                "seats": "7-8",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "260",
-                "gearbox": "CVT"
+                "Brand": "Subaru",
+                "Start of production": "2018 year",
+                "Seats": "7-8",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "260 Hp @ 5600 rpm.",
+                "gearbox": "CVT Lineartronic"
             },
             "images": [
                 "https://www.auto-data.net/images/f37/Subaru-Ascent.jpg",
@@ -4283,13 +4088,12 @@
             "model": "SA01",
             "link": "https://www.auto-data.net/en/suda-sa01-generation-9169",
             "details": {
-                "brand": "Suda",
-                "generation": "SA01",
-                "start_of_production": "2020",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Suda",
+                "Start of production": "November, 2020 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f94/Suda-SA01.jpg"
@@ -4301,13 +4105,12 @@
             "model": "Across",
             "link": "https://www.auto-data.net/en/suzuki-across-generation-7859",
             "details": {
-                "brand": "Suzuki",
-                "generation": "Across",
-                "start_of_production": "2020",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "petrol",
-                "power": "185",
+                "Brand": "Suzuki",
+                "Start of production": "July, 2020 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "petrol / electricity",
+                "Power": "185 Hp @ 6000 rpm.",
                 "gearbox": "E-CVT"
             },
             "images": [
@@ -4324,14 +4127,13 @@
             "model": "Aquila",
             "link": "https://www.auto-data.net/en/tagaz-aquila-generation-5470",
             "details": {
-                "brand": "TagAz",
-                "generation": "Aquila",
-                "start_of_production": "2013",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "107",
-                "gearbox": "manual"
+                "Brand": "TagAz",
+                "Start of production": "2013 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "107 Hp @ 6000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f52/TagAz-Aquila.jpg"
@@ -4343,11 +4145,10 @@
             "model": "Avenger",
             "link": "https://www.auto-data.net/en/talbot-avenger-generation-284",
             "details": {
-                "brand": "Talbot",
-                "generation": "Avenger",
-                "start_of_production": "1979",
-                "fuel_type": "Petrol",
-                "power": "81",
+                "Brand": "Talbot",
+                "Start of production": "1979 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "81 Hp",
                 "gearbox": null
             },
             "images": [
@@ -4378,12 +4179,11 @@
             "model": "Ren",
             "link": "https://www.auto-data.net/en/techrules-ren-generation-6149",
             "details": {
-                "brand": "Techrules",
-                "generation": "Ren",
-                "start_of_production": "2018",
-                "seats": "1",
-                "doors": "1",
-                "fuel_type": "Diesel",
+                "Brand": "Techrules",
+                "Start of production": "2018 year",
+                "Seats": "1",
+                "Doors": "1",
+                "Fuel Type": "Diesel",
                 "gearbox": "CVT"
             },
             "images": [
@@ -4400,13 +4200,12 @@
             "model": "Model 3",
             "link": "https://www.auto-data.net/en/tesla-model-3-generation-6100",
             "details": {
-                "brand": "Tesla",
-                "generation": "Model 3",
-                "start_of_production": "2019",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Tesla",
+                "Start of production": "June, 2019 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f26/tesla-model-3.jpg",
@@ -4422,13 +4221,12 @@
             "model": "T10X",
             "link": "https://www.auto-data.net/en/togg-t10x-generation-9388",
             "details": {
-                "brand": "Togg",
-                "generation": "T10X",
-                "start_of_production": "2023",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Togg",
+                "Start of production": "March, 2023 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f64/Togg-T10X.jpg"
@@ -4440,14 +4238,13 @@
             "model": "4runner I",
             "link": "https://www.auto-data.net/en/toyota-4runner-i-generation-5742",
             "details": {
-                "brand": "Toyota",
-                "generation": "4runner I",
-                "start_of_production": "1987",
-                "seats": "2",
-                "doors": "3",
-                "fuel_type": "Petrol",
-                "power": "116",
-                "gearbox": "automatic"
+                "Brand": "Toyota",
+                "Start of production": "1987 year",
+                "Seats": "2",
+                "Doors": "3",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "116 Hp @ 4800 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f23/toyota-4runner-i.jpg",
@@ -4463,14 +4260,13 @@
             "model": "P 601",
             "link": "https://www.auto-data.net/en/trabant-p-601-generation-1190",
             "details": {
-                "brand": "Trabant",
-                "generation": "P 601",
-                "start_of_production": "1970",
-                "seats": "4",
-                "doors": "2",
-                "fuel_type": "Mixture",
-                "power": "26",
-                "gearbox": "manual"
+                "Brand": "Trabant",
+                "Start of production": "1970 year",
+                "Seats": "4",
+                "Doors": "2",
+                "Fuel Type": "Mixture of two stroke engine",
+                "Power": "26 Hp @ 4200 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f56/Trabant-P-601.jpg",
@@ -4486,14 +4282,13 @@
             "model": "XTR",
             "link": "https://www.auto-data.net/en/tramontana-xtr-generation-8360",
             "details": {
-                "brand": "Tramontana",
-                "generation": "XTR",
-                "start_of_production": "2015",
-                "seats": "2",
-                "doors": "1",
-                "fuel_type": "Petrol",
-                "power": "720",
-                "gearbox": "manual"
+                "Brand": "Tramontana",
+                "Start of production": "2015 year",
+                "Seats": "2",
+                "Doors": "1",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "720 Hp @ 5850 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f38/Tramontana-XTR.jpg"
@@ -4505,11 +4300,10 @@
             "model": "1500",
             "link": "https://www.auto-data.net/en/triumph-1500-generation-1283",
             "details": {
-                "brand": "Triumph",
-                "generation": "1500",
-                "start_of_production": "1975",
-                "fuel_type": "Petrol",
-                "power": "72",
+                "Brand": "Triumph",
+                "Start of production": "1975 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "72 Hp",
                 "gearbox": null
             },
             "images": [
@@ -4523,14 +4317,13 @@
             "model": "GA4",
             "link": "https://www.auto-data.net/en/trumpchi-ga4-generation-6886",
             "details": {
-                "brand": "Trumpchi",
-                "generation": "GA4",
-                "start_of_production": "2018",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "114",
-                "gearbox": "automatic"
+                "Brand": "Trumpchi",
+                "Start of production": "2018 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "114 Hp @ 6000 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f102/Trumpchi-GA4.jpg",
@@ -4546,11 +4339,10 @@
             "model": "1600",
             "link": "https://www.auto-data.net/en/tvr-1600-generation-1317",
             "details": {
-                "brand": "TVR",
-                "generation": "1600",
-                "start_of_production": "1972",
-                "fuel_type": "Petrol",
-                "power": "86",
+                "Brand": "TVR",
+                "Start of production": "1972 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "86 Hp",
                 "gearbox": null
             },
             "images": [
@@ -4563,14 +4355,13 @@
             "model": "3151",
             "link": "https://www.auto-data.net/en/uaz-3151-generation-3749",
             "details": {
-                "brand": "UAZ",
-                "generation": "3151",
-                "start_of_production": "1989",
-                "seats": "7",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "90",
-                "gearbox": "manual"
+                "Brand": "UAZ",
+                "Start of production": "1989 year",
+                "Seats": "7",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "90 Hp @ 4000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f99/UAZ-3151.jpg",
@@ -4586,13 +4377,12 @@
             "model": "Venice",
             "link": "https://www.auto-data.net/en/vanderhall-venice-generation-6702",
             "details": {
-                "brand": "Vanderhall",
-                "generation": "Venice",
-                "start_of_production": "2017",
-                "seats": "2",
-                "fuel_type": "Petrol",
-                "power": "180",
-                "gearbox": "automatic"
+                "Brand": "Vanderhall",
+                "Start of production": "2017 year",
+                "Seats": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "180 Hp @ 4950 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f43/Vanderhall-Venice.jpg"
@@ -4604,14 +4394,13 @@
             "model": "Agila",
             "link": "https://www.auto-data.net/en/vauxhall-agila-generation-1407",
             "details": {
-                "brand": "Vauxhall",
-                "generation": "Agila",
-                "start_of_production": "2000",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "75",
-                "gearbox": "manual"
+                "Brand": "Vauxhall",
+                "Start of production": "July, 2000 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "75 Hp @ 5600 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f74/Vauxhall-Agila.jpg"
@@ -4623,11 +4412,10 @@
             "model": "M12",
             "link": "https://www.auto-data.net/en/vector-m12-generation-1541",
             "details": {
-                "brand": "Vector",
-                "generation": "M12",
-                "start_of_production": "1995",
-                "fuel_type": "Petrol",
-                "power": "492",
+                "Brand": "Vector",
+                "Start of production": "1995 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "492 Hp",
                 "gearbox": null
             },
             "images": [
@@ -4640,14 +4428,13 @@
             "model": "210 Cabrio",
             "link": "https://www.auto-data.net/en/venturi-210-cabrio-generation-1634",
             "details": {
-                "brand": "Venturi",
-                "generation": "210 Cabrio",
-                "start_of_production": "1990",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "210",
-                "gearbox": "manual"
+                "Brand": "Venturi",
+                "Start of production": "1990 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "210 Hp @ 5550 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f112/Venturi-210.jpg"
@@ -4659,13 +4446,12 @@
             "model": "Fadil",
             "link": "https://www.auto-data.net/en/vinfast-fadil-generation-6944",
             "details": {
-                "brand": "VinFast",
-                "generation": "Fadil",
-                "start_of_production": "2019",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "98",
+                "Brand": "VinFast",
+                "Start of production": "2019 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "98 Hp @ 6200 rpm.",
                 "gearbox": "CVT"
             },
             "images": [
@@ -4678,14 +4464,13 @@
             "model": "181",
             "link": "https://www.auto-data.net/en/volkswagen-181-generation-1850",
             "details": {
-                "brand": "Volkswagen",
-                "generation": "181",
-                "start_of_production": "1968",
-                "seats": "4",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "46",
-                "gearbox": "manual"
+                "Brand": "Volkswagen",
+                "Start of production": "1968 year",
+                "Seats": "4",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "46 Hp @ 4000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f53/Volkswagen-181.jpg",
@@ -4698,11 +4483,10 @@
             "model": "140 (142,144)",
             "link": "https://www.auto-data.net/en/volvo-140-142-144-generation-1925",
             "details": {
-                "brand": "Volvo",
-                "generation": "140 (142,144)",
-                "start_of_production": "1972",
-                "fuel_type": "Petrol",
-                "power": "116",
+                "Brand": "Volvo",
+                "Start of production": "1972 year",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "116 Hp",
                 "gearbox": null
             },
             "images": [
@@ -4719,13 +4503,12 @@
             "model": "05",
             "link": "https://www.auto-data.net/en/vuhl-05-generation-5964",
             "details": {
-                "brand": "VUHL",
-                "generation": "05",
-                "start_of_production": "2016",
-                "seats": "2",
-                "fuel_type": "Petrol",
-                "power": "385",
-                "gearbox": "automatic"
+                "Brand": "VUHL",
+                "Start of production": "June, 2016 year",
+                "Seats": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "385 Hp",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f21/vuhl-05.jpg",
@@ -4741,14 +4524,13 @@
             "model": "914",
             "link": "https://www.auto-data.net/en/vw-porsche-914-generation-2074",
             "details": {
-                "brand": "VW-Porsche",
-                "generation": "914",
-                "start_of_production": "1969",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "110",
-                "gearbox": "manual"
+                "Brand": "VW-Porsche",
+                "Start of production": "1969 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "110 Hp @ 5800 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f87/VW-Porsche-914.jpg",
@@ -4764,14 +4546,13 @@
             "model": "Motors Fenyr SuperSport",
             "link": "https://www.auto-data.net/en/w-motors-fenyr-supersport-generation-5973",
             "details": {
-                "brand": "W Motors",
-                "generation": "Fenyr SuperSport",
-                "start_of_production": "2015",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "900",
-                "gearbox": "automatic"
+                "Brand": "W Motors",
+                "Start of production": "November, 2015 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "900 Hp @ 7100 rpm.",
+                "gearbox": "automatic transmission PDK"
             },
             "images": [
                 "https://www.auto-data.net/images/f44/W-Motors-Fenyr-SuperSport.jpg",
@@ -4787,14 +4568,13 @@
             "model": "311",
             "link": "https://www.auto-data.net/en/wartburg-311-generation-8170",
             "details": {
-                "brand": "Wartburg",
-                "generation": "311",
-                "start_of_production": "1962",
-                "seats": "4-5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "45",
-                "gearbox": "manual"
+                "Brand": "Wartburg",
+                "Start of production": "1962 year",
+                "Seats": "4-5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "45 Hp @ 4200 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f113/Wartburg-311.jpg"
@@ -4806,14 +4586,13 @@
             "model": "Coffee 01",
             "link": "https://www.auto-data.net/en/wey-coffee-01-generation-9095",
             "details": {
-                "brand": "WEY",
-                "generation": "Coffee 01",
-                "start_of_production": "2022",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "petrol",
-                "power": "204",
-                "gearbox": "automatic"
+                "Brand": "WEY",
+                "Start of production": "2022 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "petrol / electricity",
+                "Power": "204 Hp",
+                "gearbox": "automatic transmission DCT"
             },
             "images": [
                 "https://www.auto-data.net/images/f52/WEY-Coffee-01.jpg",
@@ -4829,14 +4608,13 @@
             "model": "GT MF4",
             "link": "https://www.auto-data.net/en/wiesmann-gt-mf4-generation-5064",
             "details": {
-                "brand": "Wiesmann",
-                "generation": "GT MF4",
-                "start_of_production": "2003",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "420",
-                "gearbox": "automatic"
+                "Brand": "Wiesmann",
+                "Start of production": "2003 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "420 Hp @ 8300 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f89/Wiesmann-GT-MF4.jpg",
@@ -4849,13 +4627,12 @@
             "model": "G3",
             "link": "https://www.auto-data.net/en/xpeng-g3-generation-6766",
             "details": {
-                "brand": "XPENG",
-                "generation": "G3",
-                "start_of_production": "2018",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "XPENG",
+                "Start of production": "January, 2018 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f19/XPENG-G3.jpg"
@@ -4867,13 +4644,12 @@
             "model": "MX2",
             "link": "https://www.auto-data.net/en/zacua-mx2-generation-7508",
             "details": {
-                "brand": "Zacua",
-                "generation": "MX2",
-                "start_of_production": "2017",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Zacua",
+                "Start of production": "July, 2017 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f111/Zacua-MX2.jpg",
@@ -4886,14 +4662,13 @@
             "model": "10",
             "link": "https://www.auto-data.net/en/zastava-10-generation-2467",
             "details": {
-                "brand": "Zastava",
-                "generation": "10",
-                "start_of_production": "2005",
-                "seats": "5",
-                "doors": "5",
-                "fuel_type": "Petrol",
-                "power": "60",
-                "gearbox": "manual"
+                "Brand": "Zastava",
+                "Start of production": "October, 2005 year",
+                "Seats": "5",
+                "Doors": "5",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "60 Hp @ 5000 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f129/Zastava-10.jpg",
@@ -4909,14 +4684,13 @@
             "model": "1102",
             "link": "https://www.auto-data.net/en/zaz-1102-generation-3017",
             "details": {
-                "brand": "ZAZ",
-                "generation": "1102",
-                "start_of_production": "2001",
-                "seats": "5",
-                "doors": "3",
-                "fuel_type": "Petrol",
-                "power": "58",
-                "gearbox": "manual"
+                "Brand": "ZAZ",
+                "Start of production": "2001 year",
+                "Seats": "5",
+                "Doors": "3",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "58 Hp @ 5300 rpm.",
+                "gearbox": "manual transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f31/ZAZ-1102.jpg",
@@ -4932,14 +4706,13 @@
             "model": "ST1",
             "link": "https://www.auto-data.net/en/zenvo-st1-generation-5920",
             "details": {
-                "brand": "Zenvo",
-                "generation": "ST1",
-                "start_of_production": "2009",
-                "seats": "2",
-                "doors": "2",
-                "fuel_type": "Petrol",
-                "power": "1102",
-                "gearbox": "automatic"
+                "Brand": "Zenvo",
+                "Start of production": "2009 year",
+                "Seats": "2",
+                "Doors": "2",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "1102 Hp @ 6900 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f29/zenvo-st1.jpg",
@@ -4952,13 +4725,12 @@
             "model": "D1",
             "link": "https://www.auto-data.net/en/zhidou-d1-generation-6323",
             "details": {
-                "brand": "Zhidou",
-                "generation": "D1",
-                "start_of_production": "2014",
-                "seats": "2",
-                "doors": "3",
-                "fuel_type": "Electricity",
-                "gearbox": "automatic"
+                "Brand": "Zhidou",
+                "Start of production": "2014 year",
+                "Seats": "2",
+                "Doors": "3",
+                "Fuel Type": "Electricity",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f39/Zhidou-D2.jpg",
@@ -4971,14 +4743,13 @@
             "model": "114",
             "link": "https://www.auto-data.net/en/zil-114-generation-3107",
             "details": {
-                "brand": "ZIL",
-                "generation": "114",
-                "start_of_production": "1967",
-                "seats": "7",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "303",
-                "gearbox": "automatic"
+                "Brand": "ZIL",
+                "Start of production": "1967 year",
+                "Seats": "7",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "303 Hp @ 4400 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f80/ZIL-114.jpg"
@@ -4990,12 +4761,11 @@
             "model": "E200",
             "link": "https://www.auto-data.net/en/zotye-e200-generation-8688",
             "details": {
-                "brand": "Zotye",
-                "generation": "E200",
-                "start_of_production": "2016",
-                "seats": "2",
-                "doors": "3",
-                "fuel_type": "Electricity",
+                "Brand": "Zotye",
+                "Start of production": "2016 year",
+                "Seats": "2",
+                "Doors": "3",
+                "Fuel Type": "Electricity",
                 "gearbox": null
             },
             "images": [
@@ -5012,14 +4782,13 @@
             "model": "GrandTiger",
             "link": "https://www.auto-data.net/en/zx-grandtiger-generation-2689",
             "details": {
-                "brand": "ZX",
-                "generation": "GrandTiger",
-                "start_of_production": "2007",
-                "seats": "5",
-                "doors": "4",
-                "fuel_type": "Petrol",
-                "power": "126",
-                "gearbox": "automatic"
+                "Brand": "ZX",
+                "Start of production": "2007 year",
+                "Seats": "5",
+                "Doors": "4",
+                "Fuel Type": "Petrol (Gasoline)",
+                "Power": "126 Hp @ 5200 rpm.",
+                "gearbox": "automatic transmission"
             },
             "images": [
                 "https://www.auto-data.net/images/f128/ZX-GrandTiger.jpg",
