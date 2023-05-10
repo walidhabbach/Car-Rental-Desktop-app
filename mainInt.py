@@ -129,6 +129,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.comboBoxReservation.currentIndexChanged.connect(lambda: self.reservation.searchByReservation(self.ui.comboBoxReservation,self.ui.reservation_data,self.ui.comboClients_4.currentData()))
 
     ########################################### Users section ##########################################################
+        self.tool = Tool.tool()
         try:
             self.user = user.User()
             self.ui.addEmpBtn.clicked.connect(self.AddEmp)
@@ -156,7 +157,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.brand = brand.Brand()
             self.fuel = fuel.Fuel()
             self.gearBox= transmission.Transmission()
-            self.tool = Tool.tool()
+          
 
             # load combobox
             self.dict_fuel = self.tool.fill_combobox(self.ui.comboBoxFuel)
