@@ -1,4 +1,5 @@
 from GestionVoiture import car
+from GestionUsers import user
 from GestionVoiture import brand
 from GestionVoiture import fuel
 from GestionVoiture import transmission
@@ -10,13 +11,15 @@ from PyQt5.QtWidgets import QMessageBox
 from PyQt5 import QtCore
 from PyQt5.QtGui import QImage
 import numpy as np
-from PyQt5.QtCore import QByteArray, QBuffer
+from PyQt5.QtCore import QByteArray, QBuffer, Qt
+
 
 class tool:
 
     def __init__(self):
         self.scraping = scraping.scrap()
         self.car = car.Car()
+        self.user = user.User()
         self.brand = brand.Brand()
         self.fuel = fuel.Fuel()
         self.gearBox = transmission.Transmission()
@@ -155,10 +158,27 @@ class tool:
             row = index.row()
             if "tableWidgeModels" == table.objectName():
                 column = index.column()
+                return table.item(row, 1).text()
+            elif "tableWidgetUsers" == table.objectName():
+                idUser = int(table.item(row, 0).text())
+                column = index.column()
                 print(column)
-                if table.horizontalHeaderItem(column).text() == "Add":
-                    return table.item(row, 1)
-            else :
+                print(idUser)
+                if table.horizontalHeaderItem(column).text() == "Delete":
+                    # Ask the user to confirm before deleting:
+                    confirm = QMessageBox.question(None, "Confirmation", "Are you sure you want to delete this user?",
+                                                   QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+                    if confirm == QMessageBox.Yes:
+                        self.user.delete(idUser)
+                        table.removeRow(row)
+                        self.warning(f"user id :{idUser} has been deleted")
+                    else:
+                        return None
+                elif table.horizontalHeaderItem(column).text() == "Edit":
+                    # Edit Car:
+                    return idUser
+
+            elif "tableWidgetCar" == table.objectName():
                 idCar = int(table.item(row, 1).text())
                 column = index.column()
                 print(column)
@@ -179,3 +199,10 @@ class tool:
         except Exception as e:
             print(f"handlClick: {e}")
             return
+
+    def alignItemsCenter(self,table):
+        for row in range(table.rowCount()):
+            for col in range(table.columnCount()):
+                item = table.item(row, col)
+                if item is not None:
+                    item.setTextAlignment(Qt.AlignCenter)

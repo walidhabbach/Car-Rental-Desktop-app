@@ -14,7 +14,7 @@ class EditClient(QtWidgets.QMainWindow):
         self.idUser = user_dict_['idUser']
         self.user_dict = user_dict_
         self.client = Client.Client()
-        self.ui = uic.loadUi("../Location-voiture-master/editClient_ui.ui",self)
+        self.ui = uic.loadUi("../main/editClient_ui.ui",self)
         self.ui.valider_btn.clicked.connect(self.editClientBtn)
         self.displayDataClient()
         self.getUserImage()
@@ -69,6 +69,7 @@ class EditClient(QtWidgets.QMainWindow):
                 self.user_dict['liste_noire'] = 1 if (self.ui.radioOui.isChecked()) else 0
                 self.user_dict['idUser'] = self.idUser
                 pixmap = self.ui.image_label_cli.pixmap()  # Get the pixmap from the label widget
+                print(self.user_dict)
                 if pixmap is not None:
                     byte_array = QByteArray()
                     buffer = QBuffer(byte_array)
@@ -76,60 +77,66 @@ class EditClient(QtWidgets.QMainWindow):
                     pixmap.toImage().save(buffer, 'PNG')
                     self.user_dict['photo'] = byte_array
                     self.client.updateClient(self.user_dict)
+                    self.client.updateUser(self.user_dict)
                     self.client.displayClients(
                         f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser "
                         , self.table)
                     self.client.displayClients(
                         f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser WHERE liste_noire = 1"
                         , self.table_list_no)
+
+
         except Exception as e:
             print(e)
     def verificationFields(self):
-        checkers = []
-        flag = True
-        flagChecks = False
-        for widget in self.ui.findChildren(QtWidgets.QWidget):
-            if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit":
-                if(widget.text() == ""):
-                    widget.setStyleSheet("border: 1px solid red")
-                    flag = False
-                else:
-                    widget.setStyleSheet("border: 1px solid green")
-                    if (widget.objectName() == "cin"):
-                        if (self.client.testCin(widget.text(),self.idUser)):
-                            widget.setStyleSheet("border: 1px solid red")
-                            print("cin deja entré for edit client")
+        try:
+            checkers = []
+            flag = True
+            flagChecks = False
+            for widget in self.ui.findChildren(QtWidgets.QWidget):
+                if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit":
+                    if (widget.text() == ""):
+                        widget.setStyleSheet("border: 1px solid red")
+                        flag = False
+                    else:
+                        widget.setStyleSheet("border: 1px solid green")
+                        if (widget.objectName() == "cin"):
+                            if (self.client.testCin(widget.text(), self.idUser)):
+                                widget.setStyleSheet("border: 1px solid red")
+                                print("cin deja entré for edit client")
+                                flag = False
+
+                elif isinstance(widget, QtWidgets.QRadioButton):
+                    if (widget.isChecked()):
+                        flagChecks = True
+                elif isinstance(widget, QtWidgets.QTextEdit):
+                    if (widget.toPlainText() == ""):
+                        # print(f"widget is empty : {widget.objectName()} ")
+                        widget.setStyleSheet("border: 1px solid red")
+                        flag = False
+                    else:
+                        widget.setStyleSheet("border: 1px solid green")
+                elif isinstance(widget, QtWidgets.QDateEdit):
+                    dure_permis = datetime.now().date() - datetime.strptime(widget.text(), '%d/%m/%Y').date()
+                    if ((dure_permis.days) / 365 < 2):
+                        flag = False
+                        self.client.warning("duree permis est inférieur a 2 ans : ")
+
+                elif isinstance(widget, QtWidgets.QLabel):
+                    if widget.objectName() == "image_label_cli":
+                        if widget.pixmap() is None:
+                            self.client.warning("image n'est pas définie")
                             flag = False
 
-            elif isinstance(widget,QtWidgets.QRadioButton):
-                if(widget.isChecked()):
-                    flagChecks = True
-            elif isinstance(widget,QtWidgets.QTextEdit):
-                if (widget.toPlainText() == ""):
-                    #print(f"widget is empty : {widget.objectName()} ")
-                    widget.setStyleSheet("border: 1px solid red")
-                    flag = False
-                else:
-                    widget.setStyleSheet("border: 1px solid green")
-            elif isinstance(widget,QtWidgets.QDateEdit):
-                dure_permis  = datetime.now().date() - datetime.strptime(widget.text(), '%d/%m/%Y').date()
-                if((dure_permis.days)/365 < 2):
-                    flag = False
-                    print("azbiiiii rah duree permis est inférieur a 2 ans : ")
-
-            elif isinstance(widget,QtWidgets.QLabel):
-                if widget.objectName() == "image_label_cli":
-                    if widget.pixmap() is None:
-                        print("image n'est pas définie")
-                        flag = False
-
-        if(flag and flagChecks):
-            return True
-        elif(flag and not flagChecks):
-           print("Checkers must be filled in : ")
-           return False
-        elif(not flag or not flagChecks):
-            return False
+            if (flag and flagChecks):
+                return True
+            elif (flag and not flagChecks):
+                self.client.warning("veuillez cocher sur l'un des radio buttons : ")
+                return False
+            elif (not flag or not flagChecks):
+                return False
+        except Exception as e:
+            print(e)
 
     def image_dialog(self):
         try:
@@ -148,3 +155,12 @@ class EditClient(QtWidgets.QMainWindow):
                 self.ui.image_label_cli.adjustSize()
         except Exception as e:
             print(e)
+
+    def clearAllField(self):
+        for widget in self.ui.findChildren(QtWidgets.QWidget):
+            if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit" or isinstance(
+                    widget, QtWidgets.QTextEdit):
+                widget.clear()
+                widget.setStyleSheet("border: 1px solid gray")
+            elif isinstance(widget, QtWidgets.QLabel):
+                widget.clear()

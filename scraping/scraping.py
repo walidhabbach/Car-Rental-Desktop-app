@@ -9,7 +9,7 @@ class scrap:
         with open('./Scraping/brands_modelsAll.json') as f:
             self.data = json.load(f)
 
-    def dowloadScript(self,url):
+    def downloadScript(self,url):
         # Send a GET request to the URL and get the response
         response = requests.get(url)
 
@@ -88,9 +88,7 @@ class scrap:
                     })
 
 
-        # Write the data to a JSON file
-        with open("brands_models.json", "w") as f:
-            json.dump(data, f, indent=4)
+
 
     def addImageUrl(self,data):
         # Create a new dictionary to store the updated data
@@ -128,6 +126,7 @@ class scrap:
             print(f"Error downloading image: {e}")
             return None
 
+
     def getCarUrlImages(self,url):
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -163,20 +162,13 @@ class scrap:
         print("All images downloaded!")
         return images
 
-    import concurrent.futures
+    def download_img(self,url):
+        url = self.getModelImage(url)
+        pixmap = self.get_image_from_url(url)
+        return pixmap
 
-    def download_imagesVer2(self, image_urls):
-        images = []
-        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-            futures = [executor.submit(self.get_image_from_url, url) for url in image_urls]
-            for future in concurrent.futures.as_completed(futures):
-                try:
-                    pixmap = future.result()
-                    if pixmap is not None:
-                        images.append(pixmap)
-                except Exception as e:
-                    print(f"Error downloading image: {e}")
-        return images
+
+
 
     #######################################################################################################################
 
@@ -203,14 +195,17 @@ class scrap:
 
         return models
 
-    def getCarsByBrand(self,brand_name):
 
-        car_data = self.data.get(brand_name)
+    def getCarByModel(self, brand, model):
+        car_data = self.data.get(brand)
         if car_data is None:
-            print(f"No data found for brand {brand_name}")
+            print(f"No data found for brand {brand}")
             return []
-
-        return car_data
+        matching_cars = []
+        for car in car_data:
+            if car["model"].lower() == model.lower():
+                matching_cars.append(car)
+        return matching_cars
 
     def getCarsByModel(self, brand, model):
         car_data = self.data.get(brand)
@@ -219,9 +214,21 @@ class scrap:
             return []
         matching_cars = []
         for car in car_data:
-            if car["model"] == model:
+            if car["model"].lower() == model.lower():
                 matching_cars.append(car)
         return matching_cars
+
+    def searchCarsByModel(self, brand, model):
+        car_data = self.data.get(brand)
+        if car_data is None:
+            print(f"No data found for brand {brand}")
+            return []
+        matching_cars = []
+        for car in car_data:
+            if car["model"].lower().startswith(model.lower()):
+                matching_cars.append(car)
+        return matching_cars
+
 
 #######################################################################################################################
 

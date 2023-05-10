@@ -68,20 +68,33 @@ class Reservation:
         except Exception as e:
             print(f"{e}")
     def filterComboBox(self,combo,idClient):
-        for i in reversed(range(combo.count())):
-            item_text = combo.itemText(i)
-            if "select reservation" != item_text.lower():
-                combo.removeItem(i)
-        if(idClient != None ):
-            request = f"SELECT reservation.idUser,concat(date_depart,'/',date_arr) from client join reservation on client.idUser = reservation.idUser" \
-                      f" where client.idUser = '{idClient}'"
-            res = self.getAllReser(request)
-            for re in res:
-                combo.addItem(str(re[1]))
-                # Set the key as custom data for the item
-                combo.setItemData(combo.count() - 1, re[0])
+        try:
+            for i in reversed(range(combo.count())):
+                item_text = combo.itemText(i)
+                if "select reservation" != item_text.lower():
+                    combo.removeItem(i)
+            if (idClient != None):
+                request = f"SELECT reservation.idUser,concat(date_depart,'/',date_arr) from client join reservation on client.idUser = reservation.idUser" \
+                          f" where client.idUser = '{idClient}'"
+                res = self.getAllReser(request)
+                for re in res:
+                    combo.addItem(str(re[1]))
+                    # Set the key as custom data for the item
+                    combo.setItemData(combo.count() - 1, re[0])
+        except Exception as e:
+            print(e)
 
 
+    def getDict(self,req):
+        if(self.connexion.connect()):
+            self.connexion.cursor.execute(req)
+            columns = [desc[0] for desc in self.connexion.cursor.description]
+
+            results = self.connexion.cursor.fetchall()
+            res = []
+            for row in results:
+                res.append(dict(zip(columns, row)))
+            return res
     def searchByReservation(self,combo,table,idClient):
         try:
             if(combo.currentText().lower() != "select reservation"):
@@ -140,18 +153,21 @@ class Reservation:
         except Exception as e:
             print(f"{e}")
     def searchByUser(self,table,id,comboBox):
-        if(id is not None):
-            print("searching by User")
-            request = f"SELECT id_res,idUser,idCar,date_depart,date_arr,status,price,message FROM RESERVATION where idUser='{id}'"
-            data = self.getAllReser(request)
-            self.displayReservationsClient(table, data)
-            self.filterComboBox(comboBox,id)
-        else:
-            for i in reversed(range(comboBox.count())):
-                item_text = comboBox.itemText(i)
-                if "select reservation" != item_text.lower():
-                    comboBox.removeItem(i)
-            self.displayReservations(table)
+        try:
+            if (id is not None):
+                print("searching by User")
+                request = f"SELECT id_res,idUser,idCar,date_depart,date_arr,status,price,message FROM RESERVATION where idUser='{id}'"
+                data = self.getAllReser(request)
+                self.displayReservationsClient(table, data)
+                self.filterComboBox(comboBox, id)
+            else:
+                for i in reversed(range(comboBox.count())):
+                    item_text = comboBox.itemText(i)
+                    if "select reservation" != item_text.lower():
+                        comboBox.removeItem(i)
+                self.displayReservations(table)
+        except Exception as e:
+            print(e)
 
 
     def updateReservation(self,reserva_dict):

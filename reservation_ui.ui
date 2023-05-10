@@ -23,19 +23,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>161</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Reservation de monsieur : </string>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>

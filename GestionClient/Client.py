@@ -10,27 +10,46 @@ class Client:
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
 
     def getClientsData(self, request):
-        if (self.connexion.connect()):
+        try:
+            if (self.connexion.connect()):
+                req = request
+                self.connexion.cursor.execute(req)
+                users = self.connexion.cursor.fetchall()
+                return users
+        except Exception as e:
+            print(e)
+
+    def getValuePairDataClient(self,request):
+        try:
+            vp = dict()
             req = request
             self.connexion.cursor.execute(req)
             users = self.connexion.cursor.fetchall()
-            return users
+            for user in users:
+                vp[user[0]] = user[1]
+            return vp
+        except Exception as e:
+            print(e)
 
-    def getValuePairDataClient(self,request):
-        vp = dict()
-        req = request
-        self.connexion.cursor.execute(req)
-        users = self.connexion.cursor.fetchall()
-        for user in users:
-            vp[user[0]] = user[1]
-        return vp
+    def updateUser(self,client_dict):
+        if(self.connexion.connect()):
+            print("update use r: ")
+            req = f"UPDATE utilisateur SET `login`=%s ,`mdp`=%s, `nom` = %s, " \
+                  f" `prenom` = %s WHERE `idUser`=%s"
 
+            self.connexion.cursor.execute(req, (client_dict['login'], client_dict['mdp'], client_dict['nom'],
+                client_dict['prenom'], client_dict['idUser']))
+            self.connexion.conn.commit()
+
+
+            self.warning("Modifié avec succés : ")
     def updateClient(self,client_dict):
         try:
             print(client_dict['date_permis'])
             if (self.connexion.connect()):
                 req = f"UPDATE client SET `photo`=%s ,`cin`=%s, `liste_noire` = %s, " \
                       f" `permis` = %s,`passport`=%s,`email`=%s,`observation`=%s,`societe`=%s,`ville`=%s,`tel`=%s,`date_permis`=%s WHERE `idUser`=%s"
+
 
                 self.connexion.cursor.execute(req, (
                 bytes(client_dict['photo']), client_dict['cin'], client_dict['liste_noire'],
@@ -39,7 +58,6 @@ class Client:
                 client_dict['tel'], client_dict['date_permis'],client_dict['idUser']))
 
                 self.connexion.conn.commit()
-                self.warning("Modifié avec succés : ")
         except Exception as e:
             print(f"error: {e}")
     def warning(self,message):
@@ -153,12 +171,15 @@ class Client:
 
 
     def testCin(self,cinClie,idUser):
-        request = f"SELECT cin from client where idUser != '{idUser}'" if idUser != "" else "SELECT cin from client"
-        cins = self.getClientsData(request)
-        for cin in cins:
-            if(cinClie == cin[0]):
-                return True
-        return False
+        try:
+            request = f"SELECT cin from client where idUser != '{idUser}'" if idUser != "" else "SELECT cin from client"
+            cins = self.getClientsData(request)
+            for cin in cins:
+                if (cinClie == cin[0]):
+                    return True
+            return False
+        except Exception as e:
+            print(e)
 
     def fillComboClient(self,combo,request,type):
         try:
@@ -170,3 +191,15 @@ class Client:
                 combo.setItemData(combo.count() - 1, key)
         except Exception as e:
             print(e)
+
+    def getDict(self,req):
+        if(self.connexion.connect()):
+            self.connexion.cursor.execute(req)
+            columns = [desc[0] for desc in self.connexion.cursor.description]
+
+            results = self.connexion.cursor.fetchall()
+            res = []
+            for row in results:
+                res.append(dict(zip(columns, row)))
+            return res
+

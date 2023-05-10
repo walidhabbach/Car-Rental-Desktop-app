@@ -7,19 +7,24 @@ class ReservationClient(QtWidgets.QMainWindow):
         self.res_dict = reservation_dict
         self.client = Client.Client()
         self.ui = uic.loadUi("../main/reservation_ui.ui",self)
-        self.displayReservation()
-    def setDictionary(self,user_dict):
-        print("hna")
-    def displayReservation(self):
-        self.ui.reservation_data.clearContents()  # Clear the existing data in the table
-        self.ui.reservation_data.setColumnCount(3)  # Set the number of columns in the table
-        self.ui.reservation_data.setHorizontalHeaderLabels(['idCar', 'date depart', 'date arrivée'])
+        self.displayReservation(reservation_dict)
+    def displayReservation(self,res):
+        try:
+            self.ui.reservation_data.clearContents()  # Clear the existing data in the table
+            self.ui.reservation_data.setColumnCount(8)  # Set the number of columns in the table
+            self.ui.reservation_data.setHorizontalHeaderLabels(['idCar','idUser', 'date depart', 'date arrivée','price','message','id_res','status'])
 
-        self.ui.reservation_data.setRowCount(len(self.res_dict))  # Set the number of rows in the table
-        #adding select check mark :
-        row_idx = 0
-        for key, value in self.res_dict.items():
-            self.ui.reservation_data.setItem(row_idx, 0, QTableWidgetItem(str(key)))
-            for col in range(1,3):
-                self.ui.reservation_data.setItem(row_idx, col, QTableWidgetItem(str(self.res_dict[key])))
-        row_idx+=1
+            self.ui.reservation_data.setRowCount(len(res))  # Set the number of rows in the table
+            # adding select check mark :
+            row_idx = 0
+            col = 0
+            print(res)
+            for item in res:
+                col = 0
+                for key, value in item.items():
+                        print(item[key])
+                        self.ui.reservation_data.setItem(row_idx, col, QTableWidgetItem(str(item[key])))
+                        col+=1
+                row_idx += 1
+        except Exception as e:
+            print(e)

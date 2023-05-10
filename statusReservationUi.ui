@@ -18,10 +18,16 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>40</y>
+      <y>50</y>
       <width>241</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: orange;
+color: white;
+border: 0;
+height: 40px;</string>
     </property>
     <property name="text">
      <string>Confirmer la reservation</string>
@@ -31,13 +37,32 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>40</y>
+      <y>50</y>
       <width>241</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: red;
+color: white;
+border: 0;
+height: 40px;</string>
+    </property>
     <property name="text">
      <string>Annuler la reservation</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="monsieurLab">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>491</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reservation de monsieur : </string>
     </property>
    </widget>
   </widget>

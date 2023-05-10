@@ -8,18 +8,18 @@ from datetime import datetime
 import sys
 sys.path.append("./Tools/")
 from Tools import Convertion
-
 class AjoutClient(QtWidgets.QMainWindow):
-    def __init__(self,tableWid):
+    def __init__(self,tableWid,comboBox):
         super().__init__()
         self.table = tableWid
         self.client = Client.Client()
         self.convert = Convertion.convert()
-        self.ui = uic.loadUi("../Location-voiture-master/editClient_ui.ui",self)
+        self.ui = uic.loadUi("../main/editClient_ui.ui",self)
         self.ui.image_btn.clicked.connect(self.image_dialog)
         self.ui.valider_btn.clicked.connect(self.AddButtonClient)
         self.ui.genererPass.clicked.connect(self.generateRandomPassword)
 
+        self.combo = comboBox
     def image_dialog(self):
         try:
             file_dialog = QFileDialog()
@@ -62,6 +62,11 @@ class AjoutClient(QtWidgets.QMainWindow):
                 self.client.displayClients(
                     f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
                     self.table)
+                self.combo.clear()
+                self.client.fillComboClient(self.combo,
+                                     "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser",
+                                     "client")
+                self.clearAllField()
         except Exception as e:
             print(f"An error occurred: {e}")
     def generateRandomPassword(self):
@@ -78,7 +83,7 @@ class AjoutClient(QtWidgets.QMainWindow):
         for widget in self.ui.findChildren(QtWidgets.QWidget):
             if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit":
                 if(widget.text() == ""):
-                    print(f"widget is empty : {widget.objectName()} ")
+                    self.client.warning(f"champs {widget.objectName()} est requis :  ")
                     widget.setStyleSheet("border: 1px solid red")
                     flag = False
                 else:
@@ -86,7 +91,7 @@ class AjoutClient(QtWidgets.QMainWindow):
                     if(widget.objectName() == "cin"):
                        if(self.client.testCin(widget.text(),"")):
                            widget.setStyleSheet("border: 1px solid red")
-                           print("cin deja entré")
+                           self.client.warning("cin deja entré")
                            flag = False
 
             elif isinstance(widget,QtWidgets.QRadioButton):
@@ -95,7 +100,7 @@ class AjoutClient(QtWidgets.QMainWindow):
 
             elif isinstance(widget,QtWidgets.QTextEdit):
                 if (widget.toPlainText() == ""):
-                    print(f"widget is empty : {widget.objectName()} ")
+                    self.client.warning(f"widget is empty : {widget.objectName()} ")
                     widget.setStyleSheet("border: 1px solid red")
                     flag = False
                 else:
@@ -105,17 +110,25 @@ class AjoutClient(QtWidgets.QMainWindow):
                 dure_permis  = datetime.now().date() - datetime.strptime(widget.text(), '%d/%m/%Y').date()
                 if((dure_permis.days)/365 < 2):
                     flag = False
-                    print("azbiiiii rah duree permis est inférieur a 2 ans : ")
+                    self.client.warning("duree permis est inférieur a 2 ans : ")
 
             elif isinstance(widget,QtWidgets.QLabel):
                 if widget.objectName() == "image_label_cli":
                     if widget.pixmap() is None:
-                        print("image n'est pas définie")
+                        self.client.warning("image n'est pas définie")
                         flag = False
         if(flag and flagChecks):
             return True
         elif(flag and not flagChecks):
-           print("Checkers must be filled in : ")
+           self.client.warning("Checkers must be filled in : ")
            return False
         elif(not flag or not flagChecks):
             return False
+
+    def clearAllField(self):
+        for widget in self.ui.findChildren(QtWidgets.QWidget):
+            if isinstance(widget, QtWidgets.QLineEdit) and widget.objectName() != "qt_spinbox_lineedit" or isinstance(widget,QtWidgets.QTextEdit):
+                widget.clear()
+                widget.setStyleSheet("border: 1px solid gray")
+            elif isinstance(widget,QtWidgets.QLabel):
+                widget.clear()

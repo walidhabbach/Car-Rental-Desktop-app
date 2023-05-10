@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1089</width>
-    <height>689</height>
+    <width>1300</width>
+    <height>733</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -779,7 +779,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -819,21 +819,168 @@
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="page"/>
          <widget class="QWidget" name="page_crud_users">
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="font">
-              <font>
-               <pointsize>-1</pointsize>
-              </font>
+            <widget class="QWidget" name="widget_2" native="true">
+             <property name="styleSheet">
+              <string notr="true">* {
+background-color: #26453E;
+}
+QPushButton{
+background-color: #6699CC;
+color: white;
+border-radius: 20px;
+}
+QDateTimeEdit {
+background-color:#36454F;
+color: white;
+}
+
+#darkPB {}
+
+</string>
              </property>
-             <property name="text">
-              <string>users page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
+             <layout class="QGridLayout" name="gridLayout_17">
+              <item row="0" column="0">
+               <widget class="QWidget" name="widget_5" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>961</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="contextMenuPolicy">
+                 <enum>Qt::NoContextMenu</enum>
+                </property>
+                <widget class="QFrame" name="frame_10">
+                 <property name="geometry">
+                  <rect>
+                   <x>-10</x>
+                   <y>10</y>
+                   <width>611</width>
+                   <height>42</height>
+                  </rect>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>611</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="contextMenuPolicy">
+                  <enum>Qt::NoContextMenu</enum>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_5">
+                  <property name="sizeConstraint">
+                   <enum>QLayout::SetDefaultConstraint</enum>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QPushButton" name="addEmpBtn">
+                    <property name="maximumSize">
+                     <size>
+                      <width>199</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="contextMenuPolicy">
+                     <enum>Qt::NoContextMenu</enum>
+                    </property>
+                    <property name="text">
+                     <string>Add User(s)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="refresh_users">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>22</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>199</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="contextMenuPolicy">
+                     <enum>Qt::NoContextMenu</enum>
+                    </property>
+                    <property name="text">
+                     <string>refresh</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QLabel" name="label_6">
+                 <property name="geometry">
+                  <rect>
+                   <x>610</x>
+                   <y>10</y>
+                   <width>281</width>
+                   <height>41</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#label_6 {
+text-align: center;
+font-size: 30px bold;
+color: white;
+
+ }</string>
+                 </property>
+                 <property name="text">
+                  <string>          Admin Panel</string>
+                 </property>
+                </widget>
+                <widget class="QWidget" name="widget_4" native="true">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>60</y>
+                   <width>931</width>
+                   <height>641</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">*{background-color: white;}</string>
+                 </property>
+                 <widget class="QTableWidget" name="tableWidgetUsers">
+                  <property name="geometry">
+                   <rect>
+                    <x>20</x>
+                    <y>10</y>
+                    <width>891</width>
+                    <height>561</height>
+                   </rect>
+                  </property>
+                 </widget>
+                </widget>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
@@ -938,29 +1085,6 @@ border: 2px solid red;</string>
                    <enum>QFrame::Raised</enum>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_38">
-                   <item row="0" column="1">
-                    <widget class="QLabel" name="image_label_car">
-                     <property name="font">
-                      <font>
-                       <family>Georgia</family>
-                       <pointsize>-1</pointsize>
-                       <weight>50</weight>
-                       <italic>false</italic>
-                       <bold>false</bold>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">color:black;
-border: 2px solid rgb(100,100,100);
- 
-font: 30px &quot;Georgia&quot;;
-</string>
-                     </property>
-                     <property name="text">
-                      <string>Upload  image </string>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="0" column="0" rowspan="3">
                     <layout class="QGridLayout" name="gridLayout_30">
                      <item row="7" column="0">
@@ -1077,6 +1201,29 @@ border-bottom: 1px solid rgb(100,100,100)</string>
                       </widget>
                      </item>
                     </layout>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="image_label_car">
+                     <property name="font">
+                      <font>
+                       <family>Georgia</family>
+                       <pointsize>-1</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color:black;
+border: 2px solid rgb(100,100,100);
+ 
+font: 30px &quot;Georgia&quot;;
+</string>
+                     </property>
+                     <property name="text">
+                      <string>Upload  image </string>
+                     </property>
+                    </widget>
                    </item>
                    <item row="1" column="1">
                     <widget class="QPushButton" name="add_image_Btn">
@@ -1278,7 +1425,7 @@ background-color: green;</string>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="reservation_client_btn">
+                      <widget class="QPushButton" name="refresh_clt">
                        <property name="enabled">
                         <bool>true</bool>
                        </property>
@@ -1291,7 +1438,7 @@ color: black;
 border: 0;height: 40px;</string>
                        </property>
                        <property name="text">
-                        <string>Liste de reservation</string>
+                        <string>Actualiser</string>
                        </property>
                        <property name="flat">
                         <bool>false</bool>
@@ -1545,6 +1692,18 @@ border: 0;height: 40px;</string>
                       </widget>
                      </item>
                      <item>
+                      <widget class="QPushButton" name="all_res_btn">
+                       <property name="styleSheet">
+                        <string notr="true">background-color: blue;
+color: white;
+border: 0;height: 40px;</string>
+                       </property>
+                       <property name="text">
+                        <string>Refresh</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QPushButton" name="supprimer_reser">
                        <property name="styleSheet">
                         <string notr="true">background-color: red;
@@ -1637,38 +1796,6 @@ border: 0;height: 40px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>home_btn_2</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>home_Btn</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>27</x>
-     <y>69</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>72</x>
-     <y>76</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>dashborad_btn_2</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>dashborad_btn</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>33</x>
-     <y>100</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>67</x>
-     <y>99</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>users_btn_2</sender>
    <signal>toggled(bool)</signal>
    <receiver>users_btn</receiver>
@@ -1713,38 +1840,6 @@ border: 0;height: 40px;</string>
     <hint type="destinationlabel">
      <x>67</x>
      <y>172</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>home_Btn</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>home_btn_2</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>70</x>
-     <y>63</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>41</x>
-     <y>60</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>dashborad_btn</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>dashborad_btn_2</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>160</x>
-     <y>99</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>26</x>
-     <y>90</y>
     </hint>
    </hints>
   </connection>
@@ -1825,6 +1920,70 @@ border: 0;height: 40px;</string>
     <hint type="destinationlabel">
      <x>47</x>
      <y>626</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home_Btn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>home_btn_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>63</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>60</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home_btn_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>home_Btn</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>27</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>76</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dashborad_btn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dashborad_btn_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>26</x>
+     <y>90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dashborad_btn_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dashborad_btn</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>33</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>99</y>
     </hint>
    </hints>
   </connection>

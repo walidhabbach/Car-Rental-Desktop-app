@@ -74,7 +74,7 @@ class Brand:
             if self.connexion.connect():
                 data = dict()
                 with self.connexion.conn:
-                    self.connexion.cursor.execute(f"SELECT idMarque FROM marque where nom='{brand}'")
+                    self.connexion.cursor.execute(f"SELECT idMarque FROM marque where LOWER(nom)='{brand.lower()}'")
                     result = self.connexion.cursor.fetchall()
                 return result
         except Exception as e:
