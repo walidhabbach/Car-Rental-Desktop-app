@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d48a69e7-549f-46b2-be03-502f15f5e4d4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GestionUsers/AddEmpForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/GestionUsers/AddEmpForm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GestionUsers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/GestionUsers/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GestionVoiture/car.py" beforeDir="false" afterPath="$PROJECT_DIR$/GestionVoiture/car.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GestionVoiture/fuel.py" beforeDir="false" afterPath="$PROJECT_DIR$/GestionVoiture/fuel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GestionVoiture/transmission.py" beforeDir="false" afterPath="$PROJECT_DIR$/GestionVoiture/transmission.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tools/Tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/Tool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainInt.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainInt.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +50,7 @@
       <recent name="C:\Users\MT\Desktop\Location-voiture-master" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MT\Documents\code blocks\Python\main\GestionUsers" />
       <recent name="C:\Users\MT\Documents\code blocks\Python\main" />
       <recent name="C:\Users\MT\Desktop\Location-voiture-master\Tools" />
       <recent name="C:\Users\MT\Documents\code blocks\Python\Location-voiture" />
@@ -132,6 +140,9 @@
       <workItem from="1683748308942" duration="2940000" />
       <workItem from="1683751584690" duration="998000" />
       <workItem from="1683755851889" duration="141000" />
+      <workItem from="1683760568238" duration="61000" />
+      <workItem from="1683761289759" duration="495000" />
+      <workItem from="1683761851888" duration="82000" />
     </task>
     <servers />
   </component>
@@ -143,7 +154,7 @@
     <SUITE FILE_PATH="coverage/main_py$login.coverage" NAME="login Coverage Results" MODIFIED="1682263368810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mainInt_py$scraping.coverage" NAME="scraping Coverage Results" MODIFIED="1683134521807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scraping" />
     <SUITE FILE_PATH="coverage/main_py$Client.coverage" NAME="Client Coverage Results" MODIFIED="1682251834856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GestionClient" />
-    <SUITE FILE_PATH="coverage/mainInt_py$login.coverage" NAME="login Coverage Results" MODIFIED="1683755918310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mainInt_py$login.coverage" NAME="login Coverage Results" MODIFIED="1684239986374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/main_py$mainInt.coverage" NAME="login Coverage Results" MODIFIED="1682263050118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1013</width>
+    <height>805</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>5</y>
+      <width>981</width>
+      <height>761</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_9">
+     <item row="1" column="0" rowspan="2">
+      <widget class="QFrame" name="frame_10">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_10">
+        <item row="5" column="0">
+         <widget class="QLineEdit" name="phone_3">
+          <property name="styleSheet">
+           <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>32768</number>
+          </property>
+          <property name="cursorPosition">
+           <number>0</number>
+          </property>
+          <property name="placeholderText">
+           <string>Phone Number</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLineEdit" name="cin_3">
+          <property name="styleSheet">
+           <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="cursorPosition">
+           <number>0</number>
+          </property>
+          <property name="placeholderText">
+           <string>Numéro CIN</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLineEdit" name="adresse_3">
+          <property name="styleSheet">
+           <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+          </property>
+          <property name="placeholderText">
+           <string> Adresse</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QDoubleSpinBox" name="salary_3">
+          <property name="styleSheet">
+           <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+          </property>
+          <property name="maximum">
+           <double>99999999.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="valider_btn_emp_3">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(71, 212, 212);
+border: 0;
+border-radius: 4px;
+height: 40px;</string>
+       </property>
+       <property name="text">
+        <string>Confirm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QPushButton" name="cancelBtnEmp_3">
+       <property name="styleSheet">
+        <string notr="true">background-color: red;
+color: white;
+font-weight: bold;
+border: 0;
+border-radius: 4px;
+height: 50px;</string>
+       </property>
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QFrame" name="frame_11">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QFrame" name="frame_12">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>-10</y>
+          <width>719</width>
+          <height>229</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_11">
+         <item row="0" column="2">
+          <widget class="QFrame" name="frame_13">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_12">
+            <item row="0" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <item>
+               <widget class="QLineEdit" name="login_3">
+                <property name="styleSheet">
+                 <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                </property>
+                <property name="placeholderText">
+                 <string>login</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="0">
+             <widget class="QPushButton" name="genererPass_3">
+              <property name="styleSheet">
+               <string notr="true">background-color: #007bff;
+border: 0;
+border-radius: 5px;
+height: 25px;
+padding: 10px;</string>
+              </property>
+              <property name="text">
+               <string>Générer</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QLineEdit" name="mdp_3">
+                <property name="styleSheet">
+                 <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="placeholderText">
+                 <string>password</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0">
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <spacer name="horizontalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="0">
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLineEdit" name="prenom_3">
+             <property name="styleSheet">
+              <string notr="true">height: 40px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+             </property>
+             <property name="placeholderText">
+              <string>prénom</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="nom_3">
+             <property name="styleSheet">
+              <string notr="true">height: 40px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+             </property>
+             <property name="placeholderText">
+              <string>nom</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QComboBox" name="choix_admin_3">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>50</y>
+          <width>241</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Employé</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Admin</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1013</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

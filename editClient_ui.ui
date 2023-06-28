@@ -322,22 +322,6 @@ border-bottom: 1px solid rgb(100,100,100)</string>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QLineEdit" name="ville">
-            <property name="styleSheet">
-             <string notr="true">#lineEdit::placeholder {
-  color: gray;
-  font-style: italic;
-}</string>
-            </property>
-            <property name="text">
-             <string>Ville: </string>
-            </property>
-            <property name="placeholderText">
-             <string>Nom de la société</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
        </widget>
@@ -436,6 +420,18 @@ border-bottom: 1px solid rgb(100,100,100)</string>
              </property>
              <property name="placeholderText">
               <string>Email client</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="ville">
+             <property name="styleSheet">
+              <string notr="true">height: 50px;
+border: 0;
+border-bottom: 1px solid rgb(100,100,100)</string>
+             </property>
+             <property name="placeholderText">
+              <string>Ville </string>
              </property>
             </widget>
            </item>

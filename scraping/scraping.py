@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import re
 class scrap:
     def __init__(self):
-        with open('./Scraping/brands_modelsAll.json') as f:
+        with open('./brands_modelsAll.json') as f:
             self.data = json.load(f)
 
     def downloadScript(self,url):

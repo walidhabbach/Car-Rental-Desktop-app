@@ -85,7 +85,7 @@ class Client:
         if result == QMessageBox.Ok:
             # User clicked OK, handle the event
             pass
-    def supprimer(self,request,combo):
+    def supprimer(self,request,combo_noire,combo):
         try:
             if (self.connexion.connect()):
                 self.connexion.cursor.execute(request)
@@ -94,6 +94,10 @@ class Client:
                 self.fillComboClient(combo,
                                             "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser",
                                             "client")
+                combo_noire.clear()
+                self.fillComboClient(combo_noire,
+                                     "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser where liste_noire = 1",
+                                     "client")
                 self.warning("Supprimer avec succés :")
         except Exception as e:
             print(e)
@@ -184,6 +188,7 @@ class Client:
     def fillComboClient(self,combo,request,type):
         try:
             diction_client = self.getValuePairDataClient(request)
+            combo.clear()
             combo.addItem(f'Selectionner {type}')
             for key, value in diction_client.items():
                 combo.addItem(str(value))

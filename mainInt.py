@@ -29,10 +29,7 @@ sys.path.append("./Tools/")
 from Tools import Convertion
 from Tools import Tool
 from PyQt5.QtCore import QDate
-
-
-from PyQt5.QtWidgets import QTableWidgetItem, QTableWidget, QApplication, QFileDialog, QLabel, QHeaderView, QPushButton, \
-    QMessageBox
+from PyQt5.QtWidgets import QTableWidgetItem, QTableWidget, QApplication, QFileDialog, QLabel, QHeaderView, QMessageBox
 from GestionClient import ReservationClient as rc
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,login,choix,admin_o_n):
@@ -106,11 +103,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.comboClients.currentIndexChanged.connect(lambda: self.searchByComboClient("",self.ui.comboClients,self.ui.clients_data))
         self.ui.comboClients_3.currentIndexChanged.connect(lambda: self.searchByComboClient("yes",self.ui.comboClients_3,self.ui.page_noire_data))
-        self.ui.comboClients_4.currentIndexChanged.connect(
-            lambda: self.reservation.searchByUser(self.ui.reservation_data,self.ui.comboClients_4.currentData(),self.ui.comboBoxReservation))
+        self.ui.comboClients_4.currentIndexChanged.connect(lambda: self.reservation.searchByUser(self.ui.reservation_data,self.ui.comboClients_4.currentData(),self.ui.comboBoxReservation))
         #self.ui.reservation_client_btn.clicked.connect(self.selectReservationClient)
 
-        self.ui.refresh_clt.clicked.connect(lambda: self.client.displayClients(f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data))
+        self.ui.refresh_clt.clicked.connect(lambda: self.refreshBtn())
+        self.ui.refresh_btn_liste.clicked.connect(lambda: self.refreshBtn())
 
         self.client.displayClients(f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",self.ui.clients_data)
         self.client.displayClients(f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '{1}'",self.ui.page_noire_data)
@@ -131,11 +128,12 @@ class MainWindow(QtWidgets.QMainWindow):
     ########################################### Users section ##########################################################
         self.tool = Tool.tool()
         try:
+
             self.user = user.User()
             self.ui.addEmpBtn.clicked.connect(self.AddEmp)
             users = self.user.getSuperUserAll()
-            self.displayUsers(users)
-
+            self.displayUsers(users,self.ui.tableWidgetUsers)
+            self.refresh_users.clicked.connect(lambda: self.displayUsers(users,self.ui.tableWidgetUsers))
             self.ui.tableWidgetUsers.clicked.connect(lambda: self.tool.handlClick(self.ui.tableWidgetUsers.currentIndex(),self.ui.tableWidgetUsers))
 
         except Exception as e:
@@ -157,7 +155,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.brand = brand.Brand()
             self.fuel = fuel.Fuel()
             self.gearBox= transmission.Transmission()
-          
+
 
             # load combobox
             self.dict_fuel = self.tool.fill_combobox(self.ui.comboBoxFuel)
@@ -199,36 +197,37 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             print(e)
 
-    def displayUsers(self, data):
+    def displayUsers(self, data, table):
         try:
-            self.ui.tableWidgetUsers.clearContents()  # Clear the existing data in the table
-            self.ui.tableWidgetUsers.setColumnCount(10)  # Set the number of columns in the table, including the image column
-
-            self.ui.tableWidgetUsers.setHorizontalHeaderLabels(["idUser","cin","nom", "prenom", "login","admin","address","salary","Edit","Delete"])  # Set the column labels
-            self.ui.tableWidgetUsers.setRowCount(len(data))  # Set the number of rows in the table
-            print("display users data : ",data)
+            table.clearContents()  # Clear the existing data in the table
+            table.setColumnCount(10)  # Set the number of columns in the table, including the image column
+            data = self.user.getSuperUserAll()
+            table.setHorizontalHeaderLabels(
+                ["idUser", "cin", "nom", "prenom", "login", "admin", "address", "salary", "Edit",
+                 "Delete"])  # Set the column labels
+            table.setRowCount(len(data))  # Set the number of rows in the table
+            print("display users data : ", data)
             for row_idx, user in enumerate(data):
-                self.ui.tableWidgetUsers.setItem(row_idx, 0, QTableWidgetItem(str(user['idUser'])))
-                self.ui.tableWidgetUsers.setItem(row_idx, 1, QTableWidgetItem(str(user['cin'])))
-                self.ui.tableWidgetUsers.setItem(row_idx, 2, QTableWidgetItem(str(user['nom'])))
-                self.ui.tableWidgetUsers.setItem(row_idx, 3, QTableWidgetItem(str(user['prenom'])))
-                self.ui.tableWidgetUsers.setItem(row_idx, 4, QTableWidgetItem(str(user['login'])))
-                self.ui.tableWidgetUsers.setItem(row_idx, 5, QTableWidgetItem(str(user['admin'])))
-                self.ui.tableWidgetUsers.setItem(row_idx, 6, QTableWidgetItem(str(user['address'])))
-                self.ui.tableWidgetUsers.setItem(row_idx, 7, QTableWidgetItem(str(user['salary'])))
+                table.setItem(row_idx, 0, QTableWidgetItem(str(user['idUser'])))
+                table.setItem(row_idx, 1, QTableWidgetItem(str(user['cin'])))
+                table.setItem(row_idx, 2, QTableWidgetItem(str(user['nom'])))
+                table.setItem(row_idx, 3, QTableWidgetItem(str(user['prenom'])))
+                table.setItem(row_idx, 4, QTableWidgetItem(str(user['login'])))
+                table.setItem(row_idx, 5, QTableWidgetItem(str(user['admin'])))
+                table.setItem(row_idx, 6, QTableWidgetItem(str(user['address'])))
+                table.setItem(row_idx, 7, QTableWidgetItem(str(user['salary'])))
 
                 try:
                     label = QLabel()
                     pixmap = QPixmap('./icon/edit.png')
                     label.setPixmap(pixmap)
                     label.setAlignment(Qt.AlignCenter)
-                    self.ui.tableWidgetUsers.setCellWidget(row_idx, 8, label)
-
+                    table.setCellWidget(row_idx, 8, label)
                     label = QLabel()
                     pixmap = QPixmap("./icon/delete.png")
                     label.setPixmap(pixmap)
                     label.setAlignment(Qt.AlignCenter)
-                    self.ui.tableWidgetUsers.setCellWidget(row_idx, 9, label)
+                    table.setCellWidget(row_idx, 9, label)
                 except Exception as e:
                     print(f"display users icons : An error occurred: {e}")
 
@@ -236,7 +235,24 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.tool.alignItemsCenter(self.ui.tableWidgetUsers)
         except Exception as e:
             print(f"display users : An error occurred: {e}")
+
     ###############################################################################################################
+    def refreshBtn(self):
+        try:
+            self.client.displayClients(
+                f"select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser ",
+                self.ui.clients_data)
+            self.client.displayClients(
+                "select su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where liste_noire = '1'",
+                self.ui.page_noire_data)
+            self.client.fillComboClient(self.ui.comboClients_3,
+                                 "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser where liste_noire = 1",
+                                 "client")
+            self.client.fillComboClient(self.ui.comboClients,
+                                 "SELECT client.idUser,nom from client join utilisateur on client.idUser = utilisateur.idUser",
+                                 "client")
+        except Exception as e:
+            print(e)
 
     def AjouterClient(self):
         try:
@@ -278,7 +294,7 @@ class MainWindow(QtWidgets.QMainWindow):
             if (bool(self.client_dict)) == True:
                 if (self.messageBox(
                         "Etes vous sure de le supprimer la suppression de ce client va entrainer la suppression de toutes ces reservations !") == QtWidgets.QMessageBox.Yes):
-                    self.client.supprimer(f"DELETE FROM CLIENT WHERE IDUSER = '{self.client_dict['idUser']}'",self.ui.comboClients)
+                    self.client.supprimer(f"DELETE FROM CLIENT WHERE IDUSER = '{self.client_dict['idUser']}'",self.ui.comboClients_3,self.ui.comboClients)
                     if(liste_noire):
                         self.client.displayClients(
                             f"SELECT su.idUser,photo,email,login,mdp,adresse,nom,prenom,societe,cin,tel,ville,permis,passport,observation,liste_noire,date_permis from client su join utilisateur u on su.idUser = u.idUser where liste_noire = 1",
@@ -484,12 +500,12 @@ class MainWindow(QtWidgets.QMainWindow):
                             QMessageBox.Yes | QMessageBox.No,
                             QMessageBox.No
                         )
+                        print(fuel)
                         if confirm == QMessageBox.Yes:
-
-                            self.car.add(int(idBrand), model, int(fuel), img, int(gearbox), float(self.ui.price.text()),
+                            self.car.add(idBrand, model, fuel, img, gearbox, float(self.ui.price.text()),
                                          float(self.ui.power.text()), int(self.ui.seats.text()),
-                                         int(self.ui.doors.value()),
-                                         production_date , imagesList)
+                                         self.ui.doors.value(),
+                                         production_date, imagesList)
                             self.tool.warning("car model :"+model+" has been added ")
                             self.add_DataJson = False
                             self.imagePath = ""

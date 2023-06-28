@@ -1,10 +1,16 @@
-
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QTableWidgetItem, QLabel
+import sys
 import conn
-import base64
+
+
+
 
 class User:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")
+
 
     def getSuperUserDict(self, req):
         try:
@@ -40,36 +46,55 @@ class User:
 
     def getSuperUserAll(self):
         return self.getSuperUserDict("SELECT * FROM super_utilisateur");
+    def getSuperUserById(self,idUser):
+        return self.getSuperUserDict(f"SELECT * FROM super_utilisateur where idUser={idUser}");
 
 
-    def updateUser(self,client_dict):
-        if(self.connexion.connect()):
-            print("update use r: ")
-            req = f"UPDATE utilisateur SET `login`=%s ,`mdp`=%s, `nom` = %s, " \
-                  f" `prenom` = %s WHERE `idUser`=%s"
 
-            self.connexion.cursor.execute(req, (client_dict['login'], client_dict['mdp'], client_dict['nom'],
-                client_dict['prenom'], client_dict['idUser']))
-            self.connexion.conn.commit()
-
-            self.warning("Modifié avec succés : ")
-    def updateClient(self,client_dict):
+    def addEmployee(self, employee_dict):
         try:
-            print(client_dict['date_permis'])
-            if (self.connexion.connect()):
-                req = f"UPDATE client SET `photo`=%s ,`cin`=%s, `liste_noire` = %s, " \
-                      f" `permis` = %s,`passport`=%s,`email`=%s,`observation`=%s,`societe`=%s,`ville`=%s,`tel`=%s,`date_permis`=%s WHERE `idUser`=%s"
+            if self.connexion.connect():
+                # create for the user a login and a password:
+                req1 = f"INSERT INTO utilisateur(`nom`, `prenom`, `login`, `mdp`) " \
+                       f"VALUES ('{employee_dict['nom']}', '{employee_dict['prenom']}', '{employee_dict['login']}', '{employee_dict['mdp']}')"
+                self.connexion.cursor.execute(req1)
 
-
-                self.connexion.cursor.execute(req, (
-                bytes(client_dict['photo']), client_dict['cin'], client_dict['liste_noire'],
-                client_dict['permis'], client_dict['passport'],
-                client_dict['email'], client_dict['observation'], client_dict['societe'], client_dict['ville'],
-                client_dict['tel'], client_dict['date_permis'],client_dict['idUser']))
+                num_rows = self.connexion.cursor.rowcount
+                print("super user")
+                # get the id of the current row:
+                req2 = f"SELECT idUser FROM utilisateur ORDER BY idUser DESC LIMIT {num_rows}"
+                self.connexion.cursor.execute(req2)
+                result = self.connexion.cursor.fetchone()
+                employee_dict["idUser"] = result[0]
+                print("get id",employee_dict["idUser"] )
+                # creating the client:
+                req3 = f"INSERT INTO super_utilisateur(`idUser`, `admin`, `address`, `cin`, `salary`) VALUES (%s,%s,%s,%s,%s)"
+                self.connexion.cursor.execute(req3, ( employee_dict["idUser"], employee_dict["admin"], employee_dict['address'], employee_dict['cin'],  employee_dict['salary']))
 
                 self.connexion.conn.commit()
+                ("Added successfully")
         except Exception as e:
-            print(f"error: {e}")
+            print(f"addEmployee :Error: {e}")
+
+    def updateEmployee(self, employee_dict,idUser):
+        try:
+            if self.connexion.connect():
+                # Update the employee's data in the utilisateur table
+                req1 = f"UPDATE utilisateur SET nom = '{employee_dict['nom']}', prenom = '{employee_dict['prenom']}', " \
+                       f"login = '{employee_dict['login']}', mdp = '{employee_dict['mdp']}' WHERE idUser = {idUser}"
+                self.connexion.cursor.execute(req1)
+
+                # Update the employee's data in the super_utilisateur table
+                req2 = f"UPDATE super_utilisateur SET admin = %s, address = %s, cin = %s, salary = %s WHERE idUser = %s"
+                self.connexion.cursor.execute(req2,
+                                              (employee_dict["admin"], employee_dict['address'], employee_dict['cin'],
+                                               employee_dict['salary'], idUser))
+
+                self.connexion.conn.commit()
+                print("Successfully updated employee data")
+        except Exception as e:
+            print(f"edit_employee: Error: {e}")
+
     def delete(self, idUser):
         try:
             if self.connexion.connect():
@@ -87,15 +112,4 @@ class User:
 
 
 
-    # Search methods
-    def searchByModel(self,model):
-        req = f"SELECT * FROM voiture WHERE LOWER(model) like '{model.lower()}%'"
-        return self.getDict(req)
-    def searchByIdBrand(self,id_brand):
-        req = f"SELECT * FROM voiture WHERE idMarque = {id_brand}"
-        return self.getDict(req)
-
-    def getCarById(self,id):
-        req = f"SELECT * FROM voiture WHERE idCar = {id}"
-        return self.getDict(req)
 

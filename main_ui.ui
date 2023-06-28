@@ -779,7 +779,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>3</number>
+          <number>9</number>
          </property>
          <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -826,12 +826,11 @@
             <widget class="QWidget" name="widget_2" native="true">
              <property name="styleSheet">
               <string notr="true">* {
-background-color: #26453E;
 }
 QPushButton{
 background-color: #6699CC;
 color: white;
-border-radius: 20px;
+border-radius: 5px;
 }
 QDateTimeEdit {
 background-color:#36454F;
@@ -905,6 +904,11 @@ color: white;
                     <property name="contextMenuPolicy">
                      <enum>Qt::NoContextMenu</enum>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: red;
+color: black;
+border: 0;height: 40px;</string>
+                    </property>
                     <property name="text">
                      <string>Add User(s)</string>
                     </property>
@@ -926,6 +930,11 @@ color: white;
                     </property>
                     <property name="contextMenuPolicy">
                      <enum>Qt::NoContextMenu</enum>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: cyan;
+color: black;
+border: 0;height: 40px;</string>
                     </property>
                     <property name="text">
                      <string>refresh</string>
@@ -1573,6 +1582,18 @@ border: 0;height: 40px;</string>
                           </property>
                           <property name="text">
                            <string>Supprimer client</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="refresh_btn_liste">
+                          <property name="styleSheet">
+                           <string notr="true">background-color: blue;
+color: white;
+border: 0;height: 40px;</string>
+                          </property>
+                          <property name="text">
+                           <string>Refresh</string>
                           </property>
                          </widget>
                         </item>

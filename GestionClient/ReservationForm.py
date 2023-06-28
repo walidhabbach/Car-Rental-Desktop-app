@@ -11,6 +11,7 @@ class ReservationForm(QtWidgets.QMainWindow):
            self.idRes = id_res
            self.ui = uic.loadUi("../main/statusReservationUi.ui", self)
            self.ui.confirmer.clicked.connect(self.confirmerBtn)
+           self.ui.annuler.clicked.connect(self.annulerBtn)
            self.setButtons()
        except Exception as e:
            print(e)
@@ -39,8 +40,10 @@ class ReservationForm(QtWidgets.QMainWindow):
 
     def annulerBtn(self,res):
         try:
+            res = dict()
             res['status'] = False
+            res['idRes'] = self.idRes
             self.reservation.updateReservation(res)
-            print("cette reservation est maintenant annuler")
+            self.client.warning("cette reservation est maintenant annuler")
         except Exception as e:
             print(e)

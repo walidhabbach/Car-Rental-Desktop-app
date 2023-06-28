@@ -1,7 +1,4 @@
-import brand
 import conn
-import base64
-
 class Car:
     def __init__(self):
         self.connexion = conn.Connexion(host="localhost", username="root", password="", database="Location_voiture")

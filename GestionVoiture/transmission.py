@@ -1,3 +1,5 @@
+import sys
+
 import conn
 import car
 class Transmission:
